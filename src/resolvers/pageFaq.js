@@ -5,7 +5,6 @@ export default {
     Mutation: {
       async upsertPageFaq (parent, args, ctx, info) {
         const { id, page, faq, order } = args
-        console.log('>>>>>>>>>>>>>>', args)
         const pageFaq = await ctx.prisma.upsertPageFaq({
           where: {
             id

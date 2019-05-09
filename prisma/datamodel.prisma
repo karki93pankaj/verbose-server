@@ -1,0 +1,138 @@
+enum Permission {
+  ADMIN
+  USER
+}
+
+enum PageType {
+  PAGE
+  NEWS
+  ARTICLE
+}
+
+enum PageStatus {
+  DRAFT
+  PUBLISHED
+  DELETED
+}
+
+type User {
+  id: ID! @unique
+  name: String!
+  email: String! @unique
+  password: String!
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: [Permission]
+}
+
+type Page {
+  id: ID! @unique
+  title: String!
+  slug: String!
+  type: PageType!
+  status: PageStatus!
+  vertical: String
+  media: Media
+  blocks: [Block]!
+  boxes: [Box]!
+  prosAndCons: [ProsAndCons]!
+  alertBoxes: [AlertBox]!
+  quickTips: [QuickTip]
+}
+
+type Block {
+  id: ID! @unique
+  page: Page!
+  title: String
+  media: Media
+  video: String
+  style: String
+  content: String
+  order: Int
+}
+
+type Box {
+  id: ID! @unique
+  page: Page!
+  title: String
+  media: Media
+  video: String
+  style: String
+  content: String
+  order: Int
+}
+
+type AlertBox {
+  id: ID! @unique
+  page: Page!
+  title: String
+  content: String
+  prefix: String
+  style: String
+  order: Int
+}
+
+type QuickTip {
+  id: ID! @unique
+  page: Page!
+  title: String
+  content: String
+  buttonText: String
+  buttonLink: String
+  media: Media
+  order: Int
+}
+
+type ProsAndCons {
+  id: ID! @unique
+  page: Page!
+  title: String
+  order: Int
+  pros: [Pros]! @relation(name: "ProsOnProsAndCons", onDelete: CASCADE)
+  cons: [Cons]! @relation(name: "ConsOnProsAndCons", onDelete: CASCADE)
+}
+
+type Pros {
+  id: ID! @unique
+  prosAndCons: ProsAndCons! @relation(name: "ProsOnProsAndCons", onDelete: SET_NULL)
+  content: String
+  order: Int
+}
+
+type Cons {
+  id: ID! @unique
+  prosAndCons: ProsAndCons! @relation(name: "ConsOnProsAndCons", onDelete: SET_NULL)
+  content: String
+  order: Int
+}
+
+type Faq {
+  id: ID! @unique
+  title: String!
+  description: String
+  short_description: String
+  authors: [User!]!
+  slug: String!
+  vertical: String
+  category: [FaqCategory!]!
+  readingTime: Int
+  order: Int
+  variant: [String]
+  tag: [String]
+  pubDate: DateTime
+}
+
+type FaqCategory {
+  id: ID! @unique
+  name: String!
+  slug: String!
+  description: String!
+  faqs: [Faq!]!
+}
+
+type Media {
+  id: ID! @unique
+  url: String!
+  title: String
+  altText: String
+}

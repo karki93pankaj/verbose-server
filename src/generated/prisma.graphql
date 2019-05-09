@@ -1,0 +1,3857 @@
+type AggregateAlertBox {
+  count: Int!
+}
+
+type AggregateBlock {
+  count: Int!
+}
+
+type AggregateBox {
+  count: Int!
+}
+
+type AggregateCons {
+  count: Int!
+}
+
+type AggregateFaq {
+  count: Int!
+}
+
+type AggregateFaqCategory {
+  count: Int!
+}
+
+type AggregateMedia {
+  count: Int!
+}
+
+type AggregatePage {
+  count: Int!
+}
+
+type AggregatePros {
+  count: Int!
+}
+
+type AggregateProsAndCons {
+  count: Int!
+}
+
+type AggregateQuickTip {
+  count: Int!
+}
+
+type AggregateUser {
+  count: Int!
+}
+
+type AlertBox {
+  id: ID!
+  page: Page!
+  title: String
+  content: String
+  prefix: String
+  style: String
+  order: Int
+}
+
+type AlertBoxConnection {
+  pageInfo: PageInfo!
+  edges: [AlertBoxEdge]!
+  aggregate: AggregateAlertBox!
+}
+
+input AlertBoxCreateInput {
+  page: PageCreateOneWithoutAlertBoxesInput!
+  title: String
+  content: String
+  prefix: String
+  style: String
+  order: Int
+}
+
+input AlertBoxCreateManyWithoutPageInput {
+  create: [AlertBoxCreateWithoutPageInput!]
+  connect: [AlertBoxWhereUniqueInput!]
+}
+
+input AlertBoxCreateWithoutPageInput {
+  title: String
+  content: String
+  prefix: String
+  style: String
+  order: Int
+}
+
+type AlertBoxEdge {
+  node: AlertBox!
+  cursor: String!
+}
+
+enum AlertBoxOrderByInput {
+  id_ASC
+  id_DESC
+  title_ASC
+  title_DESC
+  content_ASC
+  content_DESC
+  prefix_ASC
+  prefix_DESC
+  style_ASC
+  style_DESC
+  order_ASC
+  order_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type AlertBoxPreviousValues {
+  id: ID!
+  title: String
+  content: String
+  prefix: String
+  style: String
+  order: Int
+}
+
+input AlertBoxScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  content: String
+  content_not: String
+  content_in: [String!]
+  content_not_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_gt: String
+  content_gte: String
+  content_contains: String
+  content_not_contains: String
+  content_starts_with: String
+  content_not_starts_with: String
+  content_ends_with: String
+  content_not_ends_with: String
+  prefix: String
+  prefix_not: String
+  prefix_in: [String!]
+  prefix_not_in: [String!]
+  prefix_lt: String
+  prefix_lte: String
+  prefix_gt: String
+  prefix_gte: String
+  prefix_contains: String
+  prefix_not_contains: String
+  prefix_starts_with: String
+  prefix_not_starts_with: String
+  prefix_ends_with: String
+  prefix_not_ends_with: String
+  style: String
+  style_not: String
+  style_in: [String!]
+  style_not_in: [String!]
+  style_lt: String
+  style_lte: String
+  style_gt: String
+  style_gte: String
+  style_contains: String
+  style_not_contains: String
+  style_starts_with: String
+  style_not_starts_with: String
+  style_ends_with: String
+  style_not_ends_with: String
+  order: Int
+  order_not: Int
+  order_in: [Int!]
+  order_not_in: [Int!]
+  order_lt: Int
+  order_lte: Int
+  order_gt: Int
+  order_gte: Int
+  AND: [AlertBoxScalarWhereInput!]
+  OR: [AlertBoxScalarWhereInput!]
+  NOT: [AlertBoxScalarWhereInput!]
+}
+
+type AlertBoxSubscriptionPayload {
+  mutation: MutationType!
+  node: AlertBox
+  updatedFields: [String!]
+  previousValues: AlertBoxPreviousValues
+}
+
+input AlertBoxSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: AlertBoxWhereInput
+  AND: [AlertBoxSubscriptionWhereInput!]
+  OR: [AlertBoxSubscriptionWhereInput!]
+  NOT: [AlertBoxSubscriptionWhereInput!]
+}
+
+input AlertBoxUpdateInput {
+  page: PageUpdateOneRequiredWithoutAlertBoxesInput
+  title: String
+  content: String
+  prefix: String
+  style: String
+  order: Int
+}
+
+input AlertBoxUpdateManyDataInput {
+  title: String
+  content: String
+  prefix: String
+  style: String
+  order: Int
+}
+
+input AlertBoxUpdateManyMutationInput {
+  title: String
+  content: String
+  prefix: String
+  style: String
+  order: Int
+}
+
+input AlertBoxUpdateManyWithoutPageInput {
+  create: [AlertBoxCreateWithoutPageInput!]
+  delete: [AlertBoxWhereUniqueInput!]
+  connect: [AlertBoxWhereUniqueInput!]
+  set: [AlertBoxWhereUniqueInput!]
+  disconnect: [AlertBoxWhereUniqueInput!]
+  update: [AlertBoxUpdateWithWhereUniqueWithoutPageInput!]
+  upsert: [AlertBoxUpsertWithWhereUniqueWithoutPageInput!]
+  deleteMany: [AlertBoxScalarWhereInput!]
+  updateMany: [AlertBoxUpdateManyWithWhereNestedInput!]
+}
+
+input AlertBoxUpdateManyWithWhereNestedInput {
+  where: AlertBoxScalarWhereInput!
+  data: AlertBoxUpdateManyDataInput!
+}
+
+input AlertBoxUpdateWithoutPageDataInput {
+  title: String
+  content: String
+  prefix: String
+  style: String
+  order: Int
+}
+
+input AlertBoxUpdateWithWhereUniqueWithoutPageInput {
+  where: AlertBoxWhereUniqueInput!
+  data: AlertBoxUpdateWithoutPageDataInput!
+}
+
+input AlertBoxUpsertWithWhereUniqueWithoutPageInput {
+  where: AlertBoxWhereUniqueInput!
+  update: AlertBoxUpdateWithoutPageDataInput!
+  create: AlertBoxCreateWithoutPageInput!
+}
+
+input AlertBoxWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  page: PageWhereInput
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  content: String
+  content_not: String
+  content_in: [String!]
+  content_not_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_gt: String
+  content_gte: String
+  content_contains: String
+  content_not_contains: String
+  content_starts_with: String
+  content_not_starts_with: String
+  content_ends_with: String
+  content_not_ends_with: String
+  prefix: String
+  prefix_not: String
+  prefix_in: [String!]
+  prefix_not_in: [String!]
+  prefix_lt: String
+  prefix_lte: String
+  prefix_gt: String
+  prefix_gte: String
+  prefix_contains: String
+  prefix_not_contains: String
+  prefix_starts_with: String
+  prefix_not_starts_with: String
+  prefix_ends_with: String
+  prefix_not_ends_with: String
+  style: String
+  style_not: String
+  style_in: [String!]
+  style_not_in: [String!]
+  style_lt: String
+  style_lte: String
+  style_gt: String
+  style_gte: String
+  style_contains: String
+  style_not_contains: String
+  style_starts_with: String
+  style_not_starts_with: String
+  style_ends_with: String
+  style_not_ends_with: String
+  order: Int
+  order_not: Int
+  order_in: [Int!]
+  order_not_in: [Int!]
+  order_lt: Int
+  order_lte: Int
+  order_gt: Int
+  order_gte: Int
+  AND: [AlertBoxWhereInput!]
+  OR: [AlertBoxWhereInput!]
+  NOT: [AlertBoxWhereInput!]
+}
+
+input AlertBoxWhereUniqueInput {
+  id: ID
+}
+
+type BatchPayload {
+  count: Long!
+}
+
+type Block {
+  id: ID!
+  page: Page!
+  title: String
+  media: Media
+  video: String
+  style: String
+  content: String
+  order: Int
+}
+
+type BlockConnection {
+  pageInfo: PageInfo!
+  edges: [BlockEdge]!
+  aggregate: AggregateBlock!
+}
+
+input BlockCreateInput {
+  page: PageCreateOneWithoutBlocksInput!
+  title: String
+  media: MediaCreateOneInput
+  video: String
+  style: String
+  content: String
+  order: Int
+}
+
+input BlockCreateManyWithoutPageInput {
+  create: [BlockCreateWithoutPageInput!]
+  connect: [BlockWhereUniqueInput!]
+}
+
+input BlockCreateWithoutPageInput {
+  title: String
+  media: MediaCreateOneInput
+  video: String
+  style: String
+  content: String
+  order: Int
+}
+
+type BlockEdge {
+  node: Block!
+  cursor: String!
+}
+
+enum BlockOrderByInput {
+  id_ASC
+  id_DESC
+  title_ASC
+  title_DESC
+  video_ASC
+  video_DESC
+  style_ASC
+  style_DESC
+  content_ASC
+  content_DESC
+  order_ASC
+  order_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type BlockPreviousValues {
+  id: ID!
+  title: String
+  video: String
+  style: String
+  content: String
+  order: Int
+}
+
+input BlockScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  video: String
+  video_not: String
+  video_in: [String!]
+  video_not_in: [String!]
+  video_lt: String
+  video_lte: String
+  video_gt: String
+  video_gte: String
+  video_contains: String
+  video_not_contains: String
+  video_starts_with: String
+  video_not_starts_with: String
+  video_ends_with: String
+  video_not_ends_with: String
+  style: String
+  style_not: String
+  style_in: [String!]
+  style_not_in: [String!]
+  style_lt: String
+  style_lte: String
+  style_gt: String
+  style_gte: String
+  style_contains: String
+  style_not_contains: String
+  style_starts_with: String
+  style_not_starts_with: String
+  style_ends_with: String
+  style_not_ends_with: String
+  content: String
+  content_not: String
+  content_in: [String!]
+  content_not_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_gt: String
+  content_gte: String
+  content_contains: String
+  content_not_contains: String
+  content_starts_with: String
+  content_not_starts_with: String
+  content_ends_with: String
+  content_not_ends_with: String
+  order: Int
+  order_not: Int
+  order_in: [Int!]
+  order_not_in: [Int!]
+  order_lt: Int
+  order_lte: Int
+  order_gt: Int
+  order_gte: Int
+  AND: [BlockScalarWhereInput!]
+  OR: [BlockScalarWhereInput!]
+  NOT: [BlockScalarWhereInput!]
+}
+
+type BlockSubscriptionPayload {
+  mutation: MutationType!
+  node: Block
+  updatedFields: [String!]
+  previousValues: BlockPreviousValues
+}
+
+input BlockSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: BlockWhereInput
+  AND: [BlockSubscriptionWhereInput!]
+  OR: [BlockSubscriptionWhereInput!]
+  NOT: [BlockSubscriptionWhereInput!]
+}
+
+input BlockUpdateInput {
+  page: PageUpdateOneRequiredWithoutBlocksInput
+  title: String
+  media: MediaUpdateOneInput
+  video: String
+  style: String
+  content: String
+  order: Int
+}
+
+input BlockUpdateManyDataInput {
+  title: String
+  video: String
+  style: String
+  content: String
+  order: Int
+}
+
+input BlockUpdateManyMutationInput {
+  title: String
+  video: String
+  style: String
+  content: String
+  order: Int
+}
+
+input BlockUpdateManyWithoutPageInput {
+  create: [BlockCreateWithoutPageInput!]
+  delete: [BlockWhereUniqueInput!]
+  connect: [BlockWhereUniqueInput!]
+  set: [BlockWhereUniqueInput!]
+  disconnect: [BlockWhereUniqueInput!]
+  update: [BlockUpdateWithWhereUniqueWithoutPageInput!]
+  upsert: [BlockUpsertWithWhereUniqueWithoutPageInput!]
+  deleteMany: [BlockScalarWhereInput!]
+  updateMany: [BlockUpdateManyWithWhereNestedInput!]
+}
+
+input BlockUpdateManyWithWhereNestedInput {
+  where: BlockScalarWhereInput!
+  data: BlockUpdateManyDataInput!
+}
+
+input BlockUpdateWithoutPageDataInput {
+  title: String
+  media: MediaUpdateOneInput
+  video: String
+  style: String
+  content: String
+  order: Int
+}
+
+input BlockUpdateWithWhereUniqueWithoutPageInput {
+  where: BlockWhereUniqueInput!
+  data: BlockUpdateWithoutPageDataInput!
+}
+
+input BlockUpsertWithWhereUniqueWithoutPageInput {
+  where: BlockWhereUniqueInput!
+  update: BlockUpdateWithoutPageDataInput!
+  create: BlockCreateWithoutPageInput!
+}
+
+input BlockWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  page: PageWhereInput
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  media: MediaWhereInput
+  video: String
+  video_not: String
+  video_in: [String!]
+  video_not_in: [String!]
+  video_lt: String
+  video_lte: String
+  video_gt: String
+  video_gte: String
+  video_contains: String
+  video_not_contains: String
+  video_starts_with: String
+  video_not_starts_with: String
+  video_ends_with: String
+  video_not_ends_with: String
+  style: String
+  style_not: String
+  style_in: [String!]
+  style_not_in: [String!]
+  style_lt: String
+  style_lte: String
+  style_gt: String
+  style_gte: String
+  style_contains: String
+  style_not_contains: String
+  style_starts_with: String
+  style_not_starts_with: String
+  style_ends_with: String
+  style_not_ends_with: String
+  content: String
+  content_not: String
+  content_in: [String!]
+  content_not_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_gt: String
+  content_gte: String
+  content_contains: String
+  content_not_contains: String
+  content_starts_with: String
+  content_not_starts_with: String
+  content_ends_with: String
+  content_not_ends_with: String
+  order: Int
+  order_not: Int
+  order_in: [Int!]
+  order_not_in: [Int!]
+  order_lt: Int
+  order_lte: Int
+  order_gt: Int
+  order_gte: Int
+  AND: [BlockWhereInput!]
+  OR: [BlockWhereInput!]
+  NOT: [BlockWhereInput!]
+}
+
+input BlockWhereUniqueInput {
+  id: ID
+}
+
+type Box {
+  id: ID!
+  page: Page!
+  title: String
+  media: Media
+  video: String
+  style: String
+  content: String
+  order: Int
+}
+
+type BoxConnection {
+  pageInfo: PageInfo!
+  edges: [BoxEdge]!
+  aggregate: AggregateBox!
+}
+
+input BoxCreateInput {
+  page: PageCreateOneWithoutBoxesInput!
+  title: String
+  media: MediaCreateOneInput
+  video: String
+  style: String
+  content: String
+  order: Int
+}
+
+input BoxCreateManyWithoutPageInput {
+  create: [BoxCreateWithoutPageInput!]
+  connect: [BoxWhereUniqueInput!]
+}
+
+input BoxCreateWithoutPageInput {
+  title: String
+  media: MediaCreateOneInput
+  video: String
+  style: String
+  content: String
+  order: Int
+}
+
+type BoxEdge {
+  node: Box!
+  cursor: String!
+}
+
+enum BoxOrderByInput {
+  id_ASC
+  id_DESC
+  title_ASC
+  title_DESC
+  video_ASC
+  video_DESC
+  style_ASC
+  style_DESC
+  content_ASC
+  content_DESC
+  order_ASC
+  order_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type BoxPreviousValues {
+  id: ID!
+  title: String
+  video: String
+  style: String
+  content: String
+  order: Int
+}
+
+input BoxScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  video: String
+  video_not: String
+  video_in: [String!]
+  video_not_in: [String!]
+  video_lt: String
+  video_lte: String
+  video_gt: String
+  video_gte: String
+  video_contains: String
+  video_not_contains: String
+  video_starts_with: String
+  video_not_starts_with: String
+  video_ends_with: String
+  video_not_ends_with: String
+  style: String
+  style_not: String
+  style_in: [String!]
+  style_not_in: [String!]
+  style_lt: String
+  style_lte: String
+  style_gt: String
+  style_gte: String
+  style_contains: String
+  style_not_contains: String
+  style_starts_with: String
+  style_not_starts_with: String
+  style_ends_with: String
+  style_not_ends_with: String
+  content: String
+  content_not: String
+  content_in: [String!]
+  content_not_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_gt: String
+  content_gte: String
+  content_contains: String
+  content_not_contains: String
+  content_starts_with: String
+  content_not_starts_with: String
+  content_ends_with: String
+  content_not_ends_with: String
+  order: Int
+  order_not: Int
+  order_in: [Int!]
+  order_not_in: [Int!]
+  order_lt: Int
+  order_lte: Int
+  order_gt: Int
+  order_gte: Int
+  AND: [BoxScalarWhereInput!]
+  OR: [BoxScalarWhereInput!]
+  NOT: [BoxScalarWhereInput!]
+}
+
+type BoxSubscriptionPayload {
+  mutation: MutationType!
+  node: Box
+  updatedFields: [String!]
+  previousValues: BoxPreviousValues
+}
+
+input BoxSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: BoxWhereInput
+  AND: [BoxSubscriptionWhereInput!]
+  OR: [BoxSubscriptionWhereInput!]
+  NOT: [BoxSubscriptionWhereInput!]
+}
+
+input BoxUpdateInput {
+  page: PageUpdateOneRequiredWithoutBoxesInput
+  title: String
+  media: MediaUpdateOneInput
+  video: String
+  style: String
+  content: String
+  order: Int
+}
+
+input BoxUpdateManyDataInput {
+  title: String
+  video: String
+  style: String
+  content: String
+  order: Int
+}
+
+input BoxUpdateManyMutationInput {
+  title: String
+  video: String
+  style: String
+  content: String
+  order: Int
+}
+
+input BoxUpdateManyWithoutPageInput {
+  create: [BoxCreateWithoutPageInput!]
+  delete: [BoxWhereUniqueInput!]
+  connect: [BoxWhereUniqueInput!]
+  set: [BoxWhereUniqueInput!]
+  disconnect: [BoxWhereUniqueInput!]
+  update: [BoxUpdateWithWhereUniqueWithoutPageInput!]
+  upsert: [BoxUpsertWithWhereUniqueWithoutPageInput!]
+  deleteMany: [BoxScalarWhereInput!]
+  updateMany: [BoxUpdateManyWithWhereNestedInput!]
+}
+
+input BoxUpdateManyWithWhereNestedInput {
+  where: BoxScalarWhereInput!
+  data: BoxUpdateManyDataInput!
+}
+
+input BoxUpdateWithoutPageDataInput {
+  title: String
+  media: MediaUpdateOneInput
+  video: String
+  style: String
+  content: String
+  order: Int
+}
+
+input BoxUpdateWithWhereUniqueWithoutPageInput {
+  where: BoxWhereUniqueInput!
+  data: BoxUpdateWithoutPageDataInput!
+}
+
+input BoxUpsertWithWhereUniqueWithoutPageInput {
+  where: BoxWhereUniqueInput!
+  update: BoxUpdateWithoutPageDataInput!
+  create: BoxCreateWithoutPageInput!
+}
+
+input BoxWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  page: PageWhereInput
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  media: MediaWhereInput
+  video: String
+  video_not: String
+  video_in: [String!]
+  video_not_in: [String!]
+  video_lt: String
+  video_lte: String
+  video_gt: String
+  video_gte: String
+  video_contains: String
+  video_not_contains: String
+  video_starts_with: String
+  video_not_starts_with: String
+  video_ends_with: String
+  video_not_ends_with: String
+  style: String
+  style_not: String
+  style_in: [String!]
+  style_not_in: [String!]
+  style_lt: String
+  style_lte: String
+  style_gt: String
+  style_gte: String
+  style_contains: String
+  style_not_contains: String
+  style_starts_with: String
+  style_not_starts_with: String
+  style_ends_with: String
+  style_not_ends_with: String
+  content: String
+  content_not: String
+  content_in: [String!]
+  content_not_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_gt: String
+  content_gte: String
+  content_contains: String
+  content_not_contains: String
+  content_starts_with: String
+  content_not_starts_with: String
+  content_ends_with: String
+  content_not_ends_with: String
+  order: Int
+  order_not: Int
+  order_in: [Int!]
+  order_not_in: [Int!]
+  order_lt: Int
+  order_lte: Int
+  order_gt: Int
+  order_gte: Int
+  AND: [BoxWhereInput!]
+  OR: [BoxWhereInput!]
+  NOT: [BoxWhereInput!]
+}
+
+input BoxWhereUniqueInput {
+  id: ID
+}
+
+type Cons {
+  id: ID!
+  prosAndCons: ProsAndCons!
+  content: String
+  order: Int
+}
+
+type ConsConnection {
+  pageInfo: PageInfo!
+  edges: [ConsEdge]!
+  aggregate: AggregateCons!
+}
+
+input ConsCreateInput {
+  prosAndCons: ProsAndConsCreateOneWithoutConsInput!
+  content: String
+  order: Int
+}
+
+input ConsCreateManyWithoutProsAndConsInput {
+  create: [ConsCreateWithoutProsAndConsInput!]
+  connect: [ConsWhereUniqueInput!]
+}
+
+input ConsCreateWithoutProsAndConsInput {
+  content: String
+  order: Int
+}
+
+type ConsEdge {
+  node: Cons!
+  cursor: String!
+}
+
+enum ConsOrderByInput {
+  id_ASC
+  id_DESC
+  content_ASC
+  content_DESC
+  order_ASC
+  order_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type ConsPreviousValues {
+  id: ID!
+  content: String
+  order: Int
+}
+
+input ConsScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  content: String
+  content_not: String
+  content_in: [String!]
+  content_not_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_gt: String
+  content_gte: String
+  content_contains: String
+  content_not_contains: String
+  content_starts_with: String
+  content_not_starts_with: String
+  content_ends_with: String
+  content_not_ends_with: String
+  order: Int
+  order_not: Int
+  order_in: [Int!]
+  order_not_in: [Int!]
+  order_lt: Int
+  order_lte: Int
+  order_gt: Int
+  order_gte: Int
+  AND: [ConsScalarWhereInput!]
+  OR: [ConsScalarWhereInput!]
+  NOT: [ConsScalarWhereInput!]
+}
+
+type ConsSubscriptionPayload {
+  mutation: MutationType!
+  node: Cons
+  updatedFields: [String!]
+  previousValues: ConsPreviousValues
+}
+
+input ConsSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: ConsWhereInput
+  AND: [ConsSubscriptionWhereInput!]
+  OR: [ConsSubscriptionWhereInput!]
+  NOT: [ConsSubscriptionWhereInput!]
+}
+
+input ConsUpdateInput {
+  prosAndCons: ProsAndConsUpdateOneRequiredWithoutConsInput
+  content: String
+  order: Int
+}
+
+input ConsUpdateManyDataInput {
+  content: String
+  order: Int
+}
+
+input ConsUpdateManyMutationInput {
+  content: String
+  order: Int
+}
+
+input ConsUpdateManyWithoutProsAndConsInput {
+  create: [ConsCreateWithoutProsAndConsInput!]
+  delete: [ConsWhereUniqueInput!]
+  connect: [ConsWhereUniqueInput!]
+  set: [ConsWhereUniqueInput!]
+  disconnect: [ConsWhereUniqueInput!]
+  update: [ConsUpdateWithWhereUniqueWithoutProsAndConsInput!]
+  upsert: [ConsUpsertWithWhereUniqueWithoutProsAndConsInput!]
+  deleteMany: [ConsScalarWhereInput!]
+  updateMany: [ConsUpdateManyWithWhereNestedInput!]
+}
+
+input ConsUpdateManyWithWhereNestedInput {
+  where: ConsScalarWhereInput!
+  data: ConsUpdateManyDataInput!
+}
+
+input ConsUpdateWithoutProsAndConsDataInput {
+  content: String
+  order: Int
+}
+
+input ConsUpdateWithWhereUniqueWithoutProsAndConsInput {
+  where: ConsWhereUniqueInput!
+  data: ConsUpdateWithoutProsAndConsDataInput!
+}
+
+input ConsUpsertWithWhereUniqueWithoutProsAndConsInput {
+  where: ConsWhereUniqueInput!
+  update: ConsUpdateWithoutProsAndConsDataInput!
+  create: ConsCreateWithoutProsAndConsInput!
+}
+
+input ConsWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  prosAndCons: ProsAndConsWhereInput
+  content: String
+  content_not: String
+  content_in: [String!]
+  content_not_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_gt: String
+  content_gte: String
+  content_contains: String
+  content_not_contains: String
+  content_starts_with: String
+  content_not_starts_with: String
+  content_ends_with: String
+  content_not_ends_with: String
+  order: Int
+  order_not: Int
+  order_in: [Int!]
+  order_not_in: [Int!]
+  order_lt: Int
+  order_lte: Int
+  order_gt: Int
+  order_gte: Int
+  AND: [ConsWhereInput!]
+  OR: [ConsWhereInput!]
+  NOT: [ConsWhereInput!]
+}
+
+input ConsWhereUniqueInput {
+  id: ID
+}
+
+scalar DateTime
+
+type Faq {
+  id: ID!
+  title: String!
+  description: String
+  short_description: String
+  authors(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User!]
+  slug: String!
+  vertical: String
+  category(where: FaqCategoryWhereInput, orderBy: FaqCategoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [FaqCategory!]
+  readingTime: Int
+  order: Int
+  variant: [String!]!
+  tag: [String!]!
+  pubDate: DateTime
+}
+
+type FaqCategory {
+  id: ID!
+  name: String!
+  slug: String!
+  description: String!
+  faqs(where: FaqWhereInput, orderBy: FaqOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Faq!]
+}
+
+type FaqCategoryConnection {
+  pageInfo: PageInfo!
+  edges: [FaqCategoryEdge]!
+  aggregate: AggregateFaqCategory!
+}
+
+input FaqCategoryCreateInput {
+  name: String!
+  slug: String!
+  description: String!
+  faqs: FaqCreateManyWithoutCategoryInput
+}
+
+input FaqCategoryCreateManyWithoutFaqsInput {
+  create: [FaqCategoryCreateWithoutFaqsInput!]
+  connect: [FaqCategoryWhereUniqueInput!]
+}
+
+input FaqCategoryCreateWithoutFaqsInput {
+  name: String!
+  slug: String!
+  description: String!
+}
+
+type FaqCategoryEdge {
+  node: FaqCategory!
+  cursor: String!
+}
+
+enum FaqCategoryOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  slug_ASC
+  slug_DESC
+  description_ASC
+  description_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type FaqCategoryPreviousValues {
+  id: ID!
+  name: String!
+  slug: String!
+  description: String!
+}
+
+input FaqCategoryScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  slug: String
+  slug_not: String
+  slug_in: [String!]
+  slug_not_in: [String!]
+  slug_lt: String
+  slug_lte: String
+  slug_gt: String
+  slug_gte: String
+  slug_contains: String
+  slug_not_contains: String
+  slug_starts_with: String
+  slug_not_starts_with: String
+  slug_ends_with: String
+  slug_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  AND: [FaqCategoryScalarWhereInput!]
+  OR: [FaqCategoryScalarWhereInput!]
+  NOT: [FaqCategoryScalarWhereInput!]
+}
+
+type FaqCategorySubscriptionPayload {
+  mutation: MutationType!
+  node: FaqCategory
+  updatedFields: [String!]
+  previousValues: FaqCategoryPreviousValues
+}
+
+input FaqCategorySubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: FaqCategoryWhereInput
+  AND: [FaqCategorySubscriptionWhereInput!]
+  OR: [FaqCategorySubscriptionWhereInput!]
+  NOT: [FaqCategorySubscriptionWhereInput!]
+}
+
+input FaqCategoryUpdateInput {
+  name: String
+  slug: String
+  description: String
+  faqs: FaqUpdateManyWithoutCategoryInput
+}
+
+input FaqCategoryUpdateManyDataInput {
+  name: String
+  slug: String
+  description: String
+}
+
+input FaqCategoryUpdateManyMutationInput {
+  name: String
+  slug: String
+  description: String
+}
+
+input FaqCategoryUpdateManyWithoutFaqsInput {
+  create: [FaqCategoryCreateWithoutFaqsInput!]
+  delete: [FaqCategoryWhereUniqueInput!]
+  connect: [FaqCategoryWhereUniqueInput!]
+  set: [FaqCategoryWhereUniqueInput!]
+  disconnect: [FaqCategoryWhereUniqueInput!]
+  update: [FaqCategoryUpdateWithWhereUniqueWithoutFaqsInput!]
+  upsert: [FaqCategoryUpsertWithWhereUniqueWithoutFaqsInput!]
+  deleteMany: [FaqCategoryScalarWhereInput!]
+  updateMany: [FaqCategoryUpdateManyWithWhereNestedInput!]
+}
+
+input FaqCategoryUpdateManyWithWhereNestedInput {
+  where: FaqCategoryScalarWhereInput!
+  data: FaqCategoryUpdateManyDataInput!
+}
+
+input FaqCategoryUpdateWithoutFaqsDataInput {
+  name: String
+  slug: String
+  description: String
+}
+
+input FaqCategoryUpdateWithWhereUniqueWithoutFaqsInput {
+  where: FaqCategoryWhereUniqueInput!
+  data: FaqCategoryUpdateWithoutFaqsDataInput!
+}
+
+input FaqCategoryUpsertWithWhereUniqueWithoutFaqsInput {
+  where: FaqCategoryWhereUniqueInput!
+  update: FaqCategoryUpdateWithoutFaqsDataInput!
+  create: FaqCategoryCreateWithoutFaqsInput!
+}
+
+input FaqCategoryWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  slug: String
+  slug_not: String
+  slug_in: [String!]
+  slug_not_in: [String!]
+  slug_lt: String
+  slug_lte: String
+  slug_gt: String
+  slug_gte: String
+  slug_contains: String
+  slug_not_contains: String
+  slug_starts_with: String
+  slug_not_starts_with: String
+  slug_ends_with: String
+  slug_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  faqs_every: FaqWhereInput
+  faqs_some: FaqWhereInput
+  faqs_none: FaqWhereInput
+  AND: [FaqCategoryWhereInput!]
+  OR: [FaqCategoryWhereInput!]
+  NOT: [FaqCategoryWhereInput!]
+}
+
+input FaqCategoryWhereUniqueInput {
+  id: ID
+}
+
+type FaqConnection {
+  pageInfo: PageInfo!
+  edges: [FaqEdge]!
+  aggregate: AggregateFaq!
+}
+
+input FaqCreateInput {
+  title: String!
+  description: String
+  short_description: String
+  authors: UserCreateManyInput
+  slug: String!
+  vertical: String
+  category: FaqCategoryCreateManyWithoutFaqsInput
+  readingTime: Int
+  order: Int
+  variant: FaqCreatevariantInput
+  tag: FaqCreatetagInput
+  pubDate: DateTime
+}
+
+input FaqCreateManyWithoutCategoryInput {
+  create: [FaqCreateWithoutCategoryInput!]
+  connect: [FaqWhereUniqueInput!]
+}
+
+input FaqCreatetagInput {
+  set: [String!]
+}
+
+input FaqCreatevariantInput {
+  set: [String!]
+}
+
+input FaqCreateWithoutCategoryInput {
+  title: String!
+  description: String
+  short_description: String
+  authors: UserCreateManyInput
+  slug: String!
+  vertical: String
+  readingTime: Int
+  order: Int
+  variant: FaqCreatevariantInput
+  tag: FaqCreatetagInput
+  pubDate: DateTime
+}
+
+type FaqEdge {
+  node: Faq!
+  cursor: String!
+}
+
+enum FaqOrderByInput {
+  id_ASC
+  id_DESC
+  title_ASC
+  title_DESC
+  description_ASC
+  description_DESC
+  short_description_ASC
+  short_description_DESC
+  slug_ASC
+  slug_DESC
+  vertical_ASC
+  vertical_DESC
+  readingTime_ASC
+  readingTime_DESC
+  order_ASC
+  order_DESC
+  pubDate_ASC
+  pubDate_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type FaqPreviousValues {
+  id: ID!
+  title: String!
+  description: String
+  short_description: String
+  slug: String!
+  vertical: String
+  readingTime: Int
+  order: Int
+  variant: [String!]!
+  tag: [String!]!
+  pubDate: DateTime
+}
+
+input FaqScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  short_description: String
+  short_description_not: String
+  short_description_in: [String!]
+  short_description_not_in: [String!]
+  short_description_lt: String
+  short_description_lte: String
+  short_description_gt: String
+  short_description_gte: String
+  short_description_contains: String
+  short_description_not_contains: String
+  short_description_starts_with: String
+  short_description_not_starts_with: String
+  short_description_ends_with: String
+  short_description_not_ends_with: String
+  slug: String
+  slug_not: String
+  slug_in: [String!]
+  slug_not_in: [String!]
+  slug_lt: String
+  slug_lte: String
+  slug_gt: String
+  slug_gte: String
+  slug_contains: String
+  slug_not_contains: String
+  slug_starts_with: String
+  slug_not_starts_with: String
+  slug_ends_with: String
+  slug_not_ends_with: String
+  vertical: String
+  vertical_not: String
+  vertical_in: [String!]
+  vertical_not_in: [String!]
+  vertical_lt: String
+  vertical_lte: String
+  vertical_gt: String
+  vertical_gte: String
+  vertical_contains: String
+  vertical_not_contains: String
+  vertical_starts_with: String
+  vertical_not_starts_with: String
+  vertical_ends_with: String
+  vertical_not_ends_with: String
+  readingTime: Int
+  readingTime_not: Int
+  readingTime_in: [Int!]
+  readingTime_not_in: [Int!]
+  readingTime_lt: Int
+  readingTime_lte: Int
+  readingTime_gt: Int
+  readingTime_gte: Int
+  order: Int
+  order_not: Int
+  order_in: [Int!]
+  order_not_in: [Int!]
+  order_lt: Int
+  order_lte: Int
+  order_gt: Int
+  order_gte: Int
+  pubDate: DateTime
+  pubDate_not: DateTime
+  pubDate_in: [DateTime!]
+  pubDate_not_in: [DateTime!]
+  pubDate_lt: DateTime
+  pubDate_lte: DateTime
+  pubDate_gt: DateTime
+  pubDate_gte: DateTime
+  AND: [FaqScalarWhereInput!]
+  OR: [FaqScalarWhereInput!]
+  NOT: [FaqScalarWhereInput!]
+}
+
+type FaqSubscriptionPayload {
+  mutation: MutationType!
+  node: Faq
+  updatedFields: [String!]
+  previousValues: FaqPreviousValues
+}
+
+input FaqSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: FaqWhereInput
+  AND: [FaqSubscriptionWhereInput!]
+  OR: [FaqSubscriptionWhereInput!]
+  NOT: [FaqSubscriptionWhereInput!]
+}
+
+input FaqUpdateInput {
+  title: String
+  description: String
+  short_description: String
+  authors: UserUpdateManyInput
+  slug: String
+  vertical: String
+  category: FaqCategoryUpdateManyWithoutFaqsInput
+  readingTime: Int
+  order: Int
+  variant: FaqUpdatevariantInput
+  tag: FaqUpdatetagInput
+  pubDate: DateTime
+}
+
+input FaqUpdateManyDataInput {
+  title: String
+  description: String
+  short_description: String
+  slug: String
+  vertical: String
+  readingTime: Int
+  order: Int
+  variant: FaqUpdatevariantInput
+  tag: FaqUpdatetagInput
+  pubDate: DateTime
+}
+
+input FaqUpdateManyMutationInput {
+  title: String
+  description: String
+  short_description: String
+  slug: String
+  vertical: String
+  readingTime: Int
+  order: Int
+  variant: FaqUpdatevariantInput
+  tag: FaqUpdatetagInput
+  pubDate: DateTime
+}
+
+input FaqUpdateManyWithoutCategoryInput {
+  create: [FaqCreateWithoutCategoryInput!]
+  delete: [FaqWhereUniqueInput!]
+  connect: [FaqWhereUniqueInput!]
+  set: [FaqWhereUniqueInput!]
+  disconnect: [FaqWhereUniqueInput!]
+  update: [FaqUpdateWithWhereUniqueWithoutCategoryInput!]
+  upsert: [FaqUpsertWithWhereUniqueWithoutCategoryInput!]
+  deleteMany: [FaqScalarWhereInput!]
+  updateMany: [FaqUpdateManyWithWhereNestedInput!]
+}
+
+input FaqUpdateManyWithWhereNestedInput {
+  where: FaqScalarWhereInput!
+  data: FaqUpdateManyDataInput!
+}
+
+input FaqUpdatetagInput {
+  set: [String!]
+}
+
+input FaqUpdatevariantInput {
+  set: [String!]
+}
+
+input FaqUpdateWithoutCategoryDataInput {
+  title: String
+  description: String
+  short_description: String
+  authors: UserUpdateManyInput
+  slug: String
+  vertical: String
+  readingTime: Int
+  order: Int
+  variant: FaqUpdatevariantInput
+  tag: FaqUpdatetagInput
+  pubDate: DateTime
+}
+
+input FaqUpdateWithWhereUniqueWithoutCategoryInput {
+  where: FaqWhereUniqueInput!
+  data: FaqUpdateWithoutCategoryDataInput!
+}
+
+input FaqUpsertWithWhereUniqueWithoutCategoryInput {
+  where: FaqWhereUniqueInput!
+  update: FaqUpdateWithoutCategoryDataInput!
+  create: FaqCreateWithoutCategoryInput!
+}
+
+input FaqWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  short_description: String
+  short_description_not: String
+  short_description_in: [String!]
+  short_description_not_in: [String!]
+  short_description_lt: String
+  short_description_lte: String
+  short_description_gt: String
+  short_description_gte: String
+  short_description_contains: String
+  short_description_not_contains: String
+  short_description_starts_with: String
+  short_description_not_starts_with: String
+  short_description_ends_with: String
+  short_description_not_ends_with: String
+  authors_every: UserWhereInput
+  authors_some: UserWhereInput
+  authors_none: UserWhereInput
+  slug: String
+  slug_not: String
+  slug_in: [String!]
+  slug_not_in: [String!]
+  slug_lt: String
+  slug_lte: String
+  slug_gt: String
+  slug_gte: String
+  slug_contains: String
+  slug_not_contains: String
+  slug_starts_with: String
+  slug_not_starts_with: String
+  slug_ends_with: String
+  slug_not_ends_with: String
+  vertical: String
+  vertical_not: String
+  vertical_in: [String!]
+  vertical_not_in: [String!]
+  vertical_lt: String
+  vertical_lte: String
+  vertical_gt: String
+  vertical_gte: String
+  vertical_contains: String
+  vertical_not_contains: String
+  vertical_starts_with: String
+  vertical_not_starts_with: String
+  vertical_ends_with: String
+  vertical_not_ends_with: String
+  category_every: FaqCategoryWhereInput
+  category_some: FaqCategoryWhereInput
+  category_none: FaqCategoryWhereInput
+  readingTime: Int
+  readingTime_not: Int
+  readingTime_in: [Int!]
+  readingTime_not_in: [Int!]
+  readingTime_lt: Int
+  readingTime_lte: Int
+  readingTime_gt: Int
+  readingTime_gte: Int
+  order: Int
+  order_not: Int
+  order_in: [Int!]
+  order_not_in: [Int!]
+  order_lt: Int
+  order_lte: Int
+  order_gt: Int
+  order_gte: Int
+  pubDate: DateTime
+  pubDate_not: DateTime
+  pubDate_in: [DateTime!]
+  pubDate_not_in: [DateTime!]
+  pubDate_lt: DateTime
+  pubDate_lte: DateTime
+  pubDate_gt: DateTime
+  pubDate_gte: DateTime
+  AND: [FaqWhereInput!]
+  OR: [FaqWhereInput!]
+  NOT: [FaqWhereInput!]
+}
+
+input FaqWhereUniqueInput {
+  id: ID
+}
+
+scalar Long
+
+type Media {
+  id: ID!
+  url: String!
+  title: String
+  altText: String
+}
+
+type MediaConnection {
+  pageInfo: PageInfo!
+  edges: [MediaEdge]!
+  aggregate: AggregateMedia!
+}
+
+input MediaCreateInput {
+  url: String!
+  title: String
+  altText: String
+}
+
+input MediaCreateOneInput {
+  create: MediaCreateInput
+  connect: MediaWhereUniqueInput
+}
+
+type MediaEdge {
+  node: Media!
+  cursor: String!
+}
+
+enum MediaOrderByInput {
+  id_ASC
+  id_DESC
+  url_ASC
+  url_DESC
+  title_ASC
+  title_DESC
+  altText_ASC
+  altText_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type MediaPreviousValues {
+  id: ID!
+  url: String!
+  title: String
+  altText: String
+}
+
+type MediaSubscriptionPayload {
+  mutation: MutationType!
+  node: Media
+  updatedFields: [String!]
+  previousValues: MediaPreviousValues
+}
+
+input MediaSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: MediaWhereInput
+  AND: [MediaSubscriptionWhereInput!]
+  OR: [MediaSubscriptionWhereInput!]
+  NOT: [MediaSubscriptionWhereInput!]
+}
+
+input MediaUpdateDataInput {
+  url: String
+  title: String
+  altText: String
+}
+
+input MediaUpdateInput {
+  url: String
+  title: String
+  altText: String
+}
+
+input MediaUpdateManyMutationInput {
+  url: String
+  title: String
+  altText: String
+}
+
+input MediaUpdateOneInput {
+  create: MediaCreateInput
+  update: MediaUpdateDataInput
+  upsert: MediaUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: MediaWhereUniqueInput
+}
+
+input MediaUpsertNestedInput {
+  update: MediaUpdateDataInput!
+  create: MediaCreateInput!
+}
+
+input MediaWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  url: String
+  url_not: String
+  url_in: [String!]
+  url_not_in: [String!]
+  url_lt: String
+  url_lte: String
+  url_gt: String
+  url_gte: String
+  url_contains: String
+  url_not_contains: String
+  url_starts_with: String
+  url_not_starts_with: String
+  url_ends_with: String
+  url_not_ends_with: String
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  altText: String
+  altText_not: String
+  altText_in: [String!]
+  altText_not_in: [String!]
+  altText_lt: String
+  altText_lte: String
+  altText_gt: String
+  altText_gte: String
+  altText_contains: String
+  altText_not_contains: String
+  altText_starts_with: String
+  altText_not_starts_with: String
+  altText_ends_with: String
+  altText_not_ends_with: String
+  AND: [MediaWhereInput!]
+  OR: [MediaWhereInput!]
+  NOT: [MediaWhereInput!]
+}
+
+input MediaWhereUniqueInput {
+  id: ID
+}
+
+type Mutation {
+  createAlertBox(data: AlertBoxCreateInput!): AlertBox!
+  updateAlertBox(data: AlertBoxUpdateInput!, where: AlertBoxWhereUniqueInput!): AlertBox
+  updateManyAlertBoxes(data: AlertBoxUpdateManyMutationInput!, where: AlertBoxWhereInput): BatchPayload!
+  upsertAlertBox(where: AlertBoxWhereUniqueInput!, create: AlertBoxCreateInput!, update: AlertBoxUpdateInput!): AlertBox!
+  deleteAlertBox(where: AlertBoxWhereUniqueInput!): AlertBox
+  deleteManyAlertBoxes(where: AlertBoxWhereInput): BatchPayload!
+  createBlock(data: BlockCreateInput!): Block!
+  updateBlock(data: BlockUpdateInput!, where: BlockWhereUniqueInput!): Block
+  updateManyBlocks(data: BlockUpdateManyMutationInput!, where: BlockWhereInput): BatchPayload!
+  upsertBlock(where: BlockWhereUniqueInput!, create: BlockCreateInput!, update: BlockUpdateInput!): Block!
+  deleteBlock(where: BlockWhereUniqueInput!): Block
+  deleteManyBlocks(where: BlockWhereInput): BatchPayload!
+  createBox(data: BoxCreateInput!): Box!
+  updateBox(data: BoxUpdateInput!, where: BoxWhereUniqueInput!): Box
+  updateManyBoxes(data: BoxUpdateManyMutationInput!, where: BoxWhereInput): BatchPayload!
+  upsertBox(where: BoxWhereUniqueInput!, create: BoxCreateInput!, update: BoxUpdateInput!): Box!
+  deleteBox(where: BoxWhereUniqueInput!): Box
+  deleteManyBoxes(where: BoxWhereInput): BatchPayload!
+  createCons(data: ConsCreateInput!): Cons!
+  updateCons(data: ConsUpdateInput!, where: ConsWhereUniqueInput!): Cons
+  updateManyConses(data: ConsUpdateManyMutationInput!, where: ConsWhereInput): BatchPayload!
+  upsertCons(where: ConsWhereUniqueInput!, create: ConsCreateInput!, update: ConsUpdateInput!): Cons!
+  deleteCons(where: ConsWhereUniqueInput!): Cons
+  deleteManyConses(where: ConsWhereInput): BatchPayload!
+  createFaq(data: FaqCreateInput!): Faq!
+  updateFaq(data: FaqUpdateInput!, where: FaqWhereUniqueInput!): Faq
+  updateManyFaqs(data: FaqUpdateManyMutationInput!, where: FaqWhereInput): BatchPayload!
+  upsertFaq(where: FaqWhereUniqueInput!, create: FaqCreateInput!, update: FaqUpdateInput!): Faq!
+  deleteFaq(where: FaqWhereUniqueInput!): Faq
+  deleteManyFaqs(where: FaqWhereInput): BatchPayload!
+  createFaqCategory(data: FaqCategoryCreateInput!): FaqCategory!
+  updateFaqCategory(data: FaqCategoryUpdateInput!, where: FaqCategoryWhereUniqueInput!): FaqCategory
+  updateManyFaqCategories(data: FaqCategoryUpdateManyMutationInput!, where: FaqCategoryWhereInput): BatchPayload!
+  upsertFaqCategory(where: FaqCategoryWhereUniqueInput!, create: FaqCategoryCreateInput!, update: FaqCategoryUpdateInput!): FaqCategory!
+  deleteFaqCategory(where: FaqCategoryWhereUniqueInput!): FaqCategory
+  deleteManyFaqCategories(where: FaqCategoryWhereInput): BatchPayload!
+  createMedia(data: MediaCreateInput!): Media!
+  updateMedia(data: MediaUpdateInput!, where: MediaWhereUniqueInput!): Media
+  updateManyMedias(data: MediaUpdateManyMutationInput!, where: MediaWhereInput): BatchPayload!
+  upsertMedia(where: MediaWhereUniqueInput!, create: MediaCreateInput!, update: MediaUpdateInput!): Media!
+  deleteMedia(where: MediaWhereUniqueInput!): Media
+  deleteManyMedias(where: MediaWhereInput): BatchPayload!
+  createPage(data: PageCreateInput!): Page!
+  updatePage(data: PageUpdateInput!, where: PageWhereUniqueInput!): Page
+  updateManyPages(data: PageUpdateManyMutationInput!, where: PageWhereInput): BatchPayload!
+  upsertPage(where: PageWhereUniqueInput!, create: PageCreateInput!, update: PageUpdateInput!): Page!
+  deletePage(where: PageWhereUniqueInput!): Page
+  deleteManyPages(where: PageWhereInput): BatchPayload!
+  createPros(data: ProsCreateInput!): Pros!
+  updatePros(data: ProsUpdateInput!, where: ProsWhereUniqueInput!): Pros
+  updateManyProses(data: ProsUpdateManyMutationInput!, where: ProsWhereInput): BatchPayload!
+  upsertPros(where: ProsWhereUniqueInput!, create: ProsCreateInput!, update: ProsUpdateInput!): Pros!
+  deletePros(where: ProsWhereUniqueInput!): Pros
+  deleteManyProses(where: ProsWhereInput): BatchPayload!
+  createProsAndCons(data: ProsAndConsCreateInput!): ProsAndCons!
+  updateProsAndCons(data: ProsAndConsUpdateInput!, where: ProsAndConsWhereUniqueInput!): ProsAndCons
+  updateManyProsAndConses(data: ProsAndConsUpdateManyMutationInput!, where: ProsAndConsWhereInput): BatchPayload!
+  upsertProsAndCons(where: ProsAndConsWhereUniqueInput!, create: ProsAndConsCreateInput!, update: ProsAndConsUpdateInput!): ProsAndCons!
+  deleteProsAndCons(where: ProsAndConsWhereUniqueInput!): ProsAndCons
+  deleteManyProsAndConses(where: ProsAndConsWhereInput): BatchPayload!
+  createQuickTip(data: QuickTipCreateInput!): QuickTip!
+  updateQuickTip(data: QuickTipUpdateInput!, where: QuickTipWhereUniqueInput!): QuickTip
+  updateManyQuickTips(data: QuickTipUpdateManyMutationInput!, where: QuickTipWhereInput): BatchPayload!
+  upsertQuickTip(where: QuickTipWhereUniqueInput!, create: QuickTipCreateInput!, update: QuickTipUpdateInput!): QuickTip!
+  deleteQuickTip(where: QuickTipWhereUniqueInput!): QuickTip
+  deleteManyQuickTips(where: QuickTipWhereInput): BatchPayload!
+  createUser(data: UserCreateInput!): User!
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
+  updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
+  upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
+  deleteUser(where: UserWhereUniqueInput!): User
+  deleteManyUsers(where: UserWhereInput): BatchPayload!
+}
+
+enum MutationType {
+  CREATED
+  UPDATED
+  DELETED
+}
+
+interface Node {
+  id: ID!
+}
+
+type Page {
+  id: ID!
+  title: String!
+  slug: String!
+  type: PageType!
+  status: PageStatus!
+  vertical: String
+  media: Media
+  blocks(where: BlockWhereInput, orderBy: BlockOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Block!]
+  boxes(where: BoxWhereInput, orderBy: BoxOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Box!]
+  prosAndCons(where: ProsAndConsWhereInput, orderBy: ProsAndConsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ProsAndCons!]
+  alertBoxes(where: AlertBoxWhereInput, orderBy: AlertBoxOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [AlertBox!]
+  quickTips(where: QuickTipWhereInput, orderBy: QuickTipOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [QuickTip!]
+}
+
+type PageConnection {
+  pageInfo: PageInfo!
+  edges: [PageEdge]!
+  aggregate: AggregatePage!
+}
+
+input PageCreateInput {
+  title: String!
+  slug: String!
+  type: PageType!
+  status: PageStatus!
+  vertical: String
+  media: MediaCreateOneInput
+  blocks: BlockCreateManyWithoutPageInput
+  boxes: BoxCreateManyWithoutPageInput
+  prosAndCons: ProsAndConsCreateManyWithoutPageInput
+  alertBoxes: AlertBoxCreateManyWithoutPageInput
+  quickTips: QuickTipCreateManyWithoutPageInput
+}
+
+input PageCreateOneWithoutAlertBoxesInput {
+  create: PageCreateWithoutAlertBoxesInput
+  connect: PageWhereUniqueInput
+}
+
+input PageCreateOneWithoutBlocksInput {
+  create: PageCreateWithoutBlocksInput
+  connect: PageWhereUniqueInput
+}
+
+input PageCreateOneWithoutBoxesInput {
+  create: PageCreateWithoutBoxesInput
+  connect: PageWhereUniqueInput
+}
+
+input PageCreateOneWithoutProsAndConsInput {
+  create: PageCreateWithoutProsAndConsInput
+  connect: PageWhereUniqueInput
+}
+
+input PageCreateOneWithoutQuickTipsInput {
+  create: PageCreateWithoutQuickTipsInput
+  connect: PageWhereUniqueInput
+}
+
+input PageCreateWithoutAlertBoxesInput {
+  title: String!
+  slug: String!
+  type: PageType!
+  status: PageStatus!
+  vertical: String
+  media: MediaCreateOneInput
+  blocks: BlockCreateManyWithoutPageInput
+  boxes: BoxCreateManyWithoutPageInput
+  prosAndCons: ProsAndConsCreateManyWithoutPageInput
+  quickTips: QuickTipCreateManyWithoutPageInput
+}
+
+input PageCreateWithoutBlocksInput {
+  title: String!
+  slug: String!
+  type: PageType!
+  status: PageStatus!
+  vertical: String
+  media: MediaCreateOneInput
+  boxes: BoxCreateManyWithoutPageInput
+  prosAndCons: ProsAndConsCreateManyWithoutPageInput
+  alertBoxes: AlertBoxCreateManyWithoutPageInput
+  quickTips: QuickTipCreateManyWithoutPageInput
+}
+
+input PageCreateWithoutBoxesInput {
+  title: String!
+  slug: String!
+  type: PageType!
+  status: PageStatus!
+  vertical: String
+  media: MediaCreateOneInput
+  blocks: BlockCreateManyWithoutPageInput
+  prosAndCons: ProsAndConsCreateManyWithoutPageInput
+  alertBoxes: AlertBoxCreateManyWithoutPageInput
+  quickTips: QuickTipCreateManyWithoutPageInput
+}
+
+input PageCreateWithoutProsAndConsInput {
+  title: String!
+  slug: String!
+  type: PageType!
+  status: PageStatus!
+  vertical: String
+  media: MediaCreateOneInput
+  blocks: BlockCreateManyWithoutPageInput
+  boxes: BoxCreateManyWithoutPageInput
+  alertBoxes: AlertBoxCreateManyWithoutPageInput
+  quickTips: QuickTipCreateManyWithoutPageInput
+}
+
+input PageCreateWithoutQuickTipsInput {
+  title: String!
+  slug: String!
+  type: PageType!
+  status: PageStatus!
+  vertical: String
+  media: MediaCreateOneInput
+  blocks: BlockCreateManyWithoutPageInput
+  boxes: BoxCreateManyWithoutPageInput
+  prosAndCons: ProsAndConsCreateManyWithoutPageInput
+  alertBoxes: AlertBoxCreateManyWithoutPageInput
+}
+
+type PageEdge {
+  node: Page!
+  cursor: String!
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+enum PageOrderByInput {
+  id_ASC
+  id_DESC
+  title_ASC
+  title_DESC
+  slug_ASC
+  slug_DESC
+  type_ASC
+  type_DESC
+  status_ASC
+  status_DESC
+  vertical_ASC
+  vertical_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type PagePreviousValues {
+  id: ID!
+  title: String!
+  slug: String!
+  type: PageType!
+  status: PageStatus!
+  vertical: String
+}
+
+enum PageStatus {
+  DRAFT
+  PUBLISHED
+  DELETED
+}
+
+type PageSubscriptionPayload {
+  mutation: MutationType!
+  node: Page
+  updatedFields: [String!]
+  previousValues: PagePreviousValues
+}
+
+input PageSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: PageWhereInput
+  AND: [PageSubscriptionWhereInput!]
+  OR: [PageSubscriptionWhereInput!]
+  NOT: [PageSubscriptionWhereInput!]
+}
+
+enum PageType {
+  PAGE
+  NEWS
+  ARTICLE
+}
+
+input PageUpdateInput {
+  title: String
+  slug: String
+  type: PageType
+  status: PageStatus
+  vertical: String
+  media: MediaUpdateOneInput
+  blocks: BlockUpdateManyWithoutPageInput
+  boxes: BoxUpdateManyWithoutPageInput
+  prosAndCons: ProsAndConsUpdateManyWithoutPageInput
+  alertBoxes: AlertBoxUpdateManyWithoutPageInput
+  quickTips: QuickTipUpdateManyWithoutPageInput
+}
+
+input PageUpdateManyMutationInput {
+  title: String
+  slug: String
+  type: PageType
+  status: PageStatus
+  vertical: String
+}
+
+input PageUpdateOneRequiredWithoutAlertBoxesInput {
+  create: PageCreateWithoutAlertBoxesInput
+  update: PageUpdateWithoutAlertBoxesDataInput
+  upsert: PageUpsertWithoutAlertBoxesInput
+  connect: PageWhereUniqueInput
+}
+
+input PageUpdateOneRequiredWithoutBlocksInput {
+  create: PageCreateWithoutBlocksInput
+  update: PageUpdateWithoutBlocksDataInput
+  upsert: PageUpsertWithoutBlocksInput
+  connect: PageWhereUniqueInput
+}
+
+input PageUpdateOneRequiredWithoutBoxesInput {
+  create: PageCreateWithoutBoxesInput
+  update: PageUpdateWithoutBoxesDataInput
+  upsert: PageUpsertWithoutBoxesInput
+  connect: PageWhereUniqueInput
+}
+
+input PageUpdateOneRequiredWithoutProsAndConsInput {
+  create: PageCreateWithoutProsAndConsInput
+  update: PageUpdateWithoutProsAndConsDataInput
+  upsert: PageUpsertWithoutProsAndConsInput
+  connect: PageWhereUniqueInput
+}
+
+input PageUpdateOneRequiredWithoutQuickTipsInput {
+  create: PageCreateWithoutQuickTipsInput
+  update: PageUpdateWithoutQuickTipsDataInput
+  upsert: PageUpsertWithoutQuickTipsInput
+  connect: PageWhereUniqueInput
+}
+
+input PageUpdateWithoutAlertBoxesDataInput {
+  title: String
+  slug: String
+  type: PageType
+  status: PageStatus
+  vertical: String
+  media: MediaUpdateOneInput
+  blocks: BlockUpdateManyWithoutPageInput
+  boxes: BoxUpdateManyWithoutPageInput
+  prosAndCons: ProsAndConsUpdateManyWithoutPageInput
+  quickTips: QuickTipUpdateManyWithoutPageInput
+}
+
+input PageUpdateWithoutBlocksDataInput {
+  title: String
+  slug: String
+  type: PageType
+  status: PageStatus
+  vertical: String
+  media: MediaUpdateOneInput
+  boxes: BoxUpdateManyWithoutPageInput
+  prosAndCons: ProsAndConsUpdateManyWithoutPageInput
+  alertBoxes: AlertBoxUpdateManyWithoutPageInput
+  quickTips: QuickTipUpdateManyWithoutPageInput
+}
+
+input PageUpdateWithoutBoxesDataInput {
+  title: String
+  slug: String
+  type: PageType
+  status: PageStatus
+  vertical: String
+  media: MediaUpdateOneInput
+  blocks: BlockUpdateManyWithoutPageInput
+  prosAndCons: ProsAndConsUpdateManyWithoutPageInput
+  alertBoxes: AlertBoxUpdateManyWithoutPageInput
+  quickTips: QuickTipUpdateManyWithoutPageInput
+}
+
+input PageUpdateWithoutProsAndConsDataInput {
+  title: String
+  slug: String
+  type: PageType
+  status: PageStatus
+  vertical: String
+  media: MediaUpdateOneInput
+  blocks: BlockUpdateManyWithoutPageInput
+  boxes: BoxUpdateManyWithoutPageInput
+  alertBoxes: AlertBoxUpdateManyWithoutPageInput
+  quickTips: QuickTipUpdateManyWithoutPageInput
+}
+
+input PageUpdateWithoutQuickTipsDataInput {
+  title: String
+  slug: String
+  type: PageType
+  status: PageStatus
+  vertical: String
+  media: MediaUpdateOneInput
+  blocks: BlockUpdateManyWithoutPageInput
+  boxes: BoxUpdateManyWithoutPageInput
+  prosAndCons: ProsAndConsUpdateManyWithoutPageInput
+  alertBoxes: AlertBoxUpdateManyWithoutPageInput
+}
+
+input PageUpsertWithoutAlertBoxesInput {
+  update: PageUpdateWithoutAlertBoxesDataInput!
+  create: PageCreateWithoutAlertBoxesInput!
+}
+
+input PageUpsertWithoutBlocksInput {
+  update: PageUpdateWithoutBlocksDataInput!
+  create: PageCreateWithoutBlocksInput!
+}
+
+input PageUpsertWithoutBoxesInput {
+  update: PageUpdateWithoutBoxesDataInput!
+  create: PageCreateWithoutBoxesInput!
+}
+
+input PageUpsertWithoutProsAndConsInput {
+  update: PageUpdateWithoutProsAndConsDataInput!
+  create: PageCreateWithoutProsAndConsInput!
+}
+
+input PageUpsertWithoutQuickTipsInput {
+  update: PageUpdateWithoutQuickTipsDataInput!
+  create: PageCreateWithoutQuickTipsInput!
+}
+
+input PageWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  slug: String
+  slug_not: String
+  slug_in: [String!]
+  slug_not_in: [String!]
+  slug_lt: String
+  slug_lte: String
+  slug_gt: String
+  slug_gte: String
+  slug_contains: String
+  slug_not_contains: String
+  slug_starts_with: String
+  slug_not_starts_with: String
+  slug_ends_with: String
+  slug_not_ends_with: String
+  type: PageType
+  type_not: PageType
+  type_in: [PageType!]
+  type_not_in: [PageType!]
+  status: PageStatus
+  status_not: PageStatus
+  status_in: [PageStatus!]
+  status_not_in: [PageStatus!]
+  vertical: String
+  vertical_not: String
+  vertical_in: [String!]
+  vertical_not_in: [String!]
+  vertical_lt: String
+  vertical_lte: String
+  vertical_gt: String
+  vertical_gte: String
+  vertical_contains: String
+  vertical_not_contains: String
+  vertical_starts_with: String
+  vertical_not_starts_with: String
+  vertical_ends_with: String
+  vertical_not_ends_with: String
+  media: MediaWhereInput
+  blocks_every: BlockWhereInput
+  blocks_some: BlockWhereInput
+  blocks_none: BlockWhereInput
+  boxes_every: BoxWhereInput
+  boxes_some: BoxWhereInput
+  boxes_none: BoxWhereInput
+  prosAndCons_every: ProsAndConsWhereInput
+  prosAndCons_some: ProsAndConsWhereInput
+  prosAndCons_none: ProsAndConsWhereInput
+  alertBoxes_every: AlertBoxWhereInput
+  alertBoxes_some: AlertBoxWhereInput
+  alertBoxes_none: AlertBoxWhereInput
+  quickTips_every: QuickTipWhereInput
+  quickTips_some: QuickTipWhereInput
+  quickTips_none: QuickTipWhereInput
+  AND: [PageWhereInput!]
+  OR: [PageWhereInput!]
+  NOT: [PageWhereInput!]
+}
+
+input PageWhereUniqueInput {
+  id: ID
+}
+
+enum Permission {
+  ADMIN
+  USER
+}
+
+type Pros {
+  id: ID!
+  prosAndCons: ProsAndCons!
+  content: String
+  order: Int
+}
+
+type ProsAndCons {
+  id: ID!
+  page: Page!
+  title: String
+  order: Int
+  pros(where: ProsWhereInput, orderBy: ProsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Pros!]
+  cons(where: ConsWhereInput, orderBy: ConsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Cons!]
+}
+
+type ProsAndConsConnection {
+  pageInfo: PageInfo!
+  edges: [ProsAndConsEdge]!
+  aggregate: AggregateProsAndCons!
+}
+
+input ProsAndConsCreateInput {
+  page: PageCreateOneWithoutProsAndConsInput!
+  title: String
+  order: Int
+  pros: ProsCreateManyWithoutProsAndConsInput
+  cons: ConsCreateManyWithoutProsAndConsInput
+}
+
+input ProsAndConsCreateManyWithoutPageInput {
+  create: [ProsAndConsCreateWithoutPageInput!]
+  connect: [ProsAndConsWhereUniqueInput!]
+}
+
+input ProsAndConsCreateOneWithoutConsInput {
+  create: ProsAndConsCreateWithoutConsInput
+  connect: ProsAndConsWhereUniqueInput
+}
+
+input ProsAndConsCreateOneWithoutProsInput {
+  create: ProsAndConsCreateWithoutProsInput
+  connect: ProsAndConsWhereUniqueInput
+}
+
+input ProsAndConsCreateWithoutConsInput {
+  page: PageCreateOneWithoutProsAndConsInput!
+  title: String
+  order: Int
+  pros: ProsCreateManyWithoutProsAndConsInput
+}
+
+input ProsAndConsCreateWithoutPageInput {
+  title: String
+  order: Int
+  pros: ProsCreateManyWithoutProsAndConsInput
+  cons: ConsCreateManyWithoutProsAndConsInput
+}
+
+input ProsAndConsCreateWithoutProsInput {
+  page: PageCreateOneWithoutProsAndConsInput!
+  title: String
+  order: Int
+  cons: ConsCreateManyWithoutProsAndConsInput
+}
+
+type ProsAndConsEdge {
+  node: ProsAndCons!
+  cursor: String!
+}
+
+enum ProsAndConsOrderByInput {
+  id_ASC
+  id_DESC
+  title_ASC
+  title_DESC
+  order_ASC
+  order_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type ProsAndConsPreviousValues {
+  id: ID!
+  title: String
+  order: Int
+}
+
+input ProsAndConsScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  order: Int
+  order_not: Int
+  order_in: [Int!]
+  order_not_in: [Int!]
+  order_lt: Int
+  order_lte: Int
+  order_gt: Int
+  order_gte: Int
+  AND: [ProsAndConsScalarWhereInput!]
+  OR: [ProsAndConsScalarWhereInput!]
+  NOT: [ProsAndConsScalarWhereInput!]
+}
+
+type ProsAndConsSubscriptionPayload {
+  mutation: MutationType!
+  node: ProsAndCons
+  updatedFields: [String!]
+  previousValues: ProsAndConsPreviousValues
+}
+
+input ProsAndConsSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: ProsAndConsWhereInput
+  AND: [ProsAndConsSubscriptionWhereInput!]
+  OR: [ProsAndConsSubscriptionWhereInput!]
+  NOT: [ProsAndConsSubscriptionWhereInput!]
+}
+
+input ProsAndConsUpdateInput {
+  page: PageUpdateOneRequiredWithoutProsAndConsInput
+  title: String
+  order: Int
+  pros: ProsUpdateManyWithoutProsAndConsInput
+  cons: ConsUpdateManyWithoutProsAndConsInput
+}
+
+input ProsAndConsUpdateManyDataInput {
+  title: String
+  order: Int
+}
+
+input ProsAndConsUpdateManyMutationInput {
+  title: String
+  order: Int
+}
+
+input ProsAndConsUpdateManyWithoutPageInput {
+  create: [ProsAndConsCreateWithoutPageInput!]
+  delete: [ProsAndConsWhereUniqueInput!]
+  connect: [ProsAndConsWhereUniqueInput!]
+  set: [ProsAndConsWhereUniqueInput!]
+  disconnect: [ProsAndConsWhereUniqueInput!]
+  update: [ProsAndConsUpdateWithWhereUniqueWithoutPageInput!]
+  upsert: [ProsAndConsUpsertWithWhereUniqueWithoutPageInput!]
+  deleteMany: [ProsAndConsScalarWhereInput!]
+  updateMany: [ProsAndConsUpdateManyWithWhereNestedInput!]
+}
+
+input ProsAndConsUpdateManyWithWhereNestedInput {
+  where: ProsAndConsScalarWhereInput!
+  data: ProsAndConsUpdateManyDataInput!
+}
+
+input ProsAndConsUpdateOneRequiredWithoutConsInput {
+  create: ProsAndConsCreateWithoutConsInput
+  update: ProsAndConsUpdateWithoutConsDataInput
+  upsert: ProsAndConsUpsertWithoutConsInput
+  connect: ProsAndConsWhereUniqueInput
+}
+
+input ProsAndConsUpdateOneRequiredWithoutProsInput {
+  create: ProsAndConsCreateWithoutProsInput
+  update: ProsAndConsUpdateWithoutProsDataInput
+  upsert: ProsAndConsUpsertWithoutProsInput
+  connect: ProsAndConsWhereUniqueInput
+}
+
+input ProsAndConsUpdateWithoutConsDataInput {
+  page: PageUpdateOneRequiredWithoutProsAndConsInput
+  title: String
+  order: Int
+  pros: ProsUpdateManyWithoutProsAndConsInput
+}
+
+input ProsAndConsUpdateWithoutPageDataInput {
+  title: String
+  order: Int
+  pros: ProsUpdateManyWithoutProsAndConsInput
+  cons: ConsUpdateManyWithoutProsAndConsInput
+}
+
+input ProsAndConsUpdateWithoutProsDataInput {
+  page: PageUpdateOneRequiredWithoutProsAndConsInput
+  title: String
+  order: Int
+  cons: ConsUpdateManyWithoutProsAndConsInput
+}
+
+input ProsAndConsUpdateWithWhereUniqueWithoutPageInput {
+  where: ProsAndConsWhereUniqueInput!
+  data: ProsAndConsUpdateWithoutPageDataInput!
+}
+
+input ProsAndConsUpsertWithoutConsInput {
+  update: ProsAndConsUpdateWithoutConsDataInput!
+  create: ProsAndConsCreateWithoutConsInput!
+}
+
+input ProsAndConsUpsertWithoutProsInput {
+  update: ProsAndConsUpdateWithoutProsDataInput!
+  create: ProsAndConsCreateWithoutProsInput!
+}
+
+input ProsAndConsUpsertWithWhereUniqueWithoutPageInput {
+  where: ProsAndConsWhereUniqueInput!
+  update: ProsAndConsUpdateWithoutPageDataInput!
+  create: ProsAndConsCreateWithoutPageInput!
+}
+
+input ProsAndConsWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  page: PageWhereInput
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  order: Int
+  order_not: Int
+  order_in: [Int!]
+  order_not_in: [Int!]
+  order_lt: Int
+  order_lte: Int
+  order_gt: Int
+  order_gte: Int
+  pros_every: ProsWhereInput
+  pros_some: ProsWhereInput
+  pros_none: ProsWhereInput
+  cons_every: ConsWhereInput
+  cons_some: ConsWhereInput
+  cons_none: ConsWhereInput
+  AND: [ProsAndConsWhereInput!]
+  OR: [ProsAndConsWhereInput!]
+  NOT: [ProsAndConsWhereInput!]
+}
+
+input ProsAndConsWhereUniqueInput {
+  id: ID
+}
+
+type ProsConnection {
+  pageInfo: PageInfo!
+  edges: [ProsEdge]!
+  aggregate: AggregatePros!
+}
+
+input ProsCreateInput {
+  prosAndCons: ProsAndConsCreateOneWithoutProsInput!
+  content: String
+  order: Int
+}
+
+input ProsCreateManyWithoutProsAndConsInput {
+  create: [ProsCreateWithoutProsAndConsInput!]
+  connect: [ProsWhereUniqueInput!]
+}
+
+input ProsCreateWithoutProsAndConsInput {
+  content: String
+  order: Int
+}
+
+type ProsEdge {
+  node: Pros!
+  cursor: String!
+}
+
+enum ProsOrderByInput {
+  id_ASC
+  id_DESC
+  content_ASC
+  content_DESC
+  order_ASC
+  order_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type ProsPreviousValues {
+  id: ID!
+  content: String
+  order: Int
+}
+
+input ProsScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  content: String
+  content_not: String
+  content_in: [String!]
+  content_not_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_gt: String
+  content_gte: String
+  content_contains: String
+  content_not_contains: String
+  content_starts_with: String
+  content_not_starts_with: String
+  content_ends_with: String
+  content_not_ends_with: String
+  order: Int
+  order_not: Int
+  order_in: [Int!]
+  order_not_in: [Int!]
+  order_lt: Int
+  order_lte: Int
+  order_gt: Int
+  order_gte: Int
+  AND: [ProsScalarWhereInput!]
+  OR: [ProsScalarWhereInput!]
+  NOT: [ProsScalarWhereInput!]
+}
+
+type ProsSubscriptionPayload {
+  mutation: MutationType!
+  node: Pros
+  updatedFields: [String!]
+  previousValues: ProsPreviousValues
+}
+
+input ProsSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: ProsWhereInput
+  AND: [ProsSubscriptionWhereInput!]
+  OR: [ProsSubscriptionWhereInput!]
+  NOT: [ProsSubscriptionWhereInput!]
+}
+
+input ProsUpdateInput {
+  prosAndCons: ProsAndConsUpdateOneRequiredWithoutProsInput
+  content: String
+  order: Int
+}
+
+input ProsUpdateManyDataInput {
+  content: String
+  order: Int
+}
+
+input ProsUpdateManyMutationInput {
+  content: String
+  order: Int
+}
+
+input ProsUpdateManyWithoutProsAndConsInput {
+  create: [ProsCreateWithoutProsAndConsInput!]
+  delete: [ProsWhereUniqueInput!]
+  connect: [ProsWhereUniqueInput!]
+  set: [ProsWhereUniqueInput!]
+  disconnect: [ProsWhereUniqueInput!]
+  update: [ProsUpdateWithWhereUniqueWithoutProsAndConsInput!]
+  upsert: [ProsUpsertWithWhereUniqueWithoutProsAndConsInput!]
+  deleteMany: [ProsScalarWhereInput!]
+  updateMany: [ProsUpdateManyWithWhereNestedInput!]
+}
+
+input ProsUpdateManyWithWhereNestedInput {
+  where: ProsScalarWhereInput!
+  data: ProsUpdateManyDataInput!
+}
+
+input ProsUpdateWithoutProsAndConsDataInput {
+  content: String
+  order: Int
+}
+
+input ProsUpdateWithWhereUniqueWithoutProsAndConsInput {
+  where: ProsWhereUniqueInput!
+  data: ProsUpdateWithoutProsAndConsDataInput!
+}
+
+input ProsUpsertWithWhereUniqueWithoutProsAndConsInput {
+  where: ProsWhereUniqueInput!
+  update: ProsUpdateWithoutProsAndConsDataInput!
+  create: ProsCreateWithoutProsAndConsInput!
+}
+
+input ProsWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  prosAndCons: ProsAndConsWhereInput
+  content: String
+  content_not: String
+  content_in: [String!]
+  content_not_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_gt: String
+  content_gte: String
+  content_contains: String
+  content_not_contains: String
+  content_starts_with: String
+  content_not_starts_with: String
+  content_ends_with: String
+  content_not_ends_with: String
+  order: Int
+  order_not: Int
+  order_in: [Int!]
+  order_not_in: [Int!]
+  order_lt: Int
+  order_lte: Int
+  order_gt: Int
+  order_gte: Int
+  AND: [ProsWhereInput!]
+  OR: [ProsWhereInput!]
+  NOT: [ProsWhereInput!]
+}
+
+input ProsWhereUniqueInput {
+  id: ID
+}
+
+type Query {
+  alertBox(where: AlertBoxWhereUniqueInput!): AlertBox
+  alertBoxes(where: AlertBoxWhereInput, orderBy: AlertBoxOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [AlertBox]!
+  alertBoxesConnection(where: AlertBoxWhereInput, orderBy: AlertBoxOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): AlertBoxConnection!
+  block(where: BlockWhereUniqueInput!): Block
+  blocks(where: BlockWhereInput, orderBy: BlockOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Block]!
+  blocksConnection(where: BlockWhereInput, orderBy: BlockOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): BlockConnection!
+  box(where: BoxWhereUniqueInput!): Box
+  boxes(where: BoxWhereInput, orderBy: BoxOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Box]!
+  boxesConnection(where: BoxWhereInput, orderBy: BoxOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): BoxConnection!
+  cons(where: ConsWhereUniqueInput!): Cons
+  conses(where: ConsWhereInput, orderBy: ConsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Cons]!
+  consesConnection(where: ConsWhereInput, orderBy: ConsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ConsConnection!
+  faq(where: FaqWhereUniqueInput!): Faq
+  faqs(where: FaqWhereInput, orderBy: FaqOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Faq]!
+  faqsConnection(where: FaqWhereInput, orderBy: FaqOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): FaqConnection!
+  faqCategory(where: FaqCategoryWhereUniqueInput!): FaqCategory
+  faqCategories(where: FaqCategoryWhereInput, orderBy: FaqCategoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [FaqCategory]!
+  faqCategoriesConnection(where: FaqCategoryWhereInput, orderBy: FaqCategoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): FaqCategoryConnection!
+  media(where: MediaWhereUniqueInput!): Media
+  medias(where: MediaWhereInput, orderBy: MediaOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Media]!
+  mediasConnection(where: MediaWhereInput, orderBy: MediaOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): MediaConnection!
+  page(where: PageWhereUniqueInput!): Page
+  pages(where: PageWhereInput, orderBy: PageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Page]!
+  pagesConnection(where: PageWhereInput, orderBy: PageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PageConnection!
+  pros(where: ProsWhereUniqueInput!): Pros
+  proses(where: ProsWhereInput, orderBy: ProsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Pros]!
+  prosesConnection(where: ProsWhereInput, orderBy: ProsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ProsConnection!
+  prosAndCons(where: ProsAndConsWhereUniqueInput!): ProsAndCons
+  prosAndConses(where: ProsAndConsWhereInput, orderBy: ProsAndConsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ProsAndCons]!
+  prosAndConsesConnection(where: ProsAndConsWhereInput, orderBy: ProsAndConsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ProsAndConsConnection!
+  quickTip(where: QuickTipWhereUniqueInput!): QuickTip
+  quickTips(where: QuickTipWhereInput, orderBy: QuickTipOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [QuickTip]!
+  quickTipsConnection(where: QuickTipWhereInput, orderBy: QuickTipOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): QuickTipConnection!
+  user(where: UserWhereUniqueInput!): User
+  users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
+  usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
+  node(id: ID!): Node
+}
+
+type QuickTip {
+  id: ID!
+  page: Page!
+  title: String
+  content: String
+  buttonText: String
+  buttonLink: String
+  media: Media
+  order: Int
+}
+
+type QuickTipConnection {
+  pageInfo: PageInfo!
+  edges: [QuickTipEdge]!
+  aggregate: AggregateQuickTip!
+}
+
+input QuickTipCreateInput {
+  page: PageCreateOneWithoutQuickTipsInput!
+  title: String
+  content: String
+  buttonText: String
+  buttonLink: String
+  media: MediaCreateOneInput
+  order: Int
+}
+
+input QuickTipCreateManyWithoutPageInput {
+  create: [QuickTipCreateWithoutPageInput!]
+  connect: [QuickTipWhereUniqueInput!]
+}
+
+input QuickTipCreateWithoutPageInput {
+  title: String
+  content: String
+  buttonText: String
+  buttonLink: String
+  media: MediaCreateOneInput
+  order: Int
+}
+
+type QuickTipEdge {
+  node: QuickTip!
+  cursor: String!
+}
+
+enum QuickTipOrderByInput {
+  id_ASC
+  id_DESC
+  title_ASC
+  title_DESC
+  content_ASC
+  content_DESC
+  buttonText_ASC
+  buttonText_DESC
+  buttonLink_ASC
+  buttonLink_DESC
+  order_ASC
+  order_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type QuickTipPreviousValues {
+  id: ID!
+  title: String
+  content: String
+  buttonText: String
+  buttonLink: String
+  order: Int
+}
+
+input QuickTipScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  content: String
+  content_not: String
+  content_in: [String!]
+  content_not_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_gt: String
+  content_gte: String
+  content_contains: String
+  content_not_contains: String
+  content_starts_with: String
+  content_not_starts_with: String
+  content_ends_with: String
+  content_not_ends_with: String
+  buttonText: String
+  buttonText_not: String
+  buttonText_in: [String!]
+  buttonText_not_in: [String!]
+  buttonText_lt: String
+  buttonText_lte: String
+  buttonText_gt: String
+  buttonText_gte: String
+  buttonText_contains: String
+  buttonText_not_contains: String
+  buttonText_starts_with: String
+  buttonText_not_starts_with: String
+  buttonText_ends_with: String
+  buttonText_not_ends_with: String
+  buttonLink: String
+  buttonLink_not: String
+  buttonLink_in: [String!]
+  buttonLink_not_in: [String!]
+  buttonLink_lt: String
+  buttonLink_lte: String
+  buttonLink_gt: String
+  buttonLink_gte: String
+  buttonLink_contains: String
+  buttonLink_not_contains: String
+  buttonLink_starts_with: String
+  buttonLink_not_starts_with: String
+  buttonLink_ends_with: String
+  buttonLink_not_ends_with: String
+  order: Int
+  order_not: Int
+  order_in: [Int!]
+  order_not_in: [Int!]
+  order_lt: Int
+  order_lte: Int
+  order_gt: Int
+  order_gte: Int
+  AND: [QuickTipScalarWhereInput!]
+  OR: [QuickTipScalarWhereInput!]
+  NOT: [QuickTipScalarWhereInput!]
+}
+
+type QuickTipSubscriptionPayload {
+  mutation: MutationType!
+  node: QuickTip
+  updatedFields: [String!]
+  previousValues: QuickTipPreviousValues
+}
+
+input QuickTipSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: QuickTipWhereInput
+  AND: [QuickTipSubscriptionWhereInput!]
+  OR: [QuickTipSubscriptionWhereInput!]
+  NOT: [QuickTipSubscriptionWhereInput!]
+}
+
+input QuickTipUpdateInput {
+  page: PageUpdateOneRequiredWithoutQuickTipsInput
+  title: String
+  content: String
+  buttonText: String
+  buttonLink: String
+  media: MediaUpdateOneInput
+  order: Int
+}
+
+input QuickTipUpdateManyDataInput {
+  title: String
+  content: String
+  buttonText: String
+  buttonLink: String
+  order: Int
+}
+
+input QuickTipUpdateManyMutationInput {
+  title: String
+  content: String
+  buttonText: String
+  buttonLink: String
+  order: Int
+}
+
+input QuickTipUpdateManyWithoutPageInput {
+  create: [QuickTipCreateWithoutPageInput!]
+  delete: [QuickTipWhereUniqueInput!]
+  connect: [QuickTipWhereUniqueInput!]
+  set: [QuickTipWhereUniqueInput!]
+  disconnect: [QuickTipWhereUniqueInput!]
+  update: [QuickTipUpdateWithWhereUniqueWithoutPageInput!]
+  upsert: [QuickTipUpsertWithWhereUniqueWithoutPageInput!]
+  deleteMany: [QuickTipScalarWhereInput!]
+  updateMany: [QuickTipUpdateManyWithWhereNestedInput!]
+}
+
+input QuickTipUpdateManyWithWhereNestedInput {
+  where: QuickTipScalarWhereInput!
+  data: QuickTipUpdateManyDataInput!
+}
+
+input QuickTipUpdateWithoutPageDataInput {
+  title: String
+  content: String
+  buttonText: String
+  buttonLink: String
+  media: MediaUpdateOneInput
+  order: Int
+}
+
+input QuickTipUpdateWithWhereUniqueWithoutPageInput {
+  where: QuickTipWhereUniqueInput!
+  data: QuickTipUpdateWithoutPageDataInput!
+}
+
+input QuickTipUpsertWithWhereUniqueWithoutPageInput {
+  where: QuickTipWhereUniqueInput!
+  update: QuickTipUpdateWithoutPageDataInput!
+  create: QuickTipCreateWithoutPageInput!
+}
+
+input QuickTipWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  page: PageWhereInput
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  content: String
+  content_not: String
+  content_in: [String!]
+  content_not_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_gt: String
+  content_gte: String
+  content_contains: String
+  content_not_contains: String
+  content_starts_with: String
+  content_not_starts_with: String
+  content_ends_with: String
+  content_not_ends_with: String
+  buttonText: String
+  buttonText_not: String
+  buttonText_in: [String!]
+  buttonText_not_in: [String!]
+  buttonText_lt: String
+  buttonText_lte: String
+  buttonText_gt: String
+  buttonText_gte: String
+  buttonText_contains: String
+  buttonText_not_contains: String
+  buttonText_starts_with: String
+  buttonText_not_starts_with: String
+  buttonText_ends_with: String
+  buttonText_not_ends_with: String
+  buttonLink: String
+  buttonLink_not: String
+  buttonLink_in: [String!]
+  buttonLink_not_in: [String!]
+  buttonLink_lt: String
+  buttonLink_lte: String
+  buttonLink_gt: String
+  buttonLink_gte: String
+  buttonLink_contains: String
+  buttonLink_not_contains: String
+  buttonLink_starts_with: String
+  buttonLink_not_starts_with: String
+  buttonLink_ends_with: String
+  buttonLink_not_ends_with: String
+  media: MediaWhereInput
+  order: Int
+  order_not: Int
+  order_in: [Int!]
+  order_not_in: [Int!]
+  order_lt: Int
+  order_lte: Int
+  order_gt: Int
+  order_gte: Int
+  AND: [QuickTipWhereInput!]
+  OR: [QuickTipWhereInput!]
+  NOT: [QuickTipWhereInput!]
+}
+
+input QuickTipWhereUniqueInput {
+  id: ID
+}
+
+type Subscription {
+  alertBox(where: AlertBoxSubscriptionWhereInput): AlertBoxSubscriptionPayload
+  block(where: BlockSubscriptionWhereInput): BlockSubscriptionPayload
+  box(where: BoxSubscriptionWhereInput): BoxSubscriptionPayload
+  cons(where: ConsSubscriptionWhereInput): ConsSubscriptionPayload
+  faq(where: FaqSubscriptionWhereInput): FaqSubscriptionPayload
+  faqCategory(where: FaqCategorySubscriptionWhereInput): FaqCategorySubscriptionPayload
+  media(where: MediaSubscriptionWhereInput): MediaSubscriptionPayload
+  page(where: PageSubscriptionWhereInput): PageSubscriptionPayload
+  pros(where: ProsSubscriptionWhereInput): ProsSubscriptionPayload
+  prosAndCons(where: ProsAndConsSubscriptionWhereInput): ProsAndConsSubscriptionPayload
+  quickTip(where: QuickTipSubscriptionWhereInput): QuickTipSubscriptionPayload
+  user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  password: String!
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: [Permission!]!
+}
+
+type UserConnection {
+  pageInfo: PageInfo!
+  edges: [UserEdge]!
+  aggregate: AggregateUser!
+}
+
+input UserCreateInput {
+  name: String!
+  email: String!
+  password: String!
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: UserCreatepermissionsInput
+}
+
+input UserCreateManyInput {
+  create: [UserCreateInput!]
+  connect: [UserWhereUniqueInput!]
+}
+
+input UserCreatepermissionsInput {
+  set: [Permission!]
+}
+
+type UserEdge {
+  node: User!
+  cursor: String!
+}
+
+enum UserOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  email_ASC
+  email_DESC
+  password_ASC
+  password_DESC
+  resetToken_ASC
+  resetToken_DESC
+  resetTokenExpiry_ASC
+  resetTokenExpiry_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type UserPreviousValues {
+  id: ID!
+  name: String!
+  email: String!
+  password: String!
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: [Permission!]!
+}
+
+input UserScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  email: String
+  email_not: String
+  email_in: [String!]
+  email_not_in: [String!]
+  email_lt: String
+  email_lte: String
+  email_gt: String
+  email_gte: String
+  email_contains: String
+  email_not_contains: String
+  email_starts_with: String
+  email_not_starts_with: String
+  email_ends_with: String
+  email_not_ends_with: String
+  password: String
+  password_not: String
+  password_in: [String!]
+  password_not_in: [String!]
+  password_lt: String
+  password_lte: String
+  password_gt: String
+  password_gte: String
+  password_contains: String
+  password_not_contains: String
+  password_starts_with: String
+  password_not_starts_with: String
+  password_ends_with: String
+  password_not_ends_with: String
+  resetToken: String
+  resetToken_not: String
+  resetToken_in: [String!]
+  resetToken_not_in: [String!]
+  resetToken_lt: String
+  resetToken_lte: String
+  resetToken_gt: String
+  resetToken_gte: String
+  resetToken_contains: String
+  resetToken_not_contains: String
+  resetToken_starts_with: String
+  resetToken_not_starts_with: String
+  resetToken_ends_with: String
+  resetToken_not_ends_with: String
+  resetTokenExpiry: Float
+  resetTokenExpiry_not: Float
+  resetTokenExpiry_in: [Float!]
+  resetTokenExpiry_not_in: [Float!]
+  resetTokenExpiry_lt: Float
+  resetTokenExpiry_lte: Float
+  resetTokenExpiry_gt: Float
+  resetTokenExpiry_gte: Float
+  AND: [UserScalarWhereInput!]
+  OR: [UserScalarWhereInput!]
+  NOT: [UserScalarWhereInput!]
+}
+
+type UserSubscriptionPayload {
+  mutation: MutationType!
+  node: User
+  updatedFields: [String!]
+  previousValues: UserPreviousValues
+}
+
+input UserSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: UserWhereInput
+  AND: [UserSubscriptionWhereInput!]
+  OR: [UserSubscriptionWhereInput!]
+  NOT: [UserSubscriptionWhereInput!]
+}
+
+input UserUpdateDataInput {
+  name: String
+  email: String
+  password: String
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: UserUpdatepermissionsInput
+}
+
+input UserUpdateInput {
+  name: String
+  email: String
+  password: String
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: UserUpdatepermissionsInput
+}
+
+input UserUpdateManyDataInput {
+  name: String
+  email: String
+  password: String
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: UserUpdatepermissionsInput
+}
+
+input UserUpdateManyInput {
+  create: [UserCreateInput!]
+  update: [UserUpdateWithWhereUniqueNestedInput!]
+  upsert: [UserUpsertWithWhereUniqueNestedInput!]
+  delete: [UserWhereUniqueInput!]
+  connect: [UserWhereUniqueInput!]
+  set: [UserWhereUniqueInput!]
+  disconnect: [UserWhereUniqueInput!]
+  deleteMany: [UserScalarWhereInput!]
+  updateMany: [UserUpdateManyWithWhereNestedInput!]
+}
+
+input UserUpdateManyMutationInput {
+  name: String
+  email: String
+  password: String
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: UserUpdatepermissionsInput
+}
+
+input UserUpdateManyWithWhereNestedInput {
+  where: UserScalarWhereInput!
+  data: UserUpdateManyDataInput!
+}
+
+input UserUpdatepermissionsInput {
+  set: [Permission!]
+}
+
+input UserUpdateWithWhereUniqueNestedInput {
+  where: UserWhereUniqueInput!
+  data: UserUpdateDataInput!
+}
+
+input UserUpsertWithWhereUniqueNestedInput {
+  where: UserWhereUniqueInput!
+  update: UserUpdateDataInput!
+  create: UserCreateInput!
+}
+
+input UserWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  email: String
+  email_not: String
+  email_in: [String!]
+  email_not_in: [String!]
+  email_lt: String
+  email_lte: String
+  email_gt: String
+  email_gte: String
+  email_contains: String
+  email_not_contains: String
+  email_starts_with: String
+  email_not_starts_with: String
+  email_ends_with: String
+  email_not_ends_with: String
+  password: String
+  password_not: String
+  password_in: [String!]
+  password_not_in: [String!]
+  password_lt: String
+  password_lte: String
+  password_gt: String
+  password_gte: String
+  password_contains: String
+  password_not_contains: String
+  password_starts_with: String
+  password_not_starts_with: String
+  password_ends_with: String
+  password_not_ends_with: String
+  resetToken: String
+  resetToken_not: String
+  resetToken_in: [String!]
+  resetToken_not_in: [String!]
+  resetToken_lt: String
+  resetToken_lte: String
+  resetToken_gt: String
+  resetToken_gte: String
+  resetToken_contains: String
+  resetToken_not_contains: String
+  resetToken_starts_with: String
+  resetToken_not_starts_with: String
+  resetToken_ends_with: String
+  resetToken_not_ends_with: String
+  resetTokenExpiry: Float
+  resetTokenExpiry_not: Float
+  resetTokenExpiry_in: [Float!]
+  resetTokenExpiry_not_in: [Float!]
+  resetTokenExpiry_lt: Float
+  resetTokenExpiry_lte: Float
+  resetTokenExpiry_gt: Float
+  resetTokenExpiry_gte: Float
+  AND: [UserWhereInput!]
+  OR: [UserWhereInput!]
+  NOT: [UserWhereInput!]
+}
+
+input UserWhereUniqueInput {
+  id: ID
+  email: String
+}

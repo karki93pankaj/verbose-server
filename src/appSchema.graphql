@@ -1,0 +1,177 @@
+# import * from './generated/prisma.graphql'
+
+type Query {
+  me: User
+  users: [User]!
+  pages: [Page]
+  page(id: ID): Page
+  mediaFiles: [Media]
+  mediaFile(id: ID): Media
+  faqs: [Faq]
+  faq(id: ID): Faq
+  searchFaq(searchString: String): [Faq]
+  faqCategories: [FaqCategory]
+  faqCategory(id: ID): FaqCategory
+}
+
+input ProConInput {
+  id: ID
+  content: String
+  order: Int
+}
+
+input ProsAndConsInput {
+  id: ID
+  title: String
+  pros: [ProConInput]
+  cons: [ProConInput]
+  order: Int
+}
+
+input SectionsOrder {
+  id: ID!
+  type: String!
+  order: Int!
+}
+
+type Mutation {
+  signup(email: String!, password: String!, name: String!): User!
+  login(email: String!, password: String!): User!
+  logout: SuccessMessage
+  resetPassword(
+    resetToken: String!
+    password: String!
+    confirmPassword: String!
+  ): User!
+  upsertPage(
+    id: ID!
+    media: ID
+    title: String!
+    slug: String!
+    type: PageType!
+    vertical: String
+    status: PageStatus!
+  ): Page!
+  upsertBlock(
+    id: ID!
+    page: ID!
+    media: ID
+    title: String!
+    video: String
+    style: String
+    content: String
+    order: Int
+  ): Block
+  deleteBlock(id: ID!): Block
+  upsertBox(
+    id: ID!
+    page: ID!
+    media: ID
+    title: String!
+    video: String
+    style: String
+    content: String
+    order: Int
+  ): Box
+  deleteBox(id: ID!): Box
+  upsertAlertBox(
+    id: ID!
+    page: ID!
+    title: String!
+    content: String
+    prefix: String
+    style: String
+    order: Int
+  ): AlertBox
+  deleteAlertBox(id: ID!): AlertBox
+  upsertQuickTip(
+    id: ID!
+    page: ID!
+    media: ID
+    title: String!
+    content: String
+    buttonText: String
+    buttonLink: String
+    order: Int
+  ): QuickTip
+  deleteQuickTip(id: ID!): QuickTip
+  upsertProsAndCons(
+    id: ID!
+    page: ID!
+    title: String
+    pros: [ProConInput]
+    cons: [ProConInput]
+    order: Int
+  ): ProsAndCons
+  deleteProsAndCons(id: ID!): ProsAndCons
+  updateSectionsOrder(sectionsOrder: [SectionsOrder]): Block
+
+  updateMedia(id: ID!, title: String, altText: String): Media
+
+  addFaq(
+    title: String!
+    description: String
+    short_description: String
+    slug: String
+    vertical: String
+    category: [ID]
+    authors: [ID!]!
+    readingTime: Int
+    order: Int
+    variant: [String]
+    tag: [String]
+  ): Faq!
+
+  updateFaq(
+    id: ID!
+    title: String!
+    description: String
+    short_description: String
+    slug: String
+    vertical: String
+    category: [ID]
+    authors: [ID!]!
+    readingTime: Int
+    order: Int
+    variant: [String]
+    tag: [String]
+  ): Faq!
+
+  deleteFaq(id: ID!): Faq!
+
+  addFaqCategory(
+    name: String!
+    slug: String
+    description: String
+    faqs: [ID]
+  ): FaqCategory!
+
+  updateFaqCategory(
+    id: ID!
+    name: String!
+    slug: String
+    description: String
+    faqs: [ID]
+  ): FaqCategory!
+
+  deleteFaqCategory(id: ID!): FaqCategory!
+}
+
+type SuccessMessage {
+  message: String
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  password: String!
+  permissions: [Permission!]!
+}
+
+type Media {
+  id: ID!
+  url: String!
+  title: String
+  altText: String
+}

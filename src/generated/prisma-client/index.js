@@ -63,6 +63,14 @@ var models = [
   {
     name: "Media",
     embedded: false
+  },
+  {
+    name: "PageFaq",
+    embedded: false
+  },
+  {
+    name: "PageFaqAccordion",
+    embedded: false
   }
 ];
 exports.Prisma = prisma_lib_1.makePrismaClientClass({

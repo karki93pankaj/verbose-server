@@ -38,6 +38,8 @@ type Page {
   prosAndCons: [ProsAndCons]!
   alertBoxes: [AlertBox]!
   quickTips: [QuickTip]
+  faqs: [PageFaq]
+  faqAccordion: [PageFaqAccordion]
 }
 
 type Block {
@@ -135,4 +137,18 @@ type Media {
   url: String!
   title: String
   altText: String
+}
+
+type PageFaq {
+  id: ID! @unique
+  order: Int
+  page: Page!
+  faq: Faq!
+}
+
+type PageFaqAccordion {
+  id: ID! @unique
+  order: Int
+  page: Page!
+  faqCategory: FaqCategory!
 }

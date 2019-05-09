@@ -22,6 +22,8 @@ export interface Exists {
   faqCategory: (where?: FaqCategoryWhereInput) => Promise<boolean>;
   media: (where?: MediaWhereInput) => Promise<boolean>;
   page: (where?: PageWhereInput) => Promise<boolean>;
+  pageFaq: (where?: PageFaqWhereInput) => Promise<boolean>;
+  pageFaqAccordion: (where?: PageFaqAccordionWhereInput) => Promise<boolean>;
   pros: (where?: ProsWhereInput) => Promise<boolean>;
   prosAndCons: (where?: ProsAndConsWhereInput) => Promise<boolean>;
   quickTip: (where?: QuickTipWhereInput) => Promise<boolean>;
@@ -231,6 +233,54 @@ export interface Prisma {
       last?: Int;
     }
   ) => PageConnectionPromise;
+  pageFaq: (where: PageFaqWhereUniqueInput) => PageFaqPromise;
+  pageFaqs: (
+    args?: {
+      where?: PageFaqWhereInput;
+      orderBy?: PageFaqOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => FragmentableArray<PageFaq>;
+  pageFaqsConnection: (
+    args?: {
+      where?: PageFaqWhereInput;
+      orderBy?: PageFaqOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => PageFaqConnectionPromise;
+  pageFaqAccordion: (
+    where: PageFaqAccordionWhereUniqueInput
+  ) => PageFaqAccordionPromise;
+  pageFaqAccordions: (
+    args?: {
+      where?: PageFaqAccordionWhereInput;
+      orderBy?: PageFaqAccordionOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => FragmentableArray<PageFaqAccordion>;
+  pageFaqAccordionsConnection: (
+    args?: {
+      where?: PageFaqAccordionWhereInput;
+      orderBy?: PageFaqAccordionOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => PageFaqAccordionConnectionPromise;
   pros: (where: ProsWhereUniqueInput) => ProsPromise;
   proses: (
     args?: {
@@ -462,6 +512,50 @@ export interface Prisma {
   ) => PagePromise;
   deletePage: (where: PageWhereUniqueInput) => PagePromise;
   deleteManyPages: (where?: PageWhereInput) => BatchPayloadPromise;
+  createPageFaq: (data: PageFaqCreateInput) => PageFaqPromise;
+  updatePageFaq: (
+    args: { data: PageFaqUpdateInput; where: PageFaqWhereUniqueInput }
+  ) => PageFaqPromise;
+  updateManyPageFaqs: (
+    args: { data: PageFaqUpdateManyMutationInput; where?: PageFaqWhereInput }
+  ) => BatchPayloadPromise;
+  upsertPageFaq: (
+    args: {
+      where: PageFaqWhereUniqueInput;
+      create: PageFaqCreateInput;
+      update: PageFaqUpdateInput;
+    }
+  ) => PageFaqPromise;
+  deletePageFaq: (where: PageFaqWhereUniqueInput) => PageFaqPromise;
+  deleteManyPageFaqs: (where?: PageFaqWhereInput) => BatchPayloadPromise;
+  createPageFaqAccordion: (
+    data: PageFaqAccordionCreateInput
+  ) => PageFaqAccordionPromise;
+  updatePageFaqAccordion: (
+    args: {
+      data: PageFaqAccordionUpdateInput;
+      where: PageFaqAccordionWhereUniqueInput;
+    }
+  ) => PageFaqAccordionPromise;
+  updateManyPageFaqAccordions: (
+    args: {
+      data: PageFaqAccordionUpdateManyMutationInput;
+      where?: PageFaqAccordionWhereInput;
+    }
+  ) => BatchPayloadPromise;
+  upsertPageFaqAccordion: (
+    args: {
+      where: PageFaqAccordionWhereUniqueInput;
+      create: PageFaqAccordionCreateInput;
+      update: PageFaqAccordionUpdateInput;
+    }
+  ) => PageFaqAccordionPromise;
+  deletePageFaqAccordion: (
+    where: PageFaqAccordionWhereUniqueInput
+  ) => PageFaqAccordionPromise;
+  deleteManyPageFaqAccordions: (
+    where?: PageFaqAccordionWhereInput
+  ) => BatchPayloadPromise;
   createPros: (data: ProsCreateInput) => ProsPromise;
   updatePros: (
     args: { data: ProsUpdateInput; where: ProsWhereUniqueInput }
@@ -564,6 +658,12 @@ export interface Subscription {
   page: (
     where?: PageSubscriptionWhereInput
   ) => PageSubscriptionPayloadSubscription;
+  pageFaq: (
+    where?: PageFaqSubscriptionWhereInput
+  ) => PageFaqSubscriptionPayloadSubscription;
+  pageFaqAccordion: (
+    where?: PageFaqAccordionSubscriptionWhereInput
+  ) => PageFaqAccordionSubscriptionPayloadSubscription;
   pros: (
     where?: ProsSubscriptionWhereInput
   ) => ProsSubscriptionPayloadSubscription;
@@ -642,6 +742,18 @@ export type PageOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
+export type PageFaqOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "order_ASC"
+  | "order_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type PageType = "PAGE" | "NEWS" | "ARTICLE";
+
 export type QuickTipOrderByInput =
   | "id_ASC"
   | "id_DESC"
@@ -660,7 +772,15 @@ export type QuickTipOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
-export type PageType = "PAGE" | "NEWS" | "ARTICLE";
+export type PageFaqAccordionOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "order_ASC"
+  | "order_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
 
 export type AlertBoxOrderByInput =
   | "id_ASC"
@@ -680,25 +800,15 @@ export type AlertBoxOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
-export type FaqOrderByInput =
+export type FaqCategoryOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "title_ASC"
-  | "title_DESC"
-  | "description_ASC"
-  | "description_DESC"
-  | "short_description_ASC"
-  | "short_description_DESC"
+  | "name_ASC"
+  | "name_DESC"
   | "slug_ASC"
   | "slug_DESC"
-  | "vertical_ASC"
-  | "vertical_DESC"
-  | "readingTime_ASC"
-  | "readingTime_DESC"
-  | "order_ASC"
-  | "order_DESC"
-  | "pubDate_ASC"
-  | "pubDate_DESC"
+  | "description_ASC"
+  | "description_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
@@ -758,15 +868,27 @@ export type ConsOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
-export type FaqCategoryOrderByInput =
+export type MutationType = "CREATED" | "UPDATED" | "DELETED";
+
+export type FaqOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "slug_ASC"
-  | "slug_DESC"
+  | "title_ASC"
+  | "title_DESC"
   | "description_ASC"
   | "description_DESC"
+  | "short_description_ASC"
+  | "short_description_DESC"
+  | "slug_ASC"
+  | "slug_DESC"
+  | "vertical_ASC"
+  | "vertical_DESC"
+  | "readingTime_ASC"
+  | "readingTime_DESC"
+  | "order_ASC"
+  | "order_DESC"
+  | "pubDate_ASC"
+  | "pubDate_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
@@ -788,8 +910,6 @@ export type MediaOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
-export type MutationType = "CREATED" | "UPDATED" | "DELETED";
-
 export interface ProsAndConsUpdateManyDataInput {
   title?: String;
   order?: Int;
@@ -799,12 +919,263 @@ export type AlertBoxWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
 }>;
 
-export interface AlertBoxUpdateManyMutationInput {
-  title?: String;
-  content?: String;
-  prefix?: String;
-  style?: String;
+export interface PageFaqUpdateWithoutPageDataInput {
   order?: Int;
+  faq?: FaqUpdateOneRequiredInput;
+}
+
+export interface UserWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  name?: String;
+  name_not?: String;
+  name_in?: String[] | String;
+  name_not_in?: String[] | String;
+  name_lt?: String;
+  name_lte?: String;
+  name_gt?: String;
+  name_gte?: String;
+  name_contains?: String;
+  name_not_contains?: String;
+  name_starts_with?: String;
+  name_not_starts_with?: String;
+  name_ends_with?: String;
+  name_not_ends_with?: String;
+  email?: String;
+  email_not?: String;
+  email_in?: String[] | String;
+  email_not_in?: String[] | String;
+  email_lt?: String;
+  email_lte?: String;
+  email_gt?: String;
+  email_gte?: String;
+  email_contains?: String;
+  email_not_contains?: String;
+  email_starts_with?: String;
+  email_not_starts_with?: String;
+  email_ends_with?: String;
+  email_not_ends_with?: String;
+  password?: String;
+  password_not?: String;
+  password_in?: String[] | String;
+  password_not_in?: String[] | String;
+  password_lt?: String;
+  password_lte?: String;
+  password_gt?: String;
+  password_gte?: String;
+  password_contains?: String;
+  password_not_contains?: String;
+  password_starts_with?: String;
+  password_not_starts_with?: String;
+  password_ends_with?: String;
+  password_not_ends_with?: String;
+  resetToken?: String;
+  resetToken_not?: String;
+  resetToken_in?: String[] | String;
+  resetToken_not_in?: String[] | String;
+  resetToken_lt?: String;
+  resetToken_lte?: String;
+  resetToken_gt?: String;
+  resetToken_gte?: String;
+  resetToken_contains?: String;
+  resetToken_not_contains?: String;
+  resetToken_starts_with?: String;
+  resetToken_not_starts_with?: String;
+  resetToken_ends_with?: String;
+  resetToken_not_ends_with?: String;
+  resetTokenExpiry?: Float;
+  resetTokenExpiry_not?: Float;
+  resetTokenExpiry_in?: Float[] | Float;
+  resetTokenExpiry_not_in?: Float[] | Float;
+  resetTokenExpiry_lt?: Float;
+  resetTokenExpiry_lte?: Float;
+  resetTokenExpiry_gt?: Float;
+  resetTokenExpiry_gte?: Float;
+  AND?: UserWhereInput[] | UserWhereInput;
+  OR?: UserWhereInput[] | UserWhereInput;
+  NOT?: UserWhereInput[] | UserWhereInput;
+}
+
+export interface FaqUpdateOneRequiredInput {
+  create?: FaqCreateInput;
+  update?: FaqUpdateDataInput;
+  upsert?: FaqUpsertNestedInput;
+  connect?: FaqWhereUniqueInput;
+}
+
+export interface FaqCategoryWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  name?: String;
+  name_not?: String;
+  name_in?: String[] | String;
+  name_not_in?: String[] | String;
+  name_lt?: String;
+  name_lte?: String;
+  name_gt?: String;
+  name_gte?: String;
+  name_contains?: String;
+  name_not_contains?: String;
+  name_starts_with?: String;
+  name_not_starts_with?: String;
+  name_ends_with?: String;
+  name_not_ends_with?: String;
+  slug?: String;
+  slug_not?: String;
+  slug_in?: String[] | String;
+  slug_not_in?: String[] | String;
+  slug_lt?: String;
+  slug_lte?: String;
+  slug_gt?: String;
+  slug_gte?: String;
+  slug_contains?: String;
+  slug_not_contains?: String;
+  slug_starts_with?: String;
+  slug_not_starts_with?: String;
+  slug_ends_with?: String;
+  slug_not_ends_with?: String;
+  description?: String;
+  description_not?: String;
+  description_in?: String[] | String;
+  description_not_in?: String[] | String;
+  description_lt?: String;
+  description_lte?: String;
+  description_gt?: String;
+  description_gte?: String;
+  description_contains?: String;
+  description_not_contains?: String;
+  description_starts_with?: String;
+  description_not_starts_with?: String;
+  description_ends_with?: String;
+  description_not_ends_with?: String;
+  faqs_every?: FaqWhereInput;
+  faqs_some?: FaqWhereInput;
+  faqs_none?: FaqWhereInput;
+  AND?: FaqCategoryWhereInput[] | FaqCategoryWhereInput;
+  OR?: FaqCategoryWhereInput[] | FaqCategoryWhereInput;
+  NOT?: FaqCategoryWhereInput[] | FaqCategoryWhereInput;
+}
+
+export interface FaqUpdateDataInput {
+  title?: String;
+  description?: String;
+  short_description?: String;
+  authors?: UserUpdateManyInput;
+  slug?: String;
+  vertical?: String;
+  category?: FaqCategoryUpdateManyWithoutFaqsInput;
+  readingTime?: Int;
+  order?: Int;
+  variant?: FaqUpdatevariantInput;
+  tag?: FaqUpdatetagInput;
+  pubDate?: DateTimeInput;
+}
+
+export interface PageFaqAccordionWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  order?: Int;
+  order_not?: Int;
+  order_in?: Int[] | Int;
+  order_not_in?: Int[] | Int;
+  order_lt?: Int;
+  order_lte?: Int;
+  order_gt?: Int;
+  order_gte?: Int;
+  page?: PageWhereInput;
+  faqCategory?: FaqCategoryWhereInput;
+  AND?: PageFaqAccordionWhereInput[] | PageFaqAccordionWhereInput;
+  OR?: PageFaqAccordionWhereInput[] | PageFaqAccordionWhereInput;
+  NOT?: PageFaqAccordionWhereInput[] | PageFaqAccordionWhereInput;
+}
+
+export interface BlockUpdateWithWhereUniqueWithoutPageInput {
+  where: BlockWhereUniqueInput;
+  data: BlockUpdateWithoutPageDataInput;
+}
+
+export interface PageUpdateWithoutProsAndConsDataInput {
+  title?: String;
+  slug?: String;
+  type?: PageType;
+  status?: PageStatus;
+  vertical?: String;
+  media?: MediaUpdateOneInput;
+  blocks?: BlockUpdateManyWithoutPageInput;
+  boxes?: BoxUpdateManyWithoutPageInput;
+  alertBoxes?: AlertBoxUpdateManyWithoutPageInput;
+  quickTips?: QuickTipUpdateManyWithoutPageInput;
+  faqs?: PageFaqUpdateManyWithoutPageInput;
+  faqAccordion?: PageFaqAccordionUpdateManyWithoutPageInput;
+}
+
+export interface BlockUpdateWithoutPageDataInput {
+  title?: String;
+  media?: MediaUpdateOneInput;
+  video?: String;
+  style?: String;
+  content?: String;
+  order?: Int;
+}
+
+export interface UserUpdateManyInput {
+  create?: UserCreateInput[] | UserCreateInput;
+  update?:
+    | UserUpdateWithWhereUniqueNestedInput[]
+    | UserUpdateWithWhereUniqueNestedInput;
+  upsert?:
+    | UserUpsertWithWhereUniqueNestedInput[]
+    | UserUpsertWithWhereUniqueNestedInput;
+  delete?: UserWhereUniqueInput[] | UserWhereUniqueInput;
+  connect?: UserWhereUniqueInput[] | UserWhereUniqueInput;
+  set?: UserWhereUniqueInput[] | UserWhereUniqueInput;
+  disconnect?: UserWhereUniqueInput[] | UserWhereUniqueInput;
+  deleteMany?: UserScalarWhereInput[] | UserScalarWhereInput;
+  updateMany?:
+    | UserUpdateManyWithWhereNestedInput[]
+    | UserUpdateManyWithWhereNestedInput;
+}
+
+export interface BlockUpsertWithWhereUniqueWithoutPageInput {
+  where: BlockWhereUniqueInput;
+  update: BlockUpdateWithoutPageDataInput;
+  create: BlockCreateWithoutPageInput;
 }
 
 export interface QuickTipWhereInput {
@@ -977,73 +1348,6 @@ export interface BlockScalarWhereInput {
   NOT?: BlockScalarWhereInput[] | BlockScalarWhereInput;
 }
 
-export interface FaqCategoryScalarWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  name?: String;
-  name_not?: String;
-  name_in?: String[] | String;
-  name_not_in?: String[] | String;
-  name_lt?: String;
-  name_lte?: String;
-  name_gt?: String;
-  name_gte?: String;
-  name_contains?: String;
-  name_not_contains?: String;
-  name_starts_with?: String;
-  name_not_starts_with?: String;
-  name_ends_with?: String;
-  name_not_ends_with?: String;
-  slug?: String;
-  slug_not?: String;
-  slug_in?: String[] | String;
-  slug_not_in?: String[] | String;
-  slug_lt?: String;
-  slug_lte?: String;
-  slug_gt?: String;
-  slug_gte?: String;
-  slug_contains?: String;
-  slug_not_contains?: String;
-  slug_starts_with?: String;
-  slug_not_starts_with?: String;
-  slug_ends_with?: String;
-  slug_not_ends_with?: String;
-  description?: String;
-  description_not?: String;
-  description_in?: String[] | String;
-  description_not_in?: String[] | String;
-  description_lt?: String;
-  description_lte?: String;
-  description_gt?: String;
-  description_gte?: String;
-  description_contains?: String;
-  description_not_contains?: String;
-  description_starts_with?: String;
-  description_not_starts_with?: String;
-  description_ends_with?: String;
-  description_not_ends_with?: String;
-  AND?: FaqCategoryScalarWhereInput[] | FaqCategoryScalarWhereInput;
-  OR?: FaqCategoryScalarWhereInput[] | FaqCategoryScalarWhereInput;
-  NOT?: FaqCategoryScalarWhereInput[] | FaqCategoryScalarWhereInput;
-}
-
-export interface BlockUpdateManyWithWhereNestedInput {
-  where: BlockScalarWhereInput;
-  data: BlockUpdateManyDataInput;
-}
-
 export interface AlertBoxWhereInput {
   id?: ID_Input;
   id_not?: ID_Input;
@@ -1129,6 +1433,54 @@ export interface AlertBoxWhereInput {
   NOT?: AlertBoxWhereInput[] | AlertBoxWhereInput;
 }
 
+export interface BlockUpdateManyWithWhereNestedInput {
+  where: BlockScalarWhereInput;
+  data: BlockUpdateManyDataInput;
+}
+
+export interface ConsWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  prosAndCons?: ProsAndConsWhereInput;
+  content?: String;
+  content_not?: String;
+  content_in?: String[] | String;
+  content_not_in?: String[] | String;
+  content_lt?: String;
+  content_lte?: String;
+  content_gt?: String;
+  content_gte?: String;
+  content_contains?: String;
+  content_not_contains?: String;
+  content_starts_with?: String;
+  content_not_starts_with?: String;
+  content_ends_with?: String;
+  content_not_ends_with?: String;
+  order?: Int;
+  order_not?: Int;
+  order_in?: Int[] | Int;
+  order_not_in?: Int[] | Int;
+  order_lt?: Int;
+  order_lte?: Int;
+  order_gt?: Int;
+  order_gte?: Int;
+  AND?: ConsWhereInput[] | ConsWhereInput;
+  OR?: ConsWhereInput[] | ConsWhereInput;
+  NOT?: ConsWhereInput[] | ConsWhereInput;
+}
+
 export interface BlockUpdateManyDataInput {
   title?: String;
   video?: String;
@@ -1137,15 +1489,47 @@ export interface BlockUpdateManyDataInput {
   order?: Int;
 }
 
-export interface UserSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: UserWhereInput;
-  AND?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
-  OR?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
-  NOT?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
+export interface ProsWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  prosAndCons?: ProsAndConsWhereInput;
+  content?: String;
+  content_not?: String;
+  content_in?: String[] | String;
+  content_not_in?: String[] | String;
+  content_lt?: String;
+  content_lte?: String;
+  content_gt?: String;
+  content_gte?: String;
+  content_contains?: String;
+  content_not_contains?: String;
+  content_starts_with?: String;
+  content_not_starts_with?: String;
+  content_ends_with?: String;
+  content_not_ends_with?: String;
+  order?: Int;
+  order_not?: Int;
+  order_in?: Int[] | Int;
+  order_not_in?: Int[] | Int;
+  order_lt?: Int;
+  order_lte?: Int;
+  order_gt?: Int;
+  order_gte?: Int;
+  AND?: ProsWhereInput[] | ProsWhereInput;
+  OR?: ProsWhereInput[] | ProsWhereInput;
+  NOT?: ProsWhereInput[] | ProsWhereInput;
 }
 
 export interface BoxUpdateManyWithoutPageInput {
@@ -1166,15 +1550,21 @@ export interface BoxUpdateManyWithoutPageInput {
     | BoxUpdateManyWithWhereNestedInput;
 }
 
-export interface QuickTipSubscriptionWhereInput {
+export interface PageFaqAccordionSubscriptionWhereInput {
   mutation_in?: MutationType[] | MutationType;
   updatedFields_contains?: String;
   updatedFields_contains_every?: String[] | String;
   updatedFields_contains_some?: String[] | String;
-  node?: QuickTipWhereInput;
-  AND?: QuickTipSubscriptionWhereInput[] | QuickTipSubscriptionWhereInput;
-  OR?: QuickTipSubscriptionWhereInput[] | QuickTipSubscriptionWhereInput;
-  NOT?: QuickTipSubscriptionWhereInput[] | QuickTipSubscriptionWhereInput;
+  node?: PageFaqAccordionWhereInput;
+  AND?:
+    | PageFaqAccordionSubscriptionWhereInput[]
+    | PageFaqAccordionSubscriptionWhereInput;
+  OR?:
+    | PageFaqAccordionSubscriptionWhereInput[]
+    | PageFaqAccordionSubscriptionWhereInput;
+  NOT?:
+    | PageFaqAccordionSubscriptionWhereInput[]
+    | PageFaqAccordionSubscriptionWhereInput;
 }
 
 export interface BoxUpdateWithWhereUniqueWithoutPageInput {
@@ -1182,15 +1572,15 @@ export interface BoxUpdateWithWhereUniqueWithoutPageInput {
   data: BoxUpdateWithoutPageDataInput;
 }
 
-export interface ProsAndConsSubscriptionWhereInput {
+export interface PageSubscriptionWhereInput {
   mutation_in?: MutationType[] | MutationType;
   updatedFields_contains?: String;
   updatedFields_contains_every?: String[] | String;
   updatedFields_contains_some?: String[] | String;
-  node?: ProsAndConsWhereInput;
-  AND?: ProsAndConsSubscriptionWhereInput[] | ProsAndConsSubscriptionWhereInput;
-  OR?: ProsAndConsSubscriptionWhereInput[] | ProsAndConsSubscriptionWhereInput;
-  NOT?: ProsAndConsSubscriptionWhereInput[] | ProsAndConsSubscriptionWhereInput;
+  node?: PageWhereInput;
+  AND?: PageSubscriptionWhereInput[] | PageSubscriptionWhereInput;
+  OR?: PageSubscriptionWhereInput[] | PageSubscriptionWhereInput;
+  NOT?: PageSubscriptionWhereInput[] | PageSubscriptionWhereInput;
 }
 
 export interface BoxUpdateWithoutPageDataInput {
@@ -1294,15 +1684,66 @@ export interface BoxUpsertWithWhereUniqueWithoutPageInput {
   create: BoxCreateWithoutPageInput;
 }
 
-export interface MediaSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: MediaWhereInput;
-  AND?: MediaSubscriptionWhereInput[] | MediaSubscriptionWhereInput;
-  OR?: MediaSubscriptionWhereInput[] | MediaSubscriptionWhereInput;
-  NOT?: MediaSubscriptionWhereInput[] | MediaSubscriptionWhereInput;
+export interface MediaWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  url?: String;
+  url_not?: String;
+  url_in?: String[] | String;
+  url_not_in?: String[] | String;
+  url_lt?: String;
+  url_lte?: String;
+  url_gt?: String;
+  url_gte?: String;
+  url_contains?: String;
+  url_not_contains?: String;
+  url_starts_with?: String;
+  url_not_starts_with?: String;
+  url_ends_with?: String;
+  url_not_ends_with?: String;
+  title?: String;
+  title_not?: String;
+  title_in?: String[] | String;
+  title_not_in?: String[] | String;
+  title_lt?: String;
+  title_lte?: String;
+  title_gt?: String;
+  title_gte?: String;
+  title_contains?: String;
+  title_not_contains?: String;
+  title_starts_with?: String;
+  title_not_starts_with?: String;
+  title_ends_with?: String;
+  title_not_ends_with?: String;
+  altText?: String;
+  altText_not?: String;
+  altText_in?: String[] | String;
+  altText_not_in?: String[] | String;
+  altText_lt?: String;
+  altText_lte?: String;
+  altText_gt?: String;
+  altText_gte?: String;
+  altText_contains?: String;
+  altText_not_contains?: String;
+  altText_starts_with?: String;
+  altText_not_starts_with?: String;
+  altText_ends_with?: String;
+  altText_not_ends_with?: String;
+  AND?: MediaWhereInput[] | MediaWhereInput;
+  OR?: MediaWhereInput[] | MediaWhereInput;
+  NOT?: MediaWhereInput[] | MediaWhereInput;
 }
 
 export interface BoxScalarWhereInput {
@@ -1405,15 +1846,15 @@ export interface BoxUpdateManyWithWhereNestedInput {
   data: BoxUpdateManyDataInput;
 }
 
-export interface BoxSubscriptionWhereInput {
+export interface ConsSubscriptionWhereInput {
   mutation_in?: MutationType[] | MutationType;
   updatedFields_contains?: String;
   updatedFields_contains_every?: String[] | String;
   updatedFields_contains_some?: String[] | String;
-  node?: BoxWhereInput;
-  AND?: BoxSubscriptionWhereInput[] | BoxSubscriptionWhereInput;
-  OR?: BoxSubscriptionWhereInput[] | BoxSubscriptionWhereInput;
-  NOT?: BoxSubscriptionWhereInput[] | BoxSubscriptionWhereInput;
+  node?: ConsWhereInput;
+  AND?: ConsSubscriptionWhereInput[] | ConsSubscriptionWhereInput;
+  OR?: ConsSubscriptionWhereInput[] | ConsSubscriptionWhereInput;
+  NOT?: ConsSubscriptionWhereInput[] | ConsSubscriptionWhereInput;
 }
 
 export interface BoxUpdateManyDataInput {
@@ -1469,13 +1910,12 @@ export interface ProsAndConsUpdateWithWhereUniqueWithoutPageInput {
   data: ProsAndConsUpdateWithoutPageDataInput;
 }
 
-export interface UserUpdateInput {
-  name?: String;
-  email?: String;
-  password?: String;
-  resetToken?: String;
-  resetTokenExpiry?: Float;
-  permissions?: UserUpdatepermissionsInput;
+export interface QuickTipUpdateManyMutationInput {
+  title?: String;
+  content?: String;
+  buttonText?: String;
+  buttonLink?: String;
+  order?: Int;
 }
 
 export interface ProsAndConsUpdateWithoutPageDataInput {
@@ -1510,17 +1950,11 @@ export interface ProsUpdateManyWithoutProsAndConsInput {
     | ProsUpdateManyWithWhereNestedInput;
 }
 
-export interface PageUpdateWithoutQuickTipsDataInput {
-  title?: String;
-  slug?: String;
-  type?: PageType;
-  status?: PageStatus;
-  vertical?: String;
-  media?: MediaUpdateOneInput;
-  blocks?: BlockUpdateManyWithoutPageInput;
-  boxes?: BoxUpdateManyWithoutPageInput;
-  prosAndCons?: ProsAndConsUpdateManyWithoutPageInput;
-  alertBoxes?: AlertBoxUpdateManyWithoutPageInput;
+export interface PageUpdateOneRequiredWithoutQuickTipsInput {
+  create?: PageCreateWithoutQuickTipsInput;
+  update?: PageUpdateWithoutQuickTipsDataInput;
+  upsert?: PageUpsertWithoutQuickTipsInput;
+  connect?: PageWhereUniqueInput;
 }
 
 export interface ProsUpdateWithWhereUniqueWithoutProsAndConsInput {
@@ -1543,17 +1977,9 @@ export interface ProsUpdateWithoutProsAndConsDataInput {
   order?: Int;
 }
 
-export interface PageCreateWithoutQuickTipsInput {
-  title: String;
-  slug: String;
-  type: PageType;
-  status: PageStatus;
-  vertical?: String;
-  media?: MediaCreateOneInput;
-  blocks?: BlockCreateManyWithoutPageInput;
-  boxes?: BoxCreateManyWithoutPageInput;
-  prosAndCons?: ProsAndConsCreateManyWithoutPageInput;
-  alertBoxes?: AlertBoxCreateManyWithoutPageInput;
+export interface PageCreateOneWithoutQuickTipsInput {
+  create?: PageCreateWithoutQuickTipsInput;
+  connect?: PageWhereUniqueInput;
 }
 
 export interface ProsUpsertWithWhereUniqueWithoutProsAndConsInput {
@@ -1562,9 +1988,14 @@ export interface ProsUpsertWithWhereUniqueWithoutProsAndConsInput {
   create: ProsCreateWithoutProsAndConsInput;
 }
 
-export interface PageCreateOneWithoutQuickTipsInput {
-  create?: PageCreateWithoutQuickTipsInput;
-  connect?: PageWhereUniqueInput;
+export interface QuickTipCreateInput {
+  page: PageCreateOneWithoutQuickTipsInput;
+  title?: String;
+  content?: String;
+  buttonText?: String;
+  buttonLink?: String;
+  media?: MediaCreateOneInput;
+  order?: Int;
 }
 
 export interface ProsScalarWhereInput {
@@ -1609,14 +2040,12 @@ export interface ProsScalarWhereInput {
   NOT?: ProsScalarWhereInput[] | ProsScalarWhereInput;
 }
 
-export interface QuickTipCreateInput {
-  page: PageCreateOneWithoutQuickTipsInput;
+export interface ProsAndConsUpdateInput {
+  page?: PageUpdateOneRequiredWithoutProsAndConsInput;
   title?: String;
-  content?: String;
-  buttonText?: String;
-  buttonLink?: String;
-  media?: MediaCreateOneInput;
   order?: Int;
+  pros?: ProsUpdateManyWithoutProsAndConsInput;
+  cons?: ConsUpdateManyWithoutProsAndConsInput;
 }
 
 export interface ProsUpdateManyWithWhereNestedInput {
@@ -1624,69 +2053,12 @@ export interface ProsUpdateManyWithWhereNestedInput {
   data: ProsUpdateManyDataInput;
 }
 
-export interface FaqCategoryWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  name?: String;
-  name_not?: String;
-  name_in?: String[] | String;
-  name_not_in?: String[] | String;
-  name_lt?: String;
-  name_lte?: String;
-  name_gt?: String;
-  name_gte?: String;
-  name_contains?: String;
-  name_not_contains?: String;
-  name_starts_with?: String;
-  name_not_starts_with?: String;
-  name_ends_with?: String;
-  name_not_ends_with?: String;
-  slug?: String;
-  slug_not?: String;
-  slug_in?: String[] | String;
-  slug_not_in?: String[] | String;
-  slug_lt?: String;
-  slug_lte?: String;
-  slug_gt?: String;
-  slug_gte?: String;
-  slug_contains?: String;
-  slug_not_contains?: String;
-  slug_starts_with?: String;
-  slug_not_starts_with?: String;
-  slug_ends_with?: String;
-  slug_not_ends_with?: String;
-  description?: String;
-  description_not?: String;
-  description_in?: String[] | String;
-  description_not_in?: String[] | String;
-  description_lt?: String;
-  description_lte?: String;
-  description_gt?: String;
-  description_gte?: String;
-  description_contains?: String;
-  description_not_contains?: String;
-  description_starts_with?: String;
-  description_not_starts_with?: String;
-  description_ends_with?: String;
-  description_not_ends_with?: String;
-  faqs_every?: FaqWhereInput;
-  faqs_some?: FaqWhereInput;
-  faqs_none?: FaqWhereInput;
-  AND?: FaqCategoryWhereInput[] | FaqCategoryWhereInput;
-  OR?: FaqCategoryWhereInput[] | FaqCategoryWhereInput;
-  NOT?: FaqCategoryWhereInput[] | FaqCategoryWhereInput;
+export interface ProsAndConsCreateInput {
+  page: PageCreateOneWithoutProsAndConsInput;
+  title?: String;
+  order?: Int;
+  pros?: ProsCreateManyWithoutProsAndConsInput;
+  cons?: ConsCreateManyWithoutProsAndConsInput;
 }
 
 export interface ProsUpdateManyDataInput {
@@ -1694,9 +2066,9 @@ export interface ProsUpdateManyDataInput {
   order?: Int;
 }
 
-export interface ProsAndConsUpdateManyMutationInput {
-  title?: String;
-  order?: Int;
+export interface ProsAndConsUpsertWithoutProsInput {
+  update: ProsAndConsUpdateWithoutProsDataInput;
+  create: ProsAndConsCreateWithoutProsInput;
 }
 
 export interface ConsUpdateManyWithoutProsAndConsInput {
@@ -1719,11 +2091,10 @@ export interface ConsUpdateManyWithoutProsAndConsInput {
     | ConsUpdateManyWithWhereNestedInput;
 }
 
-export interface ProsAndConsUpdateInput {
+export interface ProsAndConsUpdateWithoutProsDataInput {
   page?: PageUpdateOneRequiredWithoutProsAndConsInput;
   title?: String;
   order?: Int;
-  pros?: ProsUpdateManyWithoutProsAndConsInput;
   cons?: ConsUpdateManyWithoutProsAndConsInput;
 }
 
@@ -1732,7 +2103,8 @@ export interface ConsUpdateWithWhereUniqueWithoutProsAndConsInput {
   data: ConsUpdateWithoutProsAndConsDataInput;
 }
 
-export interface ProsUpdateManyMutationInput {
+export interface ProsUpdateInput {
+  prosAndCons?: ProsAndConsUpdateOneRequiredWithoutProsInput;
   content?: String;
   order?: Int;
 }
@@ -1742,11 +2114,11 @@ export interface ConsUpdateWithoutProsAndConsDataInput {
   order?: Int;
 }
 
-export interface ProsAndConsUpdateWithoutProsDataInput {
-  page?: PageUpdateOneRequiredWithoutProsAndConsInput;
+export interface ProsAndConsCreateWithoutProsInput {
+  page: PageCreateOneWithoutProsAndConsInput;
   title?: String;
   order?: Int;
-  cons?: ConsUpdateManyWithoutProsAndConsInput;
+  cons?: ConsCreateManyWithoutProsAndConsInput;
 }
 
 export interface ConsUpsertWithWhereUniqueWithoutProsAndConsInput {
@@ -1755,11 +2127,10 @@ export interface ConsUpsertWithWhereUniqueWithoutProsAndConsInput {
   create: ConsCreateWithoutProsAndConsInput;
 }
 
-export interface ProsAndConsUpdateOneRequiredWithoutProsInput {
-  create?: ProsAndConsCreateWithoutProsInput;
-  update?: ProsAndConsUpdateWithoutProsDataInput;
-  upsert?: ProsAndConsUpsertWithoutProsInput;
-  connect?: ProsAndConsWhereUniqueInput;
+export interface ProsCreateInput {
+  prosAndCons: ProsAndConsCreateOneWithoutProsInput;
+  content?: String;
+  order?: Int;
 }
 
 export interface ConsScalarWhereInput {
@@ -1804,21 +2175,28 @@ export interface ConsScalarWhereInput {
   NOT?: ConsScalarWhereInput[] | ConsScalarWhereInput;
 }
 
-export interface ProsAndConsCreateWithoutProsInput {
-  page: PageCreateOneWithoutProsAndConsInput;
-  title?: String;
-  order?: Int;
-  cons?: ConsCreateManyWithoutProsAndConsInput;
-}
+export type PageWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
 
 export interface ConsUpdateManyWithWhereNestedInput {
   where: ConsScalarWhereInput;
   data: ConsUpdateManyDataInput;
 }
 
-export interface ProsAndConsCreateOneWithoutProsInput {
-  create?: ProsAndConsCreateWithoutProsInput;
-  connect?: ProsAndConsWhereUniqueInput;
+export interface PageUpdateWithoutFaqAccordionDataInput {
+  title?: String;
+  slug?: String;
+  type?: PageType;
+  status?: PageStatus;
+  vertical?: String;
+  media?: MediaUpdateOneInput;
+  blocks?: BlockUpdateManyWithoutPageInput;
+  boxes?: BoxUpdateManyWithoutPageInput;
+  prosAndCons?: ProsAndConsUpdateManyWithoutPageInput;
+  alertBoxes?: AlertBoxUpdateManyWithoutPageInput;
+  quickTips?: QuickTipUpdateManyWithoutPageInput;
+  faqs?: PageFaqUpdateManyWithoutPageInput;
 }
 
 export interface ConsUpdateManyDataInput {
@@ -1826,12 +2204,10 @@ export interface ConsUpdateManyDataInput {
   order?: Int;
 }
 
-export interface PageUpdateManyMutationInput {
-  title?: String;
-  slug?: String;
-  type?: PageType;
-  status?: PageStatus;
-  vertical?: String;
+export interface PageFaqAccordionUpdateInput {
+  order?: Int;
+  page?: PageUpdateOneRequiredWithoutFaqAccordionInput;
+  faqCategory?: FaqCategoryUpdateOneRequiredInput;
 }
 
 export interface ProsAndConsUpsertWithWhereUniqueWithoutPageInput {
@@ -1840,9 +2216,20 @@ export interface ProsAndConsUpsertWithWhereUniqueWithoutPageInput {
   create: ProsAndConsCreateWithoutPageInput;
 }
 
-export type PageWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
+export interface PageCreateWithoutFaqAccordionInput {
+  title: String;
+  slug: String;
+  type: PageType;
+  status: PageStatus;
+  vertical?: String;
+  media?: MediaCreateOneInput;
+  blocks?: BlockCreateManyWithoutPageInput;
+  boxes?: BoxCreateManyWithoutPageInput;
+  prosAndCons?: ProsAndConsCreateManyWithoutPageInput;
+  alertBoxes?: AlertBoxCreateManyWithoutPageInput;
+  quickTips?: QuickTipCreateManyWithoutPageInput;
+  faqs?: PageFaqCreateManyWithoutPageInput;
+}
 
 export interface ProsAndConsScalarWhereInput {
   id?: ID_Input;
@@ -1886,10 +2273,10 @@ export interface ProsAndConsScalarWhereInput {
   NOT?: ProsAndConsScalarWhereInput[] | ProsAndConsScalarWhereInput;
 }
 
-export interface MediaUpdateManyMutationInput {
-  url?: String;
-  title?: String;
-  altText?: String;
+export interface PageFaqAccordionCreateInput {
+  order?: Int;
+  page: PageCreateOneWithoutFaqAccordionInput;
+  faqCategory: FaqCategoryCreateOneInput;
 }
 
 export interface ProsAndConsUpdateManyWithWhereNestedInput {
@@ -1897,17 +2284,11 @@ export interface ProsAndConsUpdateManyWithWhereNestedInput {
   data: ProsAndConsUpdateManyDataInput;
 }
 
-export interface FaqCategoryUpdateManyMutationInput {
-  name?: String;
-  slug?: String;
-  description?: String;
+export interface PageFaqUpdateManyMutationInput {
+  order?: Int;
 }
 
-export interface FaqUpdatetagInput {
-  set?: String[] | String;
-}
-
-export interface FaqUpdateManyDataInput {
+export interface FaqUpdateManyMutationInput {
   title?: String;
   description?: String;
   short_description?: String;
@@ -1918,6 +2299,21 @@ export interface FaqUpdateManyDataInput {
   variant?: FaqUpdatevariantInput;
   tag?: FaqUpdatetagInput;
   pubDate?: DateTimeInput;
+}
+
+export interface PageUpdateWithoutFaqsDataInput {
+  title?: String;
+  slug?: String;
+  type?: PageType;
+  status?: PageStatus;
+  vertical?: String;
+  media?: MediaUpdateOneInput;
+  blocks?: BlockUpdateManyWithoutPageInput;
+  boxes?: BoxUpdateManyWithoutPageInput;
+  prosAndCons?: ProsAndConsUpdateManyWithoutPageInput;
+  alertBoxes?: AlertBoxUpdateManyWithoutPageInput;
+  quickTips?: QuickTipUpdateManyWithoutPageInput;
+  faqAccordion?: PageFaqAccordionUpdateManyWithoutPageInput;
 }
 
 export interface QuickTipUpdateManyWithoutPageInput {
@@ -1938,118 +2334,11 @@ export interface QuickTipUpdateManyWithoutPageInput {
     | QuickTipUpdateManyWithWhereNestedInput;
 }
 
-export interface FaqScalarWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  title?: String;
-  title_not?: String;
-  title_in?: String[] | String;
-  title_not_in?: String[] | String;
-  title_lt?: String;
-  title_lte?: String;
-  title_gt?: String;
-  title_gte?: String;
-  title_contains?: String;
-  title_not_contains?: String;
-  title_starts_with?: String;
-  title_not_starts_with?: String;
-  title_ends_with?: String;
-  title_not_ends_with?: String;
-  description?: String;
-  description_not?: String;
-  description_in?: String[] | String;
-  description_not_in?: String[] | String;
-  description_lt?: String;
-  description_lte?: String;
-  description_gt?: String;
-  description_gte?: String;
-  description_contains?: String;
-  description_not_contains?: String;
-  description_starts_with?: String;
-  description_not_starts_with?: String;
-  description_ends_with?: String;
-  description_not_ends_with?: String;
-  short_description?: String;
-  short_description_not?: String;
-  short_description_in?: String[] | String;
-  short_description_not_in?: String[] | String;
-  short_description_lt?: String;
-  short_description_lte?: String;
-  short_description_gt?: String;
-  short_description_gte?: String;
-  short_description_contains?: String;
-  short_description_not_contains?: String;
-  short_description_starts_with?: String;
-  short_description_not_starts_with?: String;
-  short_description_ends_with?: String;
-  short_description_not_ends_with?: String;
-  slug?: String;
-  slug_not?: String;
-  slug_in?: String[] | String;
-  slug_not_in?: String[] | String;
-  slug_lt?: String;
-  slug_lte?: String;
-  slug_gt?: String;
-  slug_gte?: String;
-  slug_contains?: String;
-  slug_not_contains?: String;
-  slug_starts_with?: String;
-  slug_not_starts_with?: String;
-  slug_ends_with?: String;
-  slug_not_ends_with?: String;
-  vertical?: String;
-  vertical_not?: String;
-  vertical_in?: String[] | String;
-  vertical_not_in?: String[] | String;
-  vertical_lt?: String;
-  vertical_lte?: String;
-  vertical_gt?: String;
-  vertical_gte?: String;
-  vertical_contains?: String;
-  vertical_not_contains?: String;
-  vertical_starts_with?: String;
-  vertical_not_starts_with?: String;
-  vertical_ends_with?: String;
-  vertical_not_ends_with?: String;
-  readingTime?: Int;
-  readingTime_not?: Int;
-  readingTime_in?: Int[] | Int;
-  readingTime_not_in?: Int[] | Int;
-  readingTime_lt?: Int;
-  readingTime_lte?: Int;
-  readingTime_gt?: Int;
-  readingTime_gte?: Int;
-  order?: Int;
-  order_not?: Int;
-  order_in?: Int[] | Int;
-  order_not_in?: Int[] | Int;
-  order_lt?: Int;
-  order_lte?: Int;
-  order_gt?: Int;
-  order_gte?: Int;
-  pubDate?: DateTimeInput;
-  pubDate_not?: DateTimeInput;
-  pubDate_in?: DateTimeInput[] | DateTimeInput;
-  pubDate_not_in?: DateTimeInput[] | DateTimeInput;
-  pubDate_lt?: DateTimeInput;
-  pubDate_lte?: DateTimeInput;
-  pubDate_gt?: DateTimeInput;
-  pubDate_gte?: DateTimeInput;
-  AND?: FaqScalarWhereInput[] | FaqScalarWhereInput;
-  OR?: FaqScalarWhereInput[] | FaqScalarWhereInput;
-  NOT?: FaqScalarWhereInput[] | FaqScalarWhereInput;
+export interface PageUpdateOneRequiredWithoutFaqsInput {
+  create?: PageCreateWithoutFaqsInput;
+  update?: PageUpdateWithoutFaqsDataInput;
+  upsert?: PageUpsertWithoutFaqsInput;
+  connect?: PageWhereUniqueInput;
 }
 
 export interface QuickTipUpdateWithWhereUniqueWithoutPageInput {
@@ -2057,10 +2346,19 @@ export interface QuickTipUpdateWithWhereUniqueWithoutPageInput {
   data: QuickTipUpdateWithoutPageDataInput;
 }
 
-export interface FaqUpsertWithWhereUniqueWithoutCategoryInput {
-  where: FaqWhereUniqueInput;
-  update: FaqUpdateWithoutCategoryDataInput;
-  create: FaqCreateWithoutCategoryInput;
+export interface PageCreateWithoutFaqsInput {
+  title: String;
+  slug: String;
+  type: PageType;
+  status: PageStatus;
+  vertical?: String;
+  media?: MediaCreateOneInput;
+  blocks?: BlockCreateManyWithoutPageInput;
+  boxes?: BoxCreateManyWithoutPageInput;
+  prosAndCons?: ProsAndConsCreateManyWithoutPageInput;
+  alertBoxes?: AlertBoxCreateManyWithoutPageInput;
+  quickTips?: QuickTipCreateManyWithoutPageInput;
+  faqAccordion?: PageFaqAccordionCreateManyWithoutPageInput;
 }
 
 export interface QuickTipUpdateWithoutPageDataInput {
@@ -2072,9 +2370,9 @@ export interface QuickTipUpdateWithoutPageDataInput {
   order?: Int;
 }
 
-export interface FaqUpdateWithWhereUniqueWithoutCategoryInput {
-  where: FaqWhereUniqueInput;
-  data: FaqUpdateWithoutCategoryDataInput;
+export interface PageCreateOneWithoutFaqsInput {
+  create?: PageCreateWithoutFaqsInput;
+  connect?: PageWhereUniqueInput;
 }
 
 export interface QuickTipUpsertWithWhereUniqueWithoutPageInput {
@@ -2083,22 +2381,12 @@ export interface QuickTipUpsertWithWhereUniqueWithoutPageInput {
   create: QuickTipCreateWithoutPageInput;
 }
 
-export interface FaqUpdateManyWithoutCategoryInput {
-  create?: FaqCreateWithoutCategoryInput[] | FaqCreateWithoutCategoryInput;
-  delete?: FaqWhereUniqueInput[] | FaqWhereUniqueInput;
-  connect?: FaqWhereUniqueInput[] | FaqWhereUniqueInput;
-  set?: FaqWhereUniqueInput[] | FaqWhereUniqueInput;
-  disconnect?: FaqWhereUniqueInput[] | FaqWhereUniqueInput;
-  update?:
-    | FaqUpdateWithWhereUniqueWithoutCategoryInput[]
-    | FaqUpdateWithWhereUniqueWithoutCategoryInput;
-  upsert?:
-    | FaqUpsertWithWhereUniqueWithoutCategoryInput[]
-    | FaqUpsertWithWhereUniqueWithoutCategoryInput;
-  deleteMany?: FaqScalarWhereInput[] | FaqScalarWhereInput;
-  updateMany?:
-    | FaqUpdateManyWithWhereNestedInput[]
-    | FaqUpdateManyWithWhereNestedInput;
+export interface PageUpdateManyMutationInput {
+  title?: String;
+  slug?: String;
+  type?: PageType;
+  status?: PageStatus;
+  vertical?: String;
 }
 
 export interface QuickTipScalarWhereInput {
@@ -2185,18 +2473,20 @@ export interface QuickTipScalarWhereInput {
   NOT?: QuickTipScalarWhereInput[] | QuickTipScalarWhereInput;
 }
 
-export interface FaqCreateWithoutCategoryInput {
-  title: String;
-  description?: String;
-  short_description?: String;
-  authors?: UserCreateManyInput;
-  slug: String;
+export interface PageUpdateInput {
+  title?: String;
+  slug?: String;
+  type?: PageType;
+  status?: PageStatus;
   vertical?: String;
-  readingTime?: Int;
-  order?: Int;
-  variant?: FaqCreatevariantInput;
-  tag?: FaqCreatetagInput;
-  pubDate?: DateTimeInput;
+  media?: MediaUpdateOneInput;
+  blocks?: BlockUpdateManyWithoutPageInput;
+  boxes?: BoxUpdateManyWithoutPageInput;
+  prosAndCons?: ProsAndConsUpdateManyWithoutPageInput;
+  alertBoxes?: AlertBoxUpdateManyWithoutPageInput;
+  quickTips?: QuickTipUpdateManyWithoutPageInput;
+  faqs?: PageFaqUpdateManyWithoutPageInput;
+  faqAccordion?: PageFaqAccordionUpdateManyWithoutPageInput;
 }
 
 export interface QuickTipUpdateManyWithWhereNestedInput {
@@ -2204,9 +2494,10 @@ export interface QuickTipUpdateManyWithWhereNestedInput {
   data: QuickTipUpdateManyDataInput;
 }
 
-export interface FaqCreateManyWithoutCategoryInput {
-  create?: FaqCreateWithoutCategoryInput[] | FaqCreateWithoutCategoryInput;
-  connect?: FaqWhereUniqueInput[] | FaqWhereUniqueInput;
+export interface MediaUpdateManyMutationInput {
+  url?: String;
+  title?: String;
+  altText?: String;
 }
 
 export interface QuickTipUpdateManyDataInput {
@@ -2217,22 +2508,40 @@ export interface QuickTipUpdateManyDataInput {
   order?: Int;
 }
 
-export interface FaqUpdateManyMutationInput {
+export interface MediaUpdateInput {
+  url?: String;
   title?: String;
-  description?: String;
-  short_description?: String;
-  slug?: String;
-  vertical?: String;
-  readingTime?: Int;
-  order?: Int;
-  variant?: FaqUpdatevariantInput;
-  tag?: FaqUpdatetagInput;
-  pubDate?: DateTimeInput;
+  altText?: String;
 }
 
-export interface PageUpsertWithoutAlertBoxesInput {
-  update: PageUpdateWithoutAlertBoxesDataInput;
-  create: PageCreateWithoutAlertBoxesInput;
+export interface PageFaqUpdateManyWithoutPageInput {
+  create?: PageFaqCreateWithoutPageInput[] | PageFaqCreateWithoutPageInput;
+  delete?: PageFaqWhereUniqueInput[] | PageFaqWhereUniqueInput;
+  connect?: PageFaqWhereUniqueInput[] | PageFaqWhereUniqueInput;
+  set?: PageFaqWhereUniqueInput[] | PageFaqWhereUniqueInput;
+  disconnect?: PageFaqWhereUniqueInput[] | PageFaqWhereUniqueInput;
+  update?:
+    | PageFaqUpdateWithWhereUniqueWithoutPageInput[]
+    | PageFaqUpdateWithWhereUniqueWithoutPageInput;
+  upsert?:
+    | PageFaqUpsertWithWhereUniqueWithoutPageInput[]
+    | PageFaqUpsertWithWhereUniqueWithoutPageInput;
+  deleteMany?: PageFaqScalarWhereInput[] | PageFaqScalarWhereInput;
+  updateMany?:
+    | PageFaqUpdateManyWithWhereNestedInput[]
+    | PageFaqUpdateManyWithWhereNestedInput;
+}
+
+export interface FaqCategoryUpdateInput {
+  name?: String;
+  slug?: String;
+  description?: String;
+  faqs?: FaqUpdateManyWithoutCategoryInput;
+}
+
+export interface PageFaqUpdateWithWhereUniqueWithoutPageInput {
+  where: PageFaqWhereUniqueInput;
+  data: PageFaqUpdateWithoutPageDataInput;
 }
 
 export interface AlertBoxCreateInput {
@@ -2244,8 +2553,19 @@ export interface AlertBoxCreateInput {
   order?: Int;
 }
 
-export interface FaqUpdatevariantInput {
-  set?: String[] | String;
+export interface FaqUpdateInput {
+  title?: String;
+  description?: String;
+  short_description?: String;
+  authors?: UserUpdateManyInput;
+  slug?: String;
+  vertical?: String;
+  category?: FaqCategoryUpdateManyWithoutFaqsInput;
+  readingTime?: Int;
+  order?: Int;
+  variant?: FaqUpdatevariantInput;
+  tag?: FaqUpdatetagInput;
+  pubDate?: DateTimeInput;
 }
 
 export interface PageCreateWithoutAlertBoxesInput {
@@ -2259,475 +2579,19 @@ export interface PageCreateWithoutAlertBoxesInput {
   boxes?: BoxCreateManyWithoutPageInput;
   prosAndCons?: ProsAndConsCreateManyWithoutPageInput;
   quickTips?: QuickTipCreateManyWithoutPageInput;
+  faqs?: PageFaqCreateManyWithoutPageInput;
+  faqAccordion?: PageFaqAccordionCreateManyWithoutPageInput;
 }
 
-export interface FaqCategoryUpdateManyDataInput {
-  name?: String;
-  slug?: String;
-  description?: String;
+export interface ConsUpdateManyMutationInput {
+  content?: String;
+  order?: Int;
 }
 
 export interface MediaCreateInput {
   url: String;
   title?: String;
   altText?: String;
-}
-
-export interface FaqCategoryUpdateManyWithWhereNestedInput {
-  where: FaqCategoryScalarWhereInput;
-  data: FaqCategoryUpdateManyDataInput;
-}
-
-export interface BlockCreateWithoutPageInput {
-  title?: String;
-  media?: MediaCreateOneInput;
-  video?: String;
-  style?: String;
-  content?: String;
-  order?: Int;
-}
-
-export interface BlockCreateInput {
-  page: PageCreateOneWithoutBlocksInput;
-  title?: String;
-  media?: MediaCreateOneInput;
-  video?: String;
-  style?: String;
-  content?: String;
-  order?: Int;
-}
-
-export interface BoxCreateWithoutPageInput {
-  title?: String;
-  media?: MediaCreateOneInput;
-  video?: String;
-  style?: String;
-  content?: String;
-  order?: Int;
-}
-
-export interface PageCreateOneWithoutBlocksInput {
-  create?: PageCreateWithoutBlocksInput;
-  connect?: PageWhereUniqueInput;
-}
-
-export interface ProsAndConsCreateWithoutPageInput {
-  title?: String;
-  order?: Int;
-  pros?: ProsCreateManyWithoutProsAndConsInput;
-  cons?: ConsCreateManyWithoutProsAndConsInput;
-}
-
-export interface PageCreateWithoutBlocksInput {
-  title: String;
-  slug: String;
-  type: PageType;
-  status: PageStatus;
-  vertical?: String;
-  media?: MediaCreateOneInput;
-  boxes?: BoxCreateManyWithoutPageInput;
-  prosAndCons?: ProsAndConsCreateManyWithoutPageInput;
-  alertBoxes?: AlertBoxCreateManyWithoutPageInput;
-  quickTips?: QuickTipCreateManyWithoutPageInput;
-}
-
-export interface ProsCreateWithoutProsAndConsInput {
-  content?: String;
-  order?: Int;
-}
-
-export interface AlertBoxCreateManyWithoutPageInput {
-  create?: AlertBoxCreateWithoutPageInput[] | AlertBoxCreateWithoutPageInput;
-  connect?: AlertBoxWhereUniqueInput[] | AlertBoxWhereUniqueInput;
-}
-
-export interface ConsCreateWithoutProsAndConsInput {
-  content?: String;
-  order?: Int;
-}
-
-export interface AlertBoxCreateWithoutPageInput {
-  title?: String;
-  content?: String;
-  prefix?: String;
-  style?: String;
-  order?: Int;
-}
-
-export interface QuickTipCreateWithoutPageInput {
-  title?: String;
-  content?: String;
-  buttonText?: String;
-  buttonLink?: String;
-  media?: MediaCreateOneInput;
-  order?: Int;
-}
-
-export interface BlockUpdateInput {
-  page?: PageUpdateOneRequiredWithoutBlocksInput;
-  title?: String;
-  media?: MediaUpdateOneInput;
-  video?: String;
-  style?: String;
-  content?: String;
-  order?: Int;
-}
-
-export interface PageUpdateOneRequiredWithoutAlertBoxesInput {
-  create?: PageCreateWithoutAlertBoxesInput;
-  update?: PageUpdateWithoutAlertBoxesDataInput;
-  upsert?: PageUpsertWithoutAlertBoxesInput;
-  connect?: PageWhereUniqueInput;
-}
-
-export interface PageUpdateOneRequiredWithoutBlocksInput {
-  create?: PageCreateWithoutBlocksInput;
-  update?: PageUpdateWithoutBlocksDataInput;
-  upsert?: PageUpsertWithoutBlocksInput;
-  connect?: PageWhereUniqueInput;
-}
-
-export interface MediaUpdateOneInput {
-  create?: MediaCreateInput;
-  update?: MediaUpdateDataInput;
-  upsert?: MediaUpsertNestedInput;
-  delete?: Boolean;
-  disconnect?: Boolean;
-  connect?: MediaWhereUniqueInput;
-}
-
-export interface PageUpdateWithoutBlocksDataInput {
-  title?: String;
-  slug?: String;
-  type?: PageType;
-  status?: PageStatus;
-  vertical?: String;
-  media?: MediaUpdateOneInput;
-  boxes?: BoxUpdateManyWithoutPageInput;
-  prosAndCons?: ProsAndConsUpdateManyWithoutPageInput;
-  alertBoxes?: AlertBoxUpdateManyWithoutPageInput;
-  quickTips?: QuickTipUpdateManyWithoutPageInput;
-}
-
-export interface MediaUpsertNestedInput {
-  update: MediaUpdateDataInput;
-  create: MediaCreateInput;
-}
-
-export interface AlertBoxUpdateManyWithoutPageInput {
-  create?: AlertBoxCreateWithoutPageInput[] | AlertBoxCreateWithoutPageInput;
-  delete?: AlertBoxWhereUniqueInput[] | AlertBoxWhereUniqueInput;
-  connect?: AlertBoxWhereUniqueInput[] | AlertBoxWhereUniqueInput;
-  set?: AlertBoxWhereUniqueInput[] | AlertBoxWhereUniqueInput;
-  disconnect?: AlertBoxWhereUniqueInput[] | AlertBoxWhereUniqueInput;
-  update?:
-    | AlertBoxUpdateWithWhereUniqueWithoutPageInput[]
-    | AlertBoxUpdateWithWhereUniqueWithoutPageInput;
-  upsert?:
-    | AlertBoxUpsertWithWhereUniqueWithoutPageInput[]
-    | AlertBoxUpsertWithWhereUniqueWithoutPageInput;
-  deleteMany?: AlertBoxScalarWhereInput[] | AlertBoxScalarWhereInput;
-  updateMany?:
-    | AlertBoxUpdateManyWithWhereNestedInput[]
-    | AlertBoxUpdateManyWithWhereNestedInput;
-}
-
-export interface BlockUpdateWithWhereUniqueWithoutPageInput {
-  where: BlockWhereUniqueInput;
-  data: BlockUpdateWithoutPageDataInput;
-}
-
-export interface AlertBoxUpdateWithWhereUniqueWithoutPageInput {
-  where: AlertBoxWhereUniqueInput;
-  data: AlertBoxUpdateWithoutPageDataInput;
-}
-
-export interface BlockUpsertWithWhereUniqueWithoutPageInput {
-  where: BlockWhereUniqueInput;
-  update: BlockUpdateWithoutPageDataInput;
-  create: BlockCreateWithoutPageInput;
-}
-
-export interface AlertBoxUpdateWithoutPageDataInput {
-  title?: String;
-  content?: String;
-  prefix?: String;
-  style?: String;
-  order?: Int;
-}
-
-export interface ProsWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  prosAndCons?: ProsAndConsWhereInput;
-  content?: String;
-  content_not?: String;
-  content_in?: String[] | String;
-  content_not_in?: String[] | String;
-  content_lt?: String;
-  content_lte?: String;
-  content_gt?: String;
-  content_gte?: String;
-  content_contains?: String;
-  content_not_contains?: String;
-  content_starts_with?: String;
-  content_not_starts_with?: String;
-  content_ends_with?: String;
-  content_not_ends_with?: String;
-  order?: Int;
-  order_not?: Int;
-  order_in?: Int[] | Int;
-  order_not_in?: Int[] | Int;
-  order_lt?: Int;
-  order_lte?: Int;
-  order_gt?: Int;
-  order_gte?: Int;
-  AND?: ProsWhereInput[] | ProsWhereInput;
-  OR?: ProsWhereInput[] | ProsWhereInput;
-  NOT?: ProsWhereInput[] | ProsWhereInput;
-}
-
-export interface AlertBoxUpsertWithWhereUniqueWithoutPageInput {
-  where: AlertBoxWhereUniqueInput;
-  update: AlertBoxUpdateWithoutPageDataInput;
-  create: AlertBoxCreateWithoutPageInput;
-}
-
-export interface ProsSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: ProsWhereInput;
-  AND?: ProsSubscriptionWhereInput[] | ProsSubscriptionWhereInput;
-  OR?: ProsSubscriptionWhereInput[] | ProsSubscriptionWhereInput;
-  NOT?: ProsSubscriptionWhereInput[] | ProsSubscriptionWhereInput;
-}
-
-export interface AlertBoxScalarWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  title?: String;
-  title_not?: String;
-  title_in?: String[] | String;
-  title_not_in?: String[] | String;
-  title_lt?: String;
-  title_lte?: String;
-  title_gt?: String;
-  title_gte?: String;
-  title_contains?: String;
-  title_not_contains?: String;
-  title_starts_with?: String;
-  title_not_starts_with?: String;
-  title_ends_with?: String;
-  title_not_ends_with?: String;
-  content?: String;
-  content_not?: String;
-  content_in?: String[] | String;
-  content_not_in?: String[] | String;
-  content_lt?: String;
-  content_lte?: String;
-  content_gt?: String;
-  content_gte?: String;
-  content_contains?: String;
-  content_not_contains?: String;
-  content_starts_with?: String;
-  content_not_starts_with?: String;
-  content_ends_with?: String;
-  content_not_ends_with?: String;
-  prefix?: String;
-  prefix_not?: String;
-  prefix_in?: String[] | String;
-  prefix_not_in?: String[] | String;
-  prefix_lt?: String;
-  prefix_lte?: String;
-  prefix_gt?: String;
-  prefix_gte?: String;
-  prefix_contains?: String;
-  prefix_not_contains?: String;
-  prefix_starts_with?: String;
-  prefix_not_starts_with?: String;
-  prefix_ends_with?: String;
-  prefix_not_ends_with?: String;
-  style?: String;
-  style_not?: String;
-  style_in?: String[] | String;
-  style_not_in?: String[] | String;
-  style_lt?: String;
-  style_lte?: String;
-  style_gt?: String;
-  style_gte?: String;
-  style_contains?: String;
-  style_not_contains?: String;
-  style_starts_with?: String;
-  style_not_starts_with?: String;
-  style_ends_with?: String;
-  style_not_ends_with?: String;
-  order?: Int;
-  order_not?: Int;
-  order_in?: Int[] | Int;
-  order_not_in?: Int[] | Int;
-  order_lt?: Int;
-  order_lte?: Int;
-  order_gt?: Int;
-  order_gte?: Int;
-  AND?: AlertBoxScalarWhereInput[] | AlertBoxScalarWhereInput;
-  OR?: AlertBoxScalarWhereInput[] | AlertBoxScalarWhereInput;
-  NOT?: AlertBoxScalarWhereInput[] | AlertBoxScalarWhereInput;
-}
-
-export interface FaqCategorySubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: FaqCategoryWhereInput;
-  AND?: FaqCategorySubscriptionWhereInput[] | FaqCategorySubscriptionWhereInput;
-  OR?: FaqCategorySubscriptionWhereInput[] | FaqCategorySubscriptionWhereInput;
-  NOT?: FaqCategorySubscriptionWhereInput[] | FaqCategorySubscriptionWhereInput;
-}
-
-export interface AlertBoxUpdateManyWithWhereNestedInput {
-  where: AlertBoxScalarWhereInput;
-  data: AlertBoxUpdateManyDataInput;
-}
-
-export type BlockWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface AlertBoxUpdateManyDataInput {
-  title?: String;
-  content?: String;
-  prefix?: String;
-  style?: String;
-  order?: Int;
-}
-
-export type BoxWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface PageUpsertWithoutBlocksInput {
-  update: PageUpdateWithoutBlocksDataInput;
-  create: PageCreateWithoutBlocksInput;
-}
-
-export type ConsWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface BlockUpdateManyMutationInput {
-  title?: String;
-  video?: String;
-  style?: String;
-  content?: String;
-  order?: Int;
-}
-
-export type FaqWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface BoxCreateInput {
-  page: PageCreateOneWithoutBoxesInput;
-  title?: String;
-  media?: MediaCreateOneInput;
-  video?: String;
-  style?: String;
-  content?: String;
-  order?: Int;
-}
-
-export interface MediaWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  url?: String;
-  url_not?: String;
-  url_in?: String[] | String;
-  url_not_in?: String[] | String;
-  url_lt?: String;
-  url_lte?: String;
-  url_gt?: String;
-  url_gte?: String;
-  url_contains?: String;
-  url_not_contains?: String;
-  url_starts_with?: String;
-  url_not_starts_with?: String;
-  url_ends_with?: String;
-  url_not_ends_with?: String;
-  title?: String;
-  title_not?: String;
-  title_in?: String[] | String;
-  title_not_in?: String[] | String;
-  title_lt?: String;
-  title_lte?: String;
-  title_gt?: String;
-  title_gte?: String;
-  title_contains?: String;
-  title_not_contains?: String;
-  title_starts_with?: String;
-  title_not_starts_with?: String;
-  title_ends_with?: String;
-  title_not_ends_with?: String;
-  altText?: String;
-  altText_not?: String;
-  altText_in?: String[] | String;
-  altText_not_in?: String[] | String;
-  altText_lt?: String;
-  altText_lte?: String;
-  altText_gt?: String;
-  altText_gte?: String;
-  altText_contains?: String;
-  altText_not_contains?: String;
-  altText_starts_with?: String;
-  altText_not_starts_with?: String;
-  altText_ends_with?: String;
-  altText_not_ends_with?: String;
-  AND?: MediaWhereInput[] | MediaWhereInput;
-  OR?: MediaWhereInput[] | MediaWhereInput;
-  NOT?: MediaWhereInput[] | MediaWhereInput;
-}
-
-export interface PageCreateOneWithoutBoxesInput {
-  create?: PageCreateWithoutBoxesInput;
-  connect?: PageWhereUniqueInput;
 }
 
 export interface FaqWhereInput {
@@ -2850,261 +2714,16 @@ export interface FaqWhereInput {
   NOT?: FaqWhereInput[] | FaqWhereInput;
 }
 
-export interface PageCreateWithoutBoxesInput {
-  title: String;
-  slug: String;
-  type: PageType;
-  status: PageStatus;
-  vertical?: String;
+export interface BlockCreateWithoutPageInput {
+  title?: String;
   media?: MediaCreateOneInput;
-  blocks?: BlockCreateManyWithoutPageInput;
-  prosAndCons?: ProsAndConsCreateManyWithoutPageInput;
-  alertBoxes?: AlertBoxCreateManyWithoutPageInput;
-  quickTips?: QuickTipCreateManyWithoutPageInput;
-}
-
-export interface ProsAndConsCreateInput {
-  page: PageCreateOneWithoutProsAndConsInput;
-  title?: String;
-  order?: Int;
-  pros?: ProsCreateManyWithoutProsAndConsInput;
-  cons?: ConsCreateManyWithoutProsAndConsInput;
-}
-
-export interface BoxUpdateInput {
-  page?: PageUpdateOneRequiredWithoutBoxesInput;
-  title?: String;
-  media?: MediaUpdateOneInput;
   video?: String;
   style?: String;
   content?: String;
   order?: Int;
 }
 
-export type FaqCategoryWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface PageUpdateOneRequiredWithoutBoxesInput {
-  create?: PageCreateWithoutBoxesInput;
-  update?: PageUpdateWithoutBoxesDataInput;
-  upsert?: PageUpsertWithoutBoxesInput;
-  connect?: PageWhereUniqueInput;
-}
-
-export type MediaWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface PageUpdateWithoutBoxesDataInput {
-  title?: String;
-  slug?: String;
-  type?: PageType;
-  status?: PageStatus;
-  vertical?: String;
-  media?: MediaUpdateOneInput;
-  blocks?: BlockUpdateManyWithoutPageInput;
-  prosAndCons?: ProsAndConsUpdateManyWithoutPageInput;
-  alertBoxes?: AlertBoxUpdateManyWithoutPageInput;
-  quickTips?: QuickTipUpdateManyWithoutPageInput;
-}
-
-export interface PageUpdateInput {
-  title?: String;
-  slug?: String;
-  type?: PageType;
-  status?: PageStatus;
-  vertical?: String;
-  media?: MediaUpdateOneInput;
-  blocks?: BlockUpdateManyWithoutPageInput;
-  boxes?: BoxUpdateManyWithoutPageInput;
-  prosAndCons?: ProsAndConsUpdateManyWithoutPageInput;
-  alertBoxes?: AlertBoxUpdateManyWithoutPageInput;
-  quickTips?: QuickTipUpdateManyWithoutPageInput;
-}
-
-export interface PageUpsertWithoutBoxesInput {
-  update: PageUpdateWithoutBoxesDataInput;
-  create: PageCreateWithoutBoxesInput;
-}
-
-export interface MediaUpdateInput {
-  url?: String;
-  title?: String;
-  altText?: String;
-}
-
-export interface BoxUpdateManyMutationInput {
-  title?: String;
-  video?: String;
-  style?: String;
-  content?: String;
-  order?: Int;
-}
-
-export interface FaqUpdateManyWithWhereNestedInput {
-  where: FaqScalarWhereInput;
-  data: FaqUpdateManyDataInput;
-}
-
-export interface ConsCreateInput {
-  prosAndCons: ProsAndConsCreateOneWithoutConsInput;
-  content?: String;
-  order?: Int;
-}
-
-export interface FaqUpdateWithoutCategoryDataInput {
-  title?: String;
-  description?: String;
-  short_description?: String;
-  authors?: UserUpdateManyInput;
-  slug?: String;
-  vertical?: String;
-  readingTime?: Int;
-  order?: Int;
-  variant?: FaqUpdatevariantInput;
-  tag?: FaqUpdatetagInput;
-  pubDate?: DateTimeInput;
-}
-
-export interface ProsAndConsCreateOneWithoutConsInput {
-  create?: ProsAndConsCreateWithoutConsInput;
-  connect?: ProsAndConsWhereUniqueInput;
-}
-
-export interface FaqCategoryUpdateInput {
-  name?: String;
-  slug?: String;
-  description?: String;
-  faqs?: FaqUpdateManyWithoutCategoryInput;
-}
-
-export interface ProsAndConsCreateWithoutConsInput {
-  page: PageCreateOneWithoutProsAndConsInput;
-  title?: String;
-  order?: Int;
-  pros?: ProsCreateManyWithoutProsAndConsInput;
-}
-
-export interface FaqCategoryCreateInput {
-  name: String;
-  slug: String;
-  description: String;
-  faqs?: FaqCreateManyWithoutCategoryInput;
-}
-
-export interface PageCreateOneWithoutProsAndConsInput {
-  create?: PageCreateWithoutProsAndConsInput;
-  connect?: PageWhereUniqueInput;
-}
-
-export interface PageCreateOneWithoutAlertBoxesInput {
-  create?: PageCreateWithoutAlertBoxesInput;
-  connect?: PageWhereUniqueInput;
-}
-
-export interface PageCreateWithoutProsAndConsInput {
-  title: String;
-  slug: String;
-  type: PageType;
-  status: PageStatus;
-  vertical?: String;
-  media?: MediaCreateOneInput;
-  blocks?: BlockCreateManyWithoutPageInput;
-  boxes?: BoxCreateManyWithoutPageInput;
-  alertBoxes?: AlertBoxCreateManyWithoutPageInput;
-  quickTips?: QuickTipCreateManyWithoutPageInput;
-}
-
-export interface BlockCreateManyWithoutPageInput {
-  create?: BlockCreateWithoutPageInput[] | BlockCreateWithoutPageInput;
-  connect?: BlockWhereUniqueInput[] | BlockWhereUniqueInput;
-}
-
-export interface ConsUpdateInput {
-  prosAndCons?: ProsAndConsUpdateOneRequiredWithoutConsInput;
-  content?: String;
-  order?: Int;
-}
-
-export interface ProsAndConsCreateManyWithoutPageInput {
-  create?:
-    | ProsAndConsCreateWithoutPageInput[]
-    | ProsAndConsCreateWithoutPageInput;
-  connect?: ProsAndConsWhereUniqueInput[] | ProsAndConsWhereUniqueInput;
-}
-
-export interface ProsAndConsUpdateOneRequiredWithoutConsInput {
-  create?: ProsAndConsCreateWithoutConsInput;
-  update?: ProsAndConsUpdateWithoutConsDataInput;
-  upsert?: ProsAndConsUpsertWithoutConsInput;
-  connect?: ProsAndConsWhereUniqueInput;
-}
-
-export interface ConsCreateManyWithoutProsAndConsInput {
-  create?:
-    | ConsCreateWithoutProsAndConsInput[]
-    | ConsCreateWithoutProsAndConsInput;
-  connect?: ConsWhereUniqueInput[] | ConsWhereUniqueInput;
-}
-
-export interface ProsAndConsUpdateWithoutConsDataInput {
-  page?: PageUpdateOneRequiredWithoutProsAndConsInput;
-  title?: String;
-  order?: Int;
-  pros?: ProsUpdateManyWithoutProsAndConsInput;
-}
-
-export interface AlertBoxUpdateInput {
-  page?: PageUpdateOneRequiredWithoutAlertBoxesInput;
-  title?: String;
-  content?: String;
-  prefix?: String;
-  style?: String;
-  order?: Int;
-}
-
-export interface PageUpdateOneRequiredWithoutProsAndConsInput {
-  create?: PageCreateWithoutProsAndConsInput;
-  update?: PageUpdateWithoutProsAndConsDataInput;
-  upsert?: PageUpsertWithoutProsAndConsInput;
-  connect?: PageWhereUniqueInput;
-}
-
-export interface MediaUpdateDataInput {
-  url?: String;
-  title?: String;
-  altText?: String;
-}
-
-export interface PageUpdateWithoutProsAndConsDataInput {
-  title?: String;
-  slug?: String;
-  type?: PageType;
-  status?: PageStatus;
-  vertical?: String;
-  media?: MediaUpdateOneInput;
-  blocks?: BlockUpdateManyWithoutPageInput;
-  boxes?: BoxUpdateManyWithoutPageInput;
-  alertBoxes?: AlertBoxUpdateManyWithoutPageInput;
-  quickTips?: QuickTipUpdateManyWithoutPageInput;
-}
-
-export interface BlockUpdateWithoutPageDataInput {
-  title?: String;
-  media?: MediaUpdateOneInput;
-  video?: String;
-  style?: String;
-  content?: String;
-  order?: Int;
-}
-
-export interface PageUpsertWithoutProsAndConsInput {
-  update: PageUpdateWithoutProsAndConsDataInput;
-  create: PageCreateWithoutProsAndConsInput;
-}
-
-export interface ProsAndConsWhereInput {
+export interface PageFaqWhereInput {
   id?: ID_Input;
   id_not?: ID_Input;
   id_in?: ID_Input[] | ID_Input;
@@ -3119,21 +2738,6 @@ export interface ProsAndConsWhereInput {
   id_not_starts_with?: ID_Input;
   id_ends_with?: ID_Input;
   id_not_ends_with?: ID_Input;
-  page?: PageWhereInput;
-  title?: String;
-  title_not?: String;
-  title_in?: String[] | String;
-  title_not_in?: String[] | String;
-  title_lt?: String;
-  title_lte?: String;
-  title_gt?: String;
-  title_gte?: String;
-  title_contains?: String;
-  title_not_contains?: String;
-  title_starts_with?: String;
-  title_not_starts_with?: String;
-  title_ends_with?: String;
-  title_not_ends_with?: String;
   order?: Int;
   order_not?: Int;
   order_in?: Int[] | Int;
@@ -3142,62 +2746,73 @@ export interface ProsAndConsWhereInput {
   order_lte?: Int;
   order_gt?: Int;
   order_gte?: Int;
-  pros_every?: ProsWhereInput;
-  pros_some?: ProsWhereInput;
-  pros_none?: ProsWhereInput;
-  cons_every?: ConsWhereInput;
-  cons_some?: ConsWhereInput;
-  cons_none?: ConsWhereInput;
-  AND?: ProsAndConsWhereInput[] | ProsAndConsWhereInput;
-  OR?: ProsAndConsWhereInput[] | ProsAndConsWhereInput;
-  NOT?: ProsAndConsWhereInput[] | ProsAndConsWhereInput;
+  page?: PageWhereInput;
+  faq?: FaqWhereInput;
+  AND?: PageFaqWhereInput[] | PageFaqWhereInput;
+  OR?: PageFaqWhereInput[] | PageFaqWhereInput;
+  NOT?: PageFaqWhereInput[] | PageFaqWhereInput;
 }
 
-export interface ProsAndConsUpsertWithoutConsInput {
-  update: ProsAndConsUpdateWithoutConsDataInput;
-  create: ProsAndConsCreateWithoutConsInput;
-}
-
-export interface ConsSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: ConsWhereInput;
-  AND?: ConsSubscriptionWhereInput[] | ConsSubscriptionWhereInput;
-  OR?: ConsSubscriptionWhereInput[] | ConsSubscriptionWhereInput;
-  NOT?: ConsSubscriptionWhereInput[] | ConsSubscriptionWhereInput;
-}
-
-export interface ConsUpdateManyMutationInput {
+export interface BoxCreateWithoutPageInput {
+  title?: String;
+  media?: MediaCreateOneInput;
+  video?: String;
+  style?: String;
   content?: String;
   order?: Int;
 }
 
-export interface QuickTipUpdateManyMutationInput {
+export interface UserUpdateWithWhereUniqueNestedInput {
+  where: UserWhereUniqueInput;
+  data: UserUpdateDataInput;
+}
+
+export interface ProsAndConsCreateWithoutPageInput {
+  title?: String;
+  order?: Int;
+  pros?: ProsCreateManyWithoutProsAndConsInput;
+  cons?: ConsCreateManyWithoutProsAndConsInput;
+}
+
+export interface UserUpdateDataInput {
+  name?: String;
+  email?: String;
+  password?: String;
+  resetToken?: String;
+  resetTokenExpiry?: Float;
+  permissions?: UserUpdatepermissionsInput;
+}
+
+export interface ProsCreateWithoutProsAndConsInput {
+  content?: String;
+  order?: Int;
+}
+
+export interface UserUpdatepermissionsInput {
+  set?: Permission[] | Permission;
+}
+
+export interface ConsCreateWithoutProsAndConsInput {
+  content?: String;
+  order?: Int;
+}
+
+export interface UserUpsertWithWhereUniqueNestedInput {
+  where: UserWhereUniqueInput;
+  update: UserUpdateDataInput;
+  create: UserCreateInput;
+}
+
+export interface QuickTipCreateWithoutPageInput {
   title?: String;
   content?: String;
   buttonText?: String;
   buttonLink?: String;
+  media?: MediaCreateOneInput;
   order?: Int;
 }
 
-export interface FaqCreateInput {
-  title: String;
-  description?: String;
-  short_description?: String;
-  authors?: UserCreateManyInput;
-  slug: String;
-  vertical?: String;
-  category?: FaqCategoryCreateManyWithoutFaqsInput;
-  readingTime?: Int;
-  order?: Int;
-  variant?: FaqCreatevariantInput;
-  tag?: FaqCreatetagInput;
-  pubDate?: DateTimeInput;
-}
-
-export interface UserWhereInput {
+export interface UserScalarWhereInput {
   id?: ID_Input;
   id_not?: ID_Input;
   id_in?: ID_Input[] | ID_Input;
@@ -3276,14 +2891,340 @@ export interface UserWhereInput {
   resetTokenExpiry_lte?: Float;
   resetTokenExpiry_gt?: Float;
   resetTokenExpiry_gte?: Float;
-  AND?: UserWhereInput[] | UserWhereInput;
-  OR?: UserWhereInput[] | UserWhereInput;
-  NOT?: UserWhereInput[] | UserWhereInput;
+  AND?: UserScalarWhereInput[] | UserScalarWhereInput;
+  OR?: UserScalarWhereInput[] | UserScalarWhereInput;
+  NOT?: UserScalarWhereInput[] | UserScalarWhereInput;
 }
 
-export interface UserCreateManyInput {
-  create?: UserCreateInput[] | UserCreateInput;
-  connect?: UserWhereUniqueInput[] | UserWhereUniqueInput;
+export interface PageFaqCreateWithoutPageInput {
+  order?: Int;
+  faq: FaqCreateOneInput;
+}
+
+export interface UserUpdateManyWithWhereNestedInput {
+  where: UserScalarWhereInput;
+  data: UserUpdateManyDataInput;
+}
+
+export interface FaqCreateInput {
+  title: String;
+  description?: String;
+  short_description?: String;
+  authors?: UserCreateManyInput;
+  slug: String;
+  vertical?: String;
+  category?: FaqCategoryCreateManyWithoutFaqsInput;
+  readingTime?: Int;
+  order?: Int;
+  variant?: FaqCreatevariantInput;
+  tag?: FaqCreatetagInput;
+  pubDate?: DateTimeInput;
+}
+
+export interface UserUpdateManyDataInput {
+  name?: String;
+  email?: String;
+  password?: String;
+  resetToken?: String;
+  resetTokenExpiry?: Float;
+  permissions?: UserUpdatepermissionsInput;
+}
+
+export interface UserCreateInput {
+  name: String;
+  email: String;
+  password: String;
+  resetToken?: String;
+  resetTokenExpiry?: Float;
+  permissions?: UserCreatepermissionsInput;
+}
+
+export interface FaqCategoryUpdateManyWithoutFaqsInput {
+  create?:
+    | FaqCategoryCreateWithoutFaqsInput[]
+    | FaqCategoryCreateWithoutFaqsInput;
+  delete?: FaqCategoryWhereUniqueInput[] | FaqCategoryWhereUniqueInput;
+  connect?: FaqCategoryWhereUniqueInput[] | FaqCategoryWhereUniqueInput;
+  set?: FaqCategoryWhereUniqueInput[] | FaqCategoryWhereUniqueInput;
+  disconnect?: FaqCategoryWhereUniqueInput[] | FaqCategoryWhereUniqueInput;
+  update?:
+    | FaqCategoryUpdateWithWhereUniqueWithoutFaqsInput[]
+    | FaqCategoryUpdateWithWhereUniqueWithoutFaqsInput;
+  upsert?:
+    | FaqCategoryUpsertWithWhereUniqueWithoutFaqsInput[]
+    | FaqCategoryUpsertWithWhereUniqueWithoutFaqsInput;
+  deleteMany?: FaqCategoryScalarWhereInput[] | FaqCategoryScalarWhereInput;
+  updateMany?:
+    | FaqCategoryUpdateManyWithWhereNestedInput[]
+    | FaqCategoryUpdateManyWithWhereNestedInput;
+}
+
+export interface FaqCategoryCreateManyWithoutFaqsInput {
+  create?:
+    | FaqCategoryCreateWithoutFaqsInput[]
+    | FaqCategoryCreateWithoutFaqsInput;
+  connect?: FaqCategoryWhereUniqueInput[] | FaqCategoryWhereUniqueInput;
+}
+
+export interface FaqCategoryUpdateWithWhereUniqueWithoutFaqsInput {
+  where: FaqCategoryWhereUniqueInput;
+  data: FaqCategoryUpdateWithoutFaqsDataInput;
+}
+
+export interface FaqCreatevariantInput {
+  set?: String[] | String;
+}
+
+export interface FaqCategoryUpdateWithoutFaqsDataInput {
+  name?: String;
+  slug?: String;
+  description?: String;
+}
+
+export interface PageFaqAccordionCreateManyWithoutPageInput {
+  create?:
+    | PageFaqAccordionCreateWithoutPageInput[]
+    | PageFaqAccordionCreateWithoutPageInput;
+  connect?:
+    | PageFaqAccordionWhereUniqueInput[]
+    | PageFaqAccordionWhereUniqueInput;
+}
+
+export interface FaqCategoryUpsertWithWhereUniqueWithoutFaqsInput {
+  where: FaqCategoryWhereUniqueInput;
+  update: FaqCategoryUpdateWithoutFaqsDataInput;
+  create: FaqCategoryCreateWithoutFaqsInput;
+}
+
+export interface FaqCategoryCreateOneInput {
+  create?: FaqCategoryCreateInput;
+  connect?: FaqCategoryWhereUniqueInput;
+}
+
+export interface FaqCategoryScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  name?: String;
+  name_not?: String;
+  name_in?: String[] | String;
+  name_not_in?: String[] | String;
+  name_lt?: String;
+  name_lte?: String;
+  name_gt?: String;
+  name_gte?: String;
+  name_contains?: String;
+  name_not_contains?: String;
+  name_starts_with?: String;
+  name_not_starts_with?: String;
+  name_ends_with?: String;
+  name_not_ends_with?: String;
+  slug?: String;
+  slug_not?: String;
+  slug_in?: String[] | String;
+  slug_not_in?: String[] | String;
+  slug_lt?: String;
+  slug_lte?: String;
+  slug_gt?: String;
+  slug_gte?: String;
+  slug_contains?: String;
+  slug_not_contains?: String;
+  slug_starts_with?: String;
+  slug_not_starts_with?: String;
+  slug_ends_with?: String;
+  slug_not_ends_with?: String;
+  description?: String;
+  description_not?: String;
+  description_in?: String[] | String;
+  description_not_in?: String[] | String;
+  description_lt?: String;
+  description_lte?: String;
+  description_gt?: String;
+  description_gte?: String;
+  description_contains?: String;
+  description_not_contains?: String;
+  description_starts_with?: String;
+  description_not_starts_with?: String;
+  description_ends_with?: String;
+  description_not_ends_with?: String;
+  AND?: FaqCategoryScalarWhereInput[] | FaqCategoryScalarWhereInput;
+  OR?: FaqCategoryScalarWhereInput[] | FaqCategoryScalarWhereInput;
+  NOT?: FaqCategoryScalarWhereInput[] | FaqCategoryScalarWhereInput;
+}
+
+export interface FaqCreateManyWithoutCategoryInput {
+  create?: FaqCreateWithoutCategoryInput[] | FaqCreateWithoutCategoryInput;
+  connect?: FaqWhereUniqueInput[] | FaqWhereUniqueInput;
+}
+
+export interface FaqCategoryUpdateManyWithWhereNestedInput {
+  where: FaqCategoryScalarWhereInput;
+  data: FaqCategoryUpdateManyDataInput;
+}
+
+export interface AlertBoxUpdateInput {
+  page?: PageUpdateOneRequiredWithoutAlertBoxesInput;
+  title?: String;
+  content?: String;
+  prefix?: String;
+  style?: String;
+  order?: Int;
+}
+
+export interface FaqCategoryUpdateManyDataInput {
+  name?: String;
+  slug?: String;
+  description?: String;
+}
+
+export interface PageUpdateWithoutAlertBoxesDataInput {
+  title?: String;
+  slug?: String;
+  type?: PageType;
+  status?: PageStatus;
+  vertical?: String;
+  media?: MediaUpdateOneInput;
+  blocks?: BlockUpdateManyWithoutPageInput;
+  boxes?: BoxUpdateManyWithoutPageInput;
+  prosAndCons?: ProsAndConsUpdateManyWithoutPageInput;
+  quickTips?: QuickTipUpdateManyWithoutPageInput;
+  faqs?: PageFaqUpdateManyWithoutPageInput;
+  faqAccordion?: PageFaqAccordionUpdateManyWithoutPageInput;
+}
+
+export interface FaqUpdatevariantInput {
+  set?: String[] | String;
+}
+
+export interface MediaUpdateDataInput {
+  url?: String;
+  title?: String;
+  altText?: String;
+}
+
+export interface FaqUpdatetagInput {
+  set?: String[] | String;
+}
+
+export interface BlockUpdateManyWithoutPageInput {
+  create?: BlockCreateWithoutPageInput[] | BlockCreateWithoutPageInput;
+  delete?: BlockWhereUniqueInput[] | BlockWhereUniqueInput;
+  connect?: BlockWhereUniqueInput[] | BlockWhereUniqueInput;
+  set?: BlockWhereUniqueInput[] | BlockWhereUniqueInput;
+  disconnect?: BlockWhereUniqueInput[] | BlockWhereUniqueInput;
+  update?:
+    | BlockUpdateWithWhereUniqueWithoutPageInput[]
+    | BlockUpdateWithWhereUniqueWithoutPageInput;
+  upsert?:
+    | BlockUpsertWithWhereUniqueWithoutPageInput[]
+    | BlockUpsertWithWhereUniqueWithoutPageInput;
+  deleteMany?: BlockScalarWhereInput[] | BlockScalarWhereInput;
+  updateMany?:
+    | BlockUpdateManyWithWhereNestedInput[]
+    | BlockUpdateManyWithWhereNestedInput;
+}
+
+export interface FaqUpsertNestedInput {
+  update: FaqUpdateDataInput;
+  create: FaqCreateInput;
+}
+
+export interface QuickTipSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: QuickTipWhereInput;
+  AND?: QuickTipSubscriptionWhereInput[] | QuickTipSubscriptionWhereInput;
+  OR?: QuickTipSubscriptionWhereInput[] | QuickTipSubscriptionWhereInput;
+  NOT?: QuickTipSubscriptionWhereInput[] | QuickTipSubscriptionWhereInput;
+}
+
+export interface PageFaqUpsertWithWhereUniqueWithoutPageInput {
+  where: PageFaqWhereUniqueInput;
+  update: PageFaqUpdateWithoutPageDataInput;
+  create: PageFaqCreateWithoutPageInput;
+}
+
+export interface ProsSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: ProsWhereInput;
+  AND?: ProsSubscriptionWhereInput[] | ProsSubscriptionWhereInput;
+  OR?: ProsSubscriptionWhereInput[] | ProsSubscriptionWhereInput;
+  NOT?: ProsSubscriptionWhereInput[] | ProsSubscriptionWhereInput;
+}
+
+export interface PageFaqScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  order?: Int;
+  order_not?: Int;
+  order_in?: Int[] | Int;
+  order_not_in?: Int[] | Int;
+  order_lt?: Int;
+  order_lte?: Int;
+  order_gt?: Int;
+  order_gte?: Int;
+  AND?: PageFaqScalarWhereInput[] | PageFaqScalarWhereInput;
+  OR?: PageFaqScalarWhereInput[] | PageFaqScalarWhereInput;
+  NOT?: PageFaqScalarWhereInput[] | PageFaqScalarWhereInput;
+}
+
+export interface PageFaqSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: PageFaqWhereInput;
+  AND?: PageFaqSubscriptionWhereInput[] | PageFaqSubscriptionWhereInput;
+  OR?: PageFaqSubscriptionWhereInput[] | PageFaqSubscriptionWhereInput;
+  NOT?: PageFaqSubscriptionWhereInput[] | PageFaqSubscriptionWhereInput;
+}
+
+export interface PageFaqUpdateManyWithWhereNestedInput {
+  where: PageFaqScalarWhereInput;
+  data: PageFaqUpdateManyDataInput;
+}
+
+export interface FaqCategorySubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: FaqCategoryWhereInput;
+  AND?: FaqCategorySubscriptionWhereInput[] | FaqCategorySubscriptionWhereInput;
+  OR?: FaqCategorySubscriptionWhereInput[] | FaqCategorySubscriptionWhereInput;
+  NOT?: FaqCategorySubscriptionWhereInput[] | FaqCategorySubscriptionWhereInput;
+}
+
+export interface PageFaqUpdateManyDataInput {
+  order?: Int;
 }
 
 export interface BlockWhereInput {
@@ -3372,89 +3313,123 @@ export interface BlockWhereInput {
   NOT?: BlockWhereInput[] | BlockWhereInput;
 }
 
-export interface UserCreateInput {
-  name: String;
-  email: String;
-  password: String;
-  resetToken?: String;
-  resetTokenExpiry?: Float;
-  permissions?: UserCreatepermissionsInput;
+export interface PageFaqAccordionUpdateManyWithoutPageInput {
+  create?:
+    | PageFaqAccordionCreateWithoutPageInput[]
+    | PageFaqAccordionCreateWithoutPageInput;
+  delete?:
+    | PageFaqAccordionWhereUniqueInput[]
+    | PageFaqAccordionWhereUniqueInput;
+  connect?:
+    | PageFaqAccordionWhereUniqueInput[]
+    | PageFaqAccordionWhereUniqueInput;
+  set?: PageFaqAccordionWhereUniqueInput[] | PageFaqAccordionWhereUniqueInput;
+  disconnect?:
+    | PageFaqAccordionWhereUniqueInput[]
+    | PageFaqAccordionWhereUniqueInput;
+  update?:
+    | PageFaqAccordionUpdateWithWhereUniqueWithoutPageInput[]
+    | PageFaqAccordionUpdateWithWhereUniqueWithoutPageInput;
+  upsert?:
+    | PageFaqAccordionUpsertWithWhereUniqueWithoutPageInput[]
+    | PageFaqAccordionUpsertWithWhereUniqueWithoutPageInput;
+  deleteMany?:
+    | PageFaqAccordionScalarWhereInput[]
+    | PageFaqAccordionScalarWhereInput;
+  updateMany?:
+    | PageFaqAccordionUpdateManyWithWhereNestedInput[]
+    | PageFaqAccordionUpdateManyWithWhereNestedInput;
 }
 
-export interface ProsUpdateInput {
-  prosAndCons?: ProsAndConsUpdateOneRequiredWithoutProsInput;
-  content?: String;
+export interface AlertBoxSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: AlertBoxWhereInput;
+  AND?: AlertBoxSubscriptionWhereInput[] | AlertBoxSubscriptionWhereInput;
+  OR?: AlertBoxSubscriptionWhereInput[] | AlertBoxSubscriptionWhereInput;
+  NOT?: AlertBoxSubscriptionWhereInput[] | AlertBoxSubscriptionWhereInput;
+}
+
+export interface PageFaqAccordionUpdateWithWhereUniqueWithoutPageInput {
+  where: PageFaqAccordionWhereUniqueInput;
+  data: PageFaqAccordionUpdateWithoutPageDataInput;
+}
+
+export type BlockWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface PageFaqAccordionUpdateWithoutPageDataInput {
   order?: Int;
+  faqCategory?: FaqCategoryUpdateOneRequiredInput;
 }
 
-export interface UserCreatepermissionsInput {
-  set?: Permission[] | Permission;
-}
-
-export interface PageCreateInput {
-  title: String;
-  slug: String;
-  type: PageType;
-  status: PageStatus;
-  vertical?: String;
-  media?: MediaCreateOneInput;
-  blocks?: BlockCreateManyWithoutPageInput;
-  boxes?: BoxCreateManyWithoutPageInput;
-  prosAndCons?: ProsAndConsCreateManyWithoutPageInput;
-  alertBoxes?: AlertBoxCreateManyWithoutPageInput;
-  quickTips?: QuickTipCreateManyWithoutPageInput;
-}
-
-export interface FaqCategoryCreateManyWithoutFaqsInput {
-  create?:
-    | FaqCategoryCreateWithoutFaqsInput[]
-    | FaqCategoryCreateWithoutFaqsInput;
-  connect?: FaqCategoryWhereUniqueInput[] | FaqCategoryWhereUniqueInput;
-}
-
-export type ProsAndConsWhereUniqueInput = AtLeastOne<{
+export type BoxWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
 }>;
 
-export interface FaqCategoryCreateWithoutFaqsInput {
-  name: String;
-  slug: String;
-  description: String;
+export interface FaqCategoryUpdateOneRequiredInput {
+  create?: FaqCategoryCreateInput;
+  update?: FaqCategoryUpdateDataInput;
+  upsert?: FaqCategoryUpsertNestedInput;
+  connect?: FaqCategoryWhereUniqueInput;
 }
 
-export type UserWhereUniqueInput = AtLeastOne<{
+export type ConsWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
-  email?: String;
 }>;
 
-export interface FaqCreatevariantInput {
-  set?: String[] | String;
+export interface FaqCategoryUpdateDataInput {
+  name?: String;
+  slug?: String;
+  description?: String;
+  faqs?: FaqUpdateManyWithoutCategoryInput;
 }
 
-export interface MediaCreateOneInput {
-  create?: MediaCreateInput;
-  connect?: MediaWhereUniqueInput;
+export type FaqWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface FaqUpdateManyWithoutCategoryInput {
+  create?: FaqCreateWithoutCategoryInput[] | FaqCreateWithoutCategoryInput;
+  delete?: FaqWhereUniqueInput[] | FaqWhereUniqueInput;
+  connect?: FaqWhereUniqueInput[] | FaqWhereUniqueInput;
+  set?: FaqWhereUniqueInput[] | FaqWhereUniqueInput;
+  disconnect?: FaqWhereUniqueInput[] | FaqWhereUniqueInput;
+  update?:
+    | FaqUpdateWithWhereUniqueWithoutCategoryInput[]
+    | FaqUpdateWithWhereUniqueWithoutCategoryInput;
+  upsert?:
+    | FaqUpsertWithWhereUniqueWithoutCategoryInput[]
+    | FaqUpsertWithWhereUniqueWithoutCategoryInput;
+  deleteMany?: FaqScalarWhereInput[] | FaqScalarWhereInput;
+  updateMany?:
+    | FaqUpdateManyWithWhereNestedInput[]
+    | FaqUpdateManyWithWhereNestedInput;
 }
 
-export interface FaqCreatetagInput {
-  set?: String[] | String;
+export type FaqCategoryWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface FaqUpdateWithWhereUniqueWithoutCategoryInput {
+  where: FaqWhereUniqueInput;
+  data: FaqUpdateWithoutCategoryDataInput;
 }
 
-export interface ProsCreateManyWithoutProsAndConsInput {
-  create?:
-    | ProsCreateWithoutProsAndConsInput[]
-    | ProsCreateWithoutProsAndConsInput;
-  connect?: ProsWhereUniqueInput[] | ProsWhereUniqueInput;
-}
+export type MediaWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
 
-export interface FaqUpdateInput {
+export interface FaqUpdateWithoutCategoryDataInput {
   title?: String;
   description?: String;
   short_description?: String;
   authors?: UserUpdateManyInput;
   slug?: String;
   vertical?: String;
-  category?: FaqCategoryUpdateManyWithoutFaqsInput;
   readingTime?: Int;
   order?: Int;
   variant?: FaqUpdatevariantInput;
@@ -3462,38 +3437,24 @@ export interface FaqUpdateInput {
   pubDate?: DateTimeInput;
 }
 
-export interface PageUpdateWithoutAlertBoxesDataInput {
-  title?: String;
-  slug?: String;
-  type?: PageType;
-  status?: PageStatus;
-  vertical?: String;
-  media?: MediaUpdateOneInput;
-  blocks?: BlockUpdateManyWithoutPageInput;
-  boxes?: BoxUpdateManyWithoutPageInput;
-  prosAndCons?: ProsAndConsUpdateManyWithoutPageInput;
-  quickTips?: QuickTipUpdateManyWithoutPageInput;
+export interface PageFaqAccordionUpdateManyMutationInput {
+  order?: Int;
 }
 
-export interface UserUpdateManyInput {
-  create?: UserCreateInput[] | UserCreateInput;
-  update?:
-    | UserUpdateWithWhereUniqueNestedInput[]
-    | UserUpdateWithWhereUniqueNestedInput;
-  upsert?:
-    | UserUpsertWithWhereUniqueNestedInput[]
-    | UserUpsertWithWhereUniqueNestedInput;
-  delete?: UserWhereUniqueInput[] | UserWhereUniqueInput;
-  connect?: UserWhereUniqueInput[] | UserWhereUniqueInput;
-  set?: UserWhereUniqueInput[] | UserWhereUniqueInput;
-  disconnect?: UserWhereUniqueInput[] | UserWhereUniqueInput;
-  deleteMany?: UserScalarWhereInput[] | UserScalarWhereInput;
-  updateMany?:
-    | UserUpdateManyWithWhereNestedInput[]
-    | UserUpdateManyWithWhereNestedInput;
+export interface FaqUpsertWithWhereUniqueWithoutCategoryInput {
+  where: FaqWhereUniqueInput;
+  update: FaqUpdateWithoutCategoryDataInput;
+  create: FaqCreateWithoutCategoryInput;
 }
 
-export interface ConsWhereInput {
+export interface PageUpdateOneRequiredWithoutFaqAccordionInput {
+  create?: PageCreateWithoutFaqAccordionInput;
+  update?: PageUpdateWithoutFaqAccordionDataInput;
+  upsert?: PageUpsertWithoutFaqAccordionInput;
+  connect?: PageWhereUniqueInput;
+}
+
+export interface FaqScalarWhereInput {
   id?: ID_Input;
   id_not?: ID_Input;
   id_in?: ID_Input[] | ID_Input;
@@ -3508,21 +3469,84 @@ export interface ConsWhereInput {
   id_not_starts_with?: ID_Input;
   id_ends_with?: ID_Input;
   id_not_ends_with?: ID_Input;
-  prosAndCons?: ProsAndConsWhereInput;
-  content?: String;
-  content_not?: String;
-  content_in?: String[] | String;
-  content_not_in?: String[] | String;
-  content_lt?: String;
-  content_lte?: String;
-  content_gt?: String;
-  content_gte?: String;
-  content_contains?: String;
-  content_not_contains?: String;
-  content_starts_with?: String;
-  content_not_starts_with?: String;
-  content_ends_with?: String;
-  content_not_ends_with?: String;
+  title?: String;
+  title_not?: String;
+  title_in?: String[] | String;
+  title_not_in?: String[] | String;
+  title_lt?: String;
+  title_lte?: String;
+  title_gt?: String;
+  title_gte?: String;
+  title_contains?: String;
+  title_not_contains?: String;
+  title_starts_with?: String;
+  title_not_starts_with?: String;
+  title_ends_with?: String;
+  title_not_ends_with?: String;
+  description?: String;
+  description_not?: String;
+  description_in?: String[] | String;
+  description_not_in?: String[] | String;
+  description_lt?: String;
+  description_lte?: String;
+  description_gt?: String;
+  description_gte?: String;
+  description_contains?: String;
+  description_not_contains?: String;
+  description_starts_with?: String;
+  description_not_starts_with?: String;
+  description_ends_with?: String;
+  description_not_ends_with?: String;
+  short_description?: String;
+  short_description_not?: String;
+  short_description_in?: String[] | String;
+  short_description_not_in?: String[] | String;
+  short_description_lt?: String;
+  short_description_lte?: String;
+  short_description_gt?: String;
+  short_description_gte?: String;
+  short_description_contains?: String;
+  short_description_not_contains?: String;
+  short_description_starts_with?: String;
+  short_description_not_starts_with?: String;
+  short_description_ends_with?: String;
+  short_description_not_ends_with?: String;
+  slug?: String;
+  slug_not?: String;
+  slug_in?: String[] | String;
+  slug_not_in?: String[] | String;
+  slug_lt?: String;
+  slug_lte?: String;
+  slug_gt?: String;
+  slug_gte?: String;
+  slug_contains?: String;
+  slug_not_contains?: String;
+  slug_starts_with?: String;
+  slug_not_starts_with?: String;
+  slug_ends_with?: String;
+  slug_not_ends_with?: String;
+  vertical?: String;
+  vertical_not?: String;
+  vertical_in?: String[] | String;
+  vertical_not_in?: String[] | String;
+  vertical_lt?: String;
+  vertical_lte?: String;
+  vertical_gt?: String;
+  vertical_gte?: String;
+  vertical_contains?: String;
+  vertical_not_contains?: String;
+  vertical_starts_with?: String;
+  vertical_not_starts_with?: String;
+  vertical_ends_with?: String;
+  vertical_not_ends_with?: String;
+  readingTime?: Int;
+  readingTime_not?: Int;
+  readingTime_in?: Int[] | Int;
+  readingTime_not_in?: Int[] | Int;
+  readingTime_lt?: Int;
+  readingTime_lte?: Int;
+  readingTime_gt?: Int;
+  readingTime_gte?: Int;
   order?: Int;
   order_not?: Int;
   order_in?: Int[] | Int;
@@ -3531,34 +3555,338 @@ export interface ConsWhereInput {
   order_lte?: Int;
   order_gt?: Int;
   order_gte?: Int;
-  AND?: ConsWhereInput[] | ConsWhereInput;
-  OR?: ConsWhereInput[] | ConsWhereInput;
-  NOT?: ConsWhereInput[] | ConsWhereInput;
+  pubDate?: DateTimeInput;
+  pubDate_not?: DateTimeInput;
+  pubDate_in?: DateTimeInput[] | DateTimeInput;
+  pubDate_not_in?: DateTimeInput[] | DateTimeInput;
+  pubDate_lt?: DateTimeInput;
+  pubDate_lte?: DateTimeInput;
+  pubDate_gt?: DateTimeInput;
+  pubDate_gte?: DateTimeInput;
+  AND?: FaqScalarWhereInput[] | FaqScalarWhereInput;
+  OR?: FaqScalarWhereInput[] | FaqScalarWhereInput;
+  NOT?: FaqScalarWhereInput[] | FaqScalarWhereInput;
 }
 
-export interface UserUpdateWithWhereUniqueNestedInput {
-  where: UserWhereUniqueInput;
-  data: UserUpdateDataInput;
+export interface PageCreateOneWithoutFaqAccordionInput {
+  create?: PageCreateWithoutFaqAccordionInput;
+  connect?: PageWhereUniqueInput;
 }
 
-export interface AlertBoxSubscriptionWhereInput {
+export interface FaqUpdateManyWithWhereNestedInput {
+  where: FaqScalarWhereInput;
+  data: FaqUpdateManyDataInput;
+}
+
+export interface PageUpsertWithoutFaqsInput {
+  update: PageUpdateWithoutFaqsDataInput;
+  create: PageCreateWithoutFaqsInput;
+}
+
+export interface FaqUpdateManyDataInput {
+  title?: String;
+  description?: String;
+  short_description?: String;
+  slug?: String;
+  vertical?: String;
+  readingTime?: Int;
+  order?: Int;
+  variant?: FaqUpdatevariantInput;
+  tag?: FaqUpdatetagInput;
+  pubDate?: DateTimeInput;
+}
+
+export interface PageFaqUpdateInput {
+  order?: Int;
+  page?: PageUpdateOneRequiredWithoutFaqsInput;
+  faq?: FaqUpdateOneRequiredInput;
+}
+
+export interface FaqCategoryUpsertNestedInput {
+  update: FaqCategoryUpdateDataInput;
+  create: FaqCategoryCreateInput;
+}
+
+export interface PageFaqCreateInput {
+  order?: Int;
+  page: PageCreateOneWithoutFaqsInput;
+  faq: FaqCreateOneInput;
+}
+
+export interface PageFaqAccordionUpsertWithWhereUniqueWithoutPageInput {
+  where: PageFaqAccordionWhereUniqueInput;
+  update: PageFaqAccordionUpdateWithoutPageDataInput;
+  create: PageFaqAccordionCreateWithoutPageInput;
+}
+
+export interface PageCreateInput {
+  title: String;
+  slug: String;
+  type: PageType;
+  status: PageStatus;
+  vertical?: String;
+  media?: MediaCreateOneInput;
+  blocks?: BlockCreateManyWithoutPageInput;
+  boxes?: BoxCreateManyWithoutPageInput;
+  prosAndCons?: ProsAndConsCreateManyWithoutPageInput;
+  alertBoxes?: AlertBoxCreateManyWithoutPageInput;
+  quickTips?: QuickTipCreateManyWithoutPageInput;
+  faqs?: PageFaqCreateManyWithoutPageInput;
+  faqAccordion?: PageFaqAccordionCreateManyWithoutPageInput;
+}
+
+export interface PageFaqAccordionScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  order?: Int;
+  order_not?: Int;
+  order_in?: Int[] | Int;
+  order_not_in?: Int[] | Int;
+  order_lt?: Int;
+  order_lte?: Int;
+  order_gt?: Int;
+  order_gte?: Int;
+  AND?: PageFaqAccordionScalarWhereInput[] | PageFaqAccordionScalarWhereInput;
+  OR?: PageFaqAccordionScalarWhereInput[] | PageFaqAccordionScalarWhereInput;
+  NOT?: PageFaqAccordionScalarWhereInput[] | PageFaqAccordionScalarWhereInput;
+}
+
+export interface FaqCategoryUpdateManyMutationInput {
+  name?: String;
+  slug?: String;
+  description?: String;
+}
+
+export interface PageFaqAccordionUpdateManyWithWhereNestedInput {
+  where: PageFaqAccordionScalarWhereInput;
+  data: PageFaqAccordionUpdateManyDataInput;
+}
+
+export interface PageCreateOneWithoutAlertBoxesInput {
+  create?: PageCreateWithoutAlertBoxesInput;
+  connect?: PageWhereUniqueInput;
+}
+
+export interface PageFaqAccordionUpdateManyDataInput {
+  order?: Int;
+}
+
+export interface BlockCreateManyWithoutPageInput {
+  create?: BlockCreateWithoutPageInput[] | BlockCreateWithoutPageInput;
+  connect?: BlockWhereUniqueInput[] | BlockWhereUniqueInput;
+}
+
+export interface PageUpsertWithoutAlertBoxesInput {
+  update: PageUpdateWithoutAlertBoxesDataInput;
+  create: PageCreateWithoutAlertBoxesInput;
+}
+
+export interface ProsAndConsCreateManyWithoutPageInput {
+  create?:
+    | ProsAndConsCreateWithoutPageInput[]
+    | ProsAndConsCreateWithoutPageInput;
+  connect?: ProsAndConsWhereUniqueInput[] | ProsAndConsWhereUniqueInput;
+}
+
+export interface AlertBoxUpdateManyMutationInput {
+  title?: String;
+  content?: String;
+  prefix?: String;
+  style?: String;
+  order?: Int;
+}
+
+export interface ConsCreateManyWithoutProsAndConsInput {
+  create?:
+    | ConsCreateWithoutProsAndConsInput[]
+    | ConsCreateWithoutProsAndConsInput;
+  connect?: ConsWhereUniqueInput[] | ConsWhereUniqueInput;
+}
+
+export interface ProsAndConsUpsertWithoutConsInput {
+  update: ProsAndConsUpdateWithoutConsDataInput;
+  create: ProsAndConsCreateWithoutConsInput;
+}
+
+export interface PageFaqCreateManyWithoutPageInput {
+  create?: PageFaqCreateWithoutPageInput[] | PageFaqCreateWithoutPageInput;
+  connect?: PageFaqWhereUniqueInput[] | PageFaqWhereUniqueInput;
+}
+
+export interface PageUpsertWithoutProsAndConsInput {
+  update: PageUpdateWithoutProsAndConsDataInput;
+  create: PageCreateWithoutProsAndConsInput;
+}
+
+export interface UserCreateManyInput {
+  create?: UserCreateInput[] | UserCreateInput;
+  connect?: UserWhereUniqueInput[] | UserWhereUniqueInput;
+}
+
+export interface BlockCreateInput {
+  page: PageCreateOneWithoutBlocksInput;
+  title?: String;
+  media?: MediaCreateOneInput;
+  video?: String;
+  style?: String;
+  content?: String;
+  order?: Int;
+}
+
+export interface FaqCategoryCreateWithoutFaqsInput {
+  name: String;
+  slug: String;
+  description: String;
+}
+
+export interface PageCreateOneWithoutBlocksInput {
+  create?: PageCreateWithoutBlocksInput;
+  connect?: PageWhereUniqueInput;
+}
+
+export interface PageFaqAccordionCreateWithoutPageInput {
+  order?: Int;
+  faqCategory: FaqCategoryCreateOneInput;
+}
+
+export interface PageCreateWithoutBlocksInput {
+  title: String;
+  slug: String;
+  type: PageType;
+  status: PageStatus;
+  vertical?: String;
+  media?: MediaCreateOneInput;
+  boxes?: BoxCreateManyWithoutPageInput;
+  prosAndCons?: ProsAndConsCreateManyWithoutPageInput;
+  alertBoxes?: AlertBoxCreateManyWithoutPageInput;
+  quickTips?: QuickTipCreateManyWithoutPageInput;
+  faqs?: PageFaqCreateManyWithoutPageInput;
+  faqAccordion?: PageFaqAccordionCreateManyWithoutPageInput;
+}
+
+export interface FaqCreateWithoutCategoryInput {
+  title: String;
+  description?: String;
+  short_description?: String;
+  authors?: UserCreateManyInput;
+  slug: String;
+  vertical?: String;
+  readingTime?: Int;
+  order?: Int;
+  variant?: FaqCreatevariantInput;
+  tag?: FaqCreatetagInput;
+  pubDate?: DateTimeInput;
+}
+
+export interface AlertBoxCreateManyWithoutPageInput {
+  create?: AlertBoxCreateWithoutPageInput[] | AlertBoxCreateWithoutPageInput;
+  connect?: AlertBoxWhereUniqueInput[] | AlertBoxWhereUniqueInput;
+}
+
+export interface MediaUpdateOneInput {
+  create?: MediaCreateInput;
+  update?: MediaUpdateDataInput;
+  upsert?: MediaUpsertNestedInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+  connect?: MediaWhereUniqueInput;
+}
+
+export interface AlertBoxCreateWithoutPageInput {
+  title?: String;
+  content?: String;
+  prefix?: String;
+  style?: String;
+  order?: Int;
+}
+
+export interface UserSubscriptionWhereInput {
   mutation_in?: MutationType[] | MutationType;
   updatedFields_contains?: String;
   updatedFields_contains_every?: String[] | String;
   updatedFields_contains_some?: String[] | String;
-  node?: AlertBoxWhereInput;
-  AND?: AlertBoxSubscriptionWhereInput[] | AlertBoxSubscriptionWhereInput;
-  OR?: AlertBoxSubscriptionWhereInput[] | AlertBoxSubscriptionWhereInput;
-  NOT?: AlertBoxSubscriptionWhereInput[] | AlertBoxSubscriptionWhereInput;
+  node?: UserWhereInput;
+  AND?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
+  OR?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
+  NOT?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
 }
 
-export interface UserUpdateDataInput {
-  name?: String;
-  email?: String;
-  password?: String;
-  resetToken?: String;
-  resetTokenExpiry?: Float;
-  permissions?: UserUpdatepermissionsInput;
+export interface BlockUpdateInput {
+  page?: PageUpdateOneRequiredWithoutBlocksInput;
+  title?: String;
+  media?: MediaUpdateOneInput;
+  video?: String;
+  style?: String;
+  content?: String;
+  order?: Int;
+}
+
+export interface ProsAndConsWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  page?: PageWhereInput;
+  title?: String;
+  title_not?: String;
+  title_in?: String[] | String;
+  title_not_in?: String[] | String;
+  title_lt?: String;
+  title_lte?: String;
+  title_gt?: String;
+  title_gte?: String;
+  title_contains?: String;
+  title_not_contains?: String;
+  title_starts_with?: String;
+  title_not_starts_with?: String;
+  title_ends_with?: String;
+  title_not_ends_with?: String;
+  order?: Int;
+  order_not?: Int;
+  order_in?: Int[] | Int;
+  order_not_in?: Int[] | Int;
+  order_lt?: Int;
+  order_lte?: Int;
+  order_gt?: Int;
+  order_gte?: Int;
+  pros_every?: ProsWhereInput;
+  pros_some?: ProsWhereInput;
+  pros_none?: ProsWhereInput;
+  cons_every?: ConsWhereInput;
+  cons_some?: ConsWhereInput;
+  cons_none?: ConsWhereInput;
+  AND?: ProsAndConsWhereInput[] | ProsAndConsWhereInput;
+  OR?: ProsAndConsWhereInput[] | ProsAndConsWhereInput;
+  NOT?: ProsAndConsWhereInput[] | ProsAndConsWhereInput;
+}
+
+export interface PageUpdateOneRequiredWithoutBlocksInput {
+  create?: PageCreateWithoutBlocksInput;
+  update?: PageUpdateWithoutBlocksDataInput;
+  upsert?: PageUpsertWithoutBlocksInput;
+  connect?: PageWhereUniqueInput;
 }
 
 export interface PageWhereInput {
@@ -3642,32 +3970,108 @@ export interface PageWhereInput {
   quickTips_every?: QuickTipWhereInput;
   quickTips_some?: QuickTipWhereInput;
   quickTips_none?: QuickTipWhereInput;
+  faqs_every?: PageFaqWhereInput;
+  faqs_some?: PageFaqWhereInput;
+  faqs_none?: PageFaqWhereInput;
+  faqAccordion_every?: PageFaqAccordionWhereInput;
+  faqAccordion_some?: PageFaqAccordionWhereInput;
+  faqAccordion_none?: PageFaqAccordionWhereInput;
   AND?: PageWhereInput[] | PageWhereInput;
   OR?: PageWhereInput[] | PageWhereInput;
   NOT?: PageWhereInput[] | PageWhereInput;
 }
 
-export interface UserUpdatepermissionsInput {
-  set?: Permission[] | Permission;
+export interface PageUpdateWithoutBlocksDataInput {
+  title?: String;
+  slug?: String;
+  type?: PageType;
+  status?: PageStatus;
+  vertical?: String;
+  media?: MediaUpdateOneInput;
+  boxes?: BoxUpdateManyWithoutPageInput;
+  prosAndCons?: ProsAndConsUpdateManyWithoutPageInput;
+  alertBoxes?: AlertBoxUpdateManyWithoutPageInput;
+  quickTips?: QuickTipUpdateManyWithoutPageInput;
+  faqs?: PageFaqUpdateManyWithoutPageInput;
+  faqAccordion?: PageFaqAccordionUpdateManyWithoutPageInput;
 }
 
-export interface ProsCreateInput {
-  prosAndCons: ProsAndConsCreateOneWithoutProsInput;
+export interface UserUpdateInput {
+  name?: String;
+  email?: String;
+  password?: String;
+  resetToken?: String;
+  resetTokenExpiry?: Float;
+  permissions?: UserUpdatepermissionsInput;
+}
+
+export interface AlertBoxUpdateManyWithoutPageInput {
+  create?: AlertBoxCreateWithoutPageInput[] | AlertBoxCreateWithoutPageInput;
+  delete?: AlertBoxWhereUniqueInput[] | AlertBoxWhereUniqueInput;
+  connect?: AlertBoxWhereUniqueInput[] | AlertBoxWhereUniqueInput;
+  set?: AlertBoxWhereUniqueInput[] | AlertBoxWhereUniqueInput;
+  disconnect?: AlertBoxWhereUniqueInput[] | AlertBoxWhereUniqueInput;
+  update?:
+    | AlertBoxUpdateWithWhereUniqueWithoutPageInput[]
+    | AlertBoxUpdateWithWhereUniqueWithoutPageInput;
+  upsert?:
+    | AlertBoxUpsertWithWhereUniqueWithoutPageInput[]
+    | AlertBoxUpsertWithWhereUniqueWithoutPageInput;
+  deleteMany?: AlertBoxScalarWhereInput[] | AlertBoxScalarWhereInput;
+  updateMany?:
+    | AlertBoxUpdateManyWithWhereNestedInput[]
+    | AlertBoxUpdateManyWithWhereNestedInput;
+}
+
+export interface PageCreateWithoutQuickTipsInput {
+  title: String;
+  slug: String;
+  type: PageType;
+  status: PageStatus;
+  vertical?: String;
+  media?: MediaCreateOneInput;
+  blocks?: BlockCreateManyWithoutPageInput;
+  boxes?: BoxCreateManyWithoutPageInput;
+  prosAndCons?: ProsAndConsCreateManyWithoutPageInput;
+  alertBoxes?: AlertBoxCreateManyWithoutPageInput;
+  faqs?: PageFaqCreateManyWithoutPageInput;
+  faqAccordion?: PageFaqAccordionCreateManyWithoutPageInput;
+}
+
+export interface AlertBoxUpdateWithWhereUniqueWithoutPageInput {
+  where: AlertBoxWhereUniqueInput;
+  data: AlertBoxUpdateWithoutPageDataInput;
+}
+
+export interface ProsUpdateManyMutationInput {
   content?: String;
   order?: Int;
 }
 
-export interface UserUpsertWithWhereUniqueNestedInput {
-  where: UserWhereUniqueInput;
-  update: UserUpdateDataInput;
-  create: UserCreateInput;
+export interface AlertBoxUpdateWithoutPageDataInput {
+  title?: String;
+  content?: String;
+  prefix?: String;
+  style?: String;
+  order?: Int;
 }
 
-export type QuickTipWhereUniqueInput = AtLeastOne<{
+export interface ProsAndConsCreateOneWithoutProsInput {
+  create?: ProsAndConsCreateWithoutProsInput;
+  connect?: ProsAndConsWhereUniqueInput;
+}
+
+export interface AlertBoxUpsertWithWhereUniqueWithoutPageInput {
+  where: AlertBoxWhereUniqueInput;
+  update: AlertBoxUpdateWithoutPageDataInput;
+  create: AlertBoxCreateWithoutPageInput;
+}
+
+export type PageFaqWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
 }>;
 
-export interface UserScalarWhereInput {
+export interface AlertBoxScalarWhereInput {
   id?: ID_Input;
   id_not?: ID_Input;
   id_in?: ID_Input[] | ID_Input;
@@ -3682,73 +4086,94 @@ export interface UserScalarWhereInput {
   id_not_starts_with?: ID_Input;
   id_ends_with?: ID_Input;
   id_not_ends_with?: ID_Input;
-  name?: String;
-  name_not?: String;
-  name_in?: String[] | String;
-  name_not_in?: String[] | String;
-  name_lt?: String;
-  name_lte?: String;
-  name_gt?: String;
-  name_gte?: String;
-  name_contains?: String;
-  name_not_contains?: String;
-  name_starts_with?: String;
-  name_not_starts_with?: String;
-  name_ends_with?: String;
-  name_not_ends_with?: String;
-  email?: String;
-  email_not?: String;
-  email_in?: String[] | String;
-  email_not_in?: String[] | String;
-  email_lt?: String;
-  email_lte?: String;
-  email_gt?: String;
-  email_gte?: String;
-  email_contains?: String;
-  email_not_contains?: String;
-  email_starts_with?: String;
-  email_not_starts_with?: String;
-  email_ends_with?: String;
-  email_not_ends_with?: String;
-  password?: String;
-  password_not?: String;
-  password_in?: String[] | String;
-  password_not_in?: String[] | String;
-  password_lt?: String;
-  password_lte?: String;
-  password_gt?: String;
-  password_gte?: String;
-  password_contains?: String;
-  password_not_contains?: String;
-  password_starts_with?: String;
-  password_not_starts_with?: String;
-  password_ends_with?: String;
-  password_not_ends_with?: String;
-  resetToken?: String;
-  resetToken_not?: String;
-  resetToken_in?: String[] | String;
-  resetToken_not_in?: String[] | String;
-  resetToken_lt?: String;
-  resetToken_lte?: String;
-  resetToken_gt?: String;
-  resetToken_gte?: String;
-  resetToken_contains?: String;
-  resetToken_not_contains?: String;
-  resetToken_starts_with?: String;
-  resetToken_not_starts_with?: String;
-  resetToken_ends_with?: String;
-  resetToken_not_ends_with?: String;
-  resetTokenExpiry?: Float;
-  resetTokenExpiry_not?: Float;
-  resetTokenExpiry_in?: Float[] | Float;
-  resetTokenExpiry_not_in?: Float[] | Float;
-  resetTokenExpiry_lt?: Float;
-  resetTokenExpiry_lte?: Float;
-  resetTokenExpiry_gt?: Float;
-  resetTokenExpiry_gte?: Float;
-  AND?: UserScalarWhereInput[] | UserScalarWhereInput;
-  OR?: UserScalarWhereInput[] | UserScalarWhereInput;
-  NOT?: UserScalarWhereInput[] | UserScalarWhereInput;
+  title?: String;
+  title_not?: String;
+  title_in?: String[] | String;
+  title_not_in?: String[] | String;
+  title_lt?: String;
+  title_lte?: String;
+  title_gt?: String;
+  title_gte?: String;
+  title_contains?: String;
+  title_not_contains?: String;
+  title_starts_with?: String;
+  title_not_starts_with?: String;
+  title_ends_with?: String;
+  title_not_ends_with?: String;
+  content?: String;
+  content_not?: String;
+  content_in?: String[] | String;
+  content_not_in?: String[] | String;
+  content_lt?: String;
+  content_lte?: String;
+  content_gt?: String;
+  content_gte?: String;
+  content_contains?: String;
+  content_not_contains?: String;
+  content_starts_with?: String;
+  content_not_starts_with?: String;
+  content_ends_with?: String;
+  content_not_ends_with?: String;
+  prefix?: String;
+  prefix_not?: String;
+  prefix_in?: String[] | String;
+  prefix_not_in?: String[] | String;
+  prefix_lt?: String;
+  prefix_lte?: String;
+  prefix_gt?: String;
+  prefix_gte?: String;
+  prefix_contains?: String;
+  prefix_not_contains?: String;
+  prefix_starts_with?: String;
+  prefix_not_starts_with?: String;
+  prefix_ends_with?: String;
+  prefix_not_ends_with?: String;
+  style?: String;
+  style_not?: String;
+  style_in?: String[] | String;
+  style_not_in?: String[] | String;
+  style_lt?: String;
+  style_lte?: String;
+  style_gt?: String;
+  style_gte?: String;
+  style_contains?: String;
+  style_not_contains?: String;
+  style_starts_with?: String;
+  style_not_starts_with?: String;
+  style_ends_with?: String;
+  style_not_ends_with?: String;
+  order?: Int;
+  order_not?: Int;
+  order_in?: Int[] | Int;
+  order_not_in?: Int[] | Int;
+  order_lt?: Int;
+  order_lte?: Int;
+  order_gt?: Int;
+  order_gte?: Int;
+  AND?: AlertBoxScalarWhereInput[] | AlertBoxScalarWhereInput;
+  OR?: AlertBoxScalarWhereInput[] | AlertBoxScalarWhereInput;
+  NOT?: AlertBoxScalarWhereInput[] | AlertBoxScalarWhereInput;
+}
+
+export type ProsWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface AlertBoxUpdateManyWithWhereNestedInput {
+  where: AlertBoxScalarWhereInput;
+  data: AlertBoxUpdateManyDataInput;
+}
+
+export type QuickTipWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface AlertBoxUpdateManyDataInput {
+  title?: String;
+  content?: String;
+  prefix?: String;
+  style?: String;
+  order?: Int;
 }
 
 export interface BoxCreateManyWithoutPageInput {
@@ -3756,100 +4181,9 @@ export interface BoxCreateManyWithoutPageInput {
   connect?: BoxWhereUniqueInput[] | BoxWhereUniqueInput;
 }
 
-export interface UserUpdateManyWithWhereNestedInput {
-  where: UserScalarWhereInput;
-  data: UserUpdateManyDataInput;
-}
-
-export interface BlockUpdateManyWithoutPageInput {
-  create?: BlockCreateWithoutPageInput[] | BlockCreateWithoutPageInput;
-  delete?: BlockWhereUniqueInput[] | BlockWhereUniqueInput;
-  connect?: BlockWhereUniqueInput[] | BlockWhereUniqueInput;
-  set?: BlockWhereUniqueInput[] | BlockWhereUniqueInput;
-  disconnect?: BlockWhereUniqueInput[] | BlockWhereUniqueInput;
-  update?:
-    | BlockUpdateWithWhereUniqueWithoutPageInput[]
-    | BlockUpdateWithWhereUniqueWithoutPageInput;
-  upsert?:
-    | BlockUpsertWithWhereUniqueWithoutPageInput[]
-    | BlockUpsertWithWhereUniqueWithoutPageInput;
-  deleteMany?: BlockScalarWhereInput[] | BlockScalarWhereInput;
-  updateMany?:
-    | BlockUpdateManyWithWhereNestedInput[]
-    | BlockUpdateManyWithWhereNestedInput;
-}
-
-export interface UserUpdateManyDataInput {
-  name?: String;
-  email?: String;
-  password?: String;
-  resetToken?: String;
-  resetTokenExpiry?: Float;
-  permissions?: UserUpdatepermissionsInput;
-}
-
-export interface PageUpdateOneRequiredWithoutQuickTipsInput {
-  create?: PageCreateWithoutQuickTipsInput;
-  update?: PageUpdateWithoutQuickTipsDataInput;
-  upsert?: PageUpsertWithoutQuickTipsInput;
-  connect?: PageWhereUniqueInput;
-}
-
-export type ProsWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
-export interface FaqCategoryUpsertWithWhereUniqueWithoutFaqsInput {
-  where: FaqCategoryWhereUniqueInput;
-  update: FaqCategoryUpdateWithoutFaqsDataInput;
-  create: FaqCategoryCreateWithoutFaqsInput;
-}
-
-export interface FaqCategoryUpdateWithoutFaqsDataInput {
-  name?: String;
-  slug?: String;
-  description?: String;
-}
-
-export interface FaqCategoryUpdateWithWhereUniqueWithoutFaqsInput {
-  where: FaqCategoryWhereUniqueInput;
-  data: FaqCategoryUpdateWithoutFaqsDataInput;
-}
-
-export interface FaqCategoryUpdateManyWithoutFaqsInput {
-  create?:
-    | FaqCategoryCreateWithoutFaqsInput[]
-    | FaqCategoryCreateWithoutFaqsInput;
-  delete?: FaqCategoryWhereUniqueInput[] | FaqCategoryWhereUniqueInput;
-  connect?: FaqCategoryWhereUniqueInput[] | FaqCategoryWhereUniqueInput;
-  set?: FaqCategoryWhereUniqueInput[] | FaqCategoryWhereUniqueInput;
-  disconnect?: FaqCategoryWhereUniqueInput[] | FaqCategoryWhereUniqueInput;
-  update?:
-    | FaqCategoryUpdateWithWhereUniqueWithoutFaqsInput[]
-    | FaqCategoryUpdateWithWhereUniqueWithoutFaqsInput;
-  upsert?:
-    | FaqCategoryUpsertWithWhereUniqueWithoutFaqsInput[]
-    | FaqCategoryUpsertWithWhereUniqueWithoutFaqsInput;
-  deleteMany?: FaqCategoryScalarWhereInput[] | FaqCategoryScalarWhereInput;
-  updateMany?:
-    | FaqCategoryUpdateManyWithWhereNestedInput[]
-    | FaqCategoryUpdateManyWithWhereNestedInput;
-}
-
-export interface ProsAndConsUpsertWithoutProsInput {
-  update: ProsAndConsUpdateWithoutProsDataInput;
-  create: ProsAndConsCreateWithoutProsInput;
-}
-
-export interface PageSubscriptionWhereInput {
-  mutation_in?: MutationType[] | MutationType;
-  updatedFields_contains?: String;
-  updatedFields_contains_every?: String[] | String;
-  updatedFields_contains_some?: String[] | String;
-  node?: PageWhereInput;
-  AND?: PageSubscriptionWhereInput[] | PageSubscriptionWhereInput;
-  OR?: PageSubscriptionWhereInput[] | PageSubscriptionWhereInput;
-  NOT?: PageSubscriptionWhereInput[] | PageSubscriptionWhereInput;
+export interface PageUpsertWithoutBlocksInput {
+  update: PageUpdateWithoutBlocksDataInput;
+  create: PageCreateWithoutBlocksInput;
 }
 
 export interface QuickTipCreateManyWithoutPageInput {
@@ -3857,41 +4191,278 @@ export interface QuickTipCreateManyWithoutPageInput {
   connect?: QuickTipWhereUniqueInput[] | QuickTipWhereUniqueInput;
 }
 
+export interface BlockUpdateManyMutationInput {
+  title?: String;
+  video?: String;
+  style?: String;
+  content?: String;
+  order?: Int;
+}
+
+export interface UserCreatepermissionsInput {
+  set?: Permission[] | Permission;
+}
+
+export interface BoxCreateInput {
+  page: PageCreateOneWithoutBoxesInput;
+  title?: String;
+  media?: MediaCreateOneInput;
+  video?: String;
+  style?: String;
+  content?: String;
+  order?: Int;
+}
+
+export interface FaqCategoryCreateInput {
+  name: String;
+  slug: String;
+  description: String;
+  faqs?: FaqCreateManyWithoutCategoryInput;
+}
+
+export interface PageCreateOneWithoutBoxesInput {
+  create?: PageCreateWithoutBoxesInput;
+  connect?: PageWhereUniqueInput;
+}
+
+export interface MediaUpsertNestedInput {
+  update: MediaUpdateDataInput;
+  create: MediaCreateInput;
+}
+
+export interface PageCreateWithoutBoxesInput {
+  title: String;
+  slug: String;
+  type: PageType;
+  status: PageStatus;
+  vertical?: String;
+  media?: MediaCreateOneInput;
+  blocks?: BlockCreateManyWithoutPageInput;
+  prosAndCons?: ProsAndConsCreateManyWithoutPageInput;
+  alertBoxes?: AlertBoxCreateManyWithoutPageInput;
+  quickTips?: QuickTipCreateManyWithoutPageInput;
+  faqs?: PageFaqCreateManyWithoutPageInput;
+  faqAccordion?: PageFaqAccordionCreateManyWithoutPageInput;
+}
+
+export interface MediaSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: MediaWhereInput;
+  AND?: MediaSubscriptionWhereInput[] | MediaSubscriptionWhereInput;
+  OR?: MediaSubscriptionWhereInput[] | MediaSubscriptionWhereInput;
+  NOT?: MediaSubscriptionWhereInput[] | MediaSubscriptionWhereInput;
+}
+
+export interface BoxUpdateInput {
+  page?: PageUpdateOneRequiredWithoutBoxesInput;
+  title?: String;
+  media?: MediaUpdateOneInput;
+  video?: String;
+  style?: String;
+  content?: String;
+  order?: Int;
+}
+
+export interface PageUpdateWithoutQuickTipsDataInput {
+  title?: String;
+  slug?: String;
+  type?: PageType;
+  status?: PageStatus;
+  vertical?: String;
+  media?: MediaUpdateOneInput;
+  blocks?: BlockUpdateManyWithoutPageInput;
+  boxes?: BoxUpdateManyWithoutPageInput;
+  prosAndCons?: ProsAndConsUpdateManyWithoutPageInput;
+  alertBoxes?: AlertBoxUpdateManyWithoutPageInput;
+  faqs?: PageFaqUpdateManyWithoutPageInput;
+  faqAccordion?: PageFaqAccordionUpdateManyWithoutPageInput;
+}
+
+export interface PageUpdateOneRequiredWithoutBoxesInput {
+  create?: PageCreateWithoutBoxesInput;
+  update?: PageUpdateWithoutBoxesDataInput;
+  upsert?: PageUpsertWithoutBoxesInput;
+  connect?: PageWhereUniqueInput;
+}
+
+export interface ProsAndConsUpdateOneRequiredWithoutProsInput {
+  create?: ProsAndConsCreateWithoutProsInput;
+  update?: ProsAndConsUpdateWithoutProsDataInput;
+  upsert?: ProsAndConsUpsertWithoutProsInput;
+  connect?: ProsAndConsWhereUniqueInput;
+}
+
+export interface PageUpdateWithoutBoxesDataInput {
+  title?: String;
+  slug?: String;
+  type?: PageType;
+  status?: PageStatus;
+  vertical?: String;
+  media?: MediaUpdateOneInput;
+  blocks?: BlockUpdateManyWithoutPageInput;
+  prosAndCons?: ProsAndConsUpdateManyWithoutPageInput;
+  alertBoxes?: AlertBoxUpdateManyWithoutPageInput;
+  quickTips?: QuickTipUpdateManyWithoutPageInput;
+  faqs?: PageFaqUpdateManyWithoutPageInput;
+  faqAccordion?: PageFaqAccordionUpdateManyWithoutPageInput;
+}
+
+export type PageFaqAccordionWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface PageUpsertWithoutBoxesInput {
+  update: PageUpdateWithoutBoxesDataInput;
+  create: PageCreateWithoutBoxesInput;
+}
+
+export type UserWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+  email?: String;
+}>;
+
+export interface BoxUpdateManyMutationInput {
+  title?: String;
+  video?: String;
+  style?: String;
+  content?: String;
+  order?: Int;
+}
+
+export interface ProsCreateManyWithoutProsAndConsInput {
+  create?:
+    | ProsCreateWithoutProsAndConsInput[]
+    | ProsCreateWithoutProsAndConsInput;
+  connect?: ProsWhereUniqueInput[] | ProsWhereUniqueInput;
+}
+
+export interface ConsCreateInput {
+  prosAndCons: ProsAndConsCreateOneWithoutConsInput;
+  content?: String;
+  order?: Int;
+}
+
+export interface FaqCreatetagInput {
+  set?: String[] | String;
+}
+
+export interface ProsAndConsCreateOneWithoutConsInput {
+  create?: ProsAndConsCreateWithoutConsInput;
+  connect?: ProsAndConsWhereUniqueInput;
+}
+
+export interface ProsAndConsSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: ProsAndConsWhereInput;
+  AND?: ProsAndConsSubscriptionWhereInput[] | ProsAndConsSubscriptionWhereInput;
+  OR?: ProsAndConsSubscriptionWhereInput[] | ProsAndConsSubscriptionWhereInput;
+  NOT?: ProsAndConsSubscriptionWhereInput[] | ProsAndConsSubscriptionWhereInput;
+}
+
+export interface ProsAndConsCreateWithoutConsInput {
+  page: PageCreateOneWithoutProsAndConsInput;
+  title?: String;
+  order?: Int;
+  pros?: ProsCreateManyWithoutProsAndConsInput;
+}
+
+export interface ProsAndConsUpdateManyMutationInput {
+  title?: String;
+  order?: Int;
+}
+
+export interface PageCreateOneWithoutProsAndConsInput {
+  create?: PageCreateWithoutProsAndConsInput;
+  connect?: PageWhereUniqueInput;
+}
+
+export type ProsAndConsWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface PageCreateWithoutProsAndConsInput {
+  title: String;
+  slug: String;
+  type: PageType;
+  status: PageStatus;
+  vertical?: String;
+  media?: MediaCreateOneInput;
+  blocks?: BlockCreateManyWithoutPageInput;
+  boxes?: BoxCreateManyWithoutPageInput;
+  alertBoxes?: AlertBoxCreateManyWithoutPageInput;
+  quickTips?: QuickTipCreateManyWithoutPageInput;
+  faqs?: PageFaqCreateManyWithoutPageInput;
+  faqAccordion?: PageFaqAccordionCreateManyWithoutPageInput;
+}
+
+export interface FaqCreateOneInput {
+  create?: FaqCreateInput;
+  connect?: FaqWhereUniqueInput;
+}
+
+export interface PageUpdateOneRequiredWithoutProsAndConsInput {
+  create?: PageCreateWithoutProsAndConsInput;
+  update?: PageUpdateWithoutProsAndConsDataInput;
+  upsert?: PageUpsertWithoutProsAndConsInput;
+  connect?: PageWhereUniqueInput;
+}
+
+export interface ProsAndConsUpdateWithoutConsDataInput {
+  page?: PageUpdateOneRequiredWithoutProsAndConsInput;
+  title?: String;
+  order?: Int;
+  pros?: ProsUpdateManyWithoutProsAndConsInput;
+}
+
+export interface ProsAndConsUpdateOneRequiredWithoutConsInput {
+  create?: ProsAndConsCreateWithoutConsInput;
+  update?: ProsAndConsUpdateWithoutConsDataInput;
+  upsert?: ProsAndConsUpsertWithoutConsInput;
+  connect?: ProsAndConsWhereUniqueInput;
+}
+
+export interface ConsUpdateInput {
+  prosAndCons?: ProsAndConsUpdateOneRequiredWithoutConsInput;
+  content?: String;
+  order?: Int;
+}
+
+export interface PageUpdateOneRequiredWithoutAlertBoxesInput {
+  create?: PageCreateWithoutAlertBoxesInput;
+  update?: PageUpdateWithoutAlertBoxesDataInput;
+  upsert?: PageUpsertWithoutAlertBoxesInput;
+  connect?: PageWhereUniqueInput;
+}
+
+export interface MediaCreateOneInput {
+  create?: MediaCreateInput;
+  connect?: MediaWhereUniqueInput;
+}
+
+export interface PageUpsertWithoutFaqAccordionInput {
+  update: PageUpdateWithoutFaqAccordionDataInput;
+  create: PageCreateWithoutFaqAccordionInput;
+}
+
+export interface BoxSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: BoxWhereInput;
+  AND?: BoxSubscriptionWhereInput[] | BoxSubscriptionWhereInput;
+  OR?: BoxSubscriptionWhereInput[] | BoxSubscriptionWhereInput;
+  NOT?: BoxSubscriptionWhereInput[] | BoxSubscriptionWhereInput;
+}
+
 export interface NodeNode {
   id: ID_Output;
-}
-
-export interface BatchPayload {
-  count: Long;
-}
-
-export interface BatchPayloadPromise
-  extends Promise<BatchPayload>,
-    Fragmentable {
-  count: () => Promise<Long>;
-}
-
-export interface BatchPayloadSubscription
-  extends Promise<AsyncIterator<BatchPayload>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Long>>;
-}
-
-export interface BoxEdge {
-  node: Box;
-  cursor: String;
-}
-
-export interface BoxEdgePromise extends Promise<BoxEdge>, Fragmentable {
-  node: <T = BoxPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface BoxEdgeSubscription
-  extends Promise<AsyncIterator<BoxEdge>>,
-    Fragmentable {
-  node: <T = BoxSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface UserPreviousValues {
@@ -3928,25 +4499,20 @@ export interface UserPreviousValuesSubscription
   permissions: () => Promise<AsyncIterator<Permission[]>>;
 }
 
-export interface BoxConnection {
-  pageInfo: PageInfo;
-  edges: BoxEdge[];
+export interface AggregateAlertBox {
+  count: Int;
 }
 
-export interface BoxConnectionPromise
-  extends Promise<BoxConnection>,
+export interface AggregateAlertBoxPromise
+  extends Promise<AggregateAlertBox>,
     Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<BoxEdge>>() => T;
-  aggregate: <T = AggregateBoxPromise>() => T;
+  count: () => Promise<Int>;
 }
 
-export interface BoxConnectionSubscription
-  extends Promise<AsyncIterator<BoxConnection>>,
+export interface AggregateAlertBoxSubscription
+  extends Promise<AsyncIterator<AggregateAlertBox>>,
     Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<BoxEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateBoxSubscription>() => T;
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface Block {
@@ -3982,20 +4548,99 @@ export interface BlockSubscription
   order: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface AggregateBlock {
-  count: Int;
+export interface BlockEdge {
+  node: Block;
+  cursor: String;
 }
 
-export interface AggregateBlockPromise
-  extends Promise<AggregateBlock>,
-    Fragmentable {
-  count: () => Promise<Int>;
+export interface BlockEdgePromise extends Promise<BlockEdge>, Fragmentable {
+  node: <T = BlockPromise>() => T;
+  cursor: () => Promise<String>;
 }
 
-export interface AggregateBlockSubscription
-  extends Promise<AsyncIterator<AggregateBlock>>,
+export interface BlockEdgeSubscription
+  extends Promise<AsyncIterator<BlockEdge>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  node: <T = BlockSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface ProsAndConsPreviousValues {
+  id: ID_Output;
+  title?: String;
+  order?: Int;
+}
+
+export interface ProsAndConsPreviousValuesPromise
+  extends Promise<ProsAndConsPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  title: () => Promise<String>;
+  order: () => Promise<Int>;
+}
+
+export interface ProsAndConsPreviousValuesSubscription
+  extends Promise<AsyncIterator<ProsAndConsPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  title: () => Promise<AsyncIterator<String>>;
+  order: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface BlockConnection {
+  pageInfo: PageInfo;
+  edges: BlockEdge[];
+}
+
+export interface BlockConnectionPromise
+  extends Promise<BlockConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<BlockEdge>>() => T;
+  aggregate: <T = AggregateBlockPromise>() => T;
+}
+
+export interface BlockConnectionSubscription
+  extends Promise<AsyncIterator<BlockConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<BlockEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateBlockSubscription>() => T;
+}
+
+export interface AlertBoxEdge {
+  node: AlertBox;
+  cursor: String;
+}
+
+export interface AlertBoxEdgePromise
+  extends Promise<AlertBoxEdge>,
+    Fragmentable {
+  node: <T = AlertBoxPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface AlertBoxEdgeSubscription
+  extends Promise<AsyncIterator<AlertBoxEdge>>,
+    Fragmentable {
+  node: <T = AlertBoxSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface BatchPayload {
+  count: Long;
+}
+
+export interface BatchPayloadPromise
+  extends Promise<BatchPayload>,
+    Fragmentable {
+  count: () => Promise<Long>;
+}
+
+export interface BatchPayloadSubscription
+  extends Promise<AsyncIterator<BatchPayload>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Long>>;
 }
 
 export interface AggregateUser {
@@ -4014,21 +4659,35 @@ export interface AggregateUserSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface BlockEdge {
-  node: Block;
-  cursor: String;
+export interface QuickTipPreviousValues {
+  id: ID_Output;
+  title?: String;
+  content?: String;
+  buttonText?: String;
+  buttonLink?: String;
+  order?: Int;
 }
 
-export interface BlockEdgePromise extends Promise<BlockEdge>, Fragmentable {
-  node: <T = BlockPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface BlockEdgeSubscription
-  extends Promise<AsyncIterator<BlockEdge>>,
+export interface QuickTipPreviousValuesPromise
+  extends Promise<QuickTipPreviousValues>,
     Fragmentable {
-  node: <T = BlockSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  id: () => Promise<ID_Output>;
+  title: () => Promise<String>;
+  content: () => Promise<String>;
+  buttonText: () => Promise<String>;
+  buttonLink: () => Promise<String>;
+  order: () => Promise<Int>;
+}
+
+export interface QuickTipPreviousValuesSubscription
+  extends Promise<AsyncIterator<QuickTipPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  title: () => Promise<AsyncIterator<String>>;
+  content: () => Promise<AsyncIterator<String>>;
+  buttonText: () => Promise<AsyncIterator<String>>;
+  buttonLink: () => Promise<AsyncIterator<String>>;
+  order: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface UserConnection {
@@ -4050,6 +4709,89 @@ export interface UserConnectionSubscription
   pageInfo: <T = PageInfoSubscription>() => T;
   edges: <T = Promise<AsyncIterator<UserEdgeSubscription>>>() => T;
   aggregate: <T = AggregateUserSubscription>() => T;
+}
+
+export interface QuickTipSubscriptionPayload {
+  mutation: MutationType;
+  node: QuickTip;
+  updatedFields: String[];
+  previousValues: QuickTipPreviousValues;
+}
+
+export interface QuickTipSubscriptionPayloadPromise
+  extends Promise<QuickTipSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = QuickTipPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = QuickTipPreviousValuesPromise>() => T;
+}
+
+export interface QuickTipSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<QuickTipSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = QuickTipSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = QuickTipPreviousValuesSubscription>() => T;
+}
+
+export interface QuickTipEdge {
+  node: QuickTip;
+  cursor: String;
+}
+
+export interface QuickTipEdgePromise
+  extends Promise<QuickTipEdge>,
+    Fragmentable {
+  node: <T = QuickTipPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface QuickTipEdgeSubscription
+  extends Promise<AsyncIterator<QuickTipEdge>>,
+    Fragmentable {
+  node: <T = QuickTipSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface PageInfo {
+  hasNextPage: Boolean;
+  hasPreviousPage: Boolean;
+  startCursor?: String;
+  endCursor?: String;
+}
+
+export interface PageInfoPromise extends Promise<PageInfo>, Fragmentable {
+  hasNextPage: () => Promise<Boolean>;
+  hasPreviousPage: () => Promise<Boolean>;
+  startCursor: () => Promise<String>;
+  endCursor: () => Promise<String>;
+}
+
+export interface PageInfoSubscription
+  extends Promise<AsyncIterator<PageInfo>>,
+    Fragmentable {
+  hasNextPage: () => Promise<AsyncIterator<Boolean>>;
+  hasPreviousPage: () => Promise<AsyncIterator<Boolean>>;
+  startCursor: () => Promise<AsyncIterator<String>>;
+  endCursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateProsAndCons {
+  count: Int;
+}
+
+export interface AggregateProsAndConsPromise
+  extends Promise<AggregateProsAndCons>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateProsAndConsSubscription
+  extends Promise<AsyncIterator<AggregateProsAndCons>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface AlertBox {
@@ -4083,23 +4825,25 @@ export interface AlertBoxSubscription
   order: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface QuickTipEdge {
-  node: QuickTip;
-  cursor: String;
+export interface ProsAndConsConnection {
+  pageInfo: PageInfo;
+  edges: ProsAndConsEdge[];
 }
 
-export interface QuickTipEdgePromise
-  extends Promise<QuickTipEdge>,
+export interface ProsAndConsConnectionPromise
+  extends Promise<ProsAndConsConnection>,
     Fragmentable {
-  node: <T = QuickTipPromise>() => T;
-  cursor: () => Promise<String>;
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ProsAndConsEdge>>() => T;
+  aggregate: <T = AggregateProsAndConsPromise>() => T;
 }
 
-export interface QuickTipEdgeSubscription
-  extends Promise<AsyncIterator<QuickTipEdge>>,
+export interface ProsAndConsConnectionSubscription
+  extends Promise<AsyncIterator<ProsAndConsConnection>>,
     Fragmentable {
-  node: <T = QuickTipSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ProsAndConsEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateProsAndConsSubscription>() => T;
 }
 
 export interface AlertBoxSubscriptionPayload {
@@ -4127,20 +4871,21 @@ export interface AlertBoxSubscriptionPayloadSubscription
   previousValues: <T = AlertBoxPreviousValuesSubscription>() => T;
 }
 
-export interface AggregateProsAndCons {
-  count: Int;
+export interface ProsEdge {
+  node: Pros;
+  cursor: String;
 }
 
-export interface AggregateProsAndConsPromise
-  extends Promise<AggregateProsAndCons>,
-    Fragmentable {
-  count: () => Promise<Int>;
+export interface ProsEdgePromise extends Promise<ProsEdge>, Fragmentable {
+  node: <T = ProsPromise>() => T;
+  cursor: () => Promise<String>;
 }
 
-export interface AggregateProsAndConsSubscription
-  extends Promise<AsyncIterator<AggregateProsAndCons>>,
+export interface ProsEdgeSubscription
+  extends Promise<AsyncIterator<ProsEdge>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  node: <T = ProsSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface AlertBoxPreviousValues {
@@ -4174,63 +4919,62 @@ export interface AlertBoxPreviousValuesSubscription
   order: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface ProsAndConsConnection {
-  pageInfo: PageInfo;
-  edges: ProsAndConsEdge[];
+export interface AggregatePageFaqAccordion {
+  count: Int;
 }
 
-export interface ProsAndConsConnectionPromise
-  extends Promise<ProsAndConsConnection>,
+export interface AggregatePageFaqAccordionPromise
+  extends Promise<AggregatePageFaqAccordion>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregatePageFaqAccordionSubscription
+  extends Promise<AsyncIterator<AggregatePageFaqAccordion>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface AlertBoxConnection {
+  pageInfo: PageInfo;
+  edges: AlertBoxEdge[];
+}
+
+export interface AlertBoxConnectionPromise
+  extends Promise<AlertBoxConnection>,
     Fragmentable {
   pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ProsAndConsEdge>>() => T;
-  aggregate: <T = AggregateProsAndConsPromise>() => T;
+  edges: <T = FragmentableArray<AlertBoxEdge>>() => T;
+  aggregate: <T = AggregateAlertBoxPromise>() => T;
 }
 
-export interface ProsAndConsConnectionSubscription
-  extends Promise<AsyncIterator<ProsAndConsConnection>>,
+export interface AlertBoxConnectionSubscription
+  extends Promise<AsyncIterator<AlertBoxConnection>>,
     Fragmentable {
   pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<ProsAndConsEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateProsAndConsSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<AlertBoxEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateAlertBoxSubscription>() => T;
 }
 
-export interface BlockConnection {
+export interface PageFaqAccordionConnection {
   pageInfo: PageInfo;
-  edges: BlockEdge[];
+  edges: PageFaqAccordionEdge[];
 }
 
-export interface BlockConnectionPromise
-  extends Promise<BlockConnection>,
+export interface PageFaqAccordionConnectionPromise
+  extends Promise<PageFaqAccordionConnection>,
     Fragmentable {
   pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<BlockEdge>>() => T;
-  aggregate: <T = AggregateBlockPromise>() => T;
+  edges: <T = FragmentableArray<PageFaqAccordionEdge>>() => T;
+  aggregate: <T = AggregatePageFaqAccordionPromise>() => T;
 }
 
-export interface BlockConnectionSubscription
-  extends Promise<AsyncIterator<BlockConnection>>,
+export interface PageFaqAccordionConnectionSubscription
+  extends Promise<AsyncIterator<PageFaqAccordionConnection>>,
     Fragmentable {
   pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<BlockEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateBlockSubscription>() => T;
-}
-
-export interface ProsEdge {
-  node: Pros;
-  cursor: String;
-}
-
-export interface ProsEdgePromise extends Promise<ProsEdge>, Fragmentable {
-  node: <T = ProsPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface ProsEdgeSubscription
-  extends Promise<AsyncIterator<ProsEdge>>,
-    Fragmentable {
-  node: <T = ProsSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  edges: <T = Promise<AsyncIterator<PageFaqAccordionEdgeSubscription>>>() => T;
+  aggregate: <T = AggregatePageFaqAccordionSubscription>() => T;
 }
 
 export interface BlockSubscriptionPayload {
@@ -4258,20 +5002,21 @@ export interface BlockSubscriptionPayloadSubscription
   previousValues: <T = BlockPreviousValuesSubscription>() => T;
 }
 
-export interface AggregatePage {
-  count: Int;
+export interface PageFaqEdge {
+  node: PageFaq;
+  cursor: String;
 }
 
-export interface AggregatePagePromise
-  extends Promise<AggregatePage>,
-    Fragmentable {
-  count: () => Promise<Int>;
+export interface PageFaqEdgePromise extends Promise<PageFaqEdge>, Fragmentable {
+  node: <T = PageFaqPromise>() => T;
+  cursor: () => Promise<String>;
 }
 
-export interface AggregatePageSubscription
-  extends Promise<AsyncIterator<AggregatePage>>,
+export interface PageFaqEdgeSubscription
+  extends Promise<AsyncIterator<PageFaqEdge>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  node: <T = PageFaqSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface BlockPreviousValues {
@@ -4305,6 +5050,45 @@ export interface BlockPreviousValuesSubscription
   order: () => Promise<AsyncIterator<Int>>;
 }
 
+export interface AggregatePage {
+  count: Int;
+}
+
+export interface AggregatePagePromise
+  extends Promise<AggregatePage>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregatePageSubscription
+  extends Promise<AsyncIterator<AggregatePage>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface PageFaqAccordion {
+  id: ID_Output;
+  order?: Int;
+}
+
+export interface PageFaqAccordionPromise
+  extends Promise<PageFaqAccordion>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  order: () => Promise<Int>;
+  page: <T = PagePromise>() => T;
+  faqCategory: <T = FaqCategoryPromise>() => T;
+}
+
+export interface PageFaqAccordionSubscription
+  extends Promise<AsyncIterator<PageFaqAccordion>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  order: () => Promise<AsyncIterator<Int>>;
+  page: <T = PageSubscription>() => T;
+  faqCategory: <T = FaqCategorySubscription>() => T;
+}
+
 export interface PageConnection {
   pageInfo: PageInfo;
   edges: PageEdge[];
@@ -4324,38 +5108,6 @@ export interface PageConnectionSubscription
   pageInfo: <T = PageInfoSubscription>() => T;
   edges: <T = Promise<AsyncIterator<PageEdgeSubscription>>>() => T;
   aggregate: <T = AggregatePageSubscription>() => T;
-}
-
-export interface AggregateAlertBox {
-  count: Int;
-}
-
-export interface AggregateAlertBoxPromise
-  extends Promise<AggregateAlertBox>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateAlertBoxSubscription
-  extends Promise<AsyncIterator<AggregateAlertBox>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface AggregateMedia {
-  count: Int;
-}
-
-export interface AggregateMediaPromise
-  extends Promise<AggregateMedia>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateMediaSubscription
-  extends Promise<AsyncIterator<AggregateMedia>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface BoxSubscriptionPayload {
@@ -4383,25 +5135,20 @@ export interface BoxSubscriptionPayloadSubscription
   previousValues: <T = BoxPreviousValuesSubscription>() => T;
 }
 
-export interface MediaConnection {
-  pageInfo: PageInfo;
-  edges: MediaEdge[];
+export interface AggregateMedia {
+  count: Int;
 }
 
-export interface MediaConnectionPromise
-  extends Promise<MediaConnection>,
+export interface AggregateMediaPromise
+  extends Promise<AggregateMedia>,
     Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<MediaEdge>>() => T;
-  aggregate: <T = AggregateMediaPromise>() => T;
+  count: () => Promise<Int>;
 }
 
-export interface MediaConnectionSubscription
-  extends Promise<AsyncIterator<MediaConnection>>,
+export interface AggregateMediaSubscription
+  extends Promise<AsyncIterator<AggregateMedia>>,
     Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<MediaEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateMediaSubscription>() => T;
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface BoxPreviousValues {
@@ -4435,6 +5182,50 @@ export interface BoxPreviousValuesSubscription
   order: () => Promise<AsyncIterator<Int>>;
 }
 
+export interface MediaConnection {
+  pageInfo: PageInfo;
+  edges: MediaEdge[];
+}
+
+export interface MediaConnectionPromise
+  extends Promise<MediaConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<MediaEdge>>() => T;
+  aggregate: <T = AggregateMediaPromise>() => T;
+}
+
+export interface MediaConnectionSubscription
+  extends Promise<AsyncIterator<MediaConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<MediaEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateMediaSubscription>() => T;
+}
+
+export interface Media {
+  id: ID_Output;
+  url: String;
+  title?: String;
+  altText?: String;
+}
+
+export interface MediaPromise extends Promise<Media>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  url: () => Promise<String>;
+  title: () => Promise<String>;
+  altText: () => Promise<String>;
+}
+
+export interface MediaSubscription
+  extends Promise<AsyncIterator<Media>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  url: () => Promise<AsyncIterator<String>>;
+  title: () => Promise<AsyncIterator<String>>;
+  altText: () => Promise<AsyncIterator<String>>;
+}
+
 export interface AggregateFaqCategory {
   count: Int;
 }
@@ -4449,46 +5240,6 @@ export interface AggregateFaqCategorySubscription
   extends Promise<AsyncIterator<AggregateFaqCategory>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface AlertBoxEdge {
-  node: AlertBox;
-  cursor: String;
-}
-
-export interface AlertBoxEdgePromise
-  extends Promise<AlertBoxEdge>,
-    Fragmentable {
-  node: <T = AlertBoxPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface AlertBoxEdgeSubscription
-  extends Promise<AsyncIterator<AlertBoxEdge>>,
-    Fragmentable {
-  node: <T = AlertBoxSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface FaqCategoryConnection {
-  pageInfo: PageInfo;
-  edges: FaqCategoryEdge[];
-}
-
-export interface FaqCategoryConnectionPromise
-  extends Promise<FaqCategoryConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<FaqCategoryEdge>>() => T;
-  aggregate: <T = AggregateFaqCategoryPromise>() => T;
-}
-
-export interface FaqCategoryConnectionSubscription
-  extends Promise<AsyncIterator<FaqCategoryConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<FaqCategoryEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateFaqCategorySubscription>() => T;
 }
 
 export interface ConsSubscriptionPayload {
@@ -4516,21 +5267,25 @@ export interface ConsSubscriptionPayloadSubscription
   previousValues: <T = ConsPreviousValuesSubscription>() => T;
 }
 
-export interface FaqEdge {
-  node: Faq;
-  cursor: String;
+export interface FaqCategoryConnection {
+  pageInfo: PageInfo;
+  edges: FaqCategoryEdge[];
 }
 
-export interface FaqEdgePromise extends Promise<FaqEdge>, Fragmentable {
-  node: <T = FaqPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface FaqEdgeSubscription
-  extends Promise<AsyncIterator<FaqEdge>>,
+export interface FaqCategoryConnectionPromise
+  extends Promise<FaqCategoryConnection>,
     Fragmentable {
-  node: <T = FaqSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<FaqCategoryEdge>>() => T;
+  aggregate: <T = AggregateFaqCategoryPromise>() => T;
+}
+
+export interface FaqCategoryConnectionSubscription
+  extends Promise<AsyncIterator<FaqCategoryConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<FaqCategoryEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateFaqCategorySubscription>() => T;
 }
 
 export interface ConsPreviousValues {
@@ -4555,70 +5310,21 @@ export interface ConsPreviousValuesSubscription
   order: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface Media {
-  id: ID_Output;
-  url: String;
-  title?: String;
-  altText?: String;
+export interface FaqEdge {
+  node: Faq;
+  cursor: String;
 }
 
-export interface MediaPromise extends Promise<Media>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  url: () => Promise<String>;
-  title: () => Promise<String>;
-  altText: () => Promise<String>;
+export interface FaqEdgePromise extends Promise<FaqEdge>, Fragmentable {
+  node: <T = FaqPromise>() => T;
+  cursor: () => Promise<String>;
 }
 
-export interface MediaSubscription
-  extends Promise<AsyncIterator<Media>>,
+export interface FaqEdgeSubscription
+  extends Promise<AsyncIterator<FaqEdge>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  url: () => Promise<AsyncIterator<String>>;
-  title: () => Promise<AsyncIterator<String>>;
-  altText: () => Promise<AsyncIterator<String>>;
-}
-
-export interface FaqConnection {
-  pageInfo: PageInfo;
-  edges: FaqEdge[];
-}
-
-export interface FaqConnectionPromise
-  extends Promise<FaqConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<FaqEdge>>() => T;
-  aggregate: <T = AggregateFaqPromise>() => T;
-}
-
-export interface FaqConnectionSubscription
-  extends Promise<AsyncIterator<FaqConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<FaqEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateFaqSubscription>() => T;
-}
-
-export interface Pros {
-  id: ID_Output;
-  content?: String;
-  order?: Int;
-}
-
-export interface ProsPromise extends Promise<Pros>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  prosAndCons: <T = ProsAndConsPromise>() => T;
-  content: () => Promise<String>;
-  order: () => Promise<Int>;
-}
-
-export interface ProsSubscription
-  extends Promise<AsyncIterator<Pros>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  prosAndCons: <T = ProsAndConsSubscription>() => T;
-  content: () => Promise<AsyncIterator<String>>;
-  order: () => Promise<AsyncIterator<Int>>;
+  node: <T = FaqSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface FaqCategory {
@@ -4664,6 +5370,267 @@ export interface FaqCategorySubscription
       last?: Int;
     }
   ) => T;
+}
+
+export interface AggregateCons {
+  count: Int;
+}
+
+export interface AggregateConsPromise
+  extends Promise<AggregateCons>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateConsSubscription
+  extends Promise<AsyncIterator<AggregateCons>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface FaqSubscriptionPayload {
+  mutation: MutationType;
+  node: Faq;
+  updatedFields: String[];
+  previousValues: FaqPreviousValues;
+}
+
+export interface FaqSubscriptionPayloadPromise
+  extends Promise<FaqSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = FaqPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = FaqPreviousValuesPromise>() => T;
+}
+
+export interface FaqSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<FaqSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = FaqSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = FaqPreviousValuesSubscription>() => T;
+}
+
+export interface ConsConnection {
+  pageInfo: PageInfo;
+  edges: ConsEdge[];
+}
+
+export interface ConsConnectionPromise
+  extends Promise<ConsConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ConsEdge>>() => T;
+  aggregate: <T = AggregateConsPromise>() => T;
+}
+
+export interface ConsConnectionSubscription
+  extends Promise<AsyncIterator<ConsConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ConsEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateConsSubscription>() => T;
+}
+
+export interface FaqPreviousValues {
+  id: ID_Output;
+  title: String;
+  description?: String;
+  short_description?: String;
+  slug: String;
+  vertical?: String;
+  readingTime?: Int;
+  order?: Int;
+  variant: String[];
+  tag: String[];
+  pubDate?: DateTimeOutput;
+}
+
+export interface FaqPreviousValuesPromise
+  extends Promise<FaqPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  title: () => Promise<String>;
+  description: () => Promise<String>;
+  short_description: () => Promise<String>;
+  slug: () => Promise<String>;
+  vertical: () => Promise<String>;
+  readingTime: () => Promise<Int>;
+  order: () => Promise<Int>;
+  variant: () => Promise<String[]>;
+  tag: () => Promise<String[]>;
+  pubDate: () => Promise<DateTimeOutput>;
+}
+
+export interface FaqPreviousValuesSubscription
+  extends Promise<AsyncIterator<FaqPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  title: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
+  short_description: () => Promise<AsyncIterator<String>>;
+  slug: () => Promise<AsyncIterator<String>>;
+  vertical: () => Promise<AsyncIterator<String>>;
+  readingTime: () => Promise<AsyncIterator<Int>>;
+  order: () => Promise<AsyncIterator<Int>>;
+  variant: () => Promise<AsyncIterator<String[]>>;
+  tag: () => Promise<AsyncIterator<String[]>>;
+  pubDate: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface BoxEdge {
+  node: Box;
+  cursor: String;
+}
+
+export interface BoxEdgePromise extends Promise<BoxEdge>, Fragmentable {
+  node: <T = BoxPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface BoxEdgeSubscription
+  extends Promise<AsyncIterator<BoxEdge>>,
+    Fragmentable {
+  node: <T = BoxSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface User {
+  id: ID_Output;
+  name: String;
+  email: String;
+  password: String;
+  resetToken?: String;
+  resetTokenExpiry?: Float;
+  permissions: Permission[];
+}
+
+export interface UserPromise extends Promise<User>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  email: () => Promise<String>;
+  password: () => Promise<String>;
+  resetToken: () => Promise<String>;
+  resetTokenExpiry: () => Promise<Float>;
+  permissions: () => Promise<Permission[]>;
+}
+
+export interface UserSubscription
+  extends Promise<AsyncIterator<User>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  email: () => Promise<AsyncIterator<String>>;
+  password: () => Promise<AsyncIterator<String>>;
+  resetToken: () => Promise<AsyncIterator<String>>;
+  resetTokenExpiry: () => Promise<AsyncIterator<Float>>;
+  permissions: () => Promise<AsyncIterator<Permission[]>>;
+}
+
+export interface AggregateBlock {
+  count: Int;
+}
+
+export interface AggregateBlockPromise
+  extends Promise<AggregateBlock>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateBlockSubscription
+  extends Promise<AsyncIterator<AggregateBlock>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface FaqCategorySubscriptionPayload {
+  mutation: MutationType;
+  node: FaqCategory;
+  updatedFields: String[];
+  previousValues: FaqCategoryPreviousValues;
+}
+
+export interface FaqCategorySubscriptionPayloadPromise
+  extends Promise<FaqCategorySubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = FaqCategoryPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = FaqCategoryPreviousValuesPromise>() => T;
+}
+
+export interface FaqCategorySubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<FaqCategorySubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = FaqCategorySubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = FaqCategoryPreviousValuesSubscription>() => T;
+}
+
+export interface UserEdge {
+  node: User;
+  cursor: String;
+}
+
+export interface UserEdgePromise extends Promise<UserEdge>, Fragmentable {
+  node: <T = UserPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface UserEdgeSubscription
+  extends Promise<AsyncIterator<UserEdge>>,
+    Fragmentable {
+  node: <T = UserSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface FaqCategoryPreviousValues {
+  id: ID_Output;
+  name: String;
+  slug: String;
+  description: String;
+}
+
+export interface FaqCategoryPreviousValuesPromise
+  extends Promise<FaqCategoryPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  slug: () => Promise<String>;
+  description: () => Promise<String>;
+}
+
+export interface FaqCategoryPreviousValuesSubscription
+  extends Promise<AsyncIterator<FaqCategoryPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  slug: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
+}
+
+export interface QuickTipConnection {
+  pageInfo: PageInfo;
+  edges: QuickTipEdge[];
+}
+
+export interface QuickTipConnectionPromise
+  extends Promise<QuickTipConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<QuickTipEdge>>() => T;
+  aggregate: <T = AggregateQuickTipPromise>() => T;
+}
+
+export interface QuickTipConnectionSubscription
+  extends Promise<AsyncIterator<QuickTipConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<QuickTipEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateQuickTipSubscription>() => T;
 }
 
 export interface Faq {
@@ -4754,356 +5721,131 @@ export interface FaqSubscription
   pubDate: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface User {
-  id: ID_Output;
-  name: String;
-  email: String;
-  password: String;
-  resetToken?: String;
-  resetTokenExpiry?: Float;
-  permissions: Permission[];
-}
-
-export interface UserPromise extends Promise<User>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  email: () => Promise<String>;
-  password: () => Promise<String>;
-  resetToken: () => Promise<String>;
-  resetTokenExpiry: () => Promise<Float>;
-  permissions: () => Promise<Permission[]>;
-}
-
-export interface UserSubscription
-  extends Promise<AsyncIterator<User>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  email: () => Promise<AsyncIterator<String>>;
-  password: () => Promise<AsyncIterator<String>>;
-  resetToken: () => Promise<AsyncIterator<String>>;
-  resetTokenExpiry: () => Promise<AsyncIterator<Float>>;
-  permissions: () => Promise<AsyncIterator<Permission[]>>;
-}
-
-export interface ConsEdge {
-  node: Cons;
-  cursor: String;
-}
-
-export interface ConsEdgePromise extends Promise<ConsEdge>, Fragmentable {
-  node: <T = ConsPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface ConsEdgeSubscription
-  extends Promise<AsyncIterator<ConsEdge>>,
-    Fragmentable {
-  node: <T = ConsSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface FaqSubscriptionPayload {
-  mutation: MutationType;
-  node: Faq;
-  updatedFields: String[];
-  previousValues: FaqPreviousValues;
-}
-
-export interface FaqSubscriptionPayloadPromise
-  extends Promise<FaqSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = FaqPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = FaqPreviousValuesPromise>() => T;
-}
-
-export interface FaqSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<FaqSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = FaqSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = FaqPreviousValuesSubscription>() => T;
-}
-
-export interface AggregateBox {
+export interface AggregatePros {
   count: Int;
 }
 
-export interface AggregateBoxPromise
-  extends Promise<AggregateBox>,
+export interface AggregateProsPromise
+  extends Promise<AggregatePros>,
     Fragmentable {
   count: () => Promise<Int>;
 }
 
-export interface AggregateBoxSubscription
-  extends Promise<AsyncIterator<AggregateBox>>,
+export interface AggregateProsSubscription
+  extends Promise<AsyncIterator<AggregatePros>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface FaqPreviousValues {
-  id: ID_Output;
-  title: String;
-  description?: String;
-  short_description?: String;
-  slug: String;
-  vertical?: String;
-  readingTime?: Int;
-  order?: Int;
-  variant: String[];
-  tag: String[];
-  pubDate?: DateTimeOutput;
+export interface MediaSubscriptionPayload {
+  mutation: MutationType;
+  node: Media;
+  updatedFields: String[];
+  previousValues: MediaPreviousValues;
 }
 
-export interface FaqPreviousValuesPromise
-  extends Promise<FaqPreviousValues>,
+export interface MediaSubscriptionPayloadPromise
+  extends Promise<MediaSubscriptionPayload>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  title: () => Promise<String>;
-  description: () => Promise<String>;
-  short_description: () => Promise<String>;
-  slug: () => Promise<String>;
-  vertical: () => Promise<String>;
-  readingTime: () => Promise<Int>;
-  order: () => Promise<Int>;
-  variant: () => Promise<String[]>;
-  tag: () => Promise<String[]>;
-  pubDate: () => Promise<DateTimeOutput>;
+  mutation: () => Promise<MutationType>;
+  node: <T = MediaPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = MediaPreviousValuesPromise>() => T;
 }
 
-export interface FaqPreviousValuesSubscription
-  extends Promise<AsyncIterator<FaqPreviousValues>>,
+export interface MediaSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<MediaSubscriptionPayload>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  title: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  short_description: () => Promise<AsyncIterator<String>>;
-  slug: () => Promise<AsyncIterator<String>>;
-  vertical: () => Promise<AsyncIterator<String>>;
-  readingTime: () => Promise<AsyncIterator<Int>>;
-  order: () => Promise<AsyncIterator<Int>>;
-  variant: () => Promise<AsyncIterator<String[]>>;
-  tag: () => Promise<AsyncIterator<String[]>>;
-  pubDate: () => Promise<AsyncIterator<DateTimeOutput>>;
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = MediaSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = MediaPreviousValuesSubscription>() => T;
 }
 
-export interface ProsAndCons {
+export interface PageFaqAccordionEdge {
+  node: PageFaqAccordion;
+  cursor: String;
+}
+
+export interface PageFaqAccordionEdgePromise
+  extends Promise<PageFaqAccordionEdge>,
+    Fragmentable {
+  node: <T = PageFaqAccordionPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface PageFaqAccordionEdgeSubscription
+  extends Promise<AsyncIterator<PageFaqAccordionEdge>>,
+    Fragmentable {
+  node: <T = PageFaqAccordionSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface MediaPreviousValues {
   id: ID_Output;
+  url: String;
   title?: String;
+  altText?: String;
+}
+
+export interface MediaPreviousValuesPromise
+  extends Promise<MediaPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  url: () => Promise<String>;
+  title: () => Promise<String>;
+  altText: () => Promise<String>;
+}
+
+export interface MediaPreviousValuesSubscription
+  extends Promise<AsyncIterator<MediaPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  url: () => Promise<AsyncIterator<String>>;
+  title: () => Promise<AsyncIterator<String>>;
+  altText: () => Promise<AsyncIterator<String>>;
+}
+
+export interface PageFaqConnection {
+  pageInfo: PageInfo;
+  edges: PageFaqEdge[];
+}
+
+export interface PageFaqConnectionPromise
+  extends Promise<PageFaqConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<PageFaqEdge>>() => T;
+  aggregate: <T = AggregatePageFaqPromise>() => T;
+}
+
+export interface PageFaqConnectionSubscription
+  extends Promise<AsyncIterator<PageFaqConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<PageFaqEdgeSubscription>>>() => T;
+  aggregate: <T = AggregatePageFaqSubscription>() => T;
+}
+
+export interface PageFaq {
+  id: ID_Output;
   order?: Int;
 }
 
-export interface ProsAndConsPromise extends Promise<ProsAndCons>, Fragmentable {
+export interface PageFaqPromise extends Promise<PageFaq>, Fragmentable {
   id: () => Promise<ID_Output>;
-  page: <T = PagePromise>() => T;
-  title: () => Promise<String>;
   order: () => Promise<Int>;
-  pros: <T = FragmentableArray<Pros>>(
-    args?: {
-      where?: ProsWhereInput;
-      orderBy?: ProsOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  cons: <T = FragmentableArray<Cons>>(
-    args?: {
-      where?: ConsWhereInput;
-      orderBy?: ConsOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
+  page: <T = PagePromise>() => T;
+  faq: <T = FaqPromise>() => T;
 }
 
-export interface ProsAndConsSubscription
-  extends Promise<AsyncIterator<ProsAndCons>>,
+export interface PageFaqSubscription
+  extends Promise<AsyncIterator<PageFaq>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  page: <T = PageSubscription>() => T;
-  title: () => Promise<AsyncIterator<String>>;
   order: () => Promise<AsyncIterator<Int>>;
-  pros: <T = Promise<AsyncIterator<ProsSubscription>>>(
-    args?: {
-      where?: ProsWhereInput;
-      orderBy?: ProsOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  cons: <T = Promise<AsyncIterator<ConsSubscription>>>(
-    args?: {
-      where?: ConsWhereInput;
-      orderBy?: ConsOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-}
-
-export interface PageInfo {
-  hasNextPage: Boolean;
-  hasPreviousPage: Boolean;
-  startCursor?: String;
-  endCursor?: String;
-}
-
-export interface PageInfoPromise extends Promise<PageInfo>, Fragmentable {
-  hasNextPage: () => Promise<Boolean>;
-  hasPreviousPage: () => Promise<Boolean>;
-  startCursor: () => Promise<String>;
-  endCursor: () => Promise<String>;
-}
-
-export interface PageInfoSubscription
-  extends Promise<AsyncIterator<PageInfo>>,
-    Fragmentable {
-  hasNextPage: () => Promise<AsyncIterator<Boolean>>;
-  hasPreviousPage: () => Promise<AsyncIterator<Boolean>>;
-  startCursor: () => Promise<AsyncIterator<String>>;
-  endCursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface AggregateQuickTip {
-  count: Int;
-}
-
-export interface AggregateQuickTipPromise
-  extends Promise<AggregateQuickTip>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateQuickTipSubscription
-  extends Promise<AsyncIterator<AggregateQuickTip>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface FaqCategorySubscriptionPayload {
-  mutation: MutationType;
-  node: FaqCategory;
-  updatedFields: String[];
-  previousValues: FaqCategoryPreviousValues;
-}
-
-export interface FaqCategorySubscriptionPayloadPromise
-  extends Promise<FaqCategorySubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = FaqCategoryPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = FaqCategoryPreviousValuesPromise>() => T;
-}
-
-export interface FaqCategorySubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<FaqCategorySubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = FaqCategorySubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = FaqCategoryPreviousValuesSubscription>() => T;
-}
-
-export interface ProsAndConsEdge {
-  node: ProsAndCons;
-  cursor: String;
-}
-
-export interface ProsAndConsEdgePromise
-  extends Promise<ProsAndConsEdge>,
-    Fragmentable {
-  node: <T = ProsAndConsPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface ProsAndConsEdgeSubscription
-  extends Promise<AsyncIterator<ProsAndConsEdge>>,
-    Fragmentable {
-  node: <T = ProsAndConsSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface FaqCategoryPreviousValues {
-  id: ID_Output;
-  name: String;
-  slug: String;
-  description: String;
-}
-
-export interface FaqCategoryPreviousValuesPromise
-  extends Promise<FaqCategoryPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  slug: () => Promise<String>;
-  description: () => Promise<String>;
-}
-
-export interface FaqCategoryPreviousValuesSubscription
-  extends Promise<AsyncIterator<FaqCategoryPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  slug: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-}
-
-export interface ProsConnection {
-  pageInfo: PageInfo;
-  edges: ProsEdge[];
-}
-
-export interface ProsConnectionPromise
-  extends Promise<ProsConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ProsEdge>>() => T;
-  aggregate: <T = AggregateProsPromise>() => T;
-}
-
-export interface ProsConnectionSubscription
-  extends Promise<AsyncIterator<ProsConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<ProsEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateProsSubscription>() => T;
-}
-
-export interface AlertBoxConnection {
-  pageInfo: PageInfo;
-  edges: AlertBoxEdge[];
-}
-
-export interface AlertBoxConnectionPromise
-  extends Promise<AlertBoxConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<AlertBoxEdge>>() => T;
-  aggregate: <T = AggregateAlertBoxPromise>() => T;
-}
-
-export interface AlertBoxConnectionSubscription
-  extends Promise<AsyncIterator<AlertBoxConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<AlertBoxEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateAlertBoxSubscription>() => T;
+  page: <T = PageSubscription>() => T;
+  faq: <T = FaqSubscription>() => T;
 }
 
 export interface Page {
@@ -5178,6 +5920,28 @@ export interface PagePromise extends Promise<Page>, Fragmentable {
       last?: Int;
     }
   ) => T;
+  faqs: <T = FragmentableArray<PageFaq>>(
+    args?: {
+      where?: PageFaqWhereInput;
+      orderBy?: PageFaqOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  faqAccordion: <T = FragmentableArray<PageFaqAccordion>>(
+    args?: {
+      where?: PageFaqAccordionWhereInput;
+      orderBy?: PageFaqAccordionOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
 }
 
 export interface PageSubscription
@@ -5245,152 +6009,28 @@ export interface PageSubscription
       last?: Int;
     }
   ) => T;
-}
-
-export interface MediaSubscriptionPayload {
-  mutation: MutationType;
-  node: Media;
-  updatedFields: String[];
-  previousValues: MediaPreviousValues;
-}
-
-export interface MediaSubscriptionPayloadPromise
-  extends Promise<MediaSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = MediaPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = MediaPreviousValuesPromise>() => T;
-}
-
-export interface MediaSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<MediaSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = MediaSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = MediaPreviousValuesSubscription>() => T;
-}
-
-export interface QuickTipPreviousValues {
-  id: ID_Output;
-  title?: String;
-  content?: String;
-  buttonText?: String;
-  buttonLink?: String;
-  order?: Int;
-}
-
-export interface QuickTipPreviousValuesPromise
-  extends Promise<QuickTipPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  title: () => Promise<String>;
-  content: () => Promise<String>;
-  buttonText: () => Promise<String>;
-  buttonLink: () => Promise<String>;
-  order: () => Promise<Int>;
-}
-
-export interface QuickTipPreviousValuesSubscription
-  extends Promise<AsyncIterator<QuickTipPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  title: () => Promise<AsyncIterator<String>>;
-  content: () => Promise<AsyncIterator<String>>;
-  buttonText: () => Promise<AsyncIterator<String>>;
-  buttonLink: () => Promise<AsyncIterator<String>>;
-  order: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface MediaPreviousValues {
-  id: ID_Output;
-  url: String;
-  title?: String;
-  altText?: String;
-}
-
-export interface MediaPreviousValuesPromise
-  extends Promise<MediaPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  url: () => Promise<String>;
-  title: () => Promise<String>;
-  altText: () => Promise<String>;
-}
-
-export interface MediaPreviousValuesSubscription
-  extends Promise<AsyncIterator<MediaPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  url: () => Promise<AsyncIterator<String>>;
-  title: () => Promise<AsyncIterator<String>>;
-  altText: () => Promise<AsyncIterator<String>>;
-}
-
-export interface AggregateFaq {
-  count: Int;
-}
-
-export interface AggregateFaqPromise
-  extends Promise<AggregateFaq>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateFaqSubscription
-  extends Promise<AsyncIterator<AggregateFaq>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface QuickTip {
-  id: ID_Output;
-  title?: String;
-  content?: String;
-  buttonText?: String;
-  buttonLink?: String;
-  order?: Int;
-}
-
-export interface QuickTipPromise extends Promise<QuickTip>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  page: <T = PagePromise>() => T;
-  title: () => Promise<String>;
-  content: () => Promise<String>;
-  buttonText: () => Promise<String>;
-  buttonLink: () => Promise<String>;
-  media: <T = MediaPromise>() => T;
-  order: () => Promise<Int>;
-}
-
-export interface QuickTipSubscription
-  extends Promise<AsyncIterator<QuickTip>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  page: <T = PageSubscription>() => T;
-  title: () => Promise<AsyncIterator<String>>;
-  content: () => Promise<AsyncIterator<String>>;
-  buttonText: () => Promise<AsyncIterator<String>>;
-  buttonLink: () => Promise<AsyncIterator<String>>;
-  media: <T = MediaSubscription>() => T;
-  order: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface AggregateCons {
-  count: Int;
-}
-
-export interface AggregateConsPromise
-  extends Promise<AggregateCons>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateConsSubscription
-  extends Promise<AsyncIterator<AggregateCons>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  faqs: <T = Promise<AsyncIterator<PageFaqSubscription>>>(
+    args?: {
+      where?: PageFaqWhereInput;
+      orderBy?: PageFaqOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  faqAccordion: <T = Promise<AsyncIterator<PageFaqAccordionSubscription>>>(
+    args?: {
+      where?: PageFaqAccordionWhereInput;
+      orderBy?: PageFaqAccordionOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
 }
 
 export interface PageSubscriptionPayload {
@@ -5482,50 +6122,263 @@ export interface PagePreviousValuesSubscription
   vertical: () => Promise<AsyncIterator<String>>;
 }
 
-export interface QuickTipConnection {
-  pageInfo: PageInfo;
-  edges: QuickTipEdge[];
+export interface AggregateFaq {
+  count: Int;
 }
 
-export interface QuickTipConnectionPromise
-  extends Promise<QuickTipConnection>,
+export interface AggregateFaqPromise
+  extends Promise<AggregateFaq>,
     Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<QuickTipEdge>>() => T;
-  aggregate: <T = AggregateQuickTipPromise>() => T;
+  count: () => Promise<Int>;
 }
 
-export interface QuickTipConnectionSubscription
-  extends Promise<AsyncIterator<QuickTipConnection>>,
+export interface AggregateFaqSubscription
+  extends Promise<AsyncIterator<AggregateFaq>>,
     Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<QuickTipEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateQuickTipSubscription>() => T;
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface QuickTipSubscriptionPayload {
+export interface ProsAndCons {
+  id: ID_Output;
+  title?: String;
+  order?: Int;
+}
+
+export interface ProsAndConsPromise extends Promise<ProsAndCons>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  page: <T = PagePromise>() => T;
+  title: () => Promise<String>;
+  order: () => Promise<Int>;
+  pros: <T = FragmentableArray<Pros>>(
+    args?: {
+      where?: ProsWhereInput;
+      orderBy?: ProsOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  cons: <T = FragmentableArray<Cons>>(
+    args?: {
+      where?: ConsWhereInput;
+      orderBy?: ConsOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+}
+
+export interface ProsAndConsSubscription
+  extends Promise<AsyncIterator<ProsAndCons>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  page: <T = PageSubscription>() => T;
+  title: () => Promise<AsyncIterator<String>>;
+  order: () => Promise<AsyncIterator<Int>>;
+  pros: <T = Promise<AsyncIterator<ProsSubscription>>>(
+    args?: {
+      where?: ProsWhereInput;
+      orderBy?: ProsOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+  cons: <T = Promise<AsyncIterator<ConsSubscription>>>(
+    args?: {
+      where?: ConsWhereInput;
+      orderBy?: ConsOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+}
+
+export interface ConsEdge {
+  node: Cons;
+  cursor: String;
+}
+
+export interface ConsEdgePromise extends Promise<ConsEdge>, Fragmentable {
+  node: <T = ConsPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface ConsEdgeSubscription
+  extends Promise<AsyncIterator<ConsEdge>>,
+    Fragmentable {
+  node: <T = ConsSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface PageFaqSubscriptionPayload {
   mutation: MutationType;
-  node: QuickTip;
+  node: PageFaq;
   updatedFields: String[];
-  previousValues: QuickTipPreviousValues;
+  previousValues: PageFaqPreviousValues;
 }
 
-export interface QuickTipSubscriptionPayloadPromise
-  extends Promise<QuickTipSubscriptionPayload>,
+export interface PageFaqSubscriptionPayloadPromise
+  extends Promise<PageFaqSubscriptionPayload>,
     Fragmentable {
   mutation: () => Promise<MutationType>;
-  node: <T = QuickTipPromise>() => T;
+  node: <T = PageFaqPromise>() => T;
   updatedFields: () => Promise<String[]>;
-  previousValues: <T = QuickTipPreviousValuesPromise>() => T;
+  previousValues: <T = PageFaqPreviousValuesPromise>() => T;
 }
 
-export interface QuickTipSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<QuickTipSubscriptionPayload>>,
+export interface PageFaqSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<PageFaqSubscriptionPayload>>,
     Fragmentable {
   mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = QuickTipSubscription>() => T;
+  node: <T = PageFaqSubscription>() => T;
   updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = QuickTipPreviousValuesSubscription>() => T;
+  previousValues: <T = PageFaqPreviousValuesSubscription>() => T;
+}
+
+export interface BoxConnection {
+  pageInfo: PageInfo;
+  edges: BoxEdge[];
+}
+
+export interface BoxConnectionPromise
+  extends Promise<BoxConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<BoxEdge>>() => T;
+  aggregate: <T = AggregateBoxPromise>() => T;
+}
+
+export interface BoxConnectionSubscription
+  extends Promise<AsyncIterator<BoxConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<BoxEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateBoxSubscription>() => T;
+}
+
+export interface PageFaqPreviousValues {
+  id: ID_Output;
+  order?: Int;
+}
+
+export interface PageFaqPreviousValuesPromise
+  extends Promise<PageFaqPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  order: () => Promise<Int>;
+}
+
+export interface PageFaqPreviousValuesSubscription
+  extends Promise<AsyncIterator<PageFaqPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  order: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface AggregateQuickTip {
+  count: Int;
+}
+
+export interface AggregateQuickTipPromise
+  extends Promise<AggregateQuickTip>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateQuickTipSubscription
+  extends Promise<AsyncIterator<AggregateQuickTip>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface QuickTip {
+  id: ID_Output;
+  title?: String;
+  content?: String;
+  buttonText?: String;
+  buttonLink?: String;
+  order?: Int;
+}
+
+export interface QuickTipPromise extends Promise<QuickTip>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  page: <T = PagePromise>() => T;
+  title: () => Promise<String>;
+  content: () => Promise<String>;
+  buttonText: () => Promise<String>;
+  buttonLink: () => Promise<String>;
+  media: <T = MediaPromise>() => T;
+  order: () => Promise<Int>;
+}
+
+export interface QuickTipSubscription
+  extends Promise<AsyncIterator<QuickTip>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  page: <T = PageSubscription>() => T;
+  title: () => Promise<AsyncIterator<String>>;
+  content: () => Promise<AsyncIterator<String>>;
+  buttonText: () => Promise<AsyncIterator<String>>;
+  buttonLink: () => Promise<AsyncIterator<String>>;
+  media: <T = MediaSubscription>() => T;
+  order: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface ProsConnection {
+  pageInfo: PageInfo;
+  edges: ProsEdge[];
+}
+
+export interface ProsConnectionPromise
+  extends Promise<ProsConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ProsEdge>>() => T;
+  aggregate: <T = AggregateProsPromise>() => T;
+}
+
+export interface ProsConnectionSubscription
+  extends Promise<AsyncIterator<ProsConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ProsEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateProsSubscription>() => T;
+}
+
+export interface PageFaqAccordionSubscriptionPayload {
+  mutation: MutationType;
+  node: PageFaqAccordion;
+  updatedFields: String[];
+  previousValues: PageFaqAccordionPreviousValues;
+}
+
+export interface PageFaqAccordionSubscriptionPayloadPromise
+  extends Promise<PageFaqAccordionSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = PageFaqAccordionPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = PageFaqAccordionPreviousValuesPromise>() => T;
+}
+
+export interface PageFaqAccordionSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<PageFaqAccordionSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = PageFaqAccordionSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = PageFaqAccordionPreviousValuesSubscription>() => T;
 }
 
 export interface PageEdge {
@@ -5545,29 +6398,23 @@ export interface PageEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface ProsSubscriptionPayload {
-  mutation: MutationType;
-  node: Pros;
-  updatedFields: String[];
-  previousValues: ProsPreviousValues;
+export interface PageFaqAccordionPreviousValues {
+  id: ID_Output;
+  order?: Int;
 }
 
-export interface ProsSubscriptionPayloadPromise
-  extends Promise<ProsSubscriptionPayload>,
+export interface PageFaqAccordionPreviousValuesPromise
+  extends Promise<PageFaqAccordionPreviousValues>,
     Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = ProsPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = ProsPreviousValuesPromise>() => T;
+  id: () => Promise<ID_Output>;
+  order: () => Promise<Int>;
 }
 
-export interface ProsSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<ProsSubscriptionPayload>>,
+export interface PageFaqAccordionPreviousValuesSubscription
+  extends Promise<AsyncIterator<PageFaqAccordionPreviousValues>>,
     Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = ProsSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = ProsPreviousValuesSubscription>() => T;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  order: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface FaqCategoryEdge {
@@ -5589,26 +6436,61 @@ export interface FaqCategoryEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface ProsAndConsPreviousValues {
+export interface Cons {
   id: ID_Output;
-  title?: String;
+  content?: String;
   order?: Int;
 }
 
-export interface ProsAndConsPreviousValuesPromise
-  extends Promise<ProsAndConsPreviousValues>,
-    Fragmentable {
+export interface ConsPromise extends Promise<Cons>, Fragmentable {
   id: () => Promise<ID_Output>;
-  title: () => Promise<String>;
+  prosAndCons: <T = ProsAndConsPromise>() => T;
+  content: () => Promise<String>;
   order: () => Promise<Int>;
 }
 
-export interface ProsAndConsPreviousValuesSubscription
-  extends Promise<AsyncIterator<ProsAndConsPreviousValues>>,
+export interface ConsSubscription
+  extends Promise<AsyncIterator<Cons>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  title: () => Promise<AsyncIterator<String>>;
+  prosAndCons: <T = ProsAndConsSubscription>() => T;
+  content: () => Promise<AsyncIterator<String>>;
   order: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface AggregateBox {
+  count: Int;
+}
+
+export interface AggregateBoxPromise
+  extends Promise<AggregateBox>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateBoxSubscription
+  extends Promise<AsyncIterator<AggregateBox>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface ProsAndConsEdge {
+  node: ProsAndCons;
+  cursor: String;
+}
+
+export interface ProsAndConsEdgePromise
+  extends Promise<ProsAndConsEdge>,
+    Fragmentable {
+  node: <T = ProsAndConsPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface ProsAndConsEdgeSubscription
+  extends Promise<AsyncIterator<ProsAndConsEdge>>,
+    Fragmentable {
+  node: <T = ProsAndConsSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface ProsAndConsSubscriptionPayload {
@@ -5636,21 +6518,21 @@ export interface ProsAndConsSubscriptionPayloadSubscription
   previousValues: <T = ProsAndConsPreviousValuesSubscription>() => T;
 }
 
-export interface Cons {
+export interface Pros {
   id: ID_Output;
   content?: String;
   order?: Int;
 }
 
-export interface ConsPromise extends Promise<Cons>, Fragmentable {
+export interface ProsPromise extends Promise<Pros>, Fragmentable {
   id: () => Promise<ID_Output>;
   prosAndCons: <T = ProsAndConsPromise>() => T;
   content: () => Promise<String>;
   order: () => Promise<Int>;
 }
 
-export interface ConsSubscription
-  extends Promise<AsyncIterator<Cons>>,
+export interface ProsSubscription
+  extends Promise<AsyncIterator<Pros>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   prosAndCons: <T = ProsAndConsSubscription>() => T;
@@ -5680,6 +6562,47 @@ export interface ProsPreviousValuesSubscription
   order: () => Promise<AsyncIterator<Int>>;
 }
 
+export interface ProsSubscriptionPayload {
+  mutation: MutationType;
+  node: Pros;
+  updatedFields: String[];
+  previousValues: ProsPreviousValues;
+}
+
+export interface ProsSubscriptionPayloadPromise
+  extends Promise<ProsSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = ProsPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = ProsPreviousValuesPromise>() => T;
+}
+
+export interface ProsSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<ProsSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = ProsSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = ProsPreviousValuesSubscription>() => T;
+}
+
+export interface AggregatePageFaq {
+  count: Int;
+}
+
+export interface AggregatePageFaqPromise
+  extends Promise<AggregatePageFaq>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregatePageFaqSubscription
+  extends Promise<AsyncIterator<AggregatePageFaq>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
 export interface UserSubscriptionPayload {
   mutation: MutationType;
   node: User;
@@ -5705,6 +6628,27 @@ export interface UserSubscriptionPayloadSubscription
   previousValues: <T = UserPreviousValuesSubscription>() => T;
 }
 
+export interface FaqConnection {
+  pageInfo: PageInfo;
+  edges: FaqEdge[];
+}
+
+export interface FaqConnectionPromise
+  extends Promise<FaqConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<FaqEdge>>() => T;
+  aggregate: <T = AggregateFaqPromise>() => T;
+}
+
+export interface FaqConnectionSubscription
+  extends Promise<AsyncIterator<FaqConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<FaqEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateFaqSubscription>() => T;
+}
+
 export interface MediaEdge {
   node: Media;
   cursor: String;
@@ -5722,65 +6666,6 @@ export interface MediaEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface AggregatePros {
-  count: Int;
-}
-
-export interface AggregateProsPromise
-  extends Promise<AggregatePros>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateProsSubscription
-  extends Promise<AsyncIterator<AggregatePros>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface UserEdge {
-  node: User;
-  cursor: String;
-}
-
-export interface UserEdgePromise extends Promise<UserEdge>, Fragmentable {
-  node: <T = UserPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface UserEdgeSubscription
-  extends Promise<AsyncIterator<UserEdge>>,
-    Fragmentable {
-  node: <T = UserSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface ConsConnection {
-  pageInfo: PageInfo;
-  edges: ConsEdge[];
-}
-
-export interface ConsConnectionPromise
-  extends Promise<ConsConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ConsEdge>>() => T;
-  aggregate: <T = AggregateConsPromise>() => T;
-}
-
-export interface ConsConnectionSubscription
-  extends Promise<AsyncIterator<ConsConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<ConsEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateConsSubscription>() => T;
-}
-
-/*
-The `Boolean` scalar type represents `true` or `false`.
-*/
-export type Boolean = boolean;
-
 export type Long = string;
 
 /*
@@ -5794,11 +6679,6 @@ DateTime scalar output type, which is always a string
 export type DateTimeOutput = string;
 
 /*
-The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point). 
-*/
-export type Float = number;
-
-/*
 The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `"4"`) or integer (such as `4`) input value will be accepted as an ID.
 */
 export type ID_Input = string | number;
@@ -5808,6 +6688,16 @@ export type ID_Output = string;
 The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
 */
 export type String = string;
+
+/*
+The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point). 
+*/
+export type Float = number;
+
+/*
+The `Boolean` scalar type represents `true` or `false`.
+*/
+export type Boolean = boolean;
 
 /*
 The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. 
@@ -5877,6 +6767,14 @@ export const models: Model[] = [
   },
   {
     name: "Media",
+    embedded: false
+  },
+  {
+    name: "PageFaq",
+    embedded: false
+  },
+  {
+    name: "PageFaqAccordion",
     embedded: false
   }
 ];

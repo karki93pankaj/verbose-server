@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: verbose-server
+  labels:
+    app: verbose-server
+  namespace: verbose
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: verbose-server
+  template:
+    metadata:
+      labels:
+        app: verbose-server
+    spec:
+      containers:
+        - name: verbose-server
+          image: 845778257277.dkr.ecr.ap-southeast-2.amazonaws.com/verbose-server:TAG
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 4400
+          env:
+            - name: PRISMA_ENDPOINT
+              value: "http://verbose.ratecity.com.au/prisma"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: verbose-server
+  labels:
+    app: verbose-server
+    service: verbose-server
+  namespace: verbose
+spec:
+  selector:
+    app: verbose-server
+  ports:
+    - port: 4400
+      targetPort: 4400
+      name: http

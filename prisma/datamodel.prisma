@@ -16,17 +16,17 @@ enum PageStatus {
 }
 
 type User {
-  id: ID! @unique
+  id: ID! @id
   name: String!
   email: String! @unique
   password: String!
   resetToken: String
   resetTokenExpiry: Float
-  permissions: [Permission]
+  permissions: [Permission] @scalarList(strategy: RELATION)
 }
 
 type Page {
-  id: ID! @unique
+  id: ID! @id
   title: String!
   slug: String!
   type: PageType!
@@ -41,7 +41,7 @@ type Page {
 }
 
 type Block {
-  id: ID! @unique
+  id: ID! @id
   page: Page!
   title: String
   media: Media
@@ -52,7 +52,7 @@ type Block {
 }
 
 type Box {
-  id: ID! @unique
+  id: ID! @id
   page: Page!
   title: String
   media: Media
@@ -63,7 +63,7 @@ type Box {
 }
 
 type AlertBox {
-  id: ID! @unique
+  id: ID! @id
   page: Page!
   title: String
   content: String
@@ -73,7 +73,7 @@ type AlertBox {
 }
 
 type QuickTip {
-  id: ID! @unique
+  id: ID! @id
   page: Page!
   title: String
   content: String
@@ -84,7 +84,7 @@ type QuickTip {
 }
 
 type ProsAndCons {
-  id: ID! @unique
+  id: ID! @id
   page: Page!
   title: String
   order: Int
@@ -93,21 +93,23 @@ type ProsAndCons {
 }
 
 type Pros {
-  id: ID! @unique
-  prosAndCons: ProsAndCons! @relation(name: "ProsOnProsAndCons", onDelete: SET_NULL)
+  id: ID! @id
+  prosAndCons: ProsAndCons!
+    @relation(name: "ProsOnProsAndCons", onDelete: SET_NULL)
   content: String
   order: Int
 }
 
 type Cons {
-  id: ID! @unique
-  prosAndCons: ProsAndCons! @relation(name: "ConsOnProsAndCons", onDelete: SET_NULL)
+  id: ID! @id
+  prosAndCons: ProsAndCons!
+    @relation(name: "ConsOnProsAndCons", onDelete: SET_NULL)
   content: String
   order: Int
 }
 
 type Faq {
-  id: ID! @unique
+  id: ID! @id
   title: String!
   description: String
   short_description: String
@@ -117,13 +119,13 @@ type Faq {
   category: [FaqCategory!]!
   readingTime: Int
   order: Int
-  variant: [String]
-  tag: [String]
+  variant: [String] @scalarList(strategy: RELATION)
+  tag: [String] @scalarList(strategy: RELATION)
   pubDate: DateTime
 }
 
 type FaqCategory {
-  id: ID! @unique
+  id: ID! @id
   name: String!
   slug: String!
   description: String!
@@ -131,7 +133,7 @@ type FaqCategory {
 }
 
 type Media {
-  id: ID! @unique
+  id: ID! @id
   url: String!
   title: String
   altText: String

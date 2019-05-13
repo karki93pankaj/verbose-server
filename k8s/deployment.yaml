@@ -21,9 +21,9 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 4400
-          env:
-            - name: PRISMA_ENDPOINT
-              value: "http://verbose.ratecity.com.au/prisma"
+          envFrom:
+            - secretRef:
+                name: verbose-server
 ---
 apiVersion: v1
 kind: Service

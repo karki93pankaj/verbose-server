@@ -71,6 +71,7 @@ type AlertBoxConnection {
 }
 
 input AlertBoxCreateInput {
+  id: ID
   page: PageCreateOneWithoutAlertBoxesInput!
   title: String
   content: String
@@ -85,6 +86,7 @@ input AlertBoxCreateManyWithoutPageInput {
 }
 
 input AlertBoxCreateWithoutPageInput {
+  id: ID
   title: String
   content: String
   prefix: String
@@ -110,10 +112,6 @@ enum AlertBoxOrderByInput {
   style_DESC
   order_ASC
   order_DESC
-  createdAt_ASC
-  createdAt_DESC
-  updatedAt_ASC
-  updatedAt_DESC
 }
 
 type AlertBoxPreviousValues {
@@ -399,6 +397,7 @@ type BlockConnection {
 }
 
 input BlockCreateInput {
+  id: ID
   page: PageCreateOneWithoutBlocksInput!
   title: String
   media: MediaCreateOneInput
@@ -414,6 +413,7 @@ input BlockCreateManyWithoutPageInput {
 }
 
 input BlockCreateWithoutPageInput {
+  id: ID
   title: String
   media: MediaCreateOneInput
   video: String
@@ -440,10 +440,6 @@ enum BlockOrderByInput {
   content_DESC
   order_ASC
   order_DESC
-  createdAt_ASC
-  createdAt_DESC
-  updatedAt_ASC
-  updatedAt_DESC
 }
 
 type BlockPreviousValues {
@@ -728,6 +724,7 @@ type BoxConnection {
 }
 
 input BoxCreateInput {
+  id: ID
   page: PageCreateOneWithoutBoxesInput!
   title: String
   media: MediaCreateOneInput
@@ -743,6 +740,7 @@ input BoxCreateManyWithoutPageInput {
 }
 
 input BoxCreateWithoutPageInput {
+  id: ID
   title: String
   media: MediaCreateOneInput
   video: String
@@ -769,10 +767,6 @@ enum BoxOrderByInput {
   content_DESC
   order_ASC
   order_DESC
-  createdAt_ASC
-  createdAt_DESC
-  updatedAt_ASC
-  updatedAt_DESC
 }
 
 type BoxPreviousValues {
@@ -1053,6 +1047,7 @@ type ConsConnection {
 }
 
 input ConsCreateInput {
+  id: ID
   prosAndCons: ProsAndConsCreateOneWithoutConsInput!
   content: String
   order: Int
@@ -1064,6 +1059,7 @@ input ConsCreateManyWithoutProsAndConsInput {
 }
 
 input ConsCreateWithoutProsAndConsInput {
+  id: ID
   content: String
   order: Int
 }
@@ -1080,10 +1076,6 @@ enum ConsOrderByInput {
   content_DESC
   order_ASC
   order_DESC
-  createdAt_ASC
-  createdAt_DESC
-  updatedAt_ASC
-  updatedAt_DESC
 }
 
 type ConsPreviousValues {
@@ -1281,6 +1273,7 @@ type FaqCategoryConnection {
 }
 
 input FaqCategoryCreateInput {
+  id: ID
   name: String!
   slug: String!
   description: String!
@@ -1298,6 +1291,7 @@ input FaqCategoryCreateOneInput {
 }
 
 input FaqCategoryCreateWithoutFaqsInput {
+  id: ID
   name: String!
   slug: String!
   description: String!
@@ -1317,10 +1311,6 @@ enum FaqCategoryOrderByInput {
   slug_DESC
   description_ASC
   description_DESC
-  createdAt_ASC
-  createdAt_DESC
-  updatedAt_ASC
-  updatedAt_DESC
 }
 
 type FaqCategoryPreviousValues {
@@ -1558,6 +1548,7 @@ type FaqConnection {
 }
 
 input FaqCreateInput {
+  id: ID
   title: String!
   description: String
   short_description: String
@@ -1591,6 +1582,7 @@ input FaqCreatevariantInput {
 }
 
 input FaqCreateWithoutCategoryInput {
+  id: ID
   title: String!
   description: String
   short_description: String
@@ -1628,10 +1620,6 @@ enum FaqOrderByInput {
   order_DESC
   pubDate_ASC
   pubDate_DESC
-  createdAt_ASC
-  createdAt_DESC
-  updatedAt_ASC
-  updatedAt_DESC
 }
 
 type FaqPreviousValues {
@@ -2038,6 +2026,7 @@ type MediaConnection {
 }
 
 input MediaCreateInput {
+  id: ID
   url: String!
   title: String
   altText: String
@@ -2062,10 +2051,6 @@ enum MediaOrderByInput {
   title_DESC
   altText_ASC
   altText_DESC
-  createdAt_ASC
-  createdAt_DESC
-  updatedAt_ASC
-  updatedAt_DESC
 }
 
 type MediaPreviousValues {
@@ -2312,6 +2297,7 @@ type PageConnection {
 }
 
 input PageCreateInput {
+  id: ID
   title: String!
   slug: String!
   type: PageType!
@@ -2363,6 +2349,7 @@ input PageCreateOneWithoutQuickTipsInput {
 }
 
 input PageCreateWithoutAlertBoxesInput {
+  id: ID
   title: String!
   slug: String!
   type: PageType!
@@ -2378,6 +2365,7 @@ input PageCreateWithoutAlertBoxesInput {
 }
 
 input PageCreateWithoutBlocksInput {
+  id: ID
   title: String!
   slug: String!
   type: PageType!
@@ -2393,6 +2381,7 @@ input PageCreateWithoutBlocksInput {
 }
 
 input PageCreateWithoutBoxesInput {
+  id: ID
   title: String!
   slug: String!
   type: PageType!
@@ -2438,6 +2427,7 @@ input PageCreateWithoutFaqsInput {
 }
 
 input PageCreateWithoutProsAndConsInput {
+  id: ID
   title: String!
   slug: String!
   type: PageType!
@@ -2453,6 +2443,7 @@ input PageCreateWithoutProsAndConsInput {
 }
 
 input PageCreateWithoutQuickTipsInput {
+  id: ID
   title: String!
   slug: String!
   type: PageType!
@@ -2846,10 +2837,6 @@ enum PageOrderByInput {
   status_DESC
   vertical_ASC
   vertical_DESC
-  createdAt_ASC
-  createdAt_DESC
-  updatedAt_ASC
-  updatedAt_DESC
 }
 
 type PagePreviousValues {
@@ -3228,6 +3215,7 @@ type ProsAndConsConnection {
 }
 
 input ProsAndConsCreateInput {
+  id: ID
   page: PageCreateOneWithoutProsAndConsInput!
   title: String
   order: Int
@@ -3251,6 +3239,7 @@ input ProsAndConsCreateOneWithoutProsInput {
 }
 
 input ProsAndConsCreateWithoutConsInput {
+  id: ID
   page: PageCreateOneWithoutProsAndConsInput!
   title: String
   order: Int
@@ -3258,6 +3247,7 @@ input ProsAndConsCreateWithoutConsInput {
 }
 
 input ProsAndConsCreateWithoutPageInput {
+  id: ID
   title: String
   order: Int
   pros: ProsCreateManyWithoutProsAndConsInput
@@ -3265,6 +3255,7 @@ input ProsAndConsCreateWithoutPageInput {
 }
 
 input ProsAndConsCreateWithoutProsInput {
+  id: ID
   page: PageCreateOneWithoutProsAndConsInput!
   title: String
   order: Int
@@ -3283,10 +3274,6 @@ enum ProsAndConsOrderByInput {
   title_DESC
   order_ASC
   order_DESC
-  createdAt_ASC
-  createdAt_DESC
-  updatedAt_ASC
-  updatedAt_DESC
 }
 
 type ProsAndConsPreviousValues {
@@ -3506,6 +3493,7 @@ type ProsConnection {
 }
 
 input ProsCreateInput {
+  id: ID
   prosAndCons: ProsAndConsCreateOneWithoutProsInput!
   content: String
   order: Int
@@ -3517,6 +3505,7 @@ input ProsCreateManyWithoutProsAndConsInput {
 }
 
 input ProsCreateWithoutProsAndConsInput {
+  id: ID
   content: String
   order: Int
 }
@@ -3533,10 +3522,6 @@ enum ProsOrderByInput {
   content_DESC
   order_ASC
   order_DESC
-  createdAt_ASC
-  createdAt_DESC
-  updatedAt_ASC
-  updatedAt_DESC
 }
 
 type ProsPreviousValues {
@@ -3765,6 +3750,7 @@ type QuickTipConnection {
 }
 
 input QuickTipCreateInput {
+  id: ID
   page: PageCreateOneWithoutQuickTipsInput!
   title: String
   content: String
@@ -3780,6 +3766,7 @@ input QuickTipCreateManyWithoutPageInput {
 }
 
 input QuickTipCreateWithoutPageInput {
+  id: ID
   title: String
   content: String
   buttonText: String
@@ -3806,10 +3793,6 @@ enum QuickTipOrderByInput {
   buttonLink_DESC
   order_ASC
   order_DESC
-  createdAt_ASC
-  createdAt_DESC
-  updatedAt_ASC
-  updatedAt_DESC
 }
 
 type QuickTipPreviousValues {
@@ -4110,6 +4093,7 @@ type UserConnection {
 }
 
 input UserCreateInput {
+  id: ID
   name: String!
   email: String!
   password: String!
@@ -4145,10 +4129,6 @@ enum UserOrderByInput {
   resetToken_DESC
   resetTokenExpiry_ASC
   resetTokenExpiry_DESC
-  createdAt_ASC
-  createdAt_DESC
-  updatedAt_ASC
-  updatedAt_DESC
 }
 
 type UserPreviousValues {

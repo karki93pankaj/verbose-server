@@ -11,11 +11,10 @@ const mutationDefs = gql`
     uploadMedia (media: Upload!): Media!
   }
 `
-
 // create apollo express server
 function createApolloServer () {
   return new ApolloServer({
-    typeDefs: [ 
+    typeDefs: [
       importSchema(path.resolve('src/appSchema.graphql')),
       mutationDefs,
     ],

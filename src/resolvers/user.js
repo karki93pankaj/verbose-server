@@ -32,6 +32,10 @@ export default {
       // hash their password
       const password = await bcrypt.hash(args.password, 10);
       // create the user in the database
+      console.log('inside singup')
+      console.log('f1')
+
+      console.log(ctx.prisma)
       const user = await ctx.prisma.createUser(
           {
             ...args,
@@ -40,6 +44,8 @@ export default {
           },
         info
       );
+
+      console.log('f2')
       // create the JWT token for them
       const token = jwt.sign({ userId: user.id }, process.env.APP_SECRET);
       // We set the jwt as a cookie on the response

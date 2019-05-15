@@ -604,7 +604,11 @@ export type BlockOrderByInput =
   | "content_ASC"
   | "content_DESC"
   | "order_ASC"
-  | "order_DESC";
+  | "order_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
 
 export type UserOrderByInput =
   | "id_ASC"
@@ -618,7 +622,11 @@ export type UserOrderByInput =
   | "resetToken_ASC"
   | "resetToken_DESC"
   | "resetTokenExpiry_ASC"
-  | "resetTokenExpiry_DESC";
+  | "resetTokenExpiry_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
 
 export type PageOrderByInput =
   | "id_ASC"
@@ -632,7 +640,11 @@ export type PageOrderByInput =
   | "status_ASC"
   | "status_DESC"
   | "vertical_ASC"
-  | "vertical_DESC";
+  | "vertical_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
 
 export type PageFaqOrderByInput =
   | "id_ASC"
@@ -658,7 +670,11 @@ export type QuickTipOrderByInput =
   | "buttonLink_ASC"
   | "buttonLink_DESC"
   | "order_ASC"
-  | "order_DESC";
+  | "order_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
 
 export type PageFaqAccordionOrderByInput =
   | "id_ASC"
@@ -682,7 +698,11 @@ export type AlertBoxOrderByInput =
   | "style_ASC"
   | "style_DESC"
   | "order_ASC"
-  | "order_DESC";
+  | "order_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
 
 export type FaqCategoryOrderByInput =
   | "id_ASC"
@@ -698,7 +718,11 @@ export type FaqCategoryOrderByInput =
   | "order_ASC"
   | "order_DESC"
   | "pubDate_ASC"
-  | "pubDate_DESC";
+  | "pubDate_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
 
 export type BoxOrderByInput =
   | "id_ASC"
@@ -712,7 +736,11 @@ export type BoxOrderByInput =
   | "content_ASC"
   | "content_DESC"
   | "order_ASC"
-  | "order_DESC";
+  | "order_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
 
 export type ProsAndConsOrderByInput =
   | "id_ASC"
@@ -720,7 +748,11 @@ export type ProsAndConsOrderByInput =
   | "title_ASC"
   | "title_DESC"
   | "order_ASC"
-  | "order_DESC";
+  | "order_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
 
 export type ProsOrderByInput =
   | "id_ASC"
@@ -728,7 +760,11 @@ export type ProsOrderByInput =
   | "content_ASC"
   | "content_DESC"
   | "order_ASC"
-  | "order_DESC";
+  | "order_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
 
 export type ConsOrderByInput =
   | "id_ASC"
@@ -736,7 +772,11 @@ export type ConsOrderByInput =
   | "content_ASC"
   | "content_DESC"
   | "order_ASC"
-  | "order_DESC";
+  | "order_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
@@ -746,7 +786,11 @@ export type FaqOrderByInput =
   | "title_ASC"
   | "title_DESC"
   | "description_ASC"
-  | "description_DESC";
+  | "description_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
 
 export type PageStatus = "DRAFT" | "PUBLISHED" | "DELETED";
 
@@ -758,7 +802,11 @@ export type MediaOrderByInput =
   | "title_ASC"
   | "title_DESC"
   | "altText_ASC"
-  | "altText_DESC";
+  | "altText_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
 
 export interface ProsAndConsUpdateManyDataInput {
   title?: Maybe<String>;
@@ -858,12 +906,46 @@ export interface QuickTipWhereInput {
   order_lte?: Maybe<Int>;
   order_gt?: Maybe<Int>;
   order_gte?: Maybe<Int>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
   AND?: Maybe<QuickTipWhereInput[] | QuickTipWhereInput>;
   OR?: Maybe<QuickTipWhereInput[] | QuickTipWhereInput>;
   NOT?: Maybe<QuickTipWhereInput[] | QuickTipWhereInput>;
 }
 
-export interface BlockScalarWhereInput {
+export interface BlockUpdateManyWithWhereNestedInput {
+  where: BlockScalarWhereInput;
+  data: BlockUpdateManyDataInput;
+}
+
+export interface FaqCategoryUpdateManyWithWhereNestedInput {
+  where: FaqCategoryScalarWhereInput;
+  data: FaqCategoryUpdateManyDataInput;
+}
+
+export interface BlockUpdateManyDataInput {
+  title?: Maybe<String>;
+  video?: Maybe<String>;
+  style?: Maybe<String>;
+  content?: Maybe<String>;
+  order?: Maybe<Int>;
+}
+
+export interface ProsWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -878,48 +960,7 @@ export interface BlockScalarWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-  title?: Maybe<String>;
-  title_not?: Maybe<String>;
-  title_in?: Maybe<String[] | String>;
-  title_not_in?: Maybe<String[] | String>;
-  title_lt?: Maybe<String>;
-  title_lte?: Maybe<String>;
-  title_gt?: Maybe<String>;
-  title_gte?: Maybe<String>;
-  title_contains?: Maybe<String>;
-  title_not_contains?: Maybe<String>;
-  title_starts_with?: Maybe<String>;
-  title_not_starts_with?: Maybe<String>;
-  title_ends_with?: Maybe<String>;
-  title_not_ends_with?: Maybe<String>;
-  video?: Maybe<String>;
-  video_not?: Maybe<String>;
-  video_in?: Maybe<String[] | String>;
-  video_not_in?: Maybe<String[] | String>;
-  video_lt?: Maybe<String>;
-  video_lte?: Maybe<String>;
-  video_gt?: Maybe<String>;
-  video_gte?: Maybe<String>;
-  video_contains?: Maybe<String>;
-  video_not_contains?: Maybe<String>;
-  video_starts_with?: Maybe<String>;
-  video_not_starts_with?: Maybe<String>;
-  video_ends_with?: Maybe<String>;
-  video_not_ends_with?: Maybe<String>;
-  style?: Maybe<String>;
-  style_not?: Maybe<String>;
-  style_in?: Maybe<String[] | String>;
-  style_not_in?: Maybe<String[] | String>;
-  style_lt?: Maybe<String>;
-  style_lte?: Maybe<String>;
-  style_gt?: Maybe<String>;
-  style_gte?: Maybe<String>;
-  style_contains?: Maybe<String>;
-  style_not_contains?: Maybe<String>;
-  style_starts_with?: Maybe<String>;
-  style_not_starts_with?: Maybe<String>;
-  style_ends_with?: Maybe<String>;
-  style_not_ends_with?: Maybe<String>;
+  prosAndCons?: Maybe<ProsAndConsWhereInput>;
   content?: Maybe<String>;
   content_not?: Maybe<String>;
   content_in?: Maybe<String[] | String>;
@@ -942,89 +983,48 @@ export interface BlockScalarWhereInput {
   order_lte?: Maybe<Int>;
   order_gt?: Maybe<Int>;
   order_gte?: Maybe<Int>;
-  AND?: Maybe<BlockScalarWhereInput[] | BlockScalarWhereInput>;
-  OR?: Maybe<BlockScalarWhereInput[] | BlockScalarWhereInput>;
-  NOT?: Maybe<BlockScalarWhereInput[] | BlockScalarWhereInput>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<ProsWhereInput[] | ProsWhereInput>;
+  OR?: Maybe<ProsWhereInput[] | ProsWhereInput>;
+  NOT?: Maybe<ProsWhereInput[] | ProsWhereInput>;
 }
 
-export interface FaqCategoryScalarWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  slug?: Maybe<String>;
-  slug_not?: Maybe<String>;
-  slug_in?: Maybe<String[] | String>;
-  slug_not_in?: Maybe<String[] | String>;
-  slug_lt?: Maybe<String>;
-  slug_lte?: Maybe<String>;
-  slug_gt?: Maybe<String>;
-  slug_gte?: Maybe<String>;
-  slug_contains?: Maybe<String>;
-  slug_not_contains?: Maybe<String>;
-  slug_starts_with?: Maybe<String>;
-  slug_not_starts_with?: Maybe<String>;
-  slug_ends_with?: Maybe<String>;
-  slug_not_ends_with?: Maybe<String>;
-  description?: Maybe<String>;
-  description_not?: Maybe<String>;
-  description_in?: Maybe<String[] | String>;
-  description_not_in?: Maybe<String[] | String>;
-  description_lt?: Maybe<String>;
-  description_lte?: Maybe<String>;
-  description_gt?: Maybe<String>;
-  description_gte?: Maybe<String>;
-  description_contains?: Maybe<String>;
-  description_not_contains?: Maybe<String>;
-  description_starts_with?: Maybe<String>;
-  description_not_starts_with?: Maybe<String>;
-  description_ends_with?: Maybe<String>;
-  description_not_ends_with?: Maybe<String>;
-  AND?: Maybe<FaqCategoryScalarWhereInput[] | FaqCategoryScalarWhereInput>;
-  OR?: Maybe<FaqCategoryScalarWhereInput[] | FaqCategoryScalarWhereInput>;
-  NOT?: Maybe<FaqCategoryScalarWhereInput[] | FaqCategoryScalarWhereInput>;
+export interface BoxUpdateManyWithoutPageInput {
+  create?: Maybe<BoxCreateWithoutPageInput[] | BoxCreateWithoutPageInput>;
+  delete?: Maybe<BoxWhereUniqueInput[] | BoxWhereUniqueInput>;
+  connect?: Maybe<BoxWhereUniqueInput[] | BoxWhereUniqueInput>;
+  set?: Maybe<BoxWhereUniqueInput[] | BoxWhereUniqueInput>;
+  disconnect?: Maybe<BoxWhereUniqueInput[] | BoxWhereUniqueInput>;
+  update?: Maybe<
+    | BoxUpdateWithWhereUniqueWithoutPageInput[]
+    | BoxUpdateWithWhereUniqueWithoutPageInput
+  >;
+  upsert?: Maybe<
+    | BoxUpsertWithWhereUniqueWithoutPageInput[]
+    | BoxUpsertWithWhereUniqueWithoutPageInput
+  >;
+  deleteMany?: Maybe<BoxScalarWhereInput[] | BoxScalarWhereInput>;
+  updateMany?: Maybe<
+    BoxUpdateManyWithWhereNestedInput[] | BoxUpdateManyWithWhereNestedInput
+  >;
 }
 
-export interface FaqUpdateDataInput {
-  title?: String;
-  description?: String;
-  short_description?: String;
-  authors?: UserUpdateManyInput;
-  slug?: String;
-  vertical?: String;
-  category?: FaqCategoryUpdateManyWithoutFaqsInput;
-  readingTime?: Int;
-  order?: Int;
-  variant?: FaqUpdatevariantInput;
-  tag?: FaqUpdatetagInput;
-  pubDate?: DateTimeInput;
-}
-
-export interface AlertBoxWhereInput {
+export interface ProsAndConsWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -1054,48 +1054,6 @@ export interface AlertBoxWhereInput {
   title_not_starts_with?: Maybe<String>;
   title_ends_with?: Maybe<String>;
   title_not_ends_with?: Maybe<String>;
-  content?: Maybe<String>;
-  content_not?: Maybe<String>;
-  content_in?: Maybe<String[] | String>;
-  content_not_in?: Maybe<String[] | String>;
-  content_lt?: Maybe<String>;
-  content_lte?: Maybe<String>;
-  content_gt?: Maybe<String>;
-  content_gte?: Maybe<String>;
-  content_contains?: Maybe<String>;
-  content_not_contains?: Maybe<String>;
-  content_starts_with?: Maybe<String>;
-  content_not_starts_with?: Maybe<String>;
-  content_ends_with?: Maybe<String>;
-  content_not_ends_with?: Maybe<String>;
-  prefix?: Maybe<String>;
-  prefix_not?: Maybe<String>;
-  prefix_in?: Maybe<String[] | String>;
-  prefix_not_in?: Maybe<String[] | String>;
-  prefix_lt?: Maybe<String>;
-  prefix_lte?: Maybe<String>;
-  prefix_gt?: Maybe<String>;
-  prefix_gte?: Maybe<String>;
-  prefix_contains?: Maybe<String>;
-  prefix_not_contains?: Maybe<String>;
-  prefix_starts_with?: Maybe<String>;
-  prefix_not_starts_with?: Maybe<String>;
-  prefix_ends_with?: Maybe<String>;
-  prefix_not_ends_with?: Maybe<String>;
-  style?: Maybe<String>;
-  style_not?: Maybe<String>;
-  style_in?: Maybe<String[] | String>;
-  style_not_in?: Maybe<String[] | String>;
-  style_lt?: Maybe<String>;
-  style_lte?: Maybe<String>;
-  style_gt?: Maybe<String>;
-  style_gte?: Maybe<String>;
-  style_contains?: Maybe<String>;
-  style_not_contains?: Maybe<String>;
-  style_starts_with?: Maybe<String>;
-  style_not_starts_with?: Maybe<String>;
-  style_ends_with?: Maybe<String>;
-  style_not_ends_with?: Maybe<String>;
   order?: Maybe<Int>;
   order_not?: Maybe<Int>;
   order_in?: Maybe<Int[] | Int>;
@@ -1104,63 +1062,31 @@ export interface AlertBoxWhereInput {
   order_lte?: Maybe<Int>;
   order_gt?: Maybe<Int>;
   order_gte?: Maybe<Int>;
-  AND?: Maybe<AlertBoxWhereInput[] | AlertBoxWhereInput>;
-  OR?: Maybe<AlertBoxWhereInput[] | AlertBoxWhereInput>;
-  NOT?: Maybe<AlertBoxWhereInput[] | AlertBoxWhereInput>;
-}
-
-export interface BlockUpdateManyDataInput {
-  title?: Maybe<String>;
-  video?: Maybe<String>;
-  style?: Maybe<String>;
-  content?: Maybe<String>;
-  order?: Maybe<Int>;
-}
-
-export interface UserSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<UserWhereInput>;
-  AND?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
-  OR?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
-  NOT?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
-}
-
-export interface BoxUpdateManyWithoutPageInput {
-  create?: Maybe<BoxCreateWithoutPageInput[] | BoxCreateWithoutPageInput>;
-  delete?: Maybe<BoxWhereUniqueInput[] | BoxWhereUniqueInput>;
-  connect?: Maybe<BoxWhereUniqueInput[] | BoxWhereUniqueInput>;
-  set?: Maybe<BoxWhereUniqueInput[] | BoxWhereUniqueInput>;
-  disconnect?: Maybe<BoxWhereUniqueInput[] | BoxWhereUniqueInput>;
-  update?: Maybe<
-    | BoxUpdateWithWhereUniqueWithoutPageInput[]
-    | BoxUpdateWithWhereUniqueWithoutPageInput
-  >;
-  upsert?: Maybe<
-    | BoxUpsertWithWhereUniqueWithoutPageInput[]
-    | BoxUpsertWithWhereUniqueWithoutPageInput
-  >;
-  deleteMany?: Maybe<BoxScalarWhereInput[] | BoxScalarWhereInput>;
-  updateMany?: Maybe<
-    BoxUpdateManyWithWhereNestedInput[] | BoxUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface QuickTipSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<QuickTipWhereInput>;
-  AND?: Maybe<
-    QuickTipSubscriptionWhereInput[] | QuickTipSubscriptionWhereInput
-  >;
-  OR?: Maybe<QuickTipSubscriptionWhereInput[] | QuickTipSubscriptionWhereInput>;
-  NOT?: Maybe<
-    QuickTipSubscriptionWhereInput[] | QuickTipSubscriptionWhereInput
-  >;
+  pros_every?: Maybe<ProsWhereInput>;
+  pros_some?: Maybe<ProsWhereInput>;
+  pros_none?: Maybe<ProsWhereInput>;
+  cons_every?: Maybe<ConsWhereInput>;
+  cons_some?: Maybe<ConsWhereInput>;
+  cons_none?: Maybe<ConsWhereInput>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<ProsAndConsWhereInput[] | ProsAndConsWhereInput>;
+  OR?: Maybe<ProsAndConsWhereInput[] | ProsAndConsWhereInput>;
+  NOT?: Maybe<ProsAndConsWhereInput[] | ProsAndConsWhereInput>;
 }
 
 export interface BoxUpdateWithWhereUniqueWithoutPageInput {
@@ -1168,21 +1094,15 @@ export interface BoxUpdateWithWhereUniqueWithoutPageInput {
   data: BoxUpdateWithoutPageDataInput;
 }
 
-export interface ProsAndConsSubscriptionWhereInput {
+export interface ProsSubscriptionWhereInput {
   mutation_in?: Maybe<MutationType[] | MutationType>;
   updatedFields_contains?: Maybe<String>;
   updatedFields_contains_every?: Maybe<String[] | String>;
   updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<ProsAndConsWhereInput>;
-  AND?: Maybe<
-    ProsAndConsSubscriptionWhereInput[] | ProsAndConsSubscriptionWhereInput
-  >;
-  OR?: Maybe<
-    ProsAndConsSubscriptionWhereInput[] | ProsAndConsSubscriptionWhereInput
-  >;
-  NOT?: Maybe<
-    ProsAndConsSubscriptionWhereInput[] | ProsAndConsSubscriptionWhereInput
-  >;
+  node?: Maybe<ProsWhereInput>;
+  AND?: Maybe<ProsSubscriptionWhereInput[] | ProsSubscriptionWhereInput>;
+  OR?: Maybe<ProsSubscriptionWhereInput[] | ProsSubscriptionWhereInput>;
+  NOT?: Maybe<ProsSubscriptionWhereInput[] | ProsSubscriptionWhereInput>;
 }
 
 export interface BoxUpdateWithoutPageDataInput {
@@ -1275,6 +1195,22 @@ export interface BoxWhereInput {
   order_lte?: Maybe<Int>;
   order_gt?: Maybe<Int>;
   order_gte?: Maybe<Int>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
   AND?: Maybe<BoxWhereInput[] | BoxWhereInput>;
   OR?: Maybe<BoxWhereInput[] | BoxWhereInput>;
   NOT?: Maybe<BoxWhereInput[] | BoxWhereInput>;
@@ -1376,6 +1312,22 @@ export interface BoxScalarWhereInput {
   order_lte?: Maybe<Int>;
   order_gt?: Maybe<Int>;
   order_gte?: Maybe<Int>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
   AND?: Maybe<BoxScalarWhereInput[] | BoxScalarWhereInput>;
   OR?: Maybe<BoxScalarWhereInput[] | BoxScalarWhereInput>;
   NOT?: Maybe<BoxScalarWhereInput[] | BoxScalarWhereInput>;
@@ -1392,9 +1344,9 @@ export interface FaqSubscriptionWhereInput {
   NOT?: Maybe<FaqSubscriptionWhereInput[] | FaqSubscriptionWhereInput>;
 }
 
-export interface BoxUpdateWithWhereUniqueWithoutPageInput {
-  where: BoxWhereUniqueInput;
-  data: BoxUpdateWithoutPageDataInput;
+export interface BoxUpdateManyWithWhereNestedInput {
+  where: BoxScalarWhereInput;
+  data: BoxUpdateManyDataInput;
 }
 
 export interface BoxSubscriptionWhereInput {
@@ -1416,16 +1368,9 @@ export interface BoxUpdateManyDataInput {
   order?: Maybe<Int>;
 }
 
-export interface BlockSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<BlockWhereInput>;
-  AND?: Maybe<BlockSubscriptionWhereInput[] | BlockSubscriptionWhereInput>;
-  OR?: Maybe<BlockSubscriptionWhereInput[] | BlockSubscriptionWhereInput>;
-  NOT?: Maybe<BlockSubscriptionWhereInput[] | BlockSubscriptionWhereInput>;
-}
+export type BlockWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
 
 export interface ProsAndConsUpdateManyWithoutPageInput {
   create?: Maybe<
@@ -1468,14 +1413,9 @@ export interface ProsAndConsUpdateWithWhereUniqueWithoutPageInput {
   data: ProsAndConsUpdateWithoutPageDataInput;
 }
 
-export interface UserUpdateInput {
-  name?: Maybe<String>;
-  email?: Maybe<String>;
-  password?: Maybe<String>;
-  resetToken?: Maybe<String>;
-  resetTokenExpiry?: Maybe<Float>;
-  permissions?: Maybe<UserUpdatepermissionsInput>;
-}
+export type BoxWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
 
 export interface ProsAndConsUpdateWithoutPageDataInput {
   title?: Maybe<String>;
@@ -1511,18 +1451,9 @@ export interface ProsUpdateManyWithoutProsAndConsInput {
   >;
 }
 
-export interface PageUpdateWithoutQuickTipsDataInput {
-  title?: Maybe<String>;
-  slug?: Maybe<String>;
-  type?: Maybe<PageType>;
-  status?: Maybe<PageStatus>;
-  vertical?: Maybe<String>;
-  media?: Maybe<MediaUpdateOneInput>;
-  blocks?: Maybe<BlockUpdateManyWithoutPageInput>;
-  boxes?: Maybe<BoxUpdateManyWithoutPageInput>;
-  prosAndCons?: Maybe<ProsAndConsUpdateManyWithoutPageInput>;
-  alertBoxes?: Maybe<AlertBoxUpdateManyWithoutPageInput>;
-}
+export type ConsWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
 
 export interface ProsUpdateWithWhereUniqueWithoutProsAndConsInput {
   where: ProsWhereUniqueInput;
@@ -1544,19 +1475,9 @@ export interface ProsUpdateWithoutProsAndConsDataInput {
   order?: Maybe<Int>;
 }
 
-export interface PageCreateWithoutQuickTipsInput {
-  id?: Maybe<ID_Input>;
-  title: String;
-  slug: String;
-  type: PageType;
-  status: PageStatus;
-  vertical?: Maybe<String>;
-  media?: Maybe<MediaCreateOneInput>;
-  blocks?: Maybe<BlockCreateManyWithoutPageInput>;
-  boxes?: Maybe<BoxCreateManyWithoutPageInput>;
-  prosAndCons?: Maybe<ProsAndConsCreateManyWithoutPageInput>;
-  alertBoxes?: Maybe<AlertBoxCreateManyWithoutPageInput>;
-}
+export type FaqWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
 
 export interface ProsUpsertWithWhereUniqueWithoutProsAndConsInput {
   where: ProsWhereUniqueInput;
@@ -1564,9 +1485,104 @@ export interface ProsUpsertWithWhereUniqueWithoutProsAndConsInput {
   create: ProsCreateWithoutProsAndConsInput;
 }
 
-export interface PageCreateOneWithoutQuickTipsInput {
-  create?: Maybe<PageCreateWithoutQuickTipsInput>;
-  connect?: Maybe<PageWhereUniqueInput>;
+export interface UserWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  email?: Maybe<String>;
+  email_not?: Maybe<String>;
+  email_in?: Maybe<String[] | String>;
+  email_not_in?: Maybe<String[] | String>;
+  email_lt?: Maybe<String>;
+  email_lte?: Maybe<String>;
+  email_gt?: Maybe<String>;
+  email_gte?: Maybe<String>;
+  email_contains?: Maybe<String>;
+  email_not_contains?: Maybe<String>;
+  email_starts_with?: Maybe<String>;
+  email_not_starts_with?: Maybe<String>;
+  email_ends_with?: Maybe<String>;
+  email_not_ends_with?: Maybe<String>;
+  password?: Maybe<String>;
+  password_not?: Maybe<String>;
+  password_in?: Maybe<String[] | String>;
+  password_not_in?: Maybe<String[] | String>;
+  password_lt?: Maybe<String>;
+  password_lte?: Maybe<String>;
+  password_gt?: Maybe<String>;
+  password_gte?: Maybe<String>;
+  password_contains?: Maybe<String>;
+  password_not_contains?: Maybe<String>;
+  password_starts_with?: Maybe<String>;
+  password_not_starts_with?: Maybe<String>;
+  password_ends_with?: Maybe<String>;
+  password_not_ends_with?: Maybe<String>;
+  resetToken?: Maybe<String>;
+  resetToken_not?: Maybe<String>;
+  resetToken_in?: Maybe<String[] | String>;
+  resetToken_not_in?: Maybe<String[] | String>;
+  resetToken_lt?: Maybe<String>;
+  resetToken_lte?: Maybe<String>;
+  resetToken_gt?: Maybe<String>;
+  resetToken_gte?: Maybe<String>;
+  resetToken_contains?: Maybe<String>;
+  resetToken_not_contains?: Maybe<String>;
+  resetToken_starts_with?: Maybe<String>;
+  resetToken_not_starts_with?: Maybe<String>;
+  resetToken_ends_with?: Maybe<String>;
+  resetToken_not_ends_with?: Maybe<String>;
+  resetTokenExpiry?: Maybe<Float>;
+  resetTokenExpiry_not?: Maybe<Float>;
+  resetTokenExpiry_in?: Maybe<Float[] | Float>;
+  resetTokenExpiry_not_in?: Maybe<Float[] | Float>;
+  resetTokenExpiry_lt?: Maybe<Float>;
+  resetTokenExpiry_lte?: Maybe<Float>;
+  resetTokenExpiry_gt?: Maybe<Float>;
+  resetTokenExpiry_gte?: Maybe<Float>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<UserWhereInput[] | UserWhereInput>;
+  OR?: Maybe<UserWhereInput[] | UserWhereInput>;
+  NOT?: Maybe<UserWhereInput[] | UserWhereInput>;
 }
 
 export interface ProsScalarWhereInput {
@@ -1606,29 +1622,28 @@ export interface ProsScalarWhereInput {
   order_lte?: Maybe<Int>;
   order_gt?: Maybe<Int>;
   order_gte?: Maybe<Int>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
   AND?: Maybe<ProsScalarWhereInput[] | ProsScalarWhereInput>;
   OR?: Maybe<ProsScalarWhereInput[] | ProsScalarWhereInput>;
   NOT?: Maybe<ProsScalarWhereInput[] | ProsScalarWhereInput>;
 }
 
-export interface QuickTipCreateInput {
-  id?: Maybe<ID_Input>;
-  page: PageCreateOneWithoutQuickTipsInput;
-  title?: Maybe<String>;
-  content?: Maybe<String>;
-  buttonText?: Maybe<String>;
-  buttonLink?: Maybe<String>;
-  media?: Maybe<MediaCreateOneInput>;
-  order?: Maybe<Int>;
-}
-
-export interface BoxUpsertWithWhereUniqueWithoutPageInput {
-  where: BoxWhereUniqueInput;
-  update: BoxUpdateWithoutPageDataInput;
-  create: BoxCreateWithoutPageInput;
-}
-
-export interface FaqCategoryWhereInput {
+export interface PageWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -1643,20 +1658,20 @@ export interface FaqCategoryWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
+  title?: Maybe<String>;
+  title_not?: Maybe<String>;
+  title_in?: Maybe<String[] | String>;
+  title_not_in?: Maybe<String[] | String>;
+  title_lt?: Maybe<String>;
+  title_lte?: Maybe<String>;
+  title_gt?: Maybe<String>;
+  title_gte?: Maybe<String>;
+  title_contains?: Maybe<String>;
+  title_not_contains?: Maybe<String>;
+  title_starts_with?: Maybe<String>;
+  title_not_starts_with?: Maybe<String>;
+  title_ends_with?: Maybe<String>;
+  title_not_ends_with?: Maybe<String>;
   slug?: Maybe<String>;
   slug_not?: Maybe<String>;
   slug_in?: Maybe<String[] | String>;
@@ -1671,6 +1686,206 @@ export interface FaqCategoryWhereInput {
   slug_not_starts_with?: Maybe<String>;
   slug_ends_with?: Maybe<String>;
   slug_not_ends_with?: Maybe<String>;
+  type?: Maybe<PageType>;
+  type_not?: Maybe<PageType>;
+  type_in?: Maybe<PageType[] | PageType>;
+  type_not_in?: Maybe<PageType[] | PageType>;
+  status?: Maybe<PageStatus>;
+  status_not?: Maybe<PageStatus>;
+  status_in?: Maybe<PageStatus[] | PageStatus>;
+  status_not_in?: Maybe<PageStatus[] | PageStatus>;
+  vertical?: Maybe<String>;
+  vertical_not?: Maybe<String>;
+  vertical_in?: Maybe<String[] | String>;
+  vertical_not_in?: Maybe<String[] | String>;
+  vertical_lt?: Maybe<String>;
+  vertical_lte?: Maybe<String>;
+  vertical_gt?: Maybe<String>;
+  vertical_gte?: Maybe<String>;
+  vertical_contains?: Maybe<String>;
+  vertical_not_contains?: Maybe<String>;
+  vertical_starts_with?: Maybe<String>;
+  vertical_not_starts_with?: Maybe<String>;
+  vertical_ends_with?: Maybe<String>;
+  vertical_not_ends_with?: Maybe<String>;
+  media?: Maybe<MediaWhereInput>;
+  blocks_every?: Maybe<BlockWhereInput>;
+  blocks_some?: Maybe<BlockWhereInput>;
+  blocks_none?: Maybe<BlockWhereInput>;
+  boxes_every?: Maybe<BoxWhereInput>;
+  boxes_some?: Maybe<BoxWhereInput>;
+  boxes_none?: Maybe<BoxWhereInput>;
+  prosAndCons_every?: Maybe<ProsAndConsWhereInput>;
+  prosAndCons_some?: Maybe<ProsAndConsWhereInput>;
+  prosAndCons_none?: Maybe<ProsAndConsWhereInput>;
+  alertBoxes_every?: Maybe<AlertBoxWhereInput>;
+  alertBoxes_some?: Maybe<AlertBoxWhereInput>;
+  alertBoxes_none?: Maybe<AlertBoxWhereInput>;
+  quickTips_every?: Maybe<QuickTipWhereInput>;
+  quickTips_some?: Maybe<QuickTipWhereInput>;
+  quickTips_none?: Maybe<QuickTipWhereInput>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<PageWhereInput[] | PageWhereInput>;
+  OR?: Maybe<PageWhereInput[] | PageWhereInput>;
+  NOT?: Maybe<PageWhereInput[] | PageWhereInput>;
+}
+
+export interface ProsUpdateManyWithWhereNestedInput {
+  where: ProsScalarWhereInput;
+  data: ProsUpdateManyDataInput;
+}
+
+export interface BlockWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  page?: Maybe<PageWhereInput>;
+  title?: Maybe<String>;
+  title_not?: Maybe<String>;
+  title_in?: Maybe<String[] | String>;
+  title_not_in?: Maybe<String[] | String>;
+  title_lt?: Maybe<String>;
+  title_lte?: Maybe<String>;
+  title_gt?: Maybe<String>;
+  title_gte?: Maybe<String>;
+  title_contains?: Maybe<String>;
+  title_not_contains?: Maybe<String>;
+  title_starts_with?: Maybe<String>;
+  title_not_starts_with?: Maybe<String>;
+  title_ends_with?: Maybe<String>;
+  title_not_ends_with?: Maybe<String>;
+  media?: Maybe<MediaWhereInput>;
+  video?: Maybe<String>;
+  video_not?: Maybe<String>;
+  video_in?: Maybe<String[] | String>;
+  video_not_in?: Maybe<String[] | String>;
+  video_lt?: Maybe<String>;
+  video_lte?: Maybe<String>;
+  video_gt?: Maybe<String>;
+  video_gte?: Maybe<String>;
+  video_contains?: Maybe<String>;
+  video_not_contains?: Maybe<String>;
+  video_starts_with?: Maybe<String>;
+  video_not_starts_with?: Maybe<String>;
+  video_ends_with?: Maybe<String>;
+  video_not_ends_with?: Maybe<String>;
+  style?: Maybe<String>;
+  style_not?: Maybe<String>;
+  style_in?: Maybe<String[] | String>;
+  style_not_in?: Maybe<String[] | String>;
+  style_lt?: Maybe<String>;
+  style_lte?: Maybe<String>;
+  style_gt?: Maybe<String>;
+  style_gte?: Maybe<String>;
+  style_contains?: Maybe<String>;
+  style_not_contains?: Maybe<String>;
+  style_starts_with?: Maybe<String>;
+  style_not_starts_with?: Maybe<String>;
+  style_ends_with?: Maybe<String>;
+  style_not_ends_with?: Maybe<String>;
+  content?: Maybe<String>;
+  content_not?: Maybe<String>;
+  content_in?: Maybe<String[] | String>;
+  content_not_in?: Maybe<String[] | String>;
+  content_lt?: Maybe<String>;
+  content_lte?: Maybe<String>;
+  content_gt?: Maybe<String>;
+  content_gte?: Maybe<String>;
+  content_contains?: Maybe<String>;
+  content_not_contains?: Maybe<String>;
+  content_starts_with?: Maybe<String>;
+  content_not_starts_with?: Maybe<String>;
+  content_ends_with?: Maybe<String>;
+  content_not_ends_with?: Maybe<String>;
+  order?: Maybe<Int>;
+  order_not?: Maybe<Int>;
+  order_in?: Maybe<Int[] | Int>;
+  order_not_in?: Maybe<Int[] | Int>;
+  order_lt?: Maybe<Int>;
+  order_lte?: Maybe<Int>;
+  order_gt?: Maybe<Int>;
+  order_gte?: Maybe<Int>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<BlockWhereInput[] | BlockWhereInput>;
+  OR?: Maybe<BlockWhereInput[] | BlockWhereInput>;
+  NOT?: Maybe<BlockWhereInput[] | BlockWhereInput>;
+}
+
+export interface ProsUpdateManyDataInput {
+  content?: Maybe<String>;
+  order?: Maybe<Int>;
+}
+
+export interface FaqWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  title?: Maybe<String>;
+  title_not?: Maybe<String>;
+  title_in?: Maybe<String[] | String>;
+  title_not_in?: Maybe<String[] | String>;
+  title_lt?: Maybe<String>;
+  title_lte?: Maybe<String>;
+  title_gt?: Maybe<String>;
+  title_gte?: Maybe<String>;
+  title_contains?: Maybe<String>;
+  title_not_contains?: Maybe<String>;
+  title_starts_with?: Maybe<String>;
+  title_not_starts_with?: Maybe<String>;
+  title_ends_with?: Maybe<String>;
+  title_not_ends_with?: Maybe<String>;
   description?: Maybe<String>;
   description_not?: Maybe<String>;
   description_in?: Maybe<String[] | String>;
@@ -1685,22 +1900,97 @@ export interface FaqCategoryWhereInput {
   description_not_starts_with?: Maybe<String>;
   description_ends_with?: Maybe<String>;
   description_not_ends_with?: Maybe<String>;
-  faqs_every?: Maybe<FaqWhereInput>;
-  faqs_some?: Maybe<FaqWhereInput>;
-  faqs_none?: Maybe<FaqWhereInput>;
-  AND?: Maybe<FaqCategoryWhereInput[] | FaqCategoryWhereInput>;
-  OR?: Maybe<FaqCategoryWhereInput[] | FaqCategoryWhereInput>;
-  NOT?: Maybe<FaqCategoryWhereInput[] | FaqCategoryWhereInput>;
-}
-
-export interface ProsUpdateManyDataInput {
-  content?: Maybe<String>;
+  short_description?: Maybe<String>;
+  short_description_not?: Maybe<String>;
+  short_description_in?: Maybe<String[] | String>;
+  short_description_not_in?: Maybe<String[] | String>;
+  short_description_lt?: Maybe<String>;
+  short_description_lte?: Maybe<String>;
+  short_description_gt?: Maybe<String>;
+  short_description_gte?: Maybe<String>;
+  short_description_contains?: Maybe<String>;
+  short_description_not_contains?: Maybe<String>;
+  short_description_starts_with?: Maybe<String>;
+  short_description_not_starts_with?: Maybe<String>;
+  short_description_ends_with?: Maybe<String>;
+  short_description_not_ends_with?: Maybe<String>;
+  authors_every?: Maybe<UserWhereInput>;
+  authors_some?: Maybe<UserWhereInput>;
+  authors_none?: Maybe<UserWhereInput>;
+  slug?: Maybe<String>;
+  slug_not?: Maybe<String>;
+  slug_in?: Maybe<String[] | String>;
+  slug_not_in?: Maybe<String[] | String>;
+  slug_lt?: Maybe<String>;
+  slug_lte?: Maybe<String>;
+  slug_gt?: Maybe<String>;
+  slug_gte?: Maybe<String>;
+  slug_contains?: Maybe<String>;
+  slug_not_contains?: Maybe<String>;
+  slug_starts_with?: Maybe<String>;
+  slug_not_starts_with?: Maybe<String>;
+  slug_ends_with?: Maybe<String>;
+  slug_not_ends_with?: Maybe<String>;
+  vertical?: Maybe<String>;
+  vertical_not?: Maybe<String>;
+  vertical_in?: Maybe<String[] | String>;
+  vertical_not_in?: Maybe<String[] | String>;
+  vertical_lt?: Maybe<String>;
+  vertical_lte?: Maybe<String>;
+  vertical_gt?: Maybe<String>;
+  vertical_gte?: Maybe<String>;
+  vertical_contains?: Maybe<String>;
+  vertical_not_contains?: Maybe<String>;
+  vertical_starts_with?: Maybe<String>;
+  vertical_not_starts_with?: Maybe<String>;
+  vertical_ends_with?: Maybe<String>;
+  vertical_not_ends_with?: Maybe<String>;
+  category_every?: Maybe<FaqCategoryWhereInput>;
+  category_some?: Maybe<FaqCategoryWhereInput>;
+  category_none?: Maybe<FaqCategoryWhereInput>;
+  readingTime?: Maybe<Int>;
+  readingTime_not?: Maybe<Int>;
+  readingTime_in?: Maybe<Int[] | Int>;
+  readingTime_not_in?: Maybe<Int[] | Int>;
+  readingTime_lt?: Maybe<Int>;
+  readingTime_lte?: Maybe<Int>;
+  readingTime_gt?: Maybe<Int>;
+  readingTime_gte?: Maybe<Int>;
   order?: Maybe<Int>;
-}
-
-export interface ProsAndConsUpdateManyMutationInput {
-  title?: Maybe<String>;
-  order?: Maybe<Int>;
+  order_not?: Maybe<Int>;
+  order_in?: Maybe<Int[] | Int>;
+  order_not_in?: Maybe<Int[] | Int>;
+  order_lt?: Maybe<Int>;
+  order_lte?: Maybe<Int>;
+  order_gt?: Maybe<Int>;
+  order_gte?: Maybe<Int>;
+  pubDate?: Maybe<DateTimeInput>;
+  pubDate_not?: Maybe<DateTimeInput>;
+  pubDate_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  pubDate_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  pubDate_lt?: Maybe<DateTimeInput>;
+  pubDate_lte?: Maybe<DateTimeInput>;
+  pubDate_gt?: Maybe<DateTimeInput>;
+  pubDate_gte?: Maybe<DateTimeInput>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<FaqWhereInput[] | FaqWhereInput>;
+  OR?: Maybe<FaqWhereInput[] | FaqWhereInput>;
+  NOT?: Maybe<FaqWhereInput[] | FaqWhereInput>;
 }
 
 export interface ConsUpdateManyWithoutProsAndConsInput {
@@ -1725,12 +2015,13 @@ export interface ConsUpdateManyWithoutProsAndConsInput {
   >;
 }
 
-export interface ProsAndConsUpdateInput {
-  page?: Maybe<PageUpdateOneRequiredWithoutProsAndConsInput>;
+export interface ProsAndConsCreateInput {
+  id?: Maybe<ID_Input>;
+  page: PageCreateOneWithoutProsAndConsInput;
   title?: Maybe<String>;
   order?: Maybe<Int>;
-  pros?: Maybe<ProsUpdateManyWithoutProsAndConsInput>;
-  cons?: Maybe<ConsUpdateManyWithoutProsAndConsInput>;
+  pros?: Maybe<ProsCreateManyWithoutProsAndConsInput>;
+  cons?: Maybe<ConsCreateManyWithoutProsAndConsInput>;
 }
 
 export interface ConsUpdateWithWhereUniqueWithoutProsAndConsInput {
@@ -1738,9 +2029,9 @@ export interface ConsUpdateWithWhereUniqueWithoutProsAndConsInput {
   data: ConsUpdateWithoutProsAndConsDataInput;
 }
 
-export interface ProsUpdateManyMutationInput {
-  content?: Maybe<String>;
-  order?: Maybe<Int>;
+export interface ProsAndConsUpsertWithoutProsInput {
+  update: ProsAndConsUpdateWithoutProsDataInput;
+  create: ProsAndConsCreateWithoutProsInput;
 }
 
 export interface ConsUpdateWithoutProsAndConsDataInput {
@@ -1748,11 +2039,11 @@ export interface ConsUpdateWithoutProsAndConsDataInput {
   order?: Maybe<Int>;
 }
 
-export interface ProsAndConsUpdateWithoutProsDataInput {
-  page?: Maybe<PageUpdateOneRequiredWithoutProsAndConsInput>;
-  title?: Maybe<String>;
-  order?: Maybe<Int>;
-  cons?: Maybe<ConsUpdateManyWithoutProsAndConsInput>;
+export interface ProsAndConsUpdateOneRequiredWithoutProsInput {
+  create?: Maybe<ProsAndConsCreateWithoutProsInput>;
+  update?: Maybe<ProsAndConsUpdateWithoutProsDataInput>;
+  upsert?: Maybe<ProsAndConsUpsertWithoutProsInput>;
+  connect?: Maybe<ProsAndConsWhereUniqueInput>;
 }
 
 export interface ConsUpsertWithWhereUniqueWithoutProsAndConsInput {
@@ -1761,11 +2052,10 @@ export interface ConsUpsertWithWhereUniqueWithoutProsAndConsInput {
   create: ConsCreateWithoutProsAndConsInput;
 }
 
-export interface ProsAndConsUpdateOneRequiredWithoutProsInput {
-  create?: Maybe<ProsAndConsCreateWithoutProsInput>;
-  update?: Maybe<ProsAndConsUpdateWithoutProsDataInput>;
-  upsert?: Maybe<ProsAndConsUpsertWithoutProsInput>;
-  connect?: Maybe<ProsAndConsWhereUniqueInput>;
+export interface ProsUpdateInput {
+  prosAndCons?: Maybe<ProsAndConsUpdateOneRequiredWithoutProsInput>;
+  content?: Maybe<String>;
+  order?: Maybe<Int>;
 }
 
 export interface ConsScalarWhereInput {
@@ -1805,22 +2095,25 @@ export interface ConsScalarWhereInput {
   order_lte?: Maybe<Int>;
   order_gt?: Maybe<Int>;
   order_gte?: Maybe<Int>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
   AND?: Maybe<ConsScalarWhereInput[] | ConsScalarWhereInput>;
   OR?: Maybe<ConsScalarWhereInput[] | ConsScalarWhereInput>;
   NOT?: Maybe<ConsScalarWhereInput[] | ConsScalarWhereInput>;
-}
-
-export interface ProsAndConsCreateWithoutProsInput {
-  id?: Maybe<ID_Input>;
-  page: PageCreateOneWithoutProsAndConsInput;
-  title?: Maybe<String>;
-  order?: Maybe<Int>;
-  cons?: Maybe<ConsCreateManyWithoutProsAndConsInput>;
-}
-
-export interface BoxUpdateManyWithWhereNestedInput {
-  where: BoxScalarWhereInput;
-  data: BoxUpdateManyDataInput;
 }
 
 export interface ProsAndConsCreateOneWithoutProsInput {
@@ -1828,17 +2121,35 @@ export interface ProsAndConsCreateOneWithoutProsInput {
   connect?: Maybe<ProsAndConsWhereUniqueInput>;
 }
 
+export interface BoxUpdateManyWithWhereNestedInput {
+  where: BoxScalarWhereInput;
+  data: BoxUpdateManyDataInput;
+}
+
+export interface ProsCreateInput {
+  id?: Maybe<ID_Input>;
+  prosAndCons: ProsAndConsCreateOneWithoutProsInput;
+  content?: Maybe<String>;
+  order?: Maybe<Int>;
+}
+
 export interface ConsUpdateManyDataInput {
   content?: Maybe<String>;
   order?: Maybe<Int>;
 }
 
-export interface PageUpdateManyMutationInput {
+export interface PageUpdateInput {
   title?: Maybe<String>;
   slug?: Maybe<String>;
   type?: Maybe<PageType>;
   status?: Maybe<PageStatus>;
   vertical?: Maybe<String>;
+  media?: Maybe<MediaUpdateOneInput>;
+  blocks?: Maybe<BlockUpdateManyWithoutPageInput>;
+  boxes?: Maybe<BoxUpdateManyWithoutPageInput>;
+  prosAndCons?: Maybe<ProsAndConsUpdateManyWithoutPageInput>;
+  alertBoxes?: Maybe<AlertBoxUpdateManyWithoutPageInput>;
+  quickTips?: Maybe<QuickTipUpdateManyWithoutPageInput>;
 }
 
 export interface ProsAndConsUpdateManyWithoutPageInput {
@@ -1902,12 +2213,28 @@ export interface ProsAndConsScalarWhereInput {
   order_lte?: Maybe<Int>;
   order_gt?: Maybe<Int>;
   order_gte?: Maybe<Int>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
   AND?: Maybe<ProsAndConsScalarWhereInput[] | ProsAndConsScalarWhereInput>;
   OR?: Maybe<ProsAndConsScalarWhereInput[] | ProsAndConsScalarWhereInput>;
   NOT?: Maybe<ProsAndConsScalarWhereInput[] | ProsAndConsScalarWhereInput>;
 }
 
-export interface MediaUpdateManyMutationInput {
+export interface MediaUpdateInput {
   url?: Maybe<String>;
   title?: Maybe<String>;
   altText?: Maybe<String>;
@@ -1916,16 +2243,6 @@ export interface MediaUpdateManyMutationInput {
 export interface ProsUpdateManyWithWhereNestedInput {
   where: ProsScalarWhereInput;
   data: ProsUpdateManyDataInput;
-}
-
-export interface FaqCategoryUpdateManyMutationInput {
-  name?: Maybe<String>;
-  slug?: Maybe<String>;
-  description?: Maybe<String>;
-}
-
-export interface FaqUpdatetagInput {
-  set?: Maybe<String[] | String>;
 }
 
 export interface FaqUpdateManyDataInput {
@@ -1939,6 +2256,15 @@ export interface FaqUpdateManyDataInput {
   variant?: Maybe<FaqUpdatevariantInput>;
   tag?: Maybe<FaqUpdatetagInput>;
   pubDate?: Maybe<DateTimeInput>;
+}
+
+export interface FaqUpdatevariantInput {
+  set?: Maybe<String[] | String>;
+}
+
+export interface FaqUpdateManyWithWhereNestedInput {
+  where: FaqScalarWhereInput;
+  data: FaqUpdateManyDataInput;
 }
 
 export interface QuickTipUpdateManyWithoutPageInput {
@@ -1964,127 +2290,28 @@ export interface QuickTipUpdateManyWithoutPageInput {
   >;
 }
 
-export interface FaqScalarWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  title?: Maybe<String>;
-  title_not?: Maybe<String>;
-  title_in?: Maybe<String[] | String>;
-  title_not_in?: Maybe<String[] | String>;
-  title_lt?: Maybe<String>;
-  title_lte?: Maybe<String>;
-  title_gt?: Maybe<String>;
-  title_gte?: Maybe<String>;
-  title_contains?: Maybe<String>;
-  title_not_contains?: Maybe<String>;
-  title_starts_with?: Maybe<String>;
-  title_not_starts_with?: Maybe<String>;
-  title_ends_with?: Maybe<String>;
-  title_not_ends_with?: Maybe<String>;
-  description?: Maybe<String>;
-  description_not?: Maybe<String>;
-  description_in?: Maybe<String[] | String>;
-  description_not_in?: Maybe<String[] | String>;
-  description_lt?: Maybe<String>;
-  description_lte?: Maybe<String>;
-  description_gt?: Maybe<String>;
-  description_gte?: Maybe<String>;
-  description_contains?: Maybe<String>;
-  description_not_contains?: Maybe<String>;
-  description_starts_with?: Maybe<String>;
-  description_not_starts_with?: Maybe<String>;
-  description_ends_with?: Maybe<String>;
-  description_not_ends_with?: Maybe<String>;
-  short_description?: Maybe<String>;
-  short_description_not?: Maybe<String>;
-  short_description_in?: Maybe<String[] | String>;
-  short_description_not_in?: Maybe<String[] | String>;
-  short_description_lt?: Maybe<String>;
-  short_description_lte?: Maybe<String>;
-  short_description_gt?: Maybe<String>;
-  short_description_gte?: Maybe<String>;
-  short_description_contains?: Maybe<String>;
-  short_description_not_contains?: Maybe<String>;
-  short_description_starts_with?: Maybe<String>;
-  short_description_not_starts_with?: Maybe<String>;
-  short_description_ends_with?: Maybe<String>;
-  short_description_not_ends_with?: Maybe<String>;
-  slug?: Maybe<String>;
-  slug_not?: Maybe<String>;
-  slug_in?: Maybe<String[] | String>;
-  slug_not_in?: Maybe<String[] | String>;
-  slug_lt?: Maybe<String>;
-  slug_lte?: Maybe<String>;
-  slug_gt?: Maybe<String>;
-  slug_gte?: Maybe<String>;
-  slug_contains?: Maybe<String>;
-  slug_not_contains?: Maybe<String>;
-  slug_starts_with?: Maybe<String>;
-  slug_not_starts_with?: Maybe<String>;
-  slug_ends_with?: Maybe<String>;
-  slug_not_ends_with?: Maybe<String>;
-  vertical?: Maybe<String>;
-  vertical_not?: Maybe<String>;
-  vertical_in?: Maybe<String[] | String>;
-  vertical_not_in?: Maybe<String[] | String>;
-  vertical_lt?: Maybe<String>;
-  vertical_lte?: Maybe<String>;
-  vertical_gt?: Maybe<String>;
-  vertical_gte?: Maybe<String>;
-  vertical_contains?: Maybe<String>;
-  vertical_not_contains?: Maybe<String>;
-  vertical_starts_with?: Maybe<String>;
-  vertical_not_starts_with?: Maybe<String>;
-  vertical_ends_with?: Maybe<String>;
-  vertical_not_ends_with?: Maybe<String>;
-  readingTime?: Maybe<Int>;
-  readingTime_not?: Maybe<Int>;
-  readingTime_in?: Maybe<Int[] | Int>;
-  readingTime_not_in?: Maybe<Int[] | Int>;
-  readingTime_lt?: Maybe<Int>;
-  readingTime_lte?: Maybe<Int>;
-  readingTime_gt?: Maybe<Int>;
-  readingTime_gte?: Maybe<Int>;
-  order?: Maybe<Int>;
-  order_not?: Maybe<Int>;
-  order_in?: Maybe<Int[] | Int>;
-  order_not_in?: Maybe<Int[] | Int>;
-  order_lt?: Maybe<Int>;
-  order_lte?: Maybe<Int>;
-  order_gt?: Maybe<Int>;
-  order_gte?: Maybe<Int>;
-  pubDate?: Maybe<DateTimeInput>;
-  pubDate_not?: Maybe<DateTimeInput>;
-  pubDate_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  pubDate_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  pubDate_lt?: Maybe<DateTimeInput>;
-  pubDate_lte?: Maybe<DateTimeInput>;
-  pubDate_gt?: Maybe<DateTimeInput>;
-  pubDate_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<FaqScalarWhereInput[] | FaqScalarWhereInput>;
-  OR?: Maybe<FaqScalarWhereInput[] | FaqScalarWhereInput>;
-  NOT?: Maybe<FaqScalarWhereInput[] | FaqScalarWhereInput>;
-}
-
-export type PageWhereUniqueInput = AtLeastOne<{
-  id: ID_Input;
-}>;
-
 export interface ConsUpdateManyWithWhereNestedInput {
   where: ConsScalarWhereInput;
   data: ConsUpdateManyDataInput;
+}
+
+export interface QuickTipUpdateWithWhereUniqueWithoutPageInput {
+  where: QuickTipWhereUniqueInput;
+  data: QuickTipUpdateWithoutPageDataInput;
+}
+
+export interface FaqUpdateWithoutCategoryDataInput {
+  title?: Maybe<String>;
+  description?: Maybe<String>;
+  short_description?: Maybe<String>;
+  authors?: Maybe<UserUpdateManyInput>;
+  slug?: Maybe<String>;
+  vertical?: Maybe<String>;
+  readingTime?: Maybe<Int>;
+  order?: Maybe<Int>;
+  variant?: Maybe<FaqUpdatevariantInput>;
+  tag?: Maybe<FaqUpdatetagInput>;
+  pubDate?: Maybe<DateTimeInput>;
 }
 
 export interface QuickTipUpdateWithoutPageDataInput {
@@ -2094,18 +2321,6 @@ export interface QuickTipUpdateWithoutPageDataInput {
   buttonLink?: Maybe<String>;
   media?: Maybe<MediaUpdateOneInput>;
   order?: Maybe<Int>;
-}
-
-export interface PageFaqAccordionUpdateInput {
-  order?: Int;
-  page?: PageUpdateOneRequiredWithoutFaqAccordionInput;
-  faqCategory?: FaqCategoryUpdateOneRequiredInput;
-}
-
-export interface ProsAndConsUpsertWithWhereUniqueWithoutPageInput {
-  where: ProsAndConsWhereUniqueInput;
-  update: ProsAndConsUpdateWithoutPageDataInput;
-  create: ProsAndConsCreateWithoutPageInput;
 }
 
 export interface FaqUpdateManyWithoutCategoryInput {
@@ -2128,6 +2343,19 @@ export interface FaqUpdateManyWithoutCategoryInput {
   updateMany?: Maybe<
     FaqUpdateManyWithWhereNestedInput[] | FaqUpdateManyWithWhereNestedInput
   >;
+}
+
+export interface QuickTipUpsertWithWhereUniqueWithoutPageInput {
+  where: QuickTipWhereUniqueInput;
+  update: QuickTipUpdateWithoutPageDataInput;
+  create: QuickTipCreateWithoutPageInput;
+}
+
+export interface FaqCategoryUpdateInput {
+  name?: Maybe<String>;
+  slug?: Maybe<String>;
+  description?: Maybe<String>;
+  faqs?: Maybe<FaqUpdateManyWithoutCategoryInput>;
 }
 
 export interface QuickTipScalarWhereInput {
@@ -2209,29 +2437,25 @@ export interface QuickTipScalarWhereInput {
   order_lte?: Maybe<Int>;
   order_gt?: Maybe<Int>;
   order_gte?: Maybe<Int>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
   AND?: Maybe<QuickTipScalarWhereInput[] | QuickTipScalarWhereInput>;
   OR?: Maybe<QuickTipScalarWhereInput[] | QuickTipScalarWhereInput>;
   NOT?: Maybe<QuickTipScalarWhereInput[] | QuickTipScalarWhereInput>;
-}
-
-export interface FaqCreateWithoutCategoryInput {
-  id?: Maybe<ID_Input>;
-  title: String;
-  description?: Maybe<String>;
-  short_description?: Maybe<String>;
-  authors?: Maybe<UserCreateManyInput>;
-  slug: String;
-  vertical?: Maybe<String>;
-  readingTime?: Maybe<Int>;
-  order?: Maybe<Int>;
-  variant?: Maybe<FaqCreatevariantInput>;
-  tag?: Maybe<FaqCreatetagInput>;
-  pubDate?: Maybe<DateTimeInput>;
-}
-
-export interface QuickTipUpdateManyWithWhereNestedInput {
-  where: QuickTipScalarWhereInput;
-  data: QuickTipUpdateManyDataInput;
 }
 
 export interface FaqCreateManyWithoutCategoryInput {
@@ -2239,6 +2463,19 @@ export interface FaqCreateManyWithoutCategoryInput {
     FaqCreateWithoutCategoryInput[] | FaqCreateWithoutCategoryInput
   >;
   connect?: Maybe<FaqWhereUniqueInput[] | FaqWhereUniqueInput>;
+}
+
+export interface QuickTipUpdateManyWithWhereNestedInput {
+  where: QuickTipScalarWhereInput;
+  data: QuickTipUpdateManyDataInput;
+}
+
+export interface FaqCategoryCreateInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  slug: String;
+  description: String;
+  faqs?: Maybe<FaqCreateManyWithoutCategoryInput>;
 }
 
 export interface QuickTipUpdateManyDataInput {
@@ -2249,17 +2486,8 @@ export interface QuickTipUpdateManyDataInput {
   order?: Maybe<Int>;
 }
 
-export interface FaqUpdateManyMutationInput {
-  title?: Maybe<String>;
-  description?: Maybe<String>;
-  short_description?: Maybe<String>;
-  slug?: Maybe<String>;
-  vertical?: Maybe<String>;
-  readingTime?: Maybe<Int>;
-  order?: Maybe<Int>;
-  variant?: Maybe<FaqUpdatevariantInput>;
-  tag?: Maybe<FaqUpdatetagInput>;
-  pubDate?: Maybe<DateTimeInput>;
+export interface FaqUpdatetagInput {
+  set?: Maybe<String[] | String>;
 }
 
 export interface PageUpsertWithoutAlertBoxesInput {
@@ -2277,8 +2505,105 @@ export interface AlertBoxCreateInput {
   order?: Maybe<Int>;
 }
 
-export interface FaqUpdatevariantInput {
-  set?: Maybe<String[] | String>;
+export interface AlertBoxWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  page?: Maybe<PageWhereInput>;
+  title?: Maybe<String>;
+  title_not?: Maybe<String>;
+  title_in?: Maybe<String[] | String>;
+  title_not_in?: Maybe<String[] | String>;
+  title_lt?: Maybe<String>;
+  title_lte?: Maybe<String>;
+  title_gt?: Maybe<String>;
+  title_gte?: Maybe<String>;
+  title_contains?: Maybe<String>;
+  title_not_contains?: Maybe<String>;
+  title_starts_with?: Maybe<String>;
+  title_not_starts_with?: Maybe<String>;
+  title_ends_with?: Maybe<String>;
+  title_not_ends_with?: Maybe<String>;
+  content?: Maybe<String>;
+  content_not?: Maybe<String>;
+  content_in?: Maybe<String[] | String>;
+  content_not_in?: Maybe<String[] | String>;
+  content_lt?: Maybe<String>;
+  content_lte?: Maybe<String>;
+  content_gt?: Maybe<String>;
+  content_gte?: Maybe<String>;
+  content_contains?: Maybe<String>;
+  content_not_contains?: Maybe<String>;
+  content_starts_with?: Maybe<String>;
+  content_not_starts_with?: Maybe<String>;
+  content_ends_with?: Maybe<String>;
+  content_not_ends_with?: Maybe<String>;
+  prefix?: Maybe<String>;
+  prefix_not?: Maybe<String>;
+  prefix_in?: Maybe<String[] | String>;
+  prefix_not_in?: Maybe<String[] | String>;
+  prefix_lt?: Maybe<String>;
+  prefix_lte?: Maybe<String>;
+  prefix_gt?: Maybe<String>;
+  prefix_gte?: Maybe<String>;
+  prefix_contains?: Maybe<String>;
+  prefix_not_contains?: Maybe<String>;
+  prefix_starts_with?: Maybe<String>;
+  prefix_not_starts_with?: Maybe<String>;
+  prefix_ends_with?: Maybe<String>;
+  prefix_not_ends_with?: Maybe<String>;
+  style?: Maybe<String>;
+  style_not?: Maybe<String>;
+  style_in?: Maybe<String[] | String>;
+  style_not_in?: Maybe<String[] | String>;
+  style_lt?: Maybe<String>;
+  style_lte?: Maybe<String>;
+  style_gt?: Maybe<String>;
+  style_gte?: Maybe<String>;
+  style_contains?: Maybe<String>;
+  style_not_contains?: Maybe<String>;
+  style_starts_with?: Maybe<String>;
+  style_not_starts_with?: Maybe<String>;
+  style_ends_with?: Maybe<String>;
+  style_not_ends_with?: Maybe<String>;
+  order?: Maybe<Int>;
+  order_not?: Maybe<Int>;
+  order_in?: Maybe<Int[] | Int>;
+  order_not_in?: Maybe<Int[] | Int>;
+  order_lt?: Maybe<Int>;
+  order_lte?: Maybe<Int>;
+  order_gt?: Maybe<Int>;
+  order_gte?: Maybe<Int>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<AlertBoxWhereInput[] | AlertBoxWhereInput>;
+  OR?: Maybe<AlertBoxWhereInput[] | AlertBoxWhereInput>;
+  NOT?: Maybe<AlertBoxWhereInput[] | AlertBoxWhereInput>;
 }
 
 export interface PageCreateWithoutAlertBoxesInput {
@@ -2295,10 +2620,63 @@ export interface PageCreateWithoutAlertBoxesInput {
   quickTips?: Maybe<QuickTipCreateManyWithoutPageInput>;
 }
 
-export interface FaqCategoryUpdateManyDataInput {
-  name?: Maybe<String>;
-  slug?: Maybe<String>;
-  description?: Maybe<String>;
+export interface ConsWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  prosAndCons?: Maybe<ProsAndConsWhereInput>;
+  content?: Maybe<String>;
+  content_not?: Maybe<String>;
+  content_in?: Maybe<String[] | String>;
+  content_not_in?: Maybe<String[] | String>;
+  content_lt?: Maybe<String>;
+  content_lte?: Maybe<String>;
+  content_gt?: Maybe<String>;
+  content_gte?: Maybe<String>;
+  content_contains?: Maybe<String>;
+  content_not_contains?: Maybe<String>;
+  content_starts_with?: Maybe<String>;
+  content_not_starts_with?: Maybe<String>;
+  content_ends_with?: Maybe<String>;
+  content_not_ends_with?: Maybe<String>;
+  order?: Maybe<Int>;
+  order_not?: Maybe<Int>;
+  order_in?: Maybe<Int[] | Int>;
+  order_not_in?: Maybe<Int[] | Int>;
+  order_lt?: Maybe<Int>;
+  order_lte?: Maybe<Int>;
+  order_gt?: Maybe<Int>;
+  order_gte?: Maybe<Int>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<ConsWhereInput[] | ConsWhereInput>;
+  OR?: Maybe<ConsWhereInput[] | ConsWhereInput>;
+  NOT?: Maybe<ConsWhereInput[] | ConsWhereInput>;
 }
 
 export interface MediaCreateInput {
@@ -2308,9 +2686,10 @@ export interface MediaCreateInput {
   altText?: Maybe<String>;
 }
 
-export interface FaqCategoryUpdateManyWithWhereNestedInput {
-  where: FaqCategoryScalarWhereInput;
-  data: FaqCategoryUpdateManyDataInput;
+export interface FaqCategoryUpdateManyDataInput {
+  name?: Maybe<String>;
+  slug?: Maybe<String>;
+  description?: Maybe<String>;
 }
 
 export interface BlockCreateWithoutPageInput {
@@ -2507,47 +2886,15 @@ export interface AlertBoxUpdateWithoutPageDataInput {
   order?: Maybe<Int>;
 }
 
-export interface ProsWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  prosAndCons?: Maybe<ProsAndConsWhereInput>;
-  content?: Maybe<String>;
-  content_not?: Maybe<String>;
-  content_in?: Maybe<String[] | String>;
-  content_not_in?: Maybe<String[] | String>;
-  content_lt?: Maybe<String>;
-  content_lte?: Maybe<String>;
-  content_gt?: Maybe<String>;
-  content_gte?: Maybe<String>;
-  content_contains?: Maybe<String>;
-  content_not_contains?: Maybe<String>;
-  content_starts_with?: Maybe<String>;
-  content_not_starts_with?: Maybe<String>;
-  content_ends_with?: Maybe<String>;
-  content_not_ends_with?: Maybe<String>;
-  order?: Maybe<Int>;
-  order_not?: Maybe<Int>;
-  order_in?: Maybe<Int[] | Int>;
-  order_not_in?: Maybe<Int[] | Int>;
-  order_lt?: Maybe<Int>;
-  order_lte?: Maybe<Int>;
-  order_gt?: Maybe<Int>;
-  order_gte?: Maybe<Int>;
-  AND?: Maybe<ProsWhereInput[] | ProsWhereInput>;
-  OR?: Maybe<ProsWhereInput[] | ProsWhereInput>;
-  NOT?: Maybe<ProsWhereInput[] | ProsWhereInput>;
+export interface UserSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<UserWhereInput>;
+  AND?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
+  OR?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
+  NOT?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
 }
 
 export interface AlertBoxUpsertWithWhereUniqueWithoutPageInput {
@@ -2556,15 +2903,21 @@ export interface AlertBoxUpsertWithWhereUniqueWithoutPageInput {
   create: AlertBoxCreateWithoutPageInput;
 }
 
-export interface ProsSubscriptionWhereInput {
+export interface ProsAndConsSubscriptionWhereInput {
   mutation_in?: Maybe<MutationType[] | MutationType>;
   updatedFields_contains?: Maybe<String>;
   updatedFields_contains_every?: Maybe<String[] | String>;
   updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<ProsWhereInput>;
-  AND?: Maybe<ProsSubscriptionWhereInput[] | ProsSubscriptionWhereInput>;
-  OR?: Maybe<ProsSubscriptionWhereInput[] | ProsSubscriptionWhereInput>;
-  NOT?: Maybe<ProsSubscriptionWhereInput[] | ProsSubscriptionWhereInput>;
+  node?: Maybe<ProsAndConsWhereInput>;
+  AND?: Maybe<
+    ProsAndConsSubscriptionWhereInput[] | ProsAndConsSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    ProsAndConsSubscriptionWhereInput[] | ProsAndConsSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    ProsAndConsSubscriptionWhereInput[] | ProsAndConsSubscriptionWhereInput
+  >;
 }
 
 export interface AlertBoxScalarWhereInput {
@@ -2646,92 +2999,25 @@ export interface AlertBoxScalarWhereInput {
   order_lte?: Maybe<Int>;
   order_gt?: Maybe<Int>;
   order_gte?: Maybe<Int>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
   AND?: Maybe<AlertBoxScalarWhereInput[] | AlertBoxScalarWhereInput>;
   OR?: Maybe<AlertBoxScalarWhereInput[] | AlertBoxScalarWhereInput>;
   NOT?: Maybe<AlertBoxScalarWhereInput[] | AlertBoxScalarWhereInput>;
-}
-
-export interface FaqCategorySubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<FaqCategoryWhereInput>;
-  AND?: Maybe<
-    FaqCategorySubscriptionWhereInput[] | FaqCategorySubscriptionWhereInput
-  >;
-  OR?: Maybe<
-    FaqCategorySubscriptionWhereInput[] | FaqCategorySubscriptionWhereInput
-  >;
-  NOT?: Maybe<
-    FaqCategorySubscriptionWhereInput[] | FaqCategorySubscriptionWhereInput
-  >;
-}
-
-export interface QuickTipUpdateManyWithWhereNestedInput {
-  where: QuickTipScalarWhereInput;
-  data: QuickTipUpdateManyDataInput;
-}
-
-export type BlockWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
-export interface AlertBoxUpdateManyDataInput {
-  title?: Maybe<String>;
-  content?: Maybe<String>;
-  prefix?: Maybe<String>;
-  style?: Maybe<String>;
-  order?: Maybe<Int>;
-}
-
-export type BoxWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
-export interface PageFaqUpdateManyWithoutPageInput {
-  create?: PageFaqCreateWithoutPageInput[] | PageFaqCreateWithoutPageInput;
-  delete?: PageFaqWhereUniqueInput[] | PageFaqWhereUniqueInput;
-  connect?: PageFaqWhereUniqueInput[] | PageFaqWhereUniqueInput;
-  set?: PageFaqWhereUniqueInput[] | PageFaqWhereUniqueInput;
-  disconnect?: PageFaqWhereUniqueInput[] | PageFaqWhereUniqueInput;
-  update?:
-    | PageFaqUpdateWithWhereUniqueWithoutPageInput[]
-    | PageFaqUpdateWithWhereUniqueWithoutPageInput;
-  upsert?:
-    | PageFaqUpsertWithWhereUniqueWithoutPageInput[]
-    | PageFaqUpsertWithWhereUniqueWithoutPageInput;
-  deleteMany?: PageFaqScalarWhereInput[] | PageFaqScalarWhereInput;
-  updateMany?:
-    | PageFaqUpdateManyWithWhereNestedInput[]
-    | PageFaqUpdateManyWithWhereNestedInput;
-}
-
-export type ConsWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
-export interface BlockUpdateManyMutationInput {
-  title?: Maybe<String>;
-  video?: Maybe<String>;
-  style?: Maybe<String>;
-  content?: Maybe<String>;
-  order?: Maybe<Int>;
-}
-
-export type FaqWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
-export interface BoxCreateInput {
-  id?: Maybe<ID_Input>;
-  page: PageCreateOneWithoutBoxesInput;
-  title?: Maybe<String>;
-  media?: Maybe<MediaCreateOneInput>;
-  video?: Maybe<String>;
-  style?: Maybe<String>;
-  content?: Maybe<String>;
-  order?: Maybe<Int>;
 }
 
 export interface MediaWhereInput {
@@ -2791,9 +3077,108 @@ export interface MediaWhereInput {
   altText_not_starts_with?: Maybe<String>;
   altText_ends_with?: Maybe<String>;
   altText_not_ends_with?: Maybe<String>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
   AND?: Maybe<MediaWhereInput[] | MediaWhereInput>;
   OR?: Maybe<MediaWhereInput[] | MediaWhereInput>;
   NOT?: Maybe<MediaWhereInput[] | MediaWhereInput>;
+}
+
+export interface AlertBoxUpdateManyWithWhereNestedInput {
+  where: AlertBoxScalarWhereInput;
+  data: AlertBoxUpdateManyDataInput;
+}
+
+export interface ConsSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<ConsWhereInput>;
+  AND?: Maybe<ConsSubscriptionWhereInput[] | ConsSubscriptionWhereInput>;
+  OR?: Maybe<ConsSubscriptionWhereInput[] | ConsSubscriptionWhereInput>;
+  NOT?: Maybe<ConsSubscriptionWhereInput[] | ConsSubscriptionWhereInput>;
+}
+
+export interface AlertBoxUpdateManyDataInput {
+  title?: Maybe<String>;
+  content?: Maybe<String>;
+  prefix?: Maybe<String>;
+  style?: Maybe<String>;
+  order?: Maybe<Int>;
+}
+
+export interface AlertBoxSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<AlertBoxWhereInput>;
+  AND?: Maybe<
+    AlertBoxSubscriptionWhereInput[] | AlertBoxSubscriptionWhereInput
+  >;
+  OR?: Maybe<AlertBoxSubscriptionWhereInput[] | AlertBoxSubscriptionWhereInput>;
+  NOT?: Maybe<
+    AlertBoxSubscriptionWhereInput[] | AlertBoxSubscriptionWhereInput
+  >;
+}
+
+export interface PageUpsertWithoutBlocksInput {
+  update: PageUpdateWithoutBlocksDataInput;
+  create: PageCreateWithoutBlocksInput;
+}
+
+export interface QuickTipUpdateManyMutationInput {
+  title?: Maybe<String>;
+  content?: Maybe<String>;
+  buttonText?: Maybe<String>;
+  buttonLink?: Maybe<String>;
+  order?: Maybe<Int>;
+}
+
+export interface BlockUpdateManyMutationInput {
+  title?: Maybe<String>;
+  video?: Maybe<String>;
+  style?: Maybe<String>;
+  content?: Maybe<String>;
+  order?: Maybe<Int>;
+}
+
+export interface PageUpdateOneRequiredWithoutQuickTipsInput {
+  create?: Maybe<PageCreateWithoutQuickTipsInput>;
+  update?: Maybe<PageUpdateWithoutQuickTipsDataInput>;
+  upsert?: Maybe<PageUpsertWithoutQuickTipsInput>;
+  connect?: Maybe<PageWhereUniqueInput>;
+}
+
+export interface BoxCreateInput {
+  id?: Maybe<ID_Input>;
+  page: PageCreateOneWithoutBoxesInput;
+  title?: Maybe<String>;
+  media?: Maybe<MediaCreateOneInput>;
+  video?: Maybe<String>;
+  style?: Maybe<String>;
+  content?: Maybe<String>;
+  order?: Maybe<Int>;
+}
+
+export interface PageCreateOneWithoutQuickTipsInput {
+  create?: Maybe<PageCreateWithoutQuickTipsInput>;
+  connect?: Maybe<PageWhereUniqueInput>;
 }
 
 export interface PageCreateOneWithoutBoxesInput {
@@ -2801,7 +3186,547 @@ export interface PageCreateOneWithoutBoxesInput {
   connect?: Maybe<PageWhereUniqueInput>;
 }
 
-export interface FaqWhereInput {
+export interface ProsAndConsUpdateManyMutationInput {
+  title?: Maybe<String>;
+  order?: Maybe<Int>;
+}
+
+export interface PageCreateWithoutBoxesInput {
+  id?: Maybe<ID_Input>;
+  title: String;
+  slug: String;
+  type: PageType;
+  status: PageStatus;
+  vertical?: Maybe<String>;
+  media?: Maybe<MediaCreateOneInput>;
+  blocks?: Maybe<BlockCreateManyWithoutPageInput>;
+  prosAndCons?: Maybe<ProsAndConsCreateManyWithoutPageInput>;
+  alertBoxes?: Maybe<AlertBoxCreateManyWithoutPageInput>;
+  quickTips?: Maybe<QuickTipCreateManyWithoutPageInput>;
+}
+
+export interface ProsAndConsUpdateInput {
+  page?: Maybe<PageUpdateOneRequiredWithoutProsAndConsInput>;
+  title?: Maybe<String>;
+  order?: Maybe<Int>;
+  pros?: Maybe<ProsUpdateManyWithoutProsAndConsInput>;
+  cons?: Maybe<ConsUpdateManyWithoutProsAndConsInput>;
+}
+
+export interface BoxUpdateInput {
+  page?: Maybe<PageUpdateOneRequiredWithoutBoxesInput>;
+  title?: Maybe<String>;
+  media?: Maybe<MediaUpdateOneInput>;
+  video?: Maybe<String>;
+  style?: Maybe<String>;
+  content?: Maybe<String>;
+  order?: Maybe<Int>;
+}
+
+export interface ProsAndConsUpdateWithoutProsDataInput {
+  page?: Maybe<PageUpdateOneRequiredWithoutProsAndConsInput>;
+  title?: Maybe<String>;
+  order?: Maybe<Int>;
+  cons?: Maybe<ConsUpdateManyWithoutProsAndConsInput>;
+}
+
+export interface PageUpdateOneRequiredWithoutBoxesInput {
+  create?: Maybe<PageCreateWithoutBoxesInput>;
+  update?: Maybe<PageUpdateWithoutBoxesDataInput>;
+  upsert?: Maybe<PageUpsertWithoutBoxesInput>;
+  connect?: Maybe<PageWhereUniqueInput>;
+}
+
+export interface ProsAndConsCreateWithoutProsInput {
+  id?: Maybe<ID_Input>;
+  page: PageCreateOneWithoutProsAndConsInput;
+  title?: Maybe<String>;
+  order?: Maybe<Int>;
+  cons?: Maybe<ConsCreateManyWithoutProsAndConsInput>;
+}
+
+export interface PageUpdateWithoutBoxesDataInput {
+  title?: Maybe<String>;
+  slug?: Maybe<String>;
+  type?: Maybe<PageType>;
+  status?: Maybe<PageStatus>;
+  vertical?: Maybe<String>;
+  media?: Maybe<MediaUpdateOneInput>;
+  blocks?: Maybe<BlockUpdateManyWithoutPageInput>;
+  prosAndCons?: Maybe<ProsAndConsUpdateManyWithoutPageInput>;
+  alertBoxes?: Maybe<AlertBoxUpdateManyWithoutPageInput>;
+  quickTips?: Maybe<QuickTipUpdateManyWithoutPageInput>;
+}
+
+export interface PageUpdateManyMutationInput {
+  title?: Maybe<String>;
+  slug?: Maybe<String>;
+  type?: Maybe<PageType>;
+  status?: Maybe<PageStatus>;
+  vertical?: Maybe<String>;
+}
+
+export interface PageUpsertWithoutBoxesInput {
+  update: PageUpdateWithoutBoxesDataInput;
+  create: PageCreateWithoutBoxesInput;
+}
+
+export interface MediaUpdateManyMutationInput {
+  url?: Maybe<String>;
+  title?: Maybe<String>;
+  altText?: Maybe<String>;
+}
+
+export interface BoxUpdateManyMutationInput {
+  title?: Maybe<String>;
+  video?: Maybe<String>;
+  style?: Maybe<String>;
+  content?: Maybe<String>;
+  order?: Maybe<Int>;
+}
+
+export type ProsWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface ConsCreateInput {
+  id?: Maybe<ID_Input>;
+  prosAndCons: ProsAndConsCreateOneWithoutConsInput;
+  content?: Maybe<String>;
+  order?: Maybe<Int>;
+}
+
+export type ProsAndConsWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface ProsAndConsCreateOneWithoutConsInput {
+  create?: Maybe<ProsAndConsCreateWithoutConsInput>;
+  connect?: Maybe<ProsAndConsWhereUniqueInput>;
+}
+
+export type QuickTipWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface ProsAndConsCreateWithoutConsInput {
+  id?: Maybe<ID_Input>;
+  page: PageCreateOneWithoutProsAndConsInput;
+  title?: Maybe<String>;
+  order?: Maybe<Int>;
+  pros?: Maybe<ProsCreateManyWithoutProsAndConsInput>;
+}
+
+export type UserWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+  email?: Maybe<String>;
+}>;
+
+export interface PageCreateOneWithoutAlertBoxesInput {
+  create?: Maybe<PageCreateWithoutAlertBoxesInput>;
+  connect?: Maybe<PageWhereUniqueInput>;
+}
+
+export interface FaqCategoryScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  slug?: Maybe<String>;
+  slug_not?: Maybe<String>;
+  slug_in?: Maybe<String[] | String>;
+  slug_not_in?: Maybe<String[] | String>;
+  slug_lt?: Maybe<String>;
+  slug_lte?: Maybe<String>;
+  slug_gt?: Maybe<String>;
+  slug_gte?: Maybe<String>;
+  slug_contains?: Maybe<String>;
+  slug_not_contains?: Maybe<String>;
+  slug_starts_with?: Maybe<String>;
+  slug_not_starts_with?: Maybe<String>;
+  slug_ends_with?: Maybe<String>;
+  slug_not_ends_with?: Maybe<String>;
+  description?: Maybe<String>;
+  description_not?: Maybe<String>;
+  description_in?: Maybe<String[] | String>;
+  description_not_in?: Maybe<String[] | String>;
+  description_lt?: Maybe<String>;
+  description_lte?: Maybe<String>;
+  description_gt?: Maybe<String>;
+  description_gte?: Maybe<String>;
+  description_contains?: Maybe<String>;
+  description_not_contains?: Maybe<String>;
+  description_starts_with?: Maybe<String>;
+  description_not_starts_with?: Maybe<String>;
+  description_ends_with?: Maybe<String>;
+  description_not_ends_with?: Maybe<String>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<FaqCategoryScalarWhereInput[] | FaqCategoryScalarWhereInput>;
+  OR?: Maybe<FaqCategoryScalarWhereInput[] | FaqCategoryScalarWhereInput>;
+  NOT?: Maybe<FaqCategoryScalarWhereInput[] | FaqCategoryScalarWhereInput>;
+}
+
+export interface PageCreateWithoutProsAndConsInput {
+  id?: Maybe<ID_Input>;
+  title: String;
+  slug: String;
+  type: PageType;
+  status: PageStatus;
+  vertical?: Maybe<String>;
+  media?: Maybe<MediaCreateOneInput>;
+  blocks?: Maybe<BlockCreateManyWithoutPageInput>;
+  boxes?: Maybe<BoxCreateManyWithoutPageInput>;
+  alertBoxes?: Maybe<AlertBoxCreateManyWithoutPageInput>;
+  quickTips?: Maybe<QuickTipCreateManyWithoutPageInput>;
+}
+
+export interface PageCreateOneWithoutProsAndConsInput {
+  create?: Maybe<PageCreateWithoutProsAndConsInput>;
+  connect?: Maybe<PageWhereUniqueInput>;
+}
+
+export interface ConsUpdateInput {
+  prosAndCons?: Maybe<ProsAndConsUpdateOneRequiredWithoutConsInput>;
+  content?: Maybe<String>;
+  order?: Maybe<Int>;
+}
+
+export interface BlockCreateManyWithoutPageInput {
+  create?: Maybe<BlockCreateWithoutPageInput[] | BlockCreateWithoutPageInput>;
+  connect?: Maybe<BlockWhereUniqueInput[] | BlockWhereUniqueInput>;
+}
+
+export interface ProsAndConsUpdateOneRequiredWithoutConsInput {
+  create?: Maybe<ProsAndConsCreateWithoutConsInput>;
+  update?: Maybe<ProsAndConsUpdateWithoutConsDataInput>;
+  upsert?: Maybe<ProsAndConsUpsertWithoutConsInput>;
+  connect?: Maybe<ProsAndConsWhereUniqueInput>;
+}
+
+export interface ProsAndConsCreateManyWithoutPageInput {
+  create?: Maybe<
+    ProsAndConsCreateWithoutPageInput[] | ProsAndConsCreateWithoutPageInput
+  >;
+  connect?: Maybe<ProsAndConsWhereUniqueInput[] | ProsAndConsWhereUniqueInput>;
+}
+
+export interface ProsAndConsUpdateWithoutConsDataInput {
+  page?: Maybe<PageUpdateOneRequiredWithoutProsAndConsInput>;
+  title?: Maybe<String>;
+  order?: Maybe<Int>;
+  pros?: Maybe<ProsUpdateManyWithoutProsAndConsInput>;
+}
+
+export interface ConsCreateManyWithoutProsAndConsInput {
+  create?: Maybe<
+    ConsCreateWithoutProsAndConsInput[] | ConsCreateWithoutProsAndConsInput
+  >;
+  connect?: Maybe<ConsWhereUniqueInput[] | ConsWhereUniqueInput>;
+}
+
+export interface PageUpdateOneRequiredWithoutProsAndConsInput {
+  create?: Maybe<PageCreateWithoutProsAndConsInput>;
+  update?: Maybe<PageUpdateWithoutProsAndConsDataInput>;
+  upsert?: Maybe<PageUpsertWithoutProsAndConsInput>;
+  connect?: Maybe<PageWhereUniqueInput>;
+}
+
+export interface AlertBoxUpdateInput {
+  page?: Maybe<PageUpdateOneRequiredWithoutAlertBoxesInput>;
+  title?: Maybe<String>;
+  content?: Maybe<String>;
+  prefix?: Maybe<String>;
+  style?: Maybe<String>;
+  order?: Maybe<Int>;
+}
+
+export interface PageUpdateWithoutProsAndConsDataInput {
+  title?: Maybe<String>;
+  slug?: Maybe<String>;
+  type?: Maybe<PageType>;
+  status?: Maybe<PageStatus>;
+  vertical?: Maybe<String>;
+  media?: Maybe<MediaUpdateOneInput>;
+  blocks?: Maybe<BlockUpdateManyWithoutPageInput>;
+  boxes?: Maybe<BoxUpdateManyWithoutPageInput>;
+  alertBoxes?: Maybe<AlertBoxUpdateManyWithoutPageInput>;
+  quickTips?: Maybe<QuickTipUpdateManyWithoutPageInput>;
+}
+
+export interface MediaUpdateDataInput {
+  url?: Maybe<String>;
+  title?: Maybe<String>;
+  altText?: Maybe<String>;
+}
+
+export interface PageUpsertWithoutProsAndConsInput {
+  update: PageUpdateWithoutProsAndConsDataInput;
+  create: PageCreateWithoutProsAndConsInput;
+}
+
+export interface BlockUpdateWithoutPageDataInput {
+  title?: Maybe<String>;
+  media?: Maybe<MediaUpdateOneInput>;
+  video?: Maybe<String>;
+  style?: Maybe<String>;
+  content?: Maybe<String>;
+  order?: Maybe<Int>;
+}
+
+export interface ProsAndConsUpsertWithoutConsInput {
+  update: ProsAndConsUpdateWithoutConsDataInput;
+  create: ProsAndConsCreateWithoutConsInput;
+}
+
+export interface QuickTipSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<QuickTipWhereInput>;
+  AND?: Maybe<
+    QuickTipSubscriptionWhereInput[] | QuickTipSubscriptionWhereInput
+  >;
+  OR?: Maybe<QuickTipSubscriptionWhereInput[] | QuickTipSubscriptionWhereInput>;
+  NOT?: Maybe<
+    QuickTipSubscriptionWhereInput[] | QuickTipSubscriptionWhereInput
+  >;
+}
+
+export interface ConsUpdateManyMutationInput {
+  content?: Maybe<String>;
+  order?: Maybe<Int>;
+}
+
+export interface FaqCategorySubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<FaqCategoryWhereInput>;
+  AND?: Maybe<
+    FaqCategorySubscriptionWhereInput[] | FaqCategorySubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    FaqCategorySubscriptionWhereInput[] | FaqCategorySubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    FaqCategorySubscriptionWhereInput[] | FaqCategorySubscriptionWhereInput
+  >;
+}
+
+export interface FaqCreateInput {
+  id?: Maybe<ID_Input>;
+  title: String;
+  description?: Maybe<String>;
+  short_description?: Maybe<String>;
+  authors?: Maybe<UserCreateManyInput>;
+  slug: String;
+  vertical?: Maybe<String>;
+  category?: Maybe<FaqCategoryCreateManyWithoutFaqsInput>;
+  readingTime?: Maybe<Int>;
+  order?: Maybe<Int>;
+  variant?: Maybe<FaqCreatevariantInput>;
+  tag?: Maybe<FaqCreatetagInput>;
+  pubDate?: Maybe<DateTimeInput>;
+}
+
+export interface UserUpdateInput {
+  name?: Maybe<String>;
+  email?: Maybe<String>;
+  password?: Maybe<String>;
+  resetToken?: Maybe<String>;
+  resetTokenExpiry?: Maybe<Float>;
+  permissions?: Maybe<UserUpdatepermissionsInput>;
+}
+
+export interface UserCreateManyInput {
+  create?: Maybe<UserCreateInput[] | UserCreateInput>;
+  connect?: Maybe<UserWhereUniqueInput[] | UserWhereUniqueInput>;
+}
+
+export interface PageCreateWithoutQuickTipsInput {
+  id?: Maybe<ID_Input>;
+  title: String;
+  slug: String;
+  type: PageType;
+  status: PageStatus;
+  vertical?: Maybe<String>;
+  media?: Maybe<MediaCreateOneInput>;
+  blocks?: Maybe<BlockCreateManyWithoutPageInput>;
+  boxes?: Maybe<BoxCreateManyWithoutPageInput>;
+  prosAndCons?: Maybe<ProsAndConsCreateManyWithoutPageInput>;
+  alertBoxes?: Maybe<AlertBoxCreateManyWithoutPageInput>;
+}
+
+export interface UserCreateInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  email: String;
+  password: String;
+  resetToken?: Maybe<String>;
+  resetTokenExpiry?: Maybe<Float>;
+  permissions?: Maybe<UserCreatepermissionsInput>;
+}
+
+export interface FaqCategoryWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  slug?: Maybe<String>;
+  slug_not?: Maybe<String>;
+  slug_in?: Maybe<String[] | String>;
+  slug_not_in?: Maybe<String[] | String>;
+  slug_lt?: Maybe<String>;
+  slug_lte?: Maybe<String>;
+  slug_gt?: Maybe<String>;
+  slug_gte?: Maybe<String>;
+  slug_contains?: Maybe<String>;
+  slug_not_contains?: Maybe<String>;
+  slug_starts_with?: Maybe<String>;
+  slug_not_starts_with?: Maybe<String>;
+  slug_ends_with?: Maybe<String>;
+  slug_not_ends_with?: Maybe<String>;
+  description?: Maybe<String>;
+  description_not?: Maybe<String>;
+  description_in?: Maybe<String[] | String>;
+  description_not_in?: Maybe<String[] | String>;
+  description_lt?: Maybe<String>;
+  description_lte?: Maybe<String>;
+  description_gt?: Maybe<String>;
+  description_gte?: Maybe<String>;
+  description_contains?: Maybe<String>;
+  description_not_contains?: Maybe<String>;
+  description_starts_with?: Maybe<String>;
+  description_not_starts_with?: Maybe<String>;
+  description_ends_with?: Maybe<String>;
+  description_not_ends_with?: Maybe<String>;
+  faqs_every?: Maybe<FaqWhereInput>;
+  faqs_some?: Maybe<FaqWhereInput>;
+  faqs_none?: Maybe<FaqWhereInput>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<FaqCategoryWhereInput[] | FaqCategoryWhereInput>;
+  OR?: Maybe<FaqCategoryWhereInput[] | FaqCategoryWhereInput>;
+  NOT?: Maybe<FaqCategoryWhereInput[] | FaqCategoryWhereInput>;
+}
+
+export interface UserCreatepermissionsInput {
+  set?: Maybe<Permission[] | Permission>;
+}
+
+export type FaqCategoryWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface FaqCategoryCreateManyWithoutFaqsInput {
+  create?: Maybe<
+    FaqCategoryCreateWithoutFaqsInput[] | FaqCategoryCreateWithoutFaqsInput
+  >;
+  connect?: Maybe<FaqCategoryWhereUniqueInput[] | FaqCategoryWhereUniqueInput>;
+}
+
+export interface PageCreateInput {
+  id?: Maybe<ID_Input>;
+  title: String;
+  slug: String;
+  type: PageType;
+  status: PageStatus;
+  vertical?: Maybe<String>;
+  media?: Maybe<MediaCreateOneInput>;
+  blocks?: Maybe<BlockCreateManyWithoutPageInput>;
+  boxes?: Maybe<BoxCreateManyWithoutPageInput>;
+  prosAndCons?: Maybe<ProsAndConsCreateManyWithoutPageInput>;
+  alertBoxes?: Maybe<AlertBoxCreateManyWithoutPageInput>;
+  quickTips?: Maybe<QuickTipCreateManyWithoutPageInput>;
+}
+
+export interface FaqCategoryCreateWithoutFaqsInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  slug: String;
+  description: String;
+}
+
+export interface FaqScalarWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -2858,9 +3783,6 @@ export interface FaqWhereInput {
   short_description_not_starts_with?: Maybe<String>;
   short_description_ends_with?: Maybe<String>;
   short_description_not_ends_with?: Maybe<String>;
-  authors_every?: Maybe<UserWhereInput>;
-  authors_some?: Maybe<UserWhereInput>;
-  authors_none?: Maybe<UserWhereInput>;
   slug?: Maybe<String>;
   slug_not?: Maybe<String>;
   slug_in?: Maybe<String[] | String>;
@@ -2889,9 +3811,6 @@ export interface FaqWhereInput {
   vertical_not_starts_with?: Maybe<String>;
   vertical_ends_with?: Maybe<String>;
   vertical_not_ends_with?: Maybe<String>;
-  category_every?: Maybe<FaqCategoryWhereInput>;
-  category_some?: Maybe<FaqCategoryWhereInput>;
-  category_none?: Maybe<FaqCategoryWhereInput>;
   readingTime?: Maybe<Int>;
   readingTime_not?: Maybe<Int>;
   readingTime_in?: Maybe<Int[] | Int>;
@@ -2916,350 +3835,32 @@ export interface FaqWhereInput {
   pubDate_lte?: Maybe<DateTimeInput>;
   pubDate_gt?: Maybe<DateTimeInput>;
   pubDate_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<FaqWhereInput[] | FaqWhereInput>;
-  OR?: Maybe<FaqWhereInput[] | FaqWhereInput>;
-  NOT?: Maybe<FaqWhereInput[] | FaqWhereInput>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<FaqScalarWhereInput[] | FaqScalarWhereInput>;
+  OR?: Maybe<FaqScalarWhereInput[] | FaqScalarWhereInput>;
+  NOT?: Maybe<FaqScalarWhereInput[] | FaqScalarWhereInput>;
 }
 
-export interface PageCreateWithoutBoxesInput {
-  id?: Maybe<ID_Input>;
-  title: String;
-  slug: String;
-  type: PageType;
-  status: PageStatus;
-  vertical?: Maybe<String>;
-  media?: Maybe<MediaCreateOneInput>;
-  blocks?: Maybe<BlockCreateManyWithoutPageInput>;
-  prosAndCons?: Maybe<ProsAndConsCreateManyWithoutPageInput>;
-  alertBoxes?: Maybe<AlertBoxCreateManyWithoutPageInput>;
-  quickTips?: Maybe<QuickTipCreateManyWithoutPageInput>;
+export interface FaqCreatevariantInput {
+  set?: Maybe<String[] | String>;
 }
 
-export interface ProsAndConsCreateInput {
-  id?: Maybe<ID_Input>;
-  page: PageCreateOneWithoutProsAndConsInput;
-  title?: Maybe<String>;
-  order?: Maybe<Int>;
-  pros?: Maybe<ProsCreateManyWithoutProsAndConsInput>;
-  cons?: Maybe<ConsCreateManyWithoutProsAndConsInput>;
-}
-
-export interface BoxUpdateInput {
-  page?: Maybe<PageUpdateOneRequiredWithoutBoxesInput>;
-  title?: Maybe<String>;
-  media?: Maybe<MediaUpdateOneInput>;
-  video?: Maybe<String>;
-  style?: Maybe<String>;
-  content?: Maybe<String>;
-  order?: Maybe<Int>;
-}
-
-export type FaqCategoryWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
-export interface PageUpdateOneRequiredWithoutBoxesInput {
-  create?: Maybe<PageCreateWithoutBoxesInput>;
-  update?: Maybe<PageUpdateWithoutBoxesDataInput>;
-  upsert?: Maybe<PageUpsertWithoutBoxesInput>;
-  connect?: Maybe<PageWhereUniqueInput>;
-}
-
-export type MediaWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
-export interface PageUpdateWithoutBoxesDataInput {
-  title?: Maybe<String>;
-  slug?: Maybe<String>;
-  type?: Maybe<PageType>;
-  status?: Maybe<PageStatus>;
-  vertical?: Maybe<String>;
-  media?: Maybe<MediaUpdateOneInput>;
-  blocks?: Maybe<BlockUpdateManyWithoutPageInput>;
-  prosAndCons?: Maybe<ProsAndConsUpdateManyWithoutPageInput>;
-  alertBoxes?: Maybe<AlertBoxUpdateManyWithoutPageInput>;
-  quickTips?: Maybe<QuickTipUpdateManyWithoutPageInput>;
-}
-
-export interface PageUpdateInput {
-  title?: Maybe<String>;
-  slug?: Maybe<String>;
-  type?: Maybe<PageType>;
-  status?: Maybe<PageStatus>;
-  vertical?: Maybe<String>;
-  media?: Maybe<MediaUpdateOneInput>;
-  blocks?: Maybe<BlockUpdateManyWithoutPageInput>;
-  boxes?: Maybe<BoxUpdateManyWithoutPageInput>;
-  prosAndCons?: Maybe<ProsAndConsUpdateManyWithoutPageInput>;
-  alertBoxes?: Maybe<AlertBoxUpdateManyWithoutPageInput>;
-  quickTips?: Maybe<QuickTipUpdateManyWithoutPageInput>;
-}
-
-export interface PageUpsertWithoutBoxesInput {
-  update: PageUpdateWithoutBoxesDataInput;
-  create: PageCreateWithoutBoxesInput;
-}
-
-export interface MediaUpdateInput {
-  url?: Maybe<String>;
-  title?: Maybe<String>;
-  altText?: Maybe<String>;
-}
-
-export interface BoxUpdateManyMutationInput {
-  title?: Maybe<String>;
-  video?: Maybe<String>;
-  style?: Maybe<String>;
-  content?: Maybe<String>;
-  order?: Maybe<Int>;
-}
-
-export interface FaqUpdateManyWithWhereNestedInput {
-  where: FaqScalarWhereInput;
-  data: FaqUpdateManyDataInput;
-}
-
-export interface ConsCreateInput {
-  id?: Maybe<ID_Input>;
-  prosAndCons: ProsAndConsCreateOneWithoutConsInput;
-  content?: Maybe<String>;
-  order?: Maybe<Int>;
-}
-
-export interface FaqUpdateWithoutCategoryDataInput {
-  title?: Maybe<String>;
-  description?: Maybe<String>;
-  short_description?: Maybe<String>;
-  authors?: Maybe<UserUpdateManyInput>;
-  slug?: Maybe<String>;
-  vertical?: Maybe<String>;
-  readingTime?: Maybe<Int>;
-  order?: Maybe<Int>;
-  variant?: Maybe<FaqUpdatevariantInput>;
-  tag?: Maybe<FaqUpdatetagInput>;
-  pubDate?: Maybe<DateTimeInput>;
-}
-
-export interface ProsAndConsCreateOneWithoutConsInput {
-  create?: Maybe<ProsAndConsCreateWithoutConsInput>;
-  connect?: Maybe<ProsAndConsWhereUniqueInput>;
-}
-
-export interface FaqCategoryUpdateInput {
-  name?: Maybe<String>;
-  slug?: Maybe<String>;
-  description?: Maybe<String>;
-  faqs?: Maybe<FaqUpdateManyWithoutCategoryInput>;
-}
-
-export interface ProsAndConsCreateWithoutConsInput {
-  id?: Maybe<ID_Input>;
-  page: PageCreateOneWithoutProsAndConsInput;
-  title?: Maybe<String>;
-  order?: Maybe<Int>;
-  pros?: Maybe<ProsCreateManyWithoutProsAndConsInput>;
-}
-
-export interface FaqCategoryCreateInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  slug: String;
-  description: String;
-  faqs?: Maybe<FaqCreateManyWithoutCategoryInput>;
-}
-
-export interface PageCreateOneWithoutProsAndConsInput {
-  create?: Maybe<PageCreateWithoutProsAndConsInput>;
-  connect?: Maybe<PageWhereUniqueInput>;
-}
-
-export interface PageCreateOneWithoutAlertBoxesInput {
-  create?: Maybe<PageCreateWithoutAlertBoxesInput>;
-  connect?: Maybe<PageWhereUniqueInput>;
-}
-
-export interface PageCreateWithoutProsAndConsInput {
-  id?: Maybe<ID_Input>;
-  title: String;
-  slug: String;
-  type: PageType;
-  status: PageStatus;
-  vertical?: Maybe<String>;
-  media?: Maybe<MediaCreateOneInput>;
-  blocks?: Maybe<BlockCreateManyWithoutPageInput>;
-  boxes?: Maybe<BoxCreateManyWithoutPageInput>;
-  alertBoxes?: Maybe<AlertBoxCreateManyWithoutPageInput>;
-  quickTips?: Maybe<QuickTipCreateManyWithoutPageInput>;
-}
-
-export interface BlockCreateManyWithoutPageInput {
-  create?: Maybe<BlockCreateWithoutPageInput[] | BlockCreateWithoutPageInput>;
-  connect?: Maybe<BlockWhereUniqueInput[] | BlockWhereUniqueInput>;
-}
-
-export interface ConsUpdateInput {
-  prosAndCons?: Maybe<ProsAndConsUpdateOneRequiredWithoutConsInput>;
-  content?: Maybe<String>;
-  order?: Maybe<Int>;
-}
-
-export interface ProsAndConsCreateManyWithoutPageInput {
-  create?: Maybe<
-    ProsAndConsCreateWithoutPageInput[] | ProsAndConsCreateWithoutPageInput
-  >;
-  connect?: Maybe<ProsAndConsWhereUniqueInput[] | ProsAndConsWhereUniqueInput>;
-}
-
-export interface ProsAndConsUpdateOneRequiredWithoutConsInput {
-  create?: Maybe<ProsAndConsCreateWithoutConsInput>;
-  update?: Maybe<ProsAndConsUpdateWithoutConsDataInput>;
-  upsert?: Maybe<ProsAndConsUpsertWithoutConsInput>;
-  connect?: Maybe<ProsAndConsWhereUniqueInput>;
-}
-
-export interface ConsCreateManyWithoutProsAndConsInput {
-  create?: Maybe<
-    ConsCreateWithoutProsAndConsInput[] | ConsCreateWithoutProsAndConsInput
-  >;
-  connect?: Maybe<ConsWhereUniqueInput[] | ConsWhereUniqueInput>;
-}
-
-export interface ProsAndConsUpdateWithoutConsDataInput {
-  page?: Maybe<PageUpdateOneRequiredWithoutProsAndConsInput>;
-  title?: Maybe<String>;
-  order?: Maybe<Int>;
-  pros?: Maybe<ProsUpdateManyWithoutProsAndConsInput>;
-}
-
-export interface AlertBoxUpdateInput {
-  page?: Maybe<PageUpdateOneRequiredWithoutAlertBoxesInput>;
-  title?: Maybe<String>;
-  content?: Maybe<String>;
-  prefix?: Maybe<String>;
-  style?: Maybe<String>;
-  order?: Maybe<Int>;
-}
-
-export interface PageUpdateOneRequiredWithoutProsAndConsInput {
-  create?: Maybe<PageCreateWithoutProsAndConsInput>;
-  update?: Maybe<PageUpdateWithoutProsAndConsDataInput>;
-  upsert?: Maybe<PageUpsertWithoutProsAndConsInput>;
-  connect?: Maybe<PageWhereUniqueInput>;
-}
-
-export interface MediaUpdateDataInput {
-  url?: Maybe<String>;
-  title?: Maybe<String>;
-  altText?: Maybe<String>;
-}
-
-export interface PageUpdateWithoutProsAndConsDataInput {
-  title?: Maybe<String>;
-  slug?: Maybe<String>;
-  type?: Maybe<PageType>;
-  status?: Maybe<PageStatus>;
-  vertical?: Maybe<String>;
-  media?: Maybe<MediaUpdateOneInput>;
-  blocks?: Maybe<BlockUpdateManyWithoutPageInput>;
-  boxes?: Maybe<BoxUpdateManyWithoutPageInput>;
-  alertBoxes?: Maybe<AlertBoxUpdateManyWithoutPageInput>;
-  quickTips?: Maybe<QuickTipUpdateManyWithoutPageInput>;
-}
-
-export interface BlockUpdateWithoutPageDataInput {
-  title?: Maybe<String>;
-  media?: Maybe<MediaUpdateOneInput>;
-  video?: Maybe<String>;
-  style?: Maybe<String>;
-  content?: Maybe<String>;
-  order?: Maybe<Int>;
-}
-
-export interface PageUpsertWithoutProsAndConsInput {
-  update: PageUpdateWithoutProsAndConsDataInput;
-  create: PageCreateWithoutProsAndConsInput;
-}
-
-export interface ProsAndConsWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  page?: Maybe<PageWhereInput>;
-  title?: Maybe<String>;
-  title_not?: Maybe<String>;
-  title_in?: Maybe<String[] | String>;
-  title_not_in?: Maybe<String[] | String>;
-  title_lt?: Maybe<String>;
-  title_lte?: Maybe<String>;
-  title_gt?: Maybe<String>;
-  title_gte?: Maybe<String>;
-  title_contains?: Maybe<String>;
-  title_not_contains?: Maybe<String>;
-  title_starts_with?: Maybe<String>;
-  title_not_starts_with?: Maybe<String>;
-  title_ends_with?: Maybe<String>;
-  title_not_ends_with?: Maybe<String>;
-  order?: Maybe<Int>;
-  order_not?: Maybe<Int>;
-  order_in?: Maybe<Int[] | Int>;
-  order_not_in?: Maybe<Int[] | Int>;
-  order_lt?: Maybe<Int>;
-  order_lte?: Maybe<Int>;
-  order_gt?: Maybe<Int>;
-  order_gte?: Maybe<Int>;
-  pros_every?: Maybe<ProsWhereInput>;
-  pros_some?: Maybe<ProsWhereInput>;
-  pros_none?: Maybe<ProsWhereInput>;
-  cons_every?: Maybe<ConsWhereInput>;
-  cons_some?: Maybe<ConsWhereInput>;
-  cons_none?: Maybe<ConsWhereInput>;
-  AND?: Maybe<ProsAndConsWhereInput[] | ProsAndConsWhereInput>;
-  OR?: Maybe<ProsAndConsWhereInput[] | ProsAndConsWhereInput>;
-  NOT?: Maybe<ProsAndConsWhereInput[] | ProsAndConsWhereInput>;
-}
-
-export interface ProsAndConsUpsertWithoutConsInput {
-  update: ProsAndConsUpdateWithoutConsDataInput;
-  create: ProsAndConsCreateWithoutConsInput;
-}
-
-export interface ConsSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<ConsWhereInput>;
-  AND?: Maybe<ConsSubscriptionWhereInput[] | ConsSubscriptionWhereInput>;
-  OR?: Maybe<ConsSubscriptionWhereInput[] | ConsSubscriptionWhereInput>;
-  NOT?: Maybe<ConsSubscriptionWhereInput[] | ConsSubscriptionWhereInput>;
-}
-
-export interface ConsUpdateManyMutationInput {
-  content?: Maybe<String>;
-  order?: Maybe<Int>;
-}
-
-export interface QuickTipUpdateManyMutationInput {
-  title?: Maybe<String>;
-  content?: Maybe<String>;
-  buttonText?: Maybe<String>;
-  buttonLink?: Maybe<String>;
-  order?: Maybe<Int>;
-}
-
-export interface FaqCreateInput {
+export interface FaqCreateWithoutCategoryInput {
   id?: Maybe<ID_Input>;
   title: String;
   description?: Maybe<String>;
@@ -3267,7 +3868,6 @@ export interface FaqCreateInput {
   authors?: Maybe<UserCreateManyInput>;
   slug: String;
   vertical?: Maybe<String>;
-  category?: Maybe<FaqCategoryCreateManyWithoutFaqsInput>;
   readingTime?: Maybe<Int>;
   order?: Maybe<Int>;
   variant?: Maybe<FaqCreatevariantInput>;
@@ -3275,96 +3875,76 @@ export interface FaqCreateInput {
   pubDate?: Maybe<DateTimeInput>;
 }
 
-export interface UserWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  email?: Maybe<String>;
-  email_not?: Maybe<String>;
-  email_in?: Maybe<String[] | String>;
-  email_not_in?: Maybe<String[] | String>;
-  email_lt?: Maybe<String>;
-  email_lte?: Maybe<String>;
-  email_gt?: Maybe<String>;
-  email_gte?: Maybe<String>;
-  email_contains?: Maybe<String>;
-  email_not_contains?: Maybe<String>;
-  email_starts_with?: Maybe<String>;
-  email_not_starts_with?: Maybe<String>;
-  email_ends_with?: Maybe<String>;
-  email_not_ends_with?: Maybe<String>;
-  password?: Maybe<String>;
-  password_not?: Maybe<String>;
-  password_in?: Maybe<String[] | String>;
-  password_not_in?: Maybe<String[] | String>;
-  password_lt?: Maybe<String>;
-  password_lte?: Maybe<String>;
-  password_gt?: Maybe<String>;
-  password_gte?: Maybe<String>;
-  password_contains?: Maybe<String>;
-  password_not_contains?: Maybe<String>;
-  password_starts_with?: Maybe<String>;
-  password_not_starts_with?: Maybe<String>;
-  password_ends_with?: Maybe<String>;
-  password_not_ends_with?: Maybe<String>;
-  resetToken?: Maybe<String>;
-  resetToken_not?: Maybe<String>;
-  resetToken_in?: Maybe<String[] | String>;
-  resetToken_not_in?: Maybe<String[] | String>;
-  resetToken_lt?: Maybe<String>;
-  resetToken_lte?: Maybe<String>;
-  resetToken_gt?: Maybe<String>;
-  resetToken_gte?: Maybe<String>;
-  resetToken_contains?: Maybe<String>;
-  resetToken_not_contains?: Maybe<String>;
-  resetToken_starts_with?: Maybe<String>;
-  resetToken_not_starts_with?: Maybe<String>;
-  resetToken_ends_with?: Maybe<String>;
-  resetToken_not_ends_with?: Maybe<String>;
-  resetTokenExpiry?: Maybe<Float>;
-  resetTokenExpiry_not?: Maybe<Float>;
-  resetTokenExpiry_in?: Maybe<Float[] | Float>;
-  resetTokenExpiry_not_in?: Maybe<Float[] | Float>;
-  resetTokenExpiry_lt?: Maybe<Float>;
-  resetTokenExpiry_lte?: Maybe<Float>;
-  resetTokenExpiry_gt?: Maybe<Float>;
-  resetTokenExpiry_gte?: Maybe<Float>;
-  AND?: Maybe<UserWhereInput[] | UserWhereInput>;
-  OR?: Maybe<UserWhereInput[] | UserWhereInput>;
-  NOT?: Maybe<UserWhereInput[] | UserWhereInput>;
+export interface FaqCreatetagInput {
+  set?: Maybe<String[] | String>;
 }
 
-export interface UserCreateManyInput {
+export interface MediaCreateOneInput {
+  create?: Maybe<MediaCreateInput>;
+  connect?: Maybe<MediaWhereUniqueInput>;
+}
+
+export interface FaqUpdateInput {
+  title?: Maybe<String>;
+  description?: Maybe<String>;
+  short_description?: Maybe<String>;
+  authors?: Maybe<UserUpdateManyInput>;
+  slug?: Maybe<String>;
+  vertical?: Maybe<String>;
+  category?: Maybe<FaqCategoryUpdateManyWithoutFaqsInput>;
+  readingTime?: Maybe<Int>;
+  order?: Maybe<Int>;
+  variant?: Maybe<FaqUpdatevariantInput>;
+  tag?: Maybe<FaqUpdatetagInput>;
+  pubDate?: Maybe<DateTimeInput>;
+}
+
+export interface ProsCreateManyWithoutProsAndConsInput {
+  create?: Maybe<
+    ProsCreateWithoutProsAndConsInput[] | ProsCreateWithoutProsAndConsInput
+  >;
+  connect?: Maybe<ProsWhereUniqueInput[] | ProsWhereUniqueInput>;
+}
+
+export interface UserUpdateManyInput {
   create?: Maybe<UserCreateInput[] | UserCreateInput>;
+  update?: Maybe<
+    | UserUpdateWithWhereUniqueNestedInput[]
+    | UserUpdateWithWhereUniqueNestedInput
+  >;
+  upsert?: Maybe<
+    | UserUpsertWithWhereUniqueNestedInput[]
+    | UserUpsertWithWhereUniqueNestedInput
+  >;
+  delete?: Maybe<UserWhereUniqueInput[] | UserWhereUniqueInput>;
   connect?: Maybe<UserWhereUniqueInput[] | UserWhereUniqueInput>;
+  set?: Maybe<UserWhereUniqueInput[] | UserWhereUniqueInput>;
+  disconnect?: Maybe<UserWhereUniqueInput[] | UserWhereUniqueInput>;
+  deleteMany?: Maybe<UserScalarWhereInput[] | UserScalarWhereInput>;
+  updateMany?: Maybe<
+    UserUpdateManyWithWhereNestedInput[] | UserUpdateManyWithWhereNestedInput
+  >;
 }
 
-export interface BlockWhereInput {
+export interface PageUpdateWithoutAlertBoxesDataInput {
+  title?: Maybe<String>;
+  slug?: Maybe<String>;
+  type?: Maybe<PageType>;
+  status?: Maybe<PageStatus>;
+  vertical?: Maybe<String>;
+  media?: Maybe<MediaUpdateOneInput>;
+  blocks?: Maybe<BlockUpdateManyWithoutPageInput>;
+  boxes?: Maybe<BoxUpdateManyWithoutPageInput>;
+  prosAndCons?: Maybe<ProsAndConsUpdateManyWithoutPageInput>;
+  quickTips?: Maybe<QuickTipUpdateManyWithoutPageInput>;
+}
+
+export interface UserUpdateWithWhereUniqueNestedInput {
+  where: UserWhereUniqueInput;
+  data: UserUpdateDataInput;
+}
+
+export interface BlockScalarWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -3379,7 +3959,6 @@ export interface BlockWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-  page?: Maybe<PageWhereInput>;
   title?: Maybe<String>;
   title_not?: Maybe<String>;
   title_in?: Maybe<String[] | String>;
@@ -3394,7 +3973,6 @@ export interface BlockWhereInput {
   title_not_starts_with?: Maybe<String>;
   title_ends_with?: Maybe<String>;
   title_not_ends_with?: Maybe<String>;
-  media?: Maybe<MediaWhereInput>;
   video?: Maybe<String>;
   video_not?: Maybe<String>;
   video_in?: Maybe<String[] | String>;
@@ -3445,198 +4023,25 @@ export interface BlockWhereInput {
   order_lte?: Maybe<Int>;
   order_gt?: Maybe<Int>;
   order_gte?: Maybe<Int>;
-  AND?: Maybe<BlockWhereInput[] | BlockWhereInput>;
-  OR?: Maybe<BlockWhereInput[] | BlockWhereInput>;
-  NOT?: Maybe<BlockWhereInput[] | BlockWhereInput>;
-}
-
-export interface UserCreateInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  email: String;
-  password: String;
-  resetToken?: Maybe<String>;
-  resetTokenExpiry?: Maybe<Float>;
-  permissions?: Maybe<UserCreatepermissionsInput>;
-}
-
-export interface ProsUpdateInput {
-  prosAndCons?: Maybe<ProsAndConsUpdateOneRequiredWithoutProsInput>;
-  content?: Maybe<String>;
-  order?: Maybe<Int>;
-}
-
-export interface UserCreatepermissionsInput {
-  set?: Maybe<Permission[] | Permission>;
-}
-
-export interface PageCreateInput {
-  id?: Maybe<ID_Input>;
-  title: String;
-  slug: String;
-  type: PageType;
-  status: PageStatus;
-  vertical?: Maybe<String>;
-  media?: Maybe<MediaCreateOneInput>;
-  blocks?: Maybe<BlockCreateManyWithoutPageInput>;
-  boxes?: Maybe<BoxCreateManyWithoutPageInput>;
-  prosAndCons?: Maybe<ProsAndConsCreateManyWithoutPageInput>;
-  alertBoxes?: Maybe<AlertBoxCreateManyWithoutPageInput>;
-  quickTips?: Maybe<QuickTipCreateManyWithoutPageInput>;
-}
-
-export interface FaqCategoryCreateManyWithoutFaqsInput {
-  create?: Maybe<
-    FaqCategoryCreateWithoutFaqsInput[] | FaqCategoryCreateWithoutFaqsInput
-  >;
-  connect?: Maybe<FaqCategoryWhereUniqueInput[] | FaqCategoryWhereUniqueInput>;
-}
-
-export type ProsAndConsWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
-export interface FaqCategoryCreateWithoutFaqsInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  slug: String;
-  description: String;
-}
-
-export type UserWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-  email?: Maybe<String>;
-}>;
-
-export interface FaqCreatevariantInput {
-  set?: Maybe<String[] | String>;
-}
-
-export interface MediaCreateOneInput {
-  create?: Maybe<MediaCreateInput>;
-  connect?: Maybe<MediaWhereUniqueInput>;
-}
-
-export interface FaqCreatetagInput {
-  set?: Maybe<String[] | String>;
-}
-
-export interface ProsCreateManyWithoutProsAndConsInput {
-  create?: Maybe<
-    ProsCreateWithoutProsAndConsInput[] | ProsCreateWithoutProsAndConsInput
-  >;
-  connect?: Maybe<ProsWhereUniqueInput[] | ProsWhereUniqueInput>;
-}
-
-export interface FaqUpdateInput {
-  title?: Maybe<String>;
-  description?: Maybe<String>;
-  short_description?: Maybe<String>;
-  authors?: Maybe<UserUpdateManyInput>;
-  slug?: Maybe<String>;
-  vertical?: Maybe<String>;
-  category?: Maybe<FaqCategoryUpdateManyWithoutFaqsInput>;
-  readingTime?: Maybe<Int>;
-  order?: Maybe<Int>;
-  variant?: Maybe<FaqUpdatevariantInput>;
-  tag?: Maybe<FaqUpdatetagInput>;
-  pubDate?: Maybe<DateTimeInput>;
-}
-
-export interface PageUpdateWithoutAlertBoxesDataInput {
-  title?: Maybe<String>;
-  slug?: Maybe<String>;
-  type?: Maybe<PageType>;
-  status?: Maybe<PageStatus>;
-  vertical?: Maybe<String>;
-  media?: Maybe<MediaUpdateOneInput>;
-  blocks?: Maybe<BlockUpdateManyWithoutPageInput>;
-  boxes?: Maybe<BoxUpdateManyWithoutPageInput>;
-  prosAndCons?: Maybe<ProsAndConsUpdateManyWithoutPageInput>;
-  quickTips?: Maybe<QuickTipUpdateManyWithoutPageInput>;
-}
-
-export interface UserUpdateManyInput {
-  create?: Maybe<UserCreateInput[] | UserCreateInput>;
-  update?: Maybe<
-    | UserUpdateWithWhereUniqueNestedInput[]
-    | UserUpdateWithWhereUniqueNestedInput
-  >;
-  upsert?: Maybe<
-    | UserUpsertWithWhereUniqueNestedInput[]
-    | UserUpsertWithWhereUniqueNestedInput
-  >;
-  delete?: Maybe<UserWhereUniqueInput[] | UserWhereUniqueInput>;
-  connect?: Maybe<UserWhereUniqueInput[] | UserWhereUniqueInput>;
-  set?: Maybe<UserWhereUniqueInput[] | UserWhereUniqueInput>;
-  disconnect?: Maybe<UserWhereUniqueInput[] | UserWhereUniqueInput>;
-  deleteMany?: Maybe<UserScalarWhereInput[] | UserScalarWhereInput>;
-  updateMany?: Maybe<
-    UserUpdateManyWithWhereNestedInput[] | UserUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface ConsWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  prosAndCons?: Maybe<ProsAndConsWhereInput>;
-  content?: Maybe<String>;
-  content_not?: Maybe<String>;
-  content_in?: Maybe<String[] | String>;
-  content_not_in?: Maybe<String[] | String>;
-  content_lt?: Maybe<String>;
-  content_lte?: Maybe<String>;
-  content_gt?: Maybe<String>;
-  content_gte?: Maybe<String>;
-  content_contains?: Maybe<String>;
-  content_not_contains?: Maybe<String>;
-  content_starts_with?: Maybe<String>;
-  content_not_starts_with?: Maybe<String>;
-  content_ends_with?: Maybe<String>;
-  content_not_ends_with?: Maybe<String>;
-  order?: Maybe<Int>;
-  order_not?: Maybe<Int>;
-  order_in?: Maybe<Int[] | Int>;
-  order_not_in?: Maybe<Int[] | Int>;
-  order_lt?: Maybe<Int>;
-  order_lte?: Maybe<Int>;
-  order_gt?: Maybe<Int>;
-  order_gte?: Maybe<Int>;
-  AND?: Maybe<ConsWhereInput[] | ConsWhereInput>;
-  OR?: Maybe<ConsWhereInput[] | ConsWhereInput>;
-  NOT?: Maybe<ConsWhereInput[] | ConsWhereInput>;
-}
-
-export interface UserUpdateWithWhereUniqueNestedInput {
-  where: UserWhereUniqueInput;
-  data: UserUpdateDataInput;
-}
-
-export interface AlertBoxSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<AlertBoxWhereInput>;
-  AND?: Maybe<
-    AlertBoxSubscriptionWhereInput[] | AlertBoxSubscriptionWhereInput
-  >;
-  OR?: Maybe<AlertBoxSubscriptionWhereInput[] | AlertBoxSubscriptionWhereInput>;
-  NOT?: Maybe<
-    AlertBoxSubscriptionWhereInput[] | AlertBoxSubscriptionWhereInput
-  >;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<BlockScalarWhereInput[] | BlockScalarWhereInput>;
+  OR?: Maybe<BlockScalarWhereInput[] | BlockScalarWhereInput>;
+  NOT?: Maybe<BlockScalarWhereInput[] | BlockScalarWhereInput>;
 }
 
 export interface UserUpdateDataInput {
@@ -3648,100 +4053,29 @@ export interface UserUpdateDataInput {
   permissions?: Maybe<UserUpdatepermissionsInput>;
 }
 
-export interface PageWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  title?: Maybe<String>;
-  title_not?: Maybe<String>;
-  title_in?: Maybe<String[] | String>;
-  title_not_in?: Maybe<String[] | String>;
-  title_lt?: Maybe<String>;
-  title_lte?: Maybe<String>;
-  title_gt?: Maybe<String>;
-  title_gte?: Maybe<String>;
-  title_contains?: Maybe<String>;
-  title_not_contains?: Maybe<String>;
-  title_starts_with?: Maybe<String>;
-  title_not_starts_with?: Maybe<String>;
-  title_ends_with?: Maybe<String>;
-  title_not_ends_with?: Maybe<String>;
-  slug?: Maybe<String>;
-  slug_not?: Maybe<String>;
-  slug_in?: Maybe<String[] | String>;
-  slug_not_in?: Maybe<String[] | String>;
-  slug_lt?: Maybe<String>;
-  slug_lte?: Maybe<String>;
-  slug_gt?: Maybe<String>;
-  slug_gte?: Maybe<String>;
-  slug_contains?: Maybe<String>;
-  slug_not_contains?: Maybe<String>;
-  slug_starts_with?: Maybe<String>;
-  slug_not_starts_with?: Maybe<String>;
-  slug_ends_with?: Maybe<String>;
-  slug_not_ends_with?: Maybe<String>;
-  type?: Maybe<PageType>;
-  type_not?: Maybe<PageType>;
-  type_in?: Maybe<PageType[] | PageType>;
-  type_not_in?: Maybe<PageType[] | PageType>;
-  status?: Maybe<PageStatus>;
-  status_not?: Maybe<PageStatus>;
-  status_in?: Maybe<PageStatus[] | PageStatus>;
-  status_not_in?: Maybe<PageStatus[] | PageStatus>;
-  vertical?: Maybe<String>;
-  vertical_not?: Maybe<String>;
-  vertical_in?: Maybe<String[] | String>;
-  vertical_not_in?: Maybe<String[] | String>;
-  vertical_lt?: Maybe<String>;
-  vertical_lte?: Maybe<String>;
-  vertical_gt?: Maybe<String>;
-  vertical_gte?: Maybe<String>;
-  vertical_contains?: Maybe<String>;
-  vertical_not_contains?: Maybe<String>;
-  vertical_starts_with?: Maybe<String>;
-  vertical_not_starts_with?: Maybe<String>;
-  vertical_ends_with?: Maybe<String>;
-  vertical_not_ends_with?: Maybe<String>;
-  media?: Maybe<MediaWhereInput>;
-  blocks_every?: Maybe<BlockWhereInput>;
-  blocks_some?: Maybe<BlockWhereInput>;
-  blocks_none?: Maybe<BlockWhereInput>;
-  boxes_every?: Maybe<BoxWhereInput>;
-  boxes_some?: Maybe<BoxWhereInput>;
-  boxes_none?: Maybe<BoxWhereInput>;
-  prosAndCons_every?: Maybe<ProsAndConsWhereInput>;
-  prosAndCons_some?: Maybe<ProsAndConsWhereInput>;
-  prosAndCons_none?: Maybe<ProsAndConsWhereInput>;
-  alertBoxes_every?: Maybe<AlertBoxWhereInput>;
-  alertBoxes_some?: Maybe<AlertBoxWhereInput>;
-  alertBoxes_none?: Maybe<AlertBoxWhereInput>;
-  quickTips_every?: Maybe<QuickTipWhereInput>;
-  quickTips_some?: Maybe<QuickTipWhereInput>;
-  quickTips_none?: Maybe<QuickTipWhereInput>;
-  AND?: Maybe<PageWhereInput[] | PageWhereInput>;
-  OR?: Maybe<PageWhereInput[] | PageWhereInput>;
-  NOT?: Maybe<PageWhereInput[] | PageWhereInput>;
+export interface BlockSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<BlockWhereInput>;
+  AND?: Maybe<BlockSubscriptionWhereInput[] | BlockSubscriptionWhereInput>;
+  OR?: Maybe<BlockSubscriptionWhereInput[] | BlockSubscriptionWhereInput>;
+  NOT?: Maybe<BlockSubscriptionWhereInput[] | BlockSubscriptionWhereInput>;
 }
 
 export interface UserUpdatepermissionsInput {
   set?: Maybe<Permission[] | Permission>;
 }
 
-export interface ProsCreateInput {
+export interface QuickTipCreateInput {
   id?: Maybe<ID_Input>;
-  prosAndCons: ProsAndConsCreateOneWithoutProsInput;
+  page: PageCreateOneWithoutQuickTipsInput;
+  title?: Maybe<String>;
   content?: Maybe<String>;
+  buttonText?: Maybe<String>;
+  buttonLink?: Maybe<String>;
+  media?: Maybe<MediaCreateOneInput>;
   order?: Maybe<Int>;
 }
 
@@ -3751,7 +4085,7 @@ export interface PageFaqUpdateInput {
   faq?: FaqUpdateOneRequiredInput;
 }
 
-export type QuickTipWhereUniqueInput = AtLeastOne<{
+export type MediaWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
 }>;
 
@@ -3834,9 +4168,35 @@ export interface UserScalarWhereInput {
   resetTokenExpiry_lte?: Maybe<Float>;
   resetTokenExpiry_gt?: Maybe<Float>;
   resetTokenExpiry_gte?: Maybe<Float>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
   AND?: Maybe<UserScalarWhereInput[] | UserScalarWhereInput>;
   OR?: Maybe<UserScalarWhereInput[] | UserScalarWhereInput>;
   NOT?: Maybe<UserScalarWhereInput[] | UserScalarWhereInput>;
+}
+
+export interface FaqUpdateWithWhereUniqueWithoutCategoryInput {
+  where: FaqWhereUniqueInput;
+  data: FaqUpdateWithoutCategoryDataInput;
+}
+
+export interface PageFaqAccordionUpdateManyWithWhereNestedInput {
+  where: PageFaqAccordionScalarWhereInput;
+  data: PageFaqAccordionUpdateManyDataInput;
 }
 
 export interface BoxCreateManyWithoutPageInput {
@@ -3844,9 +4204,13 @@ export interface BoxCreateManyWithoutPageInput {
   connect?: Maybe<BoxWhereUniqueInput[] | BoxWhereUniqueInput>;
 }
 
-export interface PageFaqAccordionUpdateManyWithWhereNestedInput {
-  where: PageFaqAccordionScalarWhereInput;
-  data: PageFaqAccordionUpdateManyDataInput;
+export interface UserUpdateManyDataInput {
+  name?: Maybe<String>;
+  email?: Maybe<String>;
+  password?: Maybe<String>;
+  resetToken?: Maybe<String>;
+  resetTokenExpiry?: Maybe<Float>;
+  permissions?: Maybe<UserUpdatepermissionsInput>;
 }
 
 export interface BlockUpdateManyWithoutPageInput {
@@ -3869,25 +4233,18 @@ export interface BlockUpdateManyWithoutPageInput {
   >;
 }
 
-export interface UserUpdateManyDataInput {
-  name?: Maybe<String>;
-  email?: Maybe<String>;
-  password?: Maybe<String>;
-  resetToken?: Maybe<String>;
-  resetTokenExpiry?: Maybe<Float>;
-  permissions?: Maybe<UserUpdatepermissionsInput>;
+export interface PageUpdateWithoutQuickTipsDataInput {
+  title?: Maybe<String>;
+  slug?: Maybe<String>;
+  type?: Maybe<PageType>;
+  status?: Maybe<PageStatus>;
+  vertical?: Maybe<String>;
+  media?: Maybe<MediaUpdateOneInput>;
+  blocks?: Maybe<BlockUpdateManyWithoutPageInput>;
+  boxes?: Maybe<BoxUpdateManyWithoutPageInput>;
+  prosAndCons?: Maybe<ProsAndConsUpdateManyWithoutPageInput>;
+  alertBoxes?: Maybe<AlertBoxUpdateManyWithoutPageInput>;
 }
-
-export interface PageUpdateOneRequiredWithoutQuickTipsInput {
-  create?: Maybe<PageCreateWithoutQuickTipsInput>;
-  update?: Maybe<PageUpdateWithoutQuickTipsDataInput>;
-  upsert?: Maybe<PageUpsertWithoutQuickTipsInput>;
-  connect?: Maybe<PageWhereUniqueInput>;
-}
-
-export type ProsWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
 
 export interface FaqCategoryUpsertWithWhereUniqueWithoutFaqsInput {
   where: FaqCategoryWhereUniqueInput;
@@ -3936,9 +4293,9 @@ export interface FaqCategoryUpdateManyWithoutFaqsInput {
   >;
 }
 
-export interface ProsAndConsUpsertWithoutConsInput {
-  update: ProsAndConsUpdateWithoutConsDataInput;
-  create: ProsAndConsCreateWithoutConsInput;
+export interface ProsUpdateManyMutationInput {
+  content?: Maybe<String>;
+  order?: Maybe<Int>;
 }
 
 export interface PageSubscriptionWhereInput {
@@ -3959,9 +4316,37 @@ export interface QuickTipCreateManyWithoutPageInput {
   connect?: Maybe<QuickTipWhereUniqueInput[] | QuickTipWhereUniqueInput>;
 }
 
-export interface UserCreateManyInput {
-  create?: UserCreateInput[] | UserCreateInput;
-  connect?: UserWhereUniqueInput[] | UserWhereUniqueInput;
+export interface FaqUpdateManyMutationInput {
+  title?: Maybe<String>;
+  description?: Maybe<String>;
+  short_description?: Maybe<String>;
+  slug?: Maybe<String>;
+  vertical?: Maybe<String>;
+  readingTime?: Maybe<Int>;
+  order?: Maybe<Int>;
+  variant?: Maybe<FaqUpdatevariantInput>;
+  tag?: Maybe<FaqUpdatetagInput>;
+  pubDate?: Maybe<DateTimeInput>;
+}
+
+export interface FaqCategoryUpdateManyMutationInput {
+  name?: Maybe<String>;
+  slug?: Maybe<String>;
+  description?: Maybe<String>;
+}
+
+export interface NodeNode {
+  id: ID_Output;
+}
+
+export interface BatchPayload {
+  count: Long;
+}
+
+export interface BatchPayloadPromise
+  extends Promise<BatchPayload>,
+    Fragmentable {
+  count: () => Promise<Long>;
 }
 
 export interface BlockCreateInput {
@@ -3974,54 +4359,44 @@ export interface BlockCreateInput {
   order?: Int;
 }
 
-export interface FaqCategoryCreateWithoutFaqsInput {
+export interface UserPreviousValues {
+  id: ID_Output;
   name: String;
-  slug: String;
-  description: String;
+  email: String;
+  password: String;
+  resetToken?: String;
+  resetTokenExpiry?: Float;
+  permissions: Permission[];
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
 }
 
-export interface PageCreateOneWithoutBlocksInput {
-  create?: PageCreateWithoutBlocksInput;
-  connect?: PageWhereUniqueInput;
+export interface UserPreviousValuesPromise
+  extends Promise<UserPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  email: () => Promise<String>;
+  password: () => Promise<String>;
+  resetToken: () => Promise<String>;
+  resetTokenExpiry: () => Promise<Float>;
+  permissions: () => Promise<Permission[]>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface PageFaqAccordionCreateWithoutPageInput {
-  order?: Int;
-  faqCategory: FaqCategoryCreateOneInput;
-}
-
-export interface PageCreateWithoutBlocksInput {
-  title: String;
-  slug: String;
-  type: PageType;
-  status: PageStatus;
-  vertical?: String;
-  media?: MediaCreateOneInput;
-  boxes?: BoxCreateManyWithoutPageInput;
-  prosAndCons?: ProsAndConsCreateManyWithoutPageInput;
-  alertBoxes?: AlertBoxCreateManyWithoutPageInput;
-  quickTips?: QuickTipCreateManyWithoutPageInput;
-  faqs?: PageFaqCreateManyWithoutPageInput;
-  faqAccordion?: PageFaqAccordionCreateManyWithoutPageInput;
-}
-
-export interface FaqCreateWithoutCategoryInput {
-  title: String;
-  description?: String;
-  short_description?: String;
-  authors?: UserCreateManyInput;
-  slug: String;
-  vertical?: String;
-  readingTime?: Int;
-  order?: Int;
-  variant?: FaqCreatevariantInput;
-  tag?: FaqCreatetagInput;
-  pubDate?: DateTimeInput;
-}
-
-export interface AlertBoxCreateManyWithoutPageInput {
-  create?: AlertBoxCreateWithoutPageInput[] | AlertBoxCreateWithoutPageInput;
-  connect?: AlertBoxWhereUniqueInput[] | AlertBoxWhereUniqueInput;
+export interface UserPreviousValuesSubscription
+  extends Promise<AsyncIterator<UserPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  email: () => Promise<AsyncIterator<String>>;
+  password: () => Promise<AsyncIterator<String>>;
+  resetToken: () => Promise<AsyncIterator<String>>;
+  resetTokenExpiry: () => Promise<AsyncIterator<Float>>;
+  permissions: () => Promise<AsyncIterator<Permission[]>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface MediaUpdateOneInput {
@@ -4060,154 +4435,51 @@ export interface BlockUpdateInput {
   style?: String;
   content?: String;
   order?: Int;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
 }
 
-export interface ProsAndConsWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  page?: PageWhereInput;
-  title?: String;
-  title_not?: String;
-  title_in?: String[] | String;
-  title_not_in?: String[] | String;
-  title_lt?: String;
-  title_lte?: String;
-  title_gt?: String;
-  title_gte?: String;
-  title_contains?: String;
-  title_not_contains?: String;
-  title_starts_with?: String;
-  title_not_starts_with?: String;
-  title_ends_with?: String;
-  title_not_ends_with?: String;
-  order?: Int;
-  order_not?: Int;
-  order_in?: Int[] | Int;
-  order_not_in?: Int[] | Int;
-  order_lt?: Int;
-  order_lte?: Int;
-  order_gt?: Int;
-  order_gte?: Int;
-  pros_every?: ProsWhereInput;
-  pros_some?: ProsWhereInput;
-  pros_none?: ProsWhereInput;
-  cons_every?: ConsWhereInput;
-  cons_some?: ConsWhereInput;
-  cons_none?: ConsWhereInput;
-  AND?: ProsAndConsWhereInput[] | ProsAndConsWhereInput;
-  OR?: ProsAndConsWhereInput[] | ProsAndConsWhereInput;
-  NOT?: ProsAndConsWhereInput[] | ProsAndConsWhereInput;
+export interface BlockPromise extends Promise<Block>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  page: <T = PagePromise>() => T;
+  title: () => Promise<String>;
+  media: <T = MediaPromise>() => T;
+  video: () => Promise<String>;
+  style: () => Promise<String>;
+  content: () => Promise<String>;
+  order: () => Promise<Int>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface PageUpdateOneRequiredWithoutBlocksInput {
-  create?: PageCreateWithoutBlocksInput;
-  update?: PageUpdateWithoutBlocksDataInput;
-  upsert?: PageUpsertWithoutBlocksInput;
-  connect?: PageWhereUniqueInput;
+export interface BlockSubscription
+  extends Promise<AsyncIterator<Block>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  page: <T = PageSubscription>() => T;
+  title: () => Promise<AsyncIterator<String>>;
+  media: <T = MediaSubscription>() => T;
+  video: () => Promise<AsyncIterator<String>>;
+  style: () => Promise<AsyncIterator<String>>;
+  content: () => Promise<AsyncIterator<String>>;
+  order: () => Promise<AsyncIterator<Int>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface PageWhereInput {
-  id?: ID_Input;
-  id_not?: ID_Input;
-  id_in?: ID_Input[] | ID_Input;
-  id_not_in?: ID_Input[] | ID_Input;
-  id_lt?: ID_Input;
-  id_lte?: ID_Input;
-  id_gt?: ID_Input;
-  id_gte?: ID_Input;
-  id_contains?: ID_Input;
-  id_not_contains?: ID_Input;
-  id_starts_with?: ID_Input;
-  id_not_starts_with?: ID_Input;
-  id_ends_with?: ID_Input;
-  id_not_ends_with?: ID_Input;
-  title?: String;
-  title_not?: String;
-  title_in?: String[] | String;
-  title_not_in?: String[] | String;
-  title_lt?: String;
-  title_lte?: String;
-  title_gt?: String;
-  title_gte?: String;
-  title_contains?: String;
-  title_not_contains?: String;
-  title_starts_with?: String;
-  title_not_starts_with?: String;
-  title_ends_with?: String;
-  title_not_ends_with?: String;
-  slug?: String;
-  slug_not?: String;
-  slug_in?: String[] | String;
-  slug_not_in?: String[] | String;
-  slug_lt?: String;
-  slug_lte?: String;
-  slug_gt?: String;
-  slug_gte?: String;
-  slug_contains?: String;
-  slug_not_contains?: String;
-  slug_starts_with?: String;
-  slug_not_starts_with?: String;
-  slug_ends_with?: String;
-  slug_not_ends_with?: String;
-  type?: PageType;
-  type_not?: PageType;
-  type_in?: PageType[] | PageType;
-  type_not_in?: PageType[] | PageType;
-  status?: PageStatus;
-  status_not?: PageStatus;
-  status_in?: PageStatus[] | PageStatus;
-  status_not_in?: PageStatus[] | PageStatus;
-  vertical?: String;
-  vertical_not?: String;
-  vertical_in?: String[] | String;
-  vertical_not_in?: String[] | String;
-  vertical_lt?: String;
-  vertical_lte?: String;
-  vertical_gt?: String;
-  vertical_gte?: String;
-  vertical_contains?: String;
-  vertical_not_contains?: String;
-  vertical_starts_with?: String;
-  vertical_not_starts_with?: String;
-  vertical_ends_with?: String;
-  vertical_not_ends_with?: String;
-  media?: MediaWhereInput;
-  blocks_every?: BlockWhereInput;
-  blocks_some?: BlockWhereInput;
-  blocks_none?: BlockWhereInput;
-  boxes_every?: BoxWhereInput;
-  boxes_some?: BoxWhereInput;
-  boxes_none?: BoxWhereInput;
-  prosAndCons_every?: ProsAndConsWhereInput;
-  prosAndCons_some?: ProsAndConsWhereInput;
-  prosAndCons_none?: ProsAndConsWhereInput;
-  alertBoxes_every?: AlertBoxWhereInput;
-  alertBoxes_some?: AlertBoxWhereInput;
-  alertBoxes_none?: AlertBoxWhereInput;
-  quickTips_every?: QuickTipWhereInput;
-  quickTips_some?: QuickTipWhereInput;
-  quickTips_none?: QuickTipWhereInput;
-  faqs_every?: PageFaqWhereInput;
-  faqs_some?: PageFaqWhereInput;
-  faqs_none?: PageFaqWhereInput;
-  faqAccordion_every?: PageFaqAccordionWhereInput;
-  faqAccordion_some?: PageFaqAccordionWhereInput;
-  faqAccordion_none?: PageFaqAccordionWhereInput;
-  AND?: PageWhereInput[] | PageWhereInput;
-  OR?: PageWhereInput[] | PageWhereInput;
-  NOT?: PageWhereInput[] | PageWhereInput;
+export interface BlockNullablePromise
+  extends Promise<Block | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  page: <T = PagePromise>() => T;
+  title: () => Promise<String>;
+  media: <T = MediaPromise>() => T;
+  video: () => Promise<String>;
+  style: () => Promise<String>;
+  content: () => Promise<String>;
+  order: () => Promise<Int>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface PageUpdateWithoutBlocksDataInput {
@@ -4952,29 +5224,25 @@ export interface UserConnectionSubscription
   aggregate: <T = AggregateUserSubscription>() => T;
 }
 
-export interface QuickTipSubscriptionPayload {
-  mutation: MutationType;
-  node: QuickTip;
-  updatedFields: String[];
-  previousValues: QuickTipPreviousValues;
+export interface BlockConnection {
+  pageInfo: PageInfo;
+  edges: BlockEdge[];
 }
 
-export interface QuickTipSubscriptionPayloadPromise
-  extends Promise<QuickTipSubscriptionPayload>,
+export interface BlockConnectionPromise
+  extends Promise<BlockConnection>,
     Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = QuickTipPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = QuickTipPreviousValuesPromise>() => T;
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<BlockEdge>>() => T;
+  aggregate: <T = AggregateBlockPromise>() => T;
 }
 
-export interface QuickTipSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<QuickTipSubscriptionPayload>>,
+export interface BlockConnectionSubscription
+  extends Promise<AsyncIterator<BlockConnection>>,
     Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = QuickTipSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = QuickTipPreviousValuesSubscription>() => T;
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<BlockEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateBlockSubscription>() => T;
 }
 
 export interface QuickTipEdge {
@@ -4996,27 +5264,55 @@ export interface QuickTipEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface PageInfo {
-  hasNextPage: Boolean;
-  hasPreviousPage: Boolean;
-  startCursor?: String;
-  endCursor?: String;
+export interface AlertBox {
+  id: ID_Output;
+  title?: String;
+  content?: String;
+  prefix?: String;
+  style?: String;
+  order?: Int;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
 }
 
-export interface PageInfoPromise extends Promise<PageInfo>, Fragmentable {
-  hasNextPage: () => Promise<Boolean>;
-  hasPreviousPage: () => Promise<Boolean>;
-  startCursor: () => Promise<String>;
-  endCursor: () => Promise<String>;
+export interface AlertBoxPromise extends Promise<AlertBox>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  page: <T = PagePromise>() => T;
+  title: () => Promise<String>;
+  content: () => Promise<String>;
+  prefix: () => Promise<String>;
+  style: () => Promise<String>;
+  order: () => Promise<Int>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface PageInfoSubscription
-  extends Promise<AsyncIterator<PageInfo>>,
+export interface AlertBoxSubscription
+  extends Promise<AsyncIterator<AlertBox>>,
     Fragmentable {
-  hasNextPage: () => Promise<AsyncIterator<Boolean>>;
-  hasPreviousPage: () => Promise<AsyncIterator<Boolean>>;
-  startCursor: () => Promise<AsyncIterator<String>>;
-  endCursor: () => Promise<AsyncIterator<String>>;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  page: <T = PageSubscription>() => T;
+  title: () => Promise<AsyncIterator<String>>;
+  content: () => Promise<AsyncIterator<String>>;
+  prefix: () => Promise<AsyncIterator<String>>;
+  style: () => Promise<AsyncIterator<String>>;
+  order: () => Promise<AsyncIterator<Int>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface AlertBoxNullablePromise
+  extends Promise<AlertBox | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  page: <T = PagePromise>() => T;
+  title: () => Promise<String>;
+  content: () => Promise<String>;
+  prefix: () => Promise<String>;
+  style: () => Promise<String>;
+  order: () => Promise<Int>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface AggregateProsAndCons {
@@ -5033,70 +5329,6 @@ export interface AggregateProsAndConsSubscription
   extends Promise<AsyncIterator<AggregateProsAndCons>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface AlertBox {
-  id: ID_Output;
-  title?: String;
-  content?: String;
-  prefix?: String;
-  style?: String;
-  order?: Int;
-}
-
-export interface AlertBoxPromise extends Promise<AlertBox>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  page: <T = PagePromise>() => T;
-  title: () => Promise<String>;
-  content: () => Promise<String>;
-  prefix: () => Promise<String>;
-  style: () => Promise<String>;
-  order: () => Promise<Int>;
-}
-
-export interface AlertBoxSubscription
-  extends Promise<AsyncIterator<AlertBox>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  page: <T = PageSubscription>() => T;
-  title: () => Promise<AsyncIterator<String>>;
-  content: () => Promise<AsyncIterator<String>>;
-  prefix: () => Promise<AsyncIterator<String>>;
-  style: () => Promise<AsyncIterator<String>>;
-  order: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface AlertBoxNullablePromise
-  extends Promise<AlertBox | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  page: <T = PagePromise>() => T;
-  title: () => Promise<String>;
-  content: () => Promise<String>;
-  prefix: () => Promise<String>;
-  style: () => Promise<String>;
-  order: () => Promise<Int>;
-}
-
-export interface QuickTipEdge {
-  node: QuickTip;
-  cursor: String;
-}
-
-export interface ProsAndConsConnectionPromise
-  extends Promise<ProsAndConsConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ProsAndConsEdge>>() => T;
-  aggregate: <T = AggregateProsAndConsPromise>() => T;
-}
-
-export interface ProsAndConsConnectionSubscription
-  extends Promise<AsyncIterator<ProsAndConsConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<ProsAndConsEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateProsAndConsSubscription>() => T;
 }
 
 export interface AlertBoxSubscriptionPayload {
@@ -5124,21 +5356,25 @@ export interface AlertBoxSubscriptionPayloadSubscription
   previousValues: <T = AlertBoxPreviousValuesSubscription>() => T;
 }
 
-export interface ProsEdge {
-  node: Pros;
-  cursor: String;
+export interface ProsAndConsConnection {
+  pageInfo: PageInfo;
+  edges: ProsAndConsEdge[];
 }
 
-export interface ProsEdgePromise extends Promise<ProsEdge>, Fragmentable {
-  node: <T = ProsPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface ProsEdgeSubscription
-  extends Promise<AsyncIterator<ProsEdge>>,
+export interface ProsAndConsConnectionPromise
+  extends Promise<ProsAndConsConnection>,
     Fragmentable {
-  node: <T = ProsSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ProsAndConsEdge>>() => T;
+  aggregate: <T = AggregateProsAndConsPromise>() => T;
+}
+
+export interface ProsAndConsConnectionSubscription
+  extends Promise<AsyncIterator<ProsAndConsConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ProsAndConsEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateProsAndConsSubscription>() => T;
 }
 
 export interface AlertBoxPreviousValues {
@@ -5148,6 +5384,8 @@ export interface AlertBoxPreviousValues {
   prefix?: String;
   style?: String;
   order?: Int;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
 }
 
 export interface AlertBoxPreviousValuesPromise
@@ -5159,6 +5397,8 @@ export interface AlertBoxPreviousValuesPromise
   prefix: () => Promise<String>;
   style: () => Promise<String>;
   order: () => Promise<Int>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface AlertBoxPreviousValuesSubscription
@@ -5170,43 +5410,8 @@ export interface AlertBoxPreviousValuesSubscription
   prefix: () => Promise<AsyncIterator<String>>;
   style: () => Promise<AsyncIterator<String>>;
   order: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface AggregatePageFaqAccordion {
-  count: Int;
-}
-
-export interface AggregatePageFaqAccordionPromise
-  extends Promise<AggregatePageFaqAccordion>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregatePageFaqAccordionSubscription
-  extends Promise<AsyncIterator<AggregatePageFaqAccordion>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface AlertBoxConnection {
-  pageInfo: PageInfo;
-  edges: AlertBoxEdge[];
-}
-
-export interface AlertBoxConnectionPromise
-  extends Promise<AlertBoxConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<AlertBoxEdge>>() => T;
-  aggregate: <T = AggregateAlertBoxPromise>() => T;
-}
-
-export interface AlertBoxConnectionSubscription
-  extends Promise<AsyncIterator<AlertBoxConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<AlertBoxEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateAlertBoxSubscription>() => T;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface PageFaqAccordionConnection {
@@ -5228,6 +5433,38 @@ export interface PageFaqAccordionConnectionSubscription
   pageInfo: <T = PageInfoSubscription>() => T;
   edges: <T = Promise<AsyncIterator<PageFaqAccordionEdgeSubscription>>>() => T;
   aggregate: <T = AggregatePageFaqAccordionSubscription>() => T;
+}
+
+export interface AggregateAlertBox {
+  count: Int;
+}
+
+export interface AggregateAlertBoxPromise
+  extends Promise<AggregateAlertBox>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateAlertBoxSubscription
+  extends Promise<AsyncIterator<AggregateAlertBox>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface AggregatePage {
+  count: Int;
+}
+
+export interface AggregatePagePromise
+  extends Promise<AggregatePage>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregatePageSubscription
+  extends Promise<AsyncIterator<AggregatePage>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface BlockSubscriptionPayload {
@@ -5255,93 +5492,6 @@ export interface BlockSubscriptionPayloadSubscription
   previousValues: <T = BlockPreviousValuesSubscription>() => T;
 }
 
-export interface PageFaqEdge {
-  node: PageFaq;
-  cursor: String;
-}
-
-export interface PageFaqEdgePromise extends Promise<PageFaqEdge>, Fragmentable {
-  node: <T = PageFaqPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface PageFaqEdgeSubscription
-  extends Promise<AsyncIterator<PageFaqEdge>>,
-    Fragmentable {
-  node: <T = PageFaqSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface BlockPreviousValues {
-  id: ID_Output;
-  title?: String;
-  video?: String;
-  style?: String;
-  content?: String;
-  order?: Int;
-}
-
-export interface BlockPreviousValuesPromise
-  extends Promise<BlockPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  title: () => Promise<String>;
-  video: () => Promise<String>;
-  style: () => Promise<String>;
-  content: () => Promise<String>;
-  order: () => Promise<Int>;
-}
-
-export interface BlockPreviousValuesSubscription
-  extends Promise<AsyncIterator<BlockPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  title: () => Promise<AsyncIterator<String>>;
-  video: () => Promise<AsyncIterator<String>>;
-  style: () => Promise<AsyncIterator<String>>;
-  content: () => Promise<AsyncIterator<String>>;
-  order: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface AggregatePage {
-  count: Int;
-}
-
-export interface AggregatePagePromise
-  extends Promise<AggregatePage>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregatePageSubscription
-  extends Promise<AsyncIterator<AggregatePage>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface PageFaqAccordion {
-  id: ID_Output;
-  order?: Int;
-}
-
-export interface PageFaqAccordionPromise
-  extends Promise<PageFaqAccordion>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  order: () => Promise<Int>;
-  page: <T = PagePromise>() => T;
-  faqCategory: <T = FaqCategoryPromise>() => T;
-}
-
-export interface PageFaqAccordionSubscription
-  extends Promise<AsyncIterator<PageFaqAccordion>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  order: () => Promise<AsyncIterator<Int>>;
-  page: <T = PageSubscription>() => T;
-  faqCategory: <T = FaqCategorySubscription>() => T;
-}
-
 export interface PageConnection {
   pageInfo: PageInfo;
   edges: PageEdge[];
@@ -5361,6 +5511,99 @@ export interface PageConnectionSubscription
   pageInfo: <T = PageInfoSubscription>() => T;
   edges: <T = Promise<AsyncIterator<PageEdgeSubscription>>>() => T;
   aggregate: <T = AggregatePageSubscription>() => T;
+}
+
+export interface BlockPreviousValues {
+  id: ID_Output;
+  title?: String;
+  video?: String;
+  style?: String;
+  content?: String;
+  order?: Int;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface BlockPreviousValuesPromise
+  extends Promise<BlockPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  title: () => Promise<String>;
+  video: () => Promise<String>;
+  style: () => Promise<String>;
+  content: () => Promise<String>;
+  order: () => Promise<Int>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface BlockPreviousValuesSubscription
+  extends Promise<AsyncIterator<BlockPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  title: () => Promise<AsyncIterator<String>>;
+  video: () => Promise<AsyncIterator<String>>;
+  style: () => Promise<AsyncIterator<String>>;
+  content: () => Promise<AsyncIterator<String>>;
+  order: () => Promise<AsyncIterator<Int>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface AggregateMedia {
+  count: Int;
+}
+
+export interface AggregateMediaPromise
+  extends Promise<AggregateMedia>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateMediaSubscription
+  extends Promise<AsyncIterator<AggregateMedia>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface AlertBoxEdge {
+  node: AlertBox;
+  cursor: String;
+}
+
+export interface AlertBoxEdgePromise
+  extends Promise<AlertBoxEdge>,
+    Fragmentable {
+  node: <T = AlertBoxPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface AlertBoxEdgeSubscription
+  extends Promise<AsyncIterator<AlertBoxEdge>>,
+    Fragmentable {
+  node: <T = AlertBoxSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface MediaConnection {
+  pageInfo: PageInfo;
+  edges: MediaEdge[];
+}
+
+export interface MediaConnectionPromise
+  extends Promise<MediaConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<MediaEdge>>() => T;
+  aggregate: <T = AggregateMediaPromise>() => T;
+}
+
+export interface MediaConnectionSubscription
+  extends Promise<AsyncIterator<MediaConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<MediaEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateMediaSubscription>() => T;
 }
 
 export interface BoxSubscriptionPayload {
@@ -5388,18 +5631,18 @@ export interface BoxSubscriptionPayloadSubscription
   previousValues: <T = BoxPreviousValuesSubscription>() => T;
 }
 
-export interface AggregateMedia {
+export interface AggregateFaqCategory {
   count: Int;
 }
 
-export interface AggregateMediaPromise
-  extends Promise<AggregateMedia>,
+export interface AggregateFaqCategoryPromise
+  extends Promise<AggregateFaqCategory>,
     Fragmentable {
   count: () => Promise<Int>;
 }
 
-export interface AggregateMediaSubscription
-  extends Promise<AsyncIterator<AggregateMedia>>,
+export interface AggregateFaqCategorySubscription
+  extends Promise<AsyncIterator<AggregateFaqCategory>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
 }
@@ -5411,6 +5654,8 @@ export interface BoxPreviousValues {
   style?: String;
   content?: String;
   order?: Int;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
 }
 
 export interface BoxPreviousValuesPromise
@@ -5422,6 +5667,8 @@ export interface BoxPreviousValuesPromise
   style: () => Promise<String>;
   content: () => Promise<String>;
   order: () => Promise<Int>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface BoxPreviousValuesSubscription
@@ -5433,50 +5680,8 @@ export interface BoxPreviousValuesSubscription
   style: () => Promise<AsyncIterator<String>>;
   content: () => Promise<AsyncIterator<String>>;
   order: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface MediaConnection {
-  pageInfo: PageInfo;
-  edges: MediaEdge[];
-}
-
-export interface MediaConnectionPromise
-  extends Promise<MediaConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<MediaEdge>>() => T;
-  aggregate: <T = AggregateMediaPromise>() => T;
-}
-
-export interface MediaConnectionSubscription
-  extends Promise<AsyncIterator<MediaConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<MediaEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateMediaSubscription>() => T;
-}
-
-export interface Media {
-  id: ID_Output;
-  url: String;
-  title?: String;
-  altText?: String;
-}
-
-export interface MediaPromise extends Promise<Media>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  url: () => Promise<String>;
-  title: () => Promise<String>;
-  altText: () => Promise<String>;
-}
-
-export interface MediaSubscription
-  extends Promise<AsyncIterator<Media>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  url: () => Promise<AsyncIterator<String>>;
-  title: () => Promise<AsyncIterator<String>>;
-  altText: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface AggregateFaqCategory {
@@ -5493,6 +5698,174 @@ export interface AggregateFaqCategorySubscription
   extends Promise<AsyncIterator<AggregateFaqCategory>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface FaqCategoryEdge {
+  node: FaqCategory;
+  cursor: String;
+}
+
+export interface FaqCategoryEdgePromise
+  extends Promise<FaqCategoryEdge>,
+    Fragmentable {
+  node: <T = FaqCategoryPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface FaqCategoryEdgeSubscription
+  extends Promise<AsyncIterator<FaqCategoryEdge>>,
+    Fragmentable {
+  node: <T = FaqCategorySubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface ProsAndConsPreviousValues {
+  id: ID_Output;
+  title?: String;
+  order?: Int;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface ProsAndConsPreviousValuesPromise
+  extends Promise<ProsAndConsPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  title: () => Promise<String>;
+  order: () => Promise<Int>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface ProsAndConsPreviousValuesSubscription
+  extends Promise<AsyncIterator<ProsAndConsPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  title: () => Promise<AsyncIterator<String>>;
+  order: () => Promise<AsyncIterator<Int>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface AggregateFaq {
+  count: Int;
+}
+
+export interface AggregateFaqPromise
+  extends Promise<AggregateFaq>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateFaqSubscription
+  extends Promise<AsyncIterator<AggregateFaq>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface FaqEdge {
+  node: Faq;
+  cursor: String;
+}
+
+export interface FaqEdgePromise extends Promise<FaqEdge>, Fragmentable {
+  node: <T = FaqPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface FaqEdgeSubscription
+  extends Promise<AsyncIterator<FaqEdge>>,
+    Fragmentable {
+  node: <T = FaqSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface FaqConnection {
+  pageInfo: PageInfo;
+  edges: FaqCategoryEdge[];
+}
+
+export interface FaqCategoryConnectionPromise
+  extends Promise<FaqCategoryConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<FaqCategoryEdge>>() => T;
+  aggregate: <T = AggregateFaqCategoryPromise>() => T;
+}
+
+export interface FaqCategoryConnectionSubscription
+  extends Promise<AsyncIterator<FaqCategoryConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<FaqCategoryEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateFaqCategorySubscription>() => T;
+}
+
+export interface FaqCategory {
+  id: ID_Output;
+  name: String;
+  slug: String;
+  description: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface FaqCategoryPromise extends Promise<FaqCategory>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  slug: () => Promise<String>;
+  description: () => Promise<String>;
+  faqs: <T = FragmentableArray<Faq>>(args?: {
+    where?: FaqWhereInput;
+    orderBy?: FaqOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface FaqCategorySubscription
+  extends Promise<AsyncIterator<FaqCategory>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  slug: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
+  faqs: <T = Promise<AsyncIterator<FaqSubscription>>>(args?: {
+    where?: FaqWhereInput;
+    orderBy?: FaqOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface FaqCategoryNullablePromise
+  extends Promise<FaqCategory | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  slug: () => Promise<String>;
+  description: () => Promise<String>;
+  faqs: <T = FragmentableArray<Faq>>(args?: {
+    where?: FaqWhereInput;
+    orderBy?: FaqOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface ConsSubscriptionPayload {
@@ -5520,186 +5893,84 @@ export interface ConsSubscriptionPayloadSubscription
   previousValues: <T = ConsPreviousValuesSubscription>() => T;
 }
 
-export interface FaqEdge {
-  node: Faq;
-  cursor: String;
-}
-
-export interface FaqEdgePromise extends Promise<FaqEdge>, Fragmentable {
-  node: <T = FaqPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface FaqEdgeSubscription
-  extends Promise<AsyncIterator<FaqEdge>>,
-    Fragmentable {
-  node: <T = FaqSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface ConsPreviousValues {
-  id: ID_Output;
-  content?: String;
-  order?: Int;
-}
-
-export interface ConsPreviousValuesPromise
-  extends Promise<ConsPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  content: () => Promise<String>;
-  order: () => Promise<Int>;
-}
-
-export interface ConsPreviousValuesSubscription
-  extends Promise<AsyncIterator<ConsPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  content: () => Promise<AsyncIterator<String>>;
-  order: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface Media {
-  id: ID_Output;
-  url: String;
-  title?: String;
-  altText?: String;
-}
-
-export interface MediaPromise extends Promise<Media>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  url: () => Promise<String>;
-  title: () => Promise<String>;
-  altText: () => Promise<String>;
-}
-
-export interface MediaSubscription
-  extends Promise<AsyncIterator<Media>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  url: () => Promise<AsyncIterator<String>>;
-  title: () => Promise<AsyncIterator<String>>;
-  altText: () => Promise<AsyncIterator<String>>;
-}
-
-export interface MediaNullablePromise
-  extends Promise<Media | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  url: () => Promise<String>;
-  title: () => Promise<String>;
-  altText: () => Promise<String>;
-}
-
-export interface FaqConnection {
-  pageInfo: PageInfo;
-  edges: FaqCategoryEdge[];
-}
-
-export interface FaqCategoryConnectionPromise
-  extends Promise<FaqCategoryConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<FaqCategoryEdge>>() => T;
-  aggregate: <T = AggregateFaqCategoryPromise>() => T;
-}
-
-export interface FaqCategoryConnectionSubscription
-  extends Promise<AsyncIterator<FaqCategoryConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<FaqCategoryEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateFaqCategorySubscription>() => T;
-}
-
-export interface ConsPreviousValues {
-  id: ID_Output;
-  content?: String;
-  order?: Int;
-}
-
-export interface ConsPreviousValuesPromise
-  extends Promise<ConsPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  content: () => Promise<String>;
-  order: () => Promise<Int>;
-}
-
-export interface ConsPreviousValuesSubscription
-  extends Promise<AsyncIterator<ConsPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  content: () => Promise<AsyncIterator<String>>;
-  order: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface ProsNullablePromise
-  extends Promise<Pros | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  prosAndCons: <T = ProsAndConsPromise>() => T;
-  content: () => Promise<String>;
-  order: () => Promise<Int>;
-}
-
-export interface FaqCategory {
+export interface User {
   id: ID_Output;
   name: String;
-  slug: String;
-  description: String;
+  email: String;
+  password: String;
+  resetToken?: String;
+  resetTokenExpiry?: Float;
+  permissions: Permission[];
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
 }
 
-export interface FaqCategoryPromise extends Promise<FaqCategory>, Fragmentable {
+export interface UserPromise extends Promise<User>, Fragmentable {
   id: () => Promise<ID_Output>;
   name: () => Promise<String>;
-  slug: () => Promise<String>;
-  description: () => Promise<String>;
-  faqs: <T = FragmentableArray<Faq>>(args?: {
-    where?: FaqWhereInput;
-    orderBy?: FaqOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
+  email: () => Promise<String>;
+  password: () => Promise<String>;
+  resetToken: () => Promise<String>;
+  resetTokenExpiry: () => Promise<Float>;
+  permissions: () => Promise<Permission[]>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface FaqCategorySubscription
-  extends Promise<AsyncIterator<FaqCategory>>,
+export interface UserSubscription
+  extends Promise<AsyncIterator<User>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   name: () => Promise<AsyncIterator<String>>;
-  slug: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  faqs: <T = Promise<AsyncIterator<FaqSubscription>>>(args?: {
-    where?: FaqWhereInput;
-    orderBy?: FaqOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
+  email: () => Promise<AsyncIterator<String>>;
+  password: () => Promise<AsyncIterator<String>>;
+  resetToken: () => Promise<AsyncIterator<String>>;
+  resetTokenExpiry: () => Promise<AsyncIterator<Float>>;
+  permissions: () => Promise<AsyncIterator<Permission[]>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface FaqCategoryNullablePromise
-  extends Promise<FaqCategory | null>,
+export interface UserNullablePromise
+  extends Promise<User | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
   name: () => Promise<String>;
-  slug: () => Promise<String>;
-  description: () => Promise<String>;
-  faqs: <T = FragmentableArray<Faq>>(args?: {
-    where?: FaqWhereInput;
-    orderBy?: FaqOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
+  email: () => Promise<String>;
+  password: () => Promise<String>;
+  resetToken: () => Promise<String>;
+  resetTokenExpiry: () => Promise<Float>;
+  permissions: () => Promise<Permission[]>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface ConsPreviousValues {
+  id: ID_Output;
+  content?: String;
+  order?: Int;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface ConsPreviousValuesPromise
+  extends Promise<ConsPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  content: () => Promise<String>;
+  order: () => Promise<Int>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface ConsPreviousValuesSubscription
+  extends Promise<AsyncIterator<ConsPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  content: () => Promise<AsyncIterator<String>>;
+  order: () => Promise<AsyncIterator<Int>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface AggregateCons {
@@ -5776,6 +6047,8 @@ export interface FaqPreviousValues {
   variant: String[];
   tag: String[];
   pubDate?: DateTimeOutput;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
 }
 
 export interface FaqPreviousValuesPromise
@@ -5810,6 +6083,8 @@ export interface FaqPreviousValuesPromise
   variant: () => Promise<String[]>;
   tag: () => Promise<String[]>;
   pubDate: () => Promise<DateTimeOutput>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface FaqPreviousValuesSubscription
@@ -5844,6 +6119,8 @@ export interface FaqPreviousValuesSubscription
   variant: () => Promise<AsyncIterator<String[]>>;
   tag: () => Promise<AsyncIterator<String[]>>;
   pubDate: () => Promise<AsyncIterator<DateTimeOutput>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface FaqNullablePromise extends Promise<Faq | null>, Fragmentable {
@@ -5876,50 +6153,31 @@ export interface FaqNullablePromise extends Promise<Faq | null>, Fragmentable {
   variant: () => Promise<String[]>;
   tag: () => Promise<String[]>;
   pubDate: () => Promise<DateTimeOutput>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface User {
-  id: ID_Output;
-  name: String;
-  email: String;
-  password: String;
-  resetToken?: String;
-  resetTokenExpiry?: Float;
-  permissions: Permission[];
+export interface PageInfo {
+  hasNextPage: Boolean;
+  hasPreviousPage: Boolean;
+  startCursor?: String;
+  endCursor?: String;
 }
 
-export interface UserPromise extends Promise<User>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  email: () => Promise<String>;
-  password: () => Promise<String>;
-  resetToken: () => Promise<String>;
-  resetTokenExpiry: () => Promise<Float>;
-  permissions: () => Promise<Permission[]>;
+export interface PageInfoPromise extends Promise<PageInfo>, Fragmentable {
+  hasNextPage: () => Promise<Boolean>;
+  hasPreviousPage: () => Promise<Boolean>;
+  startCursor: () => Promise<String>;
+  endCursor: () => Promise<String>;
 }
 
-export interface UserSubscription
-  extends Promise<AsyncIterator<User>>,
+export interface PageInfoSubscription
+  extends Promise<AsyncIterator<PageInfo>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  email: () => Promise<AsyncIterator<String>>;
-  password: () => Promise<AsyncIterator<String>>;
-  resetToken: () => Promise<AsyncIterator<String>>;
-  resetTokenExpiry: () => Promise<AsyncIterator<Float>>;
-  permissions: () => Promise<AsyncIterator<Permission[]>>;
-}
-
-export interface UserNullablePromise
-  extends Promise<User | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  email: () => Promise<String>;
-  password: () => Promise<String>;
-  resetToken: () => Promise<String>;
-  resetTokenExpiry: () => Promise<Float>;
-  permissions: () => Promise<Permission[]>;
+  hasNextPage: () => Promise<AsyncIterator<Boolean>>;
+  hasPreviousPage: () => Promise<AsyncIterator<Boolean>>;
+  startCursor: () => Promise<AsyncIterator<String>>;
+  endCursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface ConsEdge {
@@ -6039,6 +6297,8 @@ export interface Faq {
   variant: String[];
   tag: String[];
   pubDate?: DateTimeOutput;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
 }
 
 export interface FaqPromise extends Promise<Faq>, Fragmentable {
@@ -6053,6 +6313,8 @@ export interface FaqPromise extends Promise<Faq>, Fragmentable {
   variant: () => Promise<String[]>;
   tag: () => Promise<String[]>;
   pubDate: () => Promise<DateTimeOutput>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface FaqPreviousValuesSubscription
@@ -6069,93 +6331,69 @@ export interface FaqPreviousValuesSubscription
   variant: () => Promise<AsyncIterator<String[]>>;
   tag: () => Promise<AsyncIterator<String[]>>;
   pubDate: () => Promise<AsyncIterator<DateTimeOutput>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface ProsAndCons {
+export interface QuickTipPreviousValues {
   id: ID_Output;
   title?: String;
+  content?: String;
+  buttonText?: String;
+  buttonLink?: String;
   order?: Int;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
 }
 
-export interface ProsAndConsPromise extends Promise<ProsAndCons>, Fragmentable {
+export interface QuickTipPreviousValuesPromise
+  extends Promise<QuickTipPreviousValues>,
+    Fragmentable {
   id: () => Promise<ID_Output>;
-  page: <T = PagePromise>() => T;
   title: () => Promise<String>;
+  content: () => Promise<String>;
+  buttonText: () => Promise<String>;
+  buttonLink: () => Promise<String>;
   order: () => Promise<Int>;
-  pros: <T = FragmentableArray<Pros>>(args?: {
-    where?: ProsWhereInput;
-    orderBy?: ProsOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  cons: <T = FragmentableArray<Cons>>(args?: {
-    where?: ConsWhereInput;
-    orderBy?: ConsOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface FaqSubscription
-  extends Promise<AsyncIterator<Faq>>,
+export interface QuickTipPreviousValuesSubscription
+  extends Promise<AsyncIterator<QuickTipPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   title: () => Promise<AsyncIterator<String>>;
+  content: () => Promise<AsyncIterator<String>>;
+  buttonText: () => Promise<AsyncIterator<String>>;
+  buttonLink: () => Promise<AsyncIterator<String>>;
   order: () => Promise<AsyncIterator<Int>>;
-  pros: <T = Promise<AsyncIterator<ProsSubscription>>>(args?: {
-    where?: ProsWhereInput;
-    orderBy?: ProsOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  cons: <T = Promise<AsyncIterator<ConsSubscription>>>(args?: {
-    where?: ConsWhereInput;
-    orderBy?: ConsOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface ProsAndConsNullablePromise
-  extends Promise<ProsAndCons | null>,
+export interface AlertBoxConnection {
+  pageInfo: PageInfo;
+  edges: AlertBoxEdge[];
+}
+
+export interface AlertBoxConnectionPromise
+  extends Promise<AlertBoxConnection>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  page: <T = PagePromise>() => T;
-  title: () => Promise<String>;
-  order: () => Promise<Int>;
-  pros: <T = FragmentableArray<Pros>>(args?: {
-    where?: ProsWhereInput;
-    orderBy?: ProsOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  cons: <T = FragmentableArray<Cons>>(args?: {
-    where?: ConsWhereInput;
-    orderBy?: ConsOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<AlertBoxEdge>>() => T;
+  aggregate: <T = AggregateAlertBoxPromise>() => T;
 }
 
-export interface AggregatePros {
+export interface AlertBoxConnectionSubscription
+  extends Promise<AsyncIterator<AlertBoxConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<AlertBoxEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateAlertBoxSubscription>() => T;
+}
+
+export interface AggregateQuickTip {
   count: Int;
 }
 
@@ -6217,27 +6455,33 @@ export interface PageFaqAccordionEdgeSubscription
 
 export interface MediaPreviousValues {
   id: ID_Output;
-  url: String;
-  title?: String;
-  altText?: String;
+  name: String;
+  slug: String;
+  description: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
 }
 
 export interface MediaPreviousValuesPromise
   extends Promise<MediaPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  url: () => Promise<String>;
-  title: () => Promise<String>;
-  altText: () => Promise<String>;
+  name: () => Promise<String>;
+  slug: () => Promise<String>;
+  description: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface MediaPreviousValuesSubscription
   extends Promise<AsyncIterator<MediaPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  url: () => Promise<AsyncIterator<String>>;
-  title: () => Promise<AsyncIterator<String>>;
-  altText: () => Promise<AsyncIterator<String>>;
+  name: () => Promise<AsyncIterator<String>>;
+  slug: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface PageFaqConnection {
@@ -6261,25 +6505,58 @@ export interface PageFaqConnectionSubscription
   aggregate: <T = AggregatePageFaqSubscription>() => T;
 }
 
-export interface PageFaq {
+export interface QuickTip {
   id: ID_Output;
+  title?: String;
+  content?: String;
+  buttonText?: String;
+  buttonLink?: String;
   order?: Int;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
 }
 
-export interface PageFaqPromise extends Promise<PageFaq>, Fragmentable {
+export interface QuickTipPromise extends Promise<QuickTip>, Fragmentable {
   id: () => Promise<ID_Output>;
-  order: () => Promise<Int>;
   page: <T = PagePromise>() => T;
-  faq: <T = FaqPromise>() => T;
+  title: () => Promise<String>;
+  content: () => Promise<String>;
+  buttonText: () => Promise<String>;
+  buttonLink: () => Promise<String>;
+  media: <T = MediaPromise>() => T;
+  order: () => Promise<Int>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface PageFaqSubscription
-  extends Promise<AsyncIterator<PageFaq>>,
+export interface QuickTipSubscription
+  extends Promise<AsyncIterator<QuickTip>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  order: () => Promise<AsyncIterator<Int>>;
   page: <T = PageSubscription>() => T;
-  faq: <T = FaqSubscription>() => T;
+  title: () => Promise<AsyncIterator<String>>;
+  content: () => Promise<AsyncIterator<String>>;
+  buttonText: () => Promise<AsyncIterator<String>>;
+  buttonLink: () => Promise<AsyncIterator<String>>;
+  media: <T = MediaSubscription>() => T;
+  order: () => Promise<AsyncIterator<Int>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface QuickTipNullablePromise
+  extends Promise<QuickTip | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  page: <T = PagePromise>() => T;
+  title: () => Promise<String>;
+  content: () => Promise<String>;
+  buttonText: () => Promise<String>;
+  buttonLink: () => Promise<String>;
+  media: <T = MediaPromise>() => T;
+  order: () => Promise<Int>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface Page {
@@ -6289,6 +6566,8 @@ export interface Page {
   type: PageType;
   status: PageStatus;
   vertical?: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
 }
 
 export interface PagePromise extends Promise<Page>, Fragmentable {
@@ -6344,6 +6623,8 @@ export interface PagePromise extends Promise<Page>, Fragmentable {
     first?: Int;
     last?: Int;
   }) => T;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface PageSubscription
@@ -6401,6 +6682,8 @@ export interface PageSubscription
     first?: Int;
     last?: Int;
   }) => T;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface PageNullablePromise
@@ -6458,6 +6741,8 @@ export interface PageNullablePromise
     first?: Int;
     last?: Int;
   }) => T;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface PageSubscriptionPayload {
@@ -6485,46 +6770,38 @@ export interface PageSubscriptionPayloadSubscription
   previousValues: <T = PagePreviousValuesSubscription>() => T;
 }
 
-export interface Box {
-  id: ID_Output;
-  title?: String;
-  video?: String;
-  style?: String;
-  content?: String;
-  order?: Int;
+export interface QuickTipSubscriptionPayload {
+  mutation: MutationType;
+  node: QuickTip;
+  updatedFields: String[];
+  previousValues: QuickTipPreviousValues;
 }
 
-export interface BoxPromise extends Promise<Box>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  page: <T = PagePromise>() => T;
-  title: () => Promise<String>;
-  media: <T = MediaPromise>() => T;
-  video: () => Promise<String>;
-  style: () => Promise<String>;
-  content: () => Promise<String>;
-  order: () => Promise<Int>;
-}
-
-export interface BoxSubscription
-  extends Promise<AsyncIterator<Box>>,
+export interface QuickTipSubscriptionPayloadPromise
+  extends Promise<QuickTipSubscriptionPayload>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  page: <T = PageSubscription>() => T;
-  title: () => Promise<AsyncIterator<String>>;
-  media: <T = MediaSubscription>() => T;
-  video: () => Promise<AsyncIterator<String>>;
-  style: () => Promise<AsyncIterator<String>>;
-  content: () => Promise<AsyncIterator<String>>;
-  order: () => Promise<AsyncIterator<Int>>;
+  mutation: () => Promise<MutationType>;
+  node: <T = QuickTipPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = QuickTipPreviousValuesPromise>() => T;
+}
+
+export interface QuickTipSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<QuickTipSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = QuickTipSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = QuickTipPreviousValuesSubscription>() => T;
 }
 
 export interface PagePreviousValues {
   id: ID_Output;
-  title: String;
-  slug: String;
-  type: PageType;
-  status: PageStatus;
-  vertical?: String;
+  url: String;
+  title?: String;
+  altText?: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
 }
 
 export interface PagePreviousValuesPromise
@@ -6532,10 +6809,9 @@ export interface PagePreviousValuesPromise
     Fragmentable {
   id: () => Promise<ID_Output>;
   title: () => Promise<String>;
-  slug: () => Promise<String>;
-  type: () => Promise<PageType>;
-  status: () => Promise<PageStatus>;
-  vertical: () => Promise<String>;
+  altText: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface PagePreviousValuesSubscription
@@ -6543,105 +6819,73 @@ export interface PagePreviousValuesSubscription
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   title: () => Promise<AsyncIterator<String>>;
-  slug: () => Promise<AsyncIterator<String>>;
-  type: () => Promise<AsyncIterator<PageType>>;
-  status: () => Promise<AsyncIterator<PageStatus>>;
-  vertical: () => Promise<AsyncIterator<String>>;
+  altText: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface AggregateFaq {
-  count: Int;
+export interface UserSubscriptionPayload {
+  mutation: MutationType;
+  node: User;
+  updatedFields: String[];
+  previousValues: UserPreviousValues;
 }
 
-export interface AggregateFaqPromise
-  extends Promise<AggregateFaq>,
+export interface UserSubscriptionPayloadPromise
+  extends Promise<UserSubscriptionPayload>,
     Fragmentable {
-  count: () => Promise<Int>;
+  mutation: () => Promise<MutationType>;
+  node: <T = UserPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = UserPreviousValuesPromise>() => T;
 }
 
-export interface AggregateFaqSubscription
-  extends Promise<AsyncIterator<AggregateFaq>>,
+export interface UserSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<UserSubscriptionPayload>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = UserSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = UserPreviousValuesSubscription>() => T;
 }
 
-export interface ProsAndCons {
+export interface Cons {
   id: ID_Output;
-  title?: String;
+  content?: String;
   order?: Int;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
 }
 
-export interface ProsAndConsPromise extends Promise<ProsAndCons>, Fragmentable {
+export interface ConsPromise extends Promise<Cons>, Fragmentable {
   id: () => Promise<ID_Output>;
-  page: <T = PagePromise>() => T;
-  title: () => Promise<String>;
+  prosAndCons: <T = ProsAndConsPromise>() => T;
+  content: () => Promise<String>;
   order: () => Promise<Int>;
-  pros: <T = FragmentableArray<Pros>>(
-    args?: {
-      where?: ProsWhereInput;
-      orderBy?: ProsOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  cons: <T = FragmentableArray<Cons>>(
-    args?: {
-      where?: ConsWhereInput;
-      orderBy?: ConsOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface ProsAndConsSubscription
-  extends Promise<AsyncIterator<ProsAndCons>>,
+export interface ConsSubscription
+  extends Promise<AsyncIterator<Cons>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  page: <T = PageSubscription>() => T;
-  title: () => Promise<AsyncIterator<String>>;
+  prosAndCons: <T = ProsAndConsSubscription>() => T;
+  content: () => Promise<AsyncIterator<String>>;
   order: () => Promise<AsyncIterator<Int>>;
-  pros: <T = Promise<AsyncIterator<ProsSubscription>>>(
-    args?: {
-      where?: ProsWhereInput;
-      orderBy?: ProsOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
-  cons: <T = Promise<AsyncIterator<ConsSubscription>>>(
-    args?: {
-      where?: ConsWhereInput;
-      orderBy?: ConsOrderByInput;
-      skip?: Int;
-      after?: String;
-      before?: String;
-      first?: Int;
-      last?: Int;
-    }
-  ) => T;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface QuickTipNullablePromise
-  extends Promise<QuickTip | null>,
+export interface ConsNullablePromise
+  extends Promise<Cons | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  page: <T = PagePromise>() => T;
-  title: () => Promise<String>;
+  prosAndCons: <T = ProsAndConsPromise>() => T;
   content: () => Promise<String>;
-  buttonText: () => Promise<String>;
-  buttonLink: () => Promise<String>;
-  media: <T = MediaPromise>() => T;
   order: () => Promise<Int>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface AggregateCons {
@@ -6685,55 +6929,21 @@ export interface PageFaqSubscriptionPayloadSubscription
   previousValues: <T = PageFaqPreviousValuesSubscription>() => T;
 }
 
-export interface BoxConnection {
-  pageInfo: PageInfo;
-  edges: BoxEdge[];
+export interface BoxEdge {
+  node: Box;
+  cursor: String;
 }
 
-export interface BoxConnectionPromise
-  extends Promise<BoxConnection>,
+export interface BoxEdgePromise extends Promise<BoxEdge>, Fragmentable {
+  node: <T = BoxPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface BoxEdgeSubscription
+  extends Promise<AsyncIterator<BoxEdge>>,
     Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<BoxEdge>>() => T;
-  aggregate: <T = AggregateBoxPromise>() => T;
-}
-
-export interface BoxConnectionSubscription
-  extends Promise<AsyncIterator<BoxConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<BoxEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateBoxSubscription>() => T;
-}
-
-export interface PageFaqPreviousValues {
-  id: ID_Output;
-  order?: Int;
-}
-
-export interface PageFaqPreviousValuesPromise
-  extends Promise<PageFaqPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  order: () => Promise<Int>;
-}
-
-export interface PageFaqPreviousValuesSubscription
-  extends Promise<AsyncIterator<PageFaqPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  order: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface BoxNullablePromise extends Promise<Box | null>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  page: <T = PagePromise>() => T;
-  title: () => Promise<String>;
-  media: <T = MediaPromise>() => T;
-  video: () => Promise<String>;
-  style: () => Promise<String>;
-  content: () => Promise<String>;
-  order: () => Promise<Int>;
+  node: <T = BoxSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface PagePreviousValues {
@@ -6743,6 +6953,8 @@ export interface PagePreviousValues {
   type: PageType;
   status: PageStatus;
   vertical?: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
 }
 
 export interface AggregateQuickTipPromise
@@ -6770,11 +6982,12 @@ export interface QuickTipPromise extends Promise<QuickTip>, Fragmentable {
   id: () => Promise<ID_Output>;
   page: <T = PagePromise>() => T;
   title: () => Promise<String>;
-  content: () => Promise<String>;
-  buttonText: () => Promise<String>;
-  buttonLink: () => Promise<String>;
-  media: <T = MediaPromise>() => T;
-  order: () => Promise<Int>;
+  slug: () => Promise<String>;
+  type: () => Promise<PageType>;
+  status: () => Promise<PageStatus>;
+  vertical: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface QuickTipSubscription
@@ -6783,11 +6996,12 @@ export interface QuickTipSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   page: <T = PageSubscription>() => T;
   title: () => Promise<AsyncIterator<String>>;
-  content: () => Promise<AsyncIterator<String>>;
-  buttonText: () => Promise<AsyncIterator<String>>;
-  buttonLink: () => Promise<AsyncIterator<String>>;
-  media: <T = MediaSubscription>() => T;
-  order: () => Promise<AsyncIterator<Int>>;
+  slug: () => Promise<AsyncIterator<String>>;
+  type: () => Promise<AsyncIterator<PageType>>;
+  status: () => Promise<AsyncIterator<PageStatus>>;
+  vertical: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface ProsConnection {
@@ -6811,29 +7025,97 @@ export interface ProsConnectionSubscription
   aggregate: <T = AggregateProsSubscription>() => T;
 }
 
-export interface PageFaqAccordionSubscriptionPayload {
-  mutation: MutationType;
-  node: PageFaqAccordion;
-  updatedFields: String[];
-  previousValues: PageFaqAccordionPreviousValues;
+export interface ProsAndCons {
+  id: ID_Output;
+  title?: String;
+  order?: Int;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
 }
 
-export interface PageFaqAccordionSubscriptionPayloadPromise
-  extends Promise<PageFaqAccordionSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = PageFaqAccordionPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = PageFaqAccordionPreviousValuesPromise>() => T;
+export interface ProsAndConsPromise extends Promise<ProsAndCons>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  page: <T = PagePromise>() => T;
+  title: () => Promise<String>;
+  order: () => Promise<Int>;
+  pros: <T = FragmentableArray<Pros>>(args?: {
+    where?: ProsWhereInput;
+    orderBy?: ProsOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  cons: <T = FragmentableArray<Cons>>(args?: {
+    where?: ConsWhereInput;
+    orderBy?: ConsOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface PageFaqAccordionSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<PageFaqAccordionSubscriptionPayload>>,
+export interface ProsAndConsSubscription
+  extends Promise<AsyncIterator<ProsAndCons>>,
     Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = PageFaqAccordionSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = PageFaqAccordionPreviousValuesSubscription>() => T;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  page: <T = PageSubscription>() => T;
+  title: () => Promise<AsyncIterator<String>>;
+  order: () => Promise<AsyncIterator<Int>>;
+  pros: <T = Promise<AsyncIterator<ProsSubscription>>>(args?: {
+    where?: ProsWhereInput;
+    orderBy?: ProsOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  cons: <T = Promise<AsyncIterator<ConsSubscription>>>(args?: {
+    where?: ConsWhereInput;
+    orderBy?: ConsOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface ProsAndConsNullablePromise
+  extends Promise<ProsAndCons | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  page: <T = PagePromise>() => T;
+  title: () => Promise<String>;
+  order: () => Promise<Int>;
+  pros: <T = FragmentableArray<Pros>>(args?: {
+    where?: ProsWhereInput;
+    orderBy?: ProsOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  cons: <T = FragmentableArray<Cons>>(args?: {
+    where?: ConsWhereInput;
+    orderBy?: ConsOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface PageEdge {
@@ -6853,64 +7135,44 @@ export interface PageEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface PageFaqAccordionPreviousValues {
+export interface Media {
   id: ID_Output;
-  order?: Int;
+  url: String;
+  title?: String;
+  altText?: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
 }
 
-export interface PageFaqAccordionPreviousValuesPromise
-  extends Promise<PageFaqAccordionPreviousValues>,
-    Fragmentable {
+export interface MediaPromise extends Promise<Media>, Fragmentable {
   id: () => Promise<ID_Output>;
-  order: () => Promise<Int>;
+  url: () => Promise<String>;
+  title: () => Promise<String>;
+  altText: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface PageFaqAccordionPreviousValuesSubscription
-  extends Promise<AsyncIterator<PageFaqAccordionPreviousValues>>,
+export interface MediaSubscription
+  extends Promise<AsyncIterator<Media>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  order: () => Promise<AsyncIterator<Int>>;
+  url: () => Promise<AsyncIterator<String>>;
+  title: () => Promise<AsyncIterator<String>>;
+  altText: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface FaqCategoryEdge {
-  node: FaqCategory;
-  cursor: String;
-}
-
-export interface FaqCategoryEdgePromise
-  extends Promise<FaqCategoryEdge>,
+export interface MediaNullablePromise
+  extends Promise<Media | null>,
     Fragmentable {
-  node: <T = FaqCategoryPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface FaqCategoryEdgeSubscription
-  extends Promise<AsyncIterator<FaqCategoryEdge>>,
-    Fragmentable {
-  node: <T = FaqCategorySubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface Cons {
-  id: ID_Output;
-  content?: String;
-  order?: Int;
-}
-
-export interface ConsPromise extends Promise<Cons>, Fragmentable {
   id: () => Promise<ID_Output>;
-  prosAndCons: <T = ProsAndConsPromise>() => T;
-  content: () => Promise<String>;
-  order: () => Promise<Int>;
-}
-
-export interface ConsSubscription
-  extends Promise<AsyncIterator<Cons>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  prosAndCons: <T = ProsAndConsSubscription>() => T;
-  content: () => Promise<AsyncIterator<String>>;
-  order: () => Promise<AsyncIterator<Int>>;
+  url: () => Promise<String>;
+  title: () => Promise<String>;
+  altText: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface AggregateBox {
@@ -6977,6 +7239,8 @@ export interface Pros {
   id: ID_Output;
   content?: String;
   order?: Int;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
 }
 
 export interface ProsPromise extends Promise<Pros>, Fragmentable {
@@ -6984,6 +7248,8 @@ export interface ProsPromise extends Promise<Pros>, Fragmentable {
   prosAndCons: <T = ProsAndConsPromise>() => T;
   content: () => Promise<String>;
   order: () => Promise<Int>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface ProsSubscription
@@ -6993,21 +7259,27 @@ export interface ProsSubscription
   prosAndCons: <T = ProsAndConsSubscription>() => T;
   content: () => Promise<AsyncIterator<String>>;
   order: () => Promise<AsyncIterator<Int>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface ConsNullablePromise
-  extends Promise<Cons | null>,
+export interface ProsNullablePromise
+  extends Promise<Pros | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
   prosAndCons: <T = ProsAndConsPromise>() => T;
   content: () => Promise<String>;
   order: () => Promise<Int>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface ProsPreviousValues {
   id: ID_Output;
   content?: String;
   order?: Int;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
 }
 
 export interface ProsPreviousValuesPromise
@@ -7016,6 +7288,8 @@ export interface ProsPreviousValuesPromise
   id: () => Promise<ID_Output>;
   content: () => Promise<String>;
   order: () => Promise<Int>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface ProsPreviousValuesSubscription
@@ -7024,6 +7298,8 @@ export interface ProsPreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   content: () => Promise<AsyncIterator<String>>;
   order: () => Promise<AsyncIterator<Int>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface ProsSubscriptionPayload {
@@ -7049,6 +7325,75 @@ export interface ProsSubscriptionPayloadSubscription
   node: <T = ProsSubscription>() => T;
   updatedFields: () => Promise<AsyncIterator<String[]>>;
   previousValues: <T = ProsPreviousValuesSubscription>() => T;
+}
+
+export interface Box {
+  id: ID_Output;
+  title?: String;
+  video?: String;
+  style?: String;
+  content?: String;
+  order?: Int;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface BoxPromise extends Promise<Box>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  page: <T = PagePromise>() => T;
+  title: () => Promise<String>;
+  media: <T = MediaPromise>() => T;
+  video: () => Promise<String>;
+  style: () => Promise<String>;
+  content: () => Promise<String>;
+  order: () => Promise<Int>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface BoxSubscription
+  extends Promise<AsyncIterator<Box>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  page: <T = PageSubscription>() => T;
+  title: () => Promise<AsyncIterator<String>>;
+  media: <T = MediaSubscription>() => T;
+  video: () => Promise<AsyncIterator<String>>;
+  style: () => Promise<AsyncIterator<String>>;
+  content: () => Promise<AsyncIterator<String>>;
+  order: () => Promise<AsyncIterator<Int>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface BoxNullablePromise extends Promise<Box | null>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  page: <T = PagePromise>() => T;
+  title: () => Promise<String>;
+  media: <T = MediaPromise>() => T;
+  video: () => Promise<String>;
+  style: () => Promise<String>;
+  content: () => Promise<String>;
+  order: () => Promise<Int>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface MediaEdge {
+  node: Media;
+  cursor: String;
+}
+
+export interface MediaEdgePromise extends Promise<MediaEdge>, Fragmentable {
+  node: <T = MediaPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface MediaEdgeSubscription
+  extends Promise<AsyncIterator<MediaEdge>>,
+    Fragmentable {
+  node: <T = MediaSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface AggregatePageFaq {

@@ -92,6 +92,12 @@ export default {
           else if(section.type == 'ProsAndCons') {
             return await ctx.prisma.updateProsAndCons(query)
           }
+          else if(section.type == 'PageFaq') {
+            return await ctx.prisma.updatePageFaq(query)
+          }
+          else if(section.type == 'PageFaqAccordion') {
+            return await ctx.prisma.updatePageFaqAccordion(query)
+          }
         } catch(e) {
           return section
         }
@@ -131,5 +137,16 @@ export default {
         id: parent.id
       }).prosAndCons()
     },
+    faqs: (parent, args, ctx, info) => {
+      return ctx.prisma.page({
+        id: parent.id
+      }).faqs()
+    },
+    faqAccordion: (parent, args, ctx, info) => {
+      return ctx.prisma.page({
+        id: parent.id
+      }).faqAccordion()
+    },
   },
+ 
 }

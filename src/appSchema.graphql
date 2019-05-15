@@ -108,6 +108,24 @@ type Mutation {
 
   updateMedia(id: ID!, title: String, altText: String): Media
 
+  upsertPageFaq(
+    id: ID!
+    order: Int
+    page: ID!
+    faq: ID!
+  ): PageFaq
+
+  deletePageFaq(id: ID!): PageFaq
+
+  upsertPageFaqAccordion(
+    id: ID!
+    order: Int
+    page: ID!
+    faqCategory: ID!
+  ): PageFaqAccordion
+
+  deletePageFaqAccordion(id: ID!): PageFaqAccordion
+
   addFaq(
     title: String!
     description: String

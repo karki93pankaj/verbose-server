@@ -35,6 +35,14 @@ type AggregatePage {
   count: Int!
 }
 
+type AggregatePageFaq {
+  count: Int!
+}
+
+type AggregatePageFaqAccordion {
+  count: Int!
+}
+
 type AggregatePros {
   count: Int!
 }
@@ -1446,6 +1454,11 @@ input FaqCategoryCreateManyWithoutFaqsInput {
   connect: [FaqCategoryWhereUniqueInput!]
 }
 
+input FaqCategoryCreateOneInput {
+  create: FaqCategoryCreateInput
+  connect: FaqCategoryWhereUniqueInput
+}
+
 input FaqCategoryCreateWithoutFaqsInput {
   id: ID
   name: String!
@@ -1578,6 +1591,13 @@ input FaqCategorySubscriptionWhereInput {
   NOT: [FaqCategorySubscriptionWhereInput!]
 }
 
+input FaqCategoryUpdateDataInput {
+  name: String
+  slug: String
+  description: String
+  faqs: FaqUpdateManyWithoutCategoryInput
+}
+
 input FaqCategoryUpdateInput {
   name: String
   slug: String
@@ -1614,6 +1634,13 @@ input FaqCategoryUpdateManyWithWhereNestedInput {
   data: FaqCategoryUpdateManyDataInput!
 }
 
+input FaqCategoryUpdateOneRequiredInput {
+  create: FaqCategoryCreateInput
+  update: FaqCategoryUpdateDataInput
+  upsert: FaqCategoryUpsertNestedInput
+  connect: FaqCategoryWhereUniqueInput
+}
+
 input FaqCategoryUpdateWithoutFaqsDataInput {
   name: String
   slug: String
@@ -1623,6 +1650,11 @@ input FaqCategoryUpdateWithoutFaqsDataInput {
 input FaqCategoryUpdateWithWhereUniqueWithoutFaqsInput {
   where: FaqCategoryWhereUniqueInput!
   data: FaqCategoryUpdateWithoutFaqsDataInput!
+}
+
+input FaqCategoryUpsertNestedInput {
+  update: FaqCategoryUpdateDataInput!
+  create: FaqCategoryCreateInput!
 }
 
 input FaqCategoryUpsertWithWhereUniqueWithoutFaqsInput {
@@ -1741,6 +1773,11 @@ input FaqCreateInput {
 input FaqCreateManyWithoutCategoryInput {
   create: [FaqCreateWithoutCategoryInput!]
   connect: [FaqWhereUniqueInput!]
+}
+
+input FaqCreateOneInput {
+  create: FaqCreateInput
+  connect: FaqWhereUniqueInput
 }
 
 input FaqCreatetagInput {
@@ -1960,6 +1997,21 @@ input FaqSubscriptionWhereInput {
   NOT: [FaqSubscriptionWhereInput!]
 }
 
+input FaqUpdateDataInput {
+  title: String
+  description: String
+  short_description: String
+  authors: UserUpdateManyInput
+  slug: String
+  vertical: String
+  category: FaqCategoryUpdateManyWithoutFaqsInput
+  readingTime: Int
+  order: Int
+  variant: FaqUpdatevariantInput
+  tag: FaqUpdatetagInput
+  pubDate: DateTime
+}
+
 input FaqUpdateInput {
   title: String
   description: String
@@ -2018,6 +2070,13 @@ input FaqUpdateManyWithWhereNestedInput {
   data: FaqUpdateManyDataInput!
 }
 
+input FaqUpdateOneRequiredInput {
+  create: FaqCreateInput
+  update: FaqUpdateDataInput
+  upsert: FaqUpsertNestedInput
+  connect: FaqWhereUniqueInput
+}
+
 input FaqUpdatetagInput {
   set: [String!]
 }
@@ -2043,6 +2102,11 @@ input FaqUpdateWithoutCategoryDataInput {
 input FaqUpdateWithWhereUniqueWithoutCategoryInput {
   where: FaqWhereUniqueInput!
   data: FaqUpdateWithoutCategoryDataInput!
+}
+
+input FaqUpsertNestedInput {
+  update: FaqUpdateDataInput!
+  create: FaqCreateInput!
 }
 
 input FaqUpsertWithWhereUniqueWithoutCategoryInput {
@@ -2430,6 +2494,18 @@ type Mutation {
   upsertPage(where: PageWhereUniqueInput!, create: PageCreateInput!, update: PageUpdateInput!): Page!
   deletePage(where: PageWhereUniqueInput!): Page
   deleteManyPages(where: PageWhereInput): BatchPayload!
+  createPageFaq(data: PageFaqCreateInput!): PageFaq!
+  updatePageFaq(data: PageFaqUpdateInput!, where: PageFaqWhereUniqueInput!): PageFaq
+  updateManyPageFaqs(data: PageFaqUpdateManyMutationInput!, where: PageFaqWhereInput): BatchPayload!
+  upsertPageFaq(where: PageFaqWhereUniqueInput!, create: PageFaqCreateInput!, update: PageFaqUpdateInput!): PageFaq!
+  deletePageFaq(where: PageFaqWhereUniqueInput!): PageFaq
+  deleteManyPageFaqs(where: PageFaqWhereInput): BatchPayload!
+  createPageFaqAccordion(data: PageFaqAccordionCreateInput!): PageFaqAccordion!
+  updatePageFaqAccordion(data: PageFaqAccordionUpdateInput!, where: PageFaqAccordionWhereUniqueInput!): PageFaqAccordion
+  updateManyPageFaqAccordions(data: PageFaqAccordionUpdateManyMutationInput!, where: PageFaqAccordionWhereInput): BatchPayload!
+  upsertPageFaqAccordion(where: PageFaqAccordionWhereUniqueInput!, create: PageFaqAccordionCreateInput!, update: PageFaqAccordionUpdateInput!): PageFaqAccordion!
+  deletePageFaqAccordion(where: PageFaqAccordionWhereUniqueInput!): PageFaqAccordion
+  deleteManyPageFaqAccordions(where: PageFaqAccordionWhereInput): BatchPayload!
   createPros(data: ProsCreateInput!): Pros!
   updatePros(data: ProsUpdateInput!, where: ProsWhereUniqueInput!): Pros
   updateManyProses(data: ProsUpdateManyMutationInput!, where: ProsWhereInput): BatchPayload!
@@ -2479,6 +2555,8 @@ type Page {
   prosAndCons(where: ProsAndConsWhereInput, orderBy: ProsAndConsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ProsAndCons!]
   alertBoxes(where: AlertBoxWhereInput, orderBy: AlertBoxOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [AlertBox!]
   quickTips(where: QuickTipWhereInput, orderBy: QuickTipOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [QuickTip!]
+  faqs(where: PageFaqWhereInput, orderBy: PageFaqOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [PageFaq!]
+  faqAccordion(where: PageFaqAccordionWhereInput, orderBy: PageFaqAccordionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [PageFaqAccordion!]
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -2502,6 +2580,8 @@ input PageCreateInput {
   prosAndCons: ProsAndConsCreateManyWithoutPageInput
   alertBoxes: AlertBoxCreateManyWithoutPageInput
   quickTips: QuickTipCreateManyWithoutPageInput
+  faqs: PageFaqCreateManyWithoutPageInput
+  faqAccordion: PageFaqAccordionCreateManyWithoutPageInput
 }
 
 input PageCreateOneWithoutAlertBoxesInput {
@@ -2516,6 +2596,16 @@ input PageCreateOneWithoutBlocksInput {
 
 input PageCreateOneWithoutBoxesInput {
   create: PageCreateWithoutBoxesInput
+  connect: PageWhereUniqueInput
+}
+
+input PageCreateOneWithoutFaqAccordionInput {
+  create: PageCreateWithoutFaqAccordionInput
+  connect: PageWhereUniqueInput
+}
+
+input PageCreateOneWithoutFaqsInput {
+  create: PageCreateWithoutFaqsInput
   connect: PageWhereUniqueInput
 }
 
@@ -2541,6 +2631,8 @@ input PageCreateWithoutAlertBoxesInput {
   boxes: BoxCreateManyWithoutPageInput
   prosAndCons: ProsAndConsCreateManyWithoutPageInput
   quickTips: QuickTipCreateManyWithoutPageInput
+  faqs: PageFaqCreateManyWithoutPageInput
+  faqAccordion: PageFaqAccordionCreateManyWithoutPageInput
 }
 
 input PageCreateWithoutBlocksInput {
@@ -2555,6 +2647,8 @@ input PageCreateWithoutBlocksInput {
   prosAndCons: ProsAndConsCreateManyWithoutPageInput
   alertBoxes: AlertBoxCreateManyWithoutPageInput
   quickTips: QuickTipCreateManyWithoutPageInput
+  faqs: PageFaqCreateManyWithoutPageInput
+  faqAccordion: PageFaqAccordionCreateManyWithoutPageInput
 }
 
 input PageCreateWithoutBoxesInput {
@@ -2569,6 +2663,38 @@ input PageCreateWithoutBoxesInput {
   prosAndCons: ProsAndConsCreateManyWithoutPageInput
   alertBoxes: AlertBoxCreateManyWithoutPageInput
   quickTips: QuickTipCreateManyWithoutPageInput
+  faqs: PageFaqCreateManyWithoutPageInput
+  faqAccordion: PageFaqAccordionCreateManyWithoutPageInput
+}
+
+input PageCreateWithoutFaqAccordionInput {
+  title: String!
+  slug: String!
+  type: PageType!
+  status: PageStatus!
+  vertical: String
+  media: MediaCreateOneInput
+  blocks: BlockCreateManyWithoutPageInput
+  boxes: BoxCreateManyWithoutPageInput
+  prosAndCons: ProsAndConsCreateManyWithoutPageInput
+  alertBoxes: AlertBoxCreateManyWithoutPageInput
+  quickTips: QuickTipCreateManyWithoutPageInput
+  faqs: PageFaqCreateManyWithoutPageInput
+}
+
+input PageCreateWithoutFaqsInput {
+  title: String!
+  slug: String!
+  type: PageType!
+  status: PageStatus!
+  vertical: String
+  media: MediaCreateOneInput
+  blocks: BlockCreateManyWithoutPageInput
+  boxes: BoxCreateManyWithoutPageInput
+  prosAndCons: ProsAndConsCreateManyWithoutPageInput
+  alertBoxes: AlertBoxCreateManyWithoutPageInput
+  quickTips: QuickTipCreateManyWithoutPageInput
+  faqAccordion: PageFaqAccordionCreateManyWithoutPageInput
 }
 
 input PageCreateWithoutProsAndConsInput {
@@ -2583,6 +2709,8 @@ input PageCreateWithoutProsAndConsInput {
   boxes: BoxCreateManyWithoutPageInput
   alertBoxes: AlertBoxCreateManyWithoutPageInput
   quickTips: QuickTipCreateManyWithoutPageInput
+  faqs: PageFaqCreateManyWithoutPageInput
+  faqAccordion: PageFaqAccordionCreateManyWithoutPageInput
 }
 
 input PageCreateWithoutQuickTipsInput {
@@ -2597,11 +2725,367 @@ input PageCreateWithoutQuickTipsInput {
   boxes: BoxCreateManyWithoutPageInput
   prosAndCons: ProsAndConsCreateManyWithoutPageInput
   alertBoxes: AlertBoxCreateManyWithoutPageInput
+  faqs: PageFaqCreateManyWithoutPageInput
+  faqAccordion: PageFaqAccordionCreateManyWithoutPageInput
 }
 
 type PageEdge {
   node: Page!
   cursor: String!
+}
+
+type PageFaq {
+  id: ID!
+  order: Int
+  page: Page!
+  faq: Faq!
+}
+
+type PageFaqAccordion {
+  id: ID!
+  order: Int
+  page: Page!
+  faqCategory: FaqCategory!
+}
+
+type PageFaqAccordionConnection {
+  pageInfo: PageInfo!
+  edges: [PageFaqAccordionEdge]!
+  aggregate: AggregatePageFaqAccordion!
+}
+
+input PageFaqAccordionCreateInput {
+  order: Int
+  page: PageCreateOneWithoutFaqAccordionInput!
+  faqCategory: FaqCategoryCreateOneInput!
+}
+
+input PageFaqAccordionCreateManyWithoutPageInput {
+  create: [PageFaqAccordionCreateWithoutPageInput!]
+  connect: [PageFaqAccordionWhereUniqueInput!]
+}
+
+input PageFaqAccordionCreateWithoutPageInput {
+  order: Int
+  faqCategory: FaqCategoryCreateOneInput!
+}
+
+type PageFaqAccordionEdge {
+  node: PageFaqAccordion!
+  cursor: String!
+}
+
+enum PageFaqAccordionOrderByInput {
+  id_ASC
+  id_DESC
+  order_ASC
+  order_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type PageFaqAccordionPreviousValues {
+  id: ID!
+  order: Int
+}
+
+input PageFaqAccordionScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  order: Int
+  order_not: Int
+  order_in: [Int!]
+  order_not_in: [Int!]
+  order_lt: Int
+  order_lte: Int
+  order_gt: Int
+  order_gte: Int
+  AND: [PageFaqAccordionScalarWhereInput!]
+  OR: [PageFaqAccordionScalarWhereInput!]
+  NOT: [PageFaqAccordionScalarWhereInput!]
+}
+
+type PageFaqAccordionSubscriptionPayload {
+  mutation: MutationType!
+  node: PageFaqAccordion
+  updatedFields: [String!]
+  previousValues: PageFaqAccordionPreviousValues
+}
+
+input PageFaqAccordionSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: PageFaqAccordionWhereInput
+  AND: [PageFaqAccordionSubscriptionWhereInput!]
+  OR: [PageFaqAccordionSubscriptionWhereInput!]
+  NOT: [PageFaqAccordionSubscriptionWhereInput!]
+}
+
+input PageFaqAccordionUpdateInput {
+  order: Int
+  page: PageUpdateOneRequiredWithoutFaqAccordionInput
+  faqCategory: FaqCategoryUpdateOneRequiredInput
+}
+
+input PageFaqAccordionUpdateManyDataInput {
+  order: Int
+}
+
+input PageFaqAccordionUpdateManyMutationInput {
+  order: Int
+}
+
+input PageFaqAccordionUpdateManyWithoutPageInput {
+  create: [PageFaqAccordionCreateWithoutPageInput!]
+  delete: [PageFaqAccordionWhereUniqueInput!]
+  connect: [PageFaqAccordionWhereUniqueInput!]
+  set: [PageFaqAccordionWhereUniqueInput!]
+  disconnect: [PageFaqAccordionWhereUniqueInput!]
+  update: [PageFaqAccordionUpdateWithWhereUniqueWithoutPageInput!]
+  upsert: [PageFaqAccordionUpsertWithWhereUniqueWithoutPageInput!]
+  deleteMany: [PageFaqAccordionScalarWhereInput!]
+  updateMany: [PageFaqAccordionUpdateManyWithWhereNestedInput!]
+}
+
+input PageFaqAccordionUpdateManyWithWhereNestedInput {
+  where: PageFaqAccordionScalarWhereInput!
+  data: PageFaqAccordionUpdateManyDataInput!
+}
+
+input PageFaqAccordionUpdateWithoutPageDataInput {
+  order: Int
+  faqCategory: FaqCategoryUpdateOneRequiredInput
+}
+
+input PageFaqAccordionUpdateWithWhereUniqueWithoutPageInput {
+  where: PageFaqAccordionWhereUniqueInput!
+  data: PageFaqAccordionUpdateWithoutPageDataInput!
+}
+
+input PageFaqAccordionUpsertWithWhereUniqueWithoutPageInput {
+  where: PageFaqAccordionWhereUniqueInput!
+  update: PageFaqAccordionUpdateWithoutPageDataInput!
+  create: PageFaqAccordionCreateWithoutPageInput!
+}
+
+input PageFaqAccordionWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  order: Int
+  order_not: Int
+  order_in: [Int!]
+  order_not_in: [Int!]
+  order_lt: Int
+  order_lte: Int
+  order_gt: Int
+  order_gte: Int
+  page: PageWhereInput
+  faqCategory: FaqCategoryWhereInput
+  AND: [PageFaqAccordionWhereInput!]
+  OR: [PageFaqAccordionWhereInput!]
+  NOT: [PageFaqAccordionWhereInput!]
+}
+
+input PageFaqAccordionWhereUniqueInput {
+  id: ID
+}
+
+type PageFaqConnection {
+  pageInfo: PageInfo!
+  edges: [PageFaqEdge]!
+  aggregate: AggregatePageFaq!
+}
+
+input PageFaqCreateInput {
+  order: Int
+  page: PageCreateOneWithoutFaqsInput!
+  faq: FaqCreateOneInput!
+}
+
+input PageFaqCreateManyWithoutPageInput {
+  create: [PageFaqCreateWithoutPageInput!]
+  connect: [PageFaqWhereUniqueInput!]
+}
+
+input PageFaqCreateWithoutPageInput {
+  order: Int
+  faq: FaqCreateOneInput!
+}
+
+type PageFaqEdge {
+  node: PageFaq!
+  cursor: String!
+}
+
+enum PageFaqOrderByInput {
+  id_ASC
+  id_DESC
+  order_ASC
+  order_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type PageFaqPreviousValues {
+  id: ID!
+  order: Int
+}
+
+input PageFaqScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  order: Int
+  order_not: Int
+  order_in: [Int!]
+  order_not_in: [Int!]
+  order_lt: Int
+  order_lte: Int
+  order_gt: Int
+  order_gte: Int
+  AND: [PageFaqScalarWhereInput!]
+  OR: [PageFaqScalarWhereInput!]
+  NOT: [PageFaqScalarWhereInput!]
+}
+
+type PageFaqSubscriptionPayload {
+  mutation: MutationType!
+  node: PageFaq
+  updatedFields: [String!]
+  previousValues: PageFaqPreviousValues
+}
+
+input PageFaqSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: PageFaqWhereInput
+  AND: [PageFaqSubscriptionWhereInput!]
+  OR: [PageFaqSubscriptionWhereInput!]
+  NOT: [PageFaqSubscriptionWhereInput!]
+}
+
+input PageFaqUpdateInput {
+  order: Int
+  page: PageUpdateOneRequiredWithoutFaqsInput
+  faq: FaqUpdateOneRequiredInput
+}
+
+input PageFaqUpdateManyDataInput {
+  order: Int
+}
+
+input PageFaqUpdateManyMutationInput {
+  order: Int
+}
+
+input PageFaqUpdateManyWithoutPageInput {
+  create: [PageFaqCreateWithoutPageInput!]
+  delete: [PageFaqWhereUniqueInput!]
+  connect: [PageFaqWhereUniqueInput!]
+  set: [PageFaqWhereUniqueInput!]
+  disconnect: [PageFaqWhereUniqueInput!]
+  update: [PageFaqUpdateWithWhereUniqueWithoutPageInput!]
+  upsert: [PageFaqUpsertWithWhereUniqueWithoutPageInput!]
+  deleteMany: [PageFaqScalarWhereInput!]
+  updateMany: [PageFaqUpdateManyWithWhereNestedInput!]
+}
+
+input PageFaqUpdateManyWithWhereNestedInput {
+  where: PageFaqScalarWhereInput!
+  data: PageFaqUpdateManyDataInput!
+}
+
+input PageFaqUpdateWithoutPageDataInput {
+  order: Int
+  faq: FaqUpdateOneRequiredInput
+}
+
+input PageFaqUpdateWithWhereUniqueWithoutPageInput {
+  where: PageFaqWhereUniqueInput!
+  data: PageFaqUpdateWithoutPageDataInput!
+}
+
+input PageFaqUpsertWithWhereUniqueWithoutPageInput {
+  where: PageFaqWhereUniqueInput!
+  update: PageFaqUpdateWithoutPageDataInput!
+  create: PageFaqCreateWithoutPageInput!
+}
+
+input PageFaqWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  order: Int
+  order_not: Int
+  order_in: [Int!]
+  order_not_in: [Int!]
+  order_lt: Int
+  order_lte: Int
+  order_gt: Int
+  order_gte: Int
+  page: PageWhereInput
+  faq: FaqWhereInput
+  AND: [PageFaqWhereInput!]
+  OR: [PageFaqWhereInput!]
+  NOT: [PageFaqWhereInput!]
+}
+
+input PageFaqWhereUniqueInput {
+  id: ID
 }
 
 type PageInfo {
@@ -2683,6 +3167,8 @@ input PageUpdateInput {
   prosAndCons: ProsAndConsUpdateManyWithoutPageInput
   alertBoxes: AlertBoxUpdateManyWithoutPageInput
   quickTips: QuickTipUpdateManyWithoutPageInput
+  faqs: PageFaqUpdateManyWithoutPageInput
+  faqAccordion: PageFaqAccordionUpdateManyWithoutPageInput
 }
 
 input PageUpdateManyMutationInput {
@@ -2714,6 +3200,20 @@ input PageUpdateOneRequiredWithoutBoxesInput {
   connect: PageWhereUniqueInput
 }
 
+input PageUpdateOneRequiredWithoutFaqAccordionInput {
+  create: PageCreateWithoutFaqAccordionInput
+  update: PageUpdateWithoutFaqAccordionDataInput
+  upsert: PageUpsertWithoutFaqAccordionInput
+  connect: PageWhereUniqueInput
+}
+
+input PageUpdateOneRequiredWithoutFaqsInput {
+  create: PageCreateWithoutFaqsInput
+  update: PageUpdateWithoutFaqsDataInput
+  upsert: PageUpsertWithoutFaqsInput
+  connect: PageWhereUniqueInput
+}
+
 input PageUpdateOneRequiredWithoutProsAndConsInput {
   create: PageCreateWithoutProsAndConsInput
   update: PageUpdateWithoutProsAndConsDataInput
@@ -2739,6 +3239,8 @@ input PageUpdateWithoutAlertBoxesDataInput {
   boxes: BoxUpdateManyWithoutPageInput
   prosAndCons: ProsAndConsUpdateManyWithoutPageInput
   quickTips: QuickTipUpdateManyWithoutPageInput
+  faqs: PageFaqUpdateManyWithoutPageInput
+  faqAccordion: PageFaqAccordionUpdateManyWithoutPageInput
 }
 
 input PageUpdateWithoutBlocksDataInput {
@@ -2752,6 +3254,8 @@ input PageUpdateWithoutBlocksDataInput {
   prosAndCons: ProsAndConsUpdateManyWithoutPageInput
   alertBoxes: AlertBoxUpdateManyWithoutPageInput
   quickTips: QuickTipUpdateManyWithoutPageInput
+  faqs: PageFaqUpdateManyWithoutPageInput
+  faqAccordion: PageFaqAccordionUpdateManyWithoutPageInput
 }
 
 input PageUpdateWithoutBoxesDataInput {
@@ -2765,6 +3269,38 @@ input PageUpdateWithoutBoxesDataInput {
   prosAndCons: ProsAndConsUpdateManyWithoutPageInput
   alertBoxes: AlertBoxUpdateManyWithoutPageInput
   quickTips: QuickTipUpdateManyWithoutPageInput
+  faqs: PageFaqUpdateManyWithoutPageInput
+  faqAccordion: PageFaqAccordionUpdateManyWithoutPageInput
+}
+
+input PageUpdateWithoutFaqAccordionDataInput {
+  title: String
+  slug: String
+  type: PageType
+  status: PageStatus
+  vertical: String
+  media: MediaUpdateOneInput
+  blocks: BlockUpdateManyWithoutPageInput
+  boxes: BoxUpdateManyWithoutPageInput
+  prosAndCons: ProsAndConsUpdateManyWithoutPageInput
+  alertBoxes: AlertBoxUpdateManyWithoutPageInput
+  quickTips: QuickTipUpdateManyWithoutPageInput
+  faqs: PageFaqUpdateManyWithoutPageInput
+}
+
+input PageUpdateWithoutFaqsDataInput {
+  title: String
+  slug: String
+  type: PageType
+  status: PageStatus
+  vertical: String
+  media: MediaUpdateOneInput
+  blocks: BlockUpdateManyWithoutPageInput
+  boxes: BoxUpdateManyWithoutPageInput
+  prosAndCons: ProsAndConsUpdateManyWithoutPageInput
+  alertBoxes: AlertBoxUpdateManyWithoutPageInput
+  quickTips: QuickTipUpdateManyWithoutPageInput
+  faqAccordion: PageFaqAccordionUpdateManyWithoutPageInput
 }
 
 input PageUpdateWithoutProsAndConsDataInput {
@@ -2778,6 +3314,8 @@ input PageUpdateWithoutProsAndConsDataInput {
   boxes: BoxUpdateManyWithoutPageInput
   alertBoxes: AlertBoxUpdateManyWithoutPageInput
   quickTips: QuickTipUpdateManyWithoutPageInput
+  faqs: PageFaqUpdateManyWithoutPageInput
+  faqAccordion: PageFaqAccordionUpdateManyWithoutPageInput
 }
 
 input PageUpdateWithoutQuickTipsDataInput {
@@ -2791,6 +3329,8 @@ input PageUpdateWithoutQuickTipsDataInput {
   boxes: BoxUpdateManyWithoutPageInput
   prosAndCons: ProsAndConsUpdateManyWithoutPageInput
   alertBoxes: AlertBoxUpdateManyWithoutPageInput
+  faqs: PageFaqUpdateManyWithoutPageInput
+  faqAccordion: PageFaqAccordionUpdateManyWithoutPageInput
 }
 
 input PageUpsertWithoutAlertBoxesInput {
@@ -2806,6 +3346,16 @@ input PageUpsertWithoutBlocksInput {
 input PageUpsertWithoutBoxesInput {
   update: PageUpdateWithoutBoxesDataInput!
   create: PageCreateWithoutBoxesInput!
+}
+
+input PageUpsertWithoutFaqAccordionInput {
+  update: PageUpdateWithoutFaqAccordionDataInput!
+  create: PageCreateWithoutFaqAccordionInput!
+}
+
+input PageUpsertWithoutFaqsInput {
+  update: PageUpdateWithoutFaqsDataInput!
+  create: PageCreateWithoutFaqsInput!
 }
 
 input PageUpsertWithoutProsAndConsInput {
@@ -2899,6 +3449,12 @@ input PageWhereInput {
   quickTips_every: QuickTipWhereInput
   quickTips_some: QuickTipWhereInput
   quickTips_none: QuickTipWhereInput
+  faqs_every: PageFaqWhereInput
+  faqs_some: PageFaqWhereInput
+  faqs_none: PageFaqWhereInput
+  faqAccordion_every: PageFaqAccordionWhereInput
+  faqAccordion_some: PageFaqAccordionWhereInput
+  faqAccordion_none: PageFaqAccordionWhereInput
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -3528,6 +4084,12 @@ type Query {
   page(where: PageWhereUniqueInput!): Page
   pages(where: PageWhereInput, orderBy: PageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Page]!
   pagesConnection(where: PageWhereInput, orderBy: PageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PageConnection!
+  pageFaq(where: PageFaqWhereUniqueInput!): PageFaq
+  pageFaqs(where: PageFaqWhereInput, orderBy: PageFaqOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [PageFaq]!
+  pageFaqsConnection(where: PageFaqWhereInput, orderBy: PageFaqOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PageFaqConnection!
+  pageFaqAccordion(where: PageFaqAccordionWhereUniqueInput!): PageFaqAccordion
+  pageFaqAccordions(where: PageFaqAccordionWhereInput, orderBy: PageFaqAccordionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [PageFaqAccordion]!
+  pageFaqAccordionsConnection(where: PageFaqAccordionWhereInput, orderBy: PageFaqAccordionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PageFaqAccordionConnection!
   pros(where: ProsWhereUniqueInput!): Pros
   proses(where: ProsWhereInput, orderBy: ProsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Pros]!
   prosesConnection(where: ProsWhereInput, orderBy: ProsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ProsConnection!
@@ -3919,6 +4481,8 @@ type Subscription {
   faqCategory(where: FaqCategorySubscriptionWhereInput): FaqCategorySubscriptionPayload
   media(where: MediaSubscriptionWhereInput): MediaSubscriptionPayload
   page(where: PageSubscriptionWhereInput): PageSubscriptionPayload
+  pageFaq(where: PageFaqSubscriptionWhereInput): PageFaqSubscriptionPayload
+  pageFaqAccordion(where: PageFaqAccordionSubscriptionWhereInput): PageFaqAccordionSubscriptionPayload
   pros(where: ProsSubscriptionWhereInput): ProsSubscriptionPayload
   prosAndCons(where: ProsAndConsSubscriptionWhereInput): ProsAndConsSubscriptionPayload
   quickTip(where: QuickTipSubscriptionWhereInput): QuickTipSubscriptionPayload

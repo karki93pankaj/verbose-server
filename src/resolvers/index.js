@@ -8,6 +8,8 @@ import box from './box'
 import prosAndCons from './prosAndCons'
 import alertBox from './alertBox'
 import quickTip from './quickTip'
+import pageFaq from './pageFaq'
+import pageFaqAccordion from './pageFaqAccordion'
 
 export default [
   user,
@@ -19,5 +21,7 @@ export default [
   box,
   prosAndCons,
   alertBox,
-  quickTip
+  quickTip,
+  pageFaq,
+  pageFaqAccordion
 ]

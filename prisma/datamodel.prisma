@@ -40,6 +40,8 @@ type Page {
   prosAndCons: [ProsAndCons]!
   alertBoxes: [AlertBox]!
   quickTips: [QuickTip]
+  faqs: [PageFaq]
+  faqAccordion: [PageFaqAccordion]
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }
@@ -161,4 +163,18 @@ type Media {
   altText: String
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
+}
+
+type PageFaq {
+  id: ID! @unique
+  order: Int
+  page: Page!
+  faq: Faq!
+}
+
+type PageFaqAccordion {
+  id: ID! @unique
+  order: Int
+  page: Page!
+  faqCategory: FaqCategory!
 }

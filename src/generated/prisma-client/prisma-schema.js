@@ -59,6 +59,8 @@ type AlertBox {
   prefix: String
   style: String
   order: Int
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type AlertBoxConnection {
@@ -109,6 +111,10 @@ enum AlertBoxOrderByInput {
   style_DESC
   order_ASC
   order_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type AlertBoxPreviousValues {
@@ -118,6 +124,8 @@ type AlertBoxPreviousValues {
   prefix: String
   style: String
   order: Int
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 input AlertBoxScalarWhereInput {
@@ -199,6 +207,22 @@ input AlertBoxScalarWhereInput {
   order_lte: Int
   order_gt: Int
   order_gte: Int
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [AlertBoxScalarWhereInput!]
   OR: [AlertBoxScalarWhereInput!]
   NOT: [AlertBoxScalarWhereInput!]
@@ -363,6 +387,22 @@ input AlertBoxWhereInput {
   order_lte: Int
   order_gt: Int
   order_gte: Int
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [AlertBoxWhereInput!]
   OR: [AlertBoxWhereInput!]
   NOT: [AlertBoxWhereInput!]
@@ -385,6 +425,8 @@ type Block {
   style: String
   content: String
   order: Int
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type BlockConnection {
@@ -437,6 +479,10 @@ enum BlockOrderByInput {
   content_DESC
   order_ASC
   order_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type BlockPreviousValues {
@@ -446,6 +492,8 @@ type BlockPreviousValues {
   style: String
   content: String
   order: Int
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 input BlockScalarWhereInput {
@@ -527,6 +575,22 @@ input BlockScalarWhereInput {
   order_lte: Int
   order_gt: Int
   order_gte: Int
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [BlockScalarWhereInput!]
   OR: [BlockScalarWhereInput!]
   NOT: [BlockScalarWhereInput!]
@@ -694,6 +758,22 @@ input BlockWhereInput {
   order_lte: Int
   order_gt: Int
   order_gte: Int
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [BlockWhereInput!]
   OR: [BlockWhereInput!]
   NOT: [BlockWhereInput!]
@@ -712,6 +792,8 @@ type Box {
   style: String
   content: String
   order: Int
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type BoxConnection {
@@ -764,6 +846,10 @@ enum BoxOrderByInput {
   content_DESC
   order_ASC
   order_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type BoxPreviousValues {
@@ -773,6 +859,8 @@ type BoxPreviousValues {
   style: String
   content: String
   order: Int
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 input BoxScalarWhereInput {
@@ -854,6 +942,22 @@ input BoxScalarWhereInput {
   order_lte: Int
   order_gt: Int
   order_gte: Int
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [BoxScalarWhereInput!]
   OR: [BoxScalarWhereInput!]
   NOT: [BoxScalarWhereInput!]
@@ -1021,6 +1125,22 @@ input BoxWhereInput {
   order_lte: Int
   order_gt: Int
   order_gte: Int
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [BoxWhereInput!]
   OR: [BoxWhereInput!]
   NOT: [BoxWhereInput!]
@@ -1035,6 +1155,8 @@ type Cons {
   prosAndCons: ProsAndCons!
   content: String
   order: Int
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type ConsConnection {
@@ -1073,12 +1195,18 @@ enum ConsOrderByInput {
   content_DESC
   order_ASC
   order_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type ConsPreviousValues {
   id: ID!
   content: String
   order: Int
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 input ConsScalarWhereInput {
@@ -1118,6 +1246,22 @@ input ConsScalarWhereInput {
   order_lte: Int
   order_gt: Int
   order_gte: Int
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [ConsScalarWhereInput!]
   OR: [ConsScalarWhereInput!]
   NOT: [ConsScalarWhereInput!]
@@ -1228,6 +1372,22 @@ input ConsWhereInput {
   order_lte: Int
   order_gt: Int
   order_gte: Int
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [ConsWhereInput!]
   OR: [ConsWhereInput!]
   NOT: [ConsWhereInput!]
@@ -1253,6 +1413,8 @@ type Faq {
   variant: [String!]!
   tag: [String!]!
   pubDate: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type FaqCategory {
@@ -1261,6 +1423,8 @@ type FaqCategory {
   slug: String!
   description: String!
   faqs(where: FaqWhereInput, orderBy: FaqOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Faq!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type FaqCategoryConnection {
@@ -1303,6 +1467,10 @@ enum FaqCategoryOrderByInput {
   slug_DESC
   description_ASC
   description_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type FaqCategoryPreviousValues {
@@ -1310,6 +1478,8 @@ type FaqCategoryPreviousValues {
   name: String!
   slug: String!
   description: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 input FaqCategoryScalarWhereInput {
@@ -1369,6 +1539,22 @@ input FaqCategoryScalarWhereInput {
   description_not_starts_with: String
   description_ends_with: String
   description_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [FaqCategoryScalarWhereInput!]
   OR: [FaqCategoryScalarWhereInput!]
   NOT: [FaqCategoryScalarWhereInput!]
@@ -1505,6 +1691,22 @@ input FaqCategoryWhereInput {
   faqs_every: FaqWhereInput
   faqs_some: FaqWhereInput
   faqs_none: FaqWhereInput
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [FaqCategoryWhereInput!]
   OR: [FaqCategoryWhereInput!]
   NOT: [FaqCategoryWhereInput!]
@@ -1588,6 +1790,10 @@ enum FaqOrderByInput {
   order_DESC
   pubDate_ASC
   pubDate_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type FaqPreviousValues {
@@ -1602,6 +1808,8 @@ type FaqPreviousValues {
   variant: [String!]!
   tag: [String!]!
   pubDate: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 input FaqScalarWhereInput {
@@ -1713,6 +1921,22 @@ input FaqScalarWhereInput {
   pubDate_lte: DateTime
   pubDate_gt: DateTime
   pubDate_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [FaqScalarWhereInput!]
   OR: [FaqScalarWhereInput!]
   NOT: [FaqScalarWhereInput!]
@@ -1942,6 +2166,22 @@ input FaqWhereInput {
   pubDate_lte: DateTime
   pubDate_gt: DateTime
   pubDate_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [FaqWhereInput!]
   OR: [FaqWhereInput!]
   NOT: [FaqWhereInput!]
@@ -1958,6 +2198,8 @@ type Media {
   url: String!
   title: String
   altText: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type MediaConnection {
@@ -1992,6 +2234,10 @@ enum MediaOrderByInput {
   title_DESC
   altText_ASC
   altText_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type MediaPreviousValues {
@@ -1999,6 +2245,8 @@ type MediaPreviousValues {
   url: String!
   title: String
   altText: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type MediaSubscriptionPayload {
@@ -2108,6 +2356,22 @@ input MediaWhereInput {
   altText_not_starts_with: String
   altText_ends_with: String
   altText_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [MediaWhereInput!]
   OR: [MediaWhereInput!]
   NOT: [MediaWhereInput!]
@@ -2215,6 +2479,8 @@ type Page {
   prosAndCons(where: ProsAndConsWhereInput, orderBy: ProsAndConsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ProsAndCons!]
   alertBoxes(where: AlertBoxWhereInput, orderBy: AlertBoxOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [AlertBox!]
   quickTips(where: QuickTipWhereInput, orderBy: QuickTipOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [QuickTip!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type PageConnection {
@@ -2358,6 +2624,10 @@ enum PageOrderByInput {
   status_DESC
   vertical_ASC
   vertical_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type PagePreviousValues {
@@ -2367,6 +2637,8 @@ type PagePreviousValues {
   type: PageType!
   status: PageStatus!
   vertical: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 enum PageStatus {
@@ -2627,6 +2899,22 @@ input PageWhereInput {
   quickTips_every: QuickTipWhereInput
   quickTips_some: QuickTipWhereInput
   quickTips_none: QuickTipWhereInput
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [PageWhereInput!]
   OR: [PageWhereInput!]
   NOT: [PageWhereInput!]
@@ -2646,6 +2934,8 @@ type Pros {
   prosAndCons: ProsAndCons!
   content: String
   order: Int
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type ProsAndCons {
@@ -2655,6 +2945,8 @@ type ProsAndCons {
   order: Int
   pros(where: ProsWhereInput, orderBy: ProsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Pros!]
   cons(where: ConsWhereInput, orderBy: ConsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Cons!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type ProsAndConsConnection {
@@ -2723,12 +3015,18 @@ enum ProsAndConsOrderByInput {
   title_DESC
   order_ASC
   order_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type ProsAndConsPreviousValues {
   id: ID!
   title: String
   order: Int
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 input ProsAndConsScalarWhereInput {
@@ -2768,6 +3066,22 @@ input ProsAndConsScalarWhereInput {
   order_lte: Int
   order_gt: Int
   order_gte: Int
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [ProsAndConsScalarWhereInput!]
   OR: [ProsAndConsScalarWhereInput!]
   NOT: [ProsAndConsScalarWhereInput!]
@@ -2926,6 +3240,22 @@ input ProsAndConsWhereInput {
   cons_every: ConsWhereInput
   cons_some: ConsWhereInput
   cons_none: ConsWhereInput
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [ProsAndConsWhereInput!]
   OR: [ProsAndConsWhereInput!]
   NOT: [ProsAndConsWhereInput!]
@@ -2971,12 +3301,18 @@ enum ProsOrderByInput {
   content_DESC
   order_ASC
   order_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type ProsPreviousValues {
   id: ID!
   content: String
   order: Int
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 input ProsScalarWhereInput {
@@ -3016,6 +3352,22 @@ input ProsScalarWhereInput {
   order_lte: Int
   order_gt: Int
   order_gte: Int
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [ProsScalarWhereInput!]
   OR: [ProsScalarWhereInput!]
   NOT: [ProsScalarWhereInput!]
@@ -3126,6 +3478,22 @@ input ProsWhereInput {
   order_lte: Int
   order_gt: Int
   order_gte: Int
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [ProsWhereInput!]
   OR: [ProsWhereInput!]
   NOT: [ProsWhereInput!]
@@ -3184,6 +3552,8 @@ type QuickTip {
   buttonLink: String
   media: Media
   order: Int
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type QuickTipConnection {
@@ -3236,6 +3606,10 @@ enum QuickTipOrderByInput {
   buttonLink_DESC
   order_ASC
   order_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type QuickTipPreviousValues {
@@ -3245,6 +3619,8 @@ type QuickTipPreviousValues {
   buttonText: String
   buttonLink: String
   order: Int
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 input QuickTipScalarWhereInput {
@@ -3326,6 +3702,22 @@ input QuickTipScalarWhereInput {
   order_lte: Int
   order_gt: Int
   order_gte: Int
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [QuickTipScalarWhereInput!]
   OR: [QuickTipScalarWhereInput!]
   NOT: [QuickTipScalarWhereInput!]
@@ -3493,6 +3885,22 @@ input QuickTipWhereInput {
   order_lte: Int
   order_gt: Int
   order_gte: Int
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [QuickTipWhereInput!]
   OR: [QuickTipWhereInput!]
   NOT: [QuickTipWhereInput!]
@@ -3525,6 +3933,8 @@ type User {
   resetToken: String
   resetTokenExpiry: Float
   permissions: [Permission!]!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type UserConnection {
@@ -3570,6 +3980,10 @@ enum UserOrderByInput {
   resetToken_DESC
   resetTokenExpiry_ASC
   resetTokenExpiry_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type UserPreviousValues {
@@ -3580,6 +3994,8 @@ type UserPreviousValues {
   resetToken: String
   resetTokenExpiry: Float
   permissions: [Permission!]!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 input UserScalarWhereInput {
@@ -3661,6 +4077,22 @@ input UserScalarWhereInput {
   resetTokenExpiry_lte: Float
   resetTokenExpiry_gt: Float
   resetTokenExpiry_gte: Float
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [UserScalarWhereInput!]
   OR: [UserScalarWhereInput!]
   NOT: [UserScalarWhereInput!]
@@ -3831,6 +4263,22 @@ input UserWhereInput {
   resetTokenExpiry_lte: Float
   resetTokenExpiry_gt: Float
   resetTokenExpiry_gte: Float
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [UserWhereInput!]
   OR: [UserWhereInput!]
   NOT: [UserWhereInput!]

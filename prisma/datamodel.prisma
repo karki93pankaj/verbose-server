@@ -23,6 +23,8 @@ type User {
   resetToken: String
   resetTokenExpiry: Float
   permissions: [Permission] @scalarList(strategy: RELATION)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type Page {
@@ -38,6 +40,8 @@ type Page {
   prosAndCons: [ProsAndCons]!
   alertBoxes: [AlertBox]!
   quickTips: [QuickTip]
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type Block {
@@ -49,6 +53,8 @@ type Block {
   style: String
   content: String
   order: Int
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type Box {
@@ -60,6 +66,8 @@ type Box {
   style: String
   content: String
   order: Int
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type AlertBox {
@@ -70,6 +78,8 @@ type AlertBox {
   prefix: String
   style: String
   order: Int
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type QuickTip {
@@ -81,6 +91,8 @@ type QuickTip {
   buttonLink: String
   media: Media
   order: Int
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type ProsAndCons {
@@ -90,6 +102,8 @@ type ProsAndCons {
   order: Int
   pros: [Pros]! @relation(name: "ProsOnProsAndCons", onDelete: CASCADE)
   cons: [Cons]! @relation(name: "ConsOnProsAndCons", onDelete: CASCADE)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type Pros {
@@ -98,6 +112,8 @@ type Pros {
     @relation(name: "ProsOnProsAndCons", onDelete: SET_NULL)
   content: String
   order: Int
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type Cons {
@@ -106,6 +122,8 @@ type Cons {
     @relation(name: "ConsOnProsAndCons", onDelete: SET_NULL)
   content: String
   order: Int
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type Faq {
@@ -122,6 +140,8 @@ type Faq {
   variant: [String] @scalarList(strategy: RELATION)
   tag: [String] @scalarList(strategy: RELATION)
   pubDate: DateTime
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type FaqCategory {
@@ -130,6 +150,8 @@ type FaqCategory {
   slug: String!
   description: String!
   faqs: [Faq!]!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type Media {
@@ -137,4 +159,6 @@ type Media {
   url: String!
   title: String
   altText: String
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }

@@ -16,7 +16,6 @@ services:
             host: postgres
             user: prisma
             password: prisma
-            rawAccess: true
             port: 5432
             migrations: true
   postgres:

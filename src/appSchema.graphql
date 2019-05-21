@@ -3,15 +3,35 @@
 type Query {
   me: User
   users: [User]!
-  pages: [Page]
+  pages(first: Int skip: Int): PageResponse
   page(id: ID): Page
   mediaFiles: [Media]
   mediaFile(id: ID): Media
-  faqs: [Faq]
+  faqs(first: Int skip: Int): FaqResponse
   faq(id: ID): Faq
   searchFaq(searchString: String): [Faq]
-  faqCategories: [FaqCategory]
+  faqCategories(first: Int skip: Int): FaqCategoryResponse
   faqCategory(id: ID): FaqCategory
+}
+
+type PageResponse {
+  items: [Page]
+  meta : Meta
+}
+
+type FaqResponse {
+  items: [Faq]
+  meta : Meta
+}
+
+type FaqCategoryResponse {
+  items: [FaqCategory]
+  meta : Meta
+}
+
+type Meta  {
+  total_count: Int
+  hit_count: Int
 }
 
 input ProConInput {

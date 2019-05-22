@@ -42,6 +42,7 @@ type Page {
   quickTips: [QuickTip]
   faqs: [PageFaq]
   faqAccordion: [PageFaqAccordion]
+  grids: [Grid]
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }
@@ -166,15 +167,38 @@ type Media {
 }
 
 type PageFaq {
-  id: ID! @unique
+  id: ID! @id
   order: Int
   page: Page!
   faq: Faq!
 }
 
 type PageFaqAccordion {
-  id: ID! @unique
+  id: ID! @id
   order: Int
   page: Page!
   faqCategory: FaqCategory!
+}
+
+type Grid {
+  id: ID! @id
+  title: String
+  page: Page!
+  content: String
+  order: Int
+  items: [GridItem] @relation(name: "GridItemsOnGrid", onDelete: CASCADE)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type GridItem {
+  id: ID! @id
+  grid: Grid @relation(name: "GridItemsOnGrid", onDelete: SET_NULL)
+  title: String
+  content: String
+  linkText: String
+  linkUrl: String
+  media: Media
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }

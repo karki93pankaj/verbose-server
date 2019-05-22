@@ -12,6 +12,8 @@ type Query {
   searchFaq(searchString: String): [Faq]
   faqCategories: [FaqCategory]
   faqCategory(id: ID): FaqCategory
+  grids: [Grid]
+  grid(id: ID): Grid
 }
 
 input ProConInput {
@@ -32,6 +34,16 @@ input SectionsOrder {
   id: ID!
   type: String!
   order: Int!
+}
+
+input GridItemInput {
+  id: ID!
+  title: String
+  grid: ID
+  content: String
+  linkText: String
+  linkUrl: String
+  media: ID
 }
 
 type Mutation {
@@ -173,6 +185,16 @@ type Mutation {
   ): FaqCategory!
 
   deleteFaqCategory(id: ID!): FaqCategory!
+
+  upsertGrid(
+    id: ID!
+    title: String
+    content: String
+    page: ID!
+    order: Int
+    items: [GridItemInput]
+  ): Grid
+  deleteGrid(id: ID!): Grid
 }
 
 type SuccessMessage {

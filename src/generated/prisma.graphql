@@ -2663,6 +2663,7 @@ input PageCreateWithoutBoxesInput {
 }
 
 input PageCreateWithoutFaqAccordionInput {
+  id: ID
   title: String!
   slug: String!
   type: PageType!
@@ -2678,6 +2679,7 @@ input PageCreateWithoutFaqAccordionInput {
 }
 
 input PageCreateWithoutFaqsInput {
+  id: ID
   title: String!
   slug: String!
   type: PageType!
@@ -2750,6 +2752,7 @@ type PageFaqAccordionConnection {
 }
 
 input PageFaqAccordionCreateInput {
+  id: ID
   order: Int
   page: PageCreateOneWithoutFaqAccordionInput!
   faqCategory: FaqCategoryCreateOneInput!
@@ -2761,6 +2764,7 @@ input PageFaqAccordionCreateManyWithoutPageInput {
 }
 
 input PageFaqAccordionCreateWithoutPageInput {
+  id: ID
   order: Int
   faqCategory: FaqCategoryCreateOneInput!
 }
@@ -2775,10 +2779,6 @@ enum PageFaqAccordionOrderByInput {
   id_DESC
   order_ASC
   order_DESC
-  createdAt_ASC
-  createdAt_DESC
-  updatedAt_ASC
-  updatedAt_DESC
 }
 
 type PageFaqAccordionPreviousValues {
@@ -2920,6 +2920,7 @@ type PageFaqConnection {
 }
 
 input PageFaqCreateInput {
+  id: ID
   order: Int
   page: PageCreateOneWithoutFaqsInput!
   faq: FaqCreateOneInput!
@@ -2931,6 +2932,7 @@ input PageFaqCreateManyWithoutPageInput {
 }
 
 input PageFaqCreateWithoutPageInput {
+  id: ID
   order: Int
   faq: FaqCreateOneInput!
 }
@@ -2945,10 +2947,6 @@ enum PageFaqOrderByInput {
   id_DESC
   order_ASC
   order_DESC
-  createdAt_ASC
-  createdAt_DESC
-  updatedAt_ASC
-  updatedAt_DESC
 }
 
 type PageFaqPreviousValues {

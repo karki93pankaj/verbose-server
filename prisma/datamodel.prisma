@@ -166,14 +166,14 @@ type Media {
 }
 
 type PageFaq {
-  id: ID! @unique
+  id: ID! @id
   order: Int
   page: Page!
   faq: Faq!
 }
 
 type PageFaqAccordion {
-  id: ID! @unique
+  id: ID! @id
   order: Int
   page: Page!
   faqCategory: FaqCategory!

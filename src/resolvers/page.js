@@ -1,3 +1,5 @@
+import slugify from 'slugify'
+
 import { importPages } from '../ingestor/pages'
 
 export default {
@@ -22,10 +24,24 @@ export default {
     async page(parent, args, ctx, info) {
       return ctx.prisma.page(args, info);
     },
+    async generatePageUrl (parent, args, ctx, info) {
+      const { slug, type, vertical } = args
+      
+      if (type === 'PAGE' || type === 'STATIC') {
+        return { url: `/${slugify(slug)}` }
+      }
+      else if (type === 'ARTICLE') {
+        return { url: `/${vertical}/articles/${slugify(slug)}` }
+      }
+      else if (type === 'NEWS') {
+        const newsSlug = vertical === 'home-loans' ? 'mortgage-news' : 'news'
+        return { url: `/${vertical}/${newsSlug}/${slugify(slug)}` }
+      }
+    },
   },
   Mutation: {
     async upsertPage (parent, args, ctx, info) {
-      const { id, media, title, slug, type, vertical, template, status } = args
+      const { id, media, title, slug, url, type, vertical, template, status } = args
 
       const mediaQuery = media ? { connect: { id: media } } : null
 
@@ -37,6 +53,7 @@ export default {
           media: mediaQuery,
           title,
           slug,
+          url,
           type,
           vertical,
           template,
@@ -46,6 +63,7 @@ export default {
           media: mediaQuery,
           title,
           slug,
+          url,
           type,
           vertical,
           template,

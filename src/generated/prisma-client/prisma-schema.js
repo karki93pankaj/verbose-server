@@ -2546,6 +2546,7 @@ type Page {
   id: ID!
   title: String!
   slug: String!
+  url: String!
   type: PageType!
   status: PageStatus!
   vertical: String
@@ -2572,6 +2573,7 @@ input PageCreateInput {
   id: ID
   title: String!
   slug: String!
+  url: String!
   type: PageType!
   status: PageStatus!
   vertical: String
@@ -2625,6 +2627,7 @@ input PageCreateWithoutAlertBoxesInput {
   id: ID
   title: String!
   slug: String!
+  url: String!
   type: PageType!
   status: PageStatus!
   vertical: String
@@ -2642,6 +2645,7 @@ input PageCreateWithoutBlocksInput {
   id: ID
   title: String!
   slug: String!
+  url: String!
   type: PageType!
   status: PageStatus!
   vertical: String
@@ -2659,6 +2663,7 @@ input PageCreateWithoutBoxesInput {
   id: ID
   title: String!
   slug: String!
+  url: String!
   type: PageType!
   status: PageStatus!
   vertical: String
@@ -2676,6 +2681,7 @@ input PageCreateWithoutFaqAccordionInput {
   id: ID
   title: String!
   slug: String!
+  url: String!
   type: PageType!
   status: PageStatus!
   vertical: String
@@ -2693,6 +2699,7 @@ input PageCreateWithoutFaqsInput {
   id: ID
   title: String!
   slug: String!
+  url: String!
   type: PageType!
   status: PageStatus!
   vertical: String
@@ -2710,6 +2717,7 @@ input PageCreateWithoutProsAndConsInput {
   id: ID
   title: String!
   slug: String!
+  url: String!
   type: PageType!
   status: PageStatus!
   vertical: String
@@ -2727,6 +2735,7 @@ input PageCreateWithoutQuickTipsInput {
   id: ID
   title: String!
   slug: String!
+  url: String!
   type: PageType!
   status: PageStatus!
   vertical: String
@@ -3109,6 +3118,8 @@ enum PageOrderByInput {
   title_DESC
   slug_ASC
   slug_DESC
+  url_ASC
+  url_DESC
   type_ASC
   type_DESC
   status_ASC
@@ -3127,6 +3138,7 @@ type PagePreviousValues {
   id: ID!
   title: String!
   slug: String!
+  url: String!
   type: PageType!
   status: PageStatus!
   vertical: String
@@ -3169,6 +3181,7 @@ enum PageType {
 input PageUpdateInput {
   title: String
   slug: String
+  url: String
   type: PageType
   status: PageStatus
   vertical: String
@@ -3186,6 +3199,7 @@ input PageUpdateInput {
 input PageUpdateManyMutationInput {
   title: String
   slug: String
+  url: String
   type: PageType
   status: PageStatus
   vertical: String
@@ -3244,6 +3258,7 @@ input PageUpdateOneRequiredWithoutQuickTipsInput {
 input PageUpdateWithoutAlertBoxesDataInput {
   title: String
   slug: String
+  url: String
   type: PageType
   status: PageStatus
   vertical: String
@@ -3260,6 +3275,7 @@ input PageUpdateWithoutAlertBoxesDataInput {
 input PageUpdateWithoutBlocksDataInput {
   title: String
   slug: String
+  url: String
   type: PageType
   status: PageStatus
   vertical: String
@@ -3276,6 +3292,7 @@ input PageUpdateWithoutBlocksDataInput {
 input PageUpdateWithoutBoxesDataInput {
   title: String
   slug: String
+  url: String
   type: PageType
   status: PageStatus
   vertical: String
@@ -3292,6 +3309,7 @@ input PageUpdateWithoutBoxesDataInput {
 input PageUpdateWithoutFaqAccordionDataInput {
   title: String
   slug: String
+  url: String
   type: PageType
   status: PageStatus
   vertical: String
@@ -3308,6 +3326,7 @@ input PageUpdateWithoutFaqAccordionDataInput {
 input PageUpdateWithoutFaqsDataInput {
   title: String
   slug: String
+  url: String
   type: PageType
   status: PageStatus
   vertical: String
@@ -3324,6 +3343,7 @@ input PageUpdateWithoutFaqsDataInput {
 input PageUpdateWithoutProsAndConsDataInput {
   title: String
   slug: String
+  url: String
   type: PageType
   status: PageStatus
   vertical: String
@@ -3340,6 +3360,7 @@ input PageUpdateWithoutProsAndConsDataInput {
 input PageUpdateWithoutQuickTipsDataInput {
   title: String
   slug: String
+  url: String
   type: PageType
   status: PageStatus
   vertical: String
@@ -3431,6 +3452,20 @@ input PageWhereInput {
   slug_not_starts_with: String
   slug_ends_with: String
   slug_not_ends_with: String
+  url: String
+  url_not: String
+  url_in: [String!]
+  url_not_in: [String!]
+  url_lt: String
+  url_lte: String
+  url_gt: String
+  url_gte: String
+  url_contains: String
+  url_not_contains: String
+  url_starts_with: String
+  url_not_starts_with: String
+  url_ends_with: String
+  url_not_ends_with: String
   type: PageType
   type_not: PageType
   type_in: [PageType!]

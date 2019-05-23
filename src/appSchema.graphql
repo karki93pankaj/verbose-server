@@ -12,6 +12,7 @@ type Query {
   searchFaq(searchString: String): [Faq]
   faqCategories(first: Int, skip: Int): FaqCategoryResponse
   faqCategory(id: ID): FaqCategory
+  generatePageUrl(slug: String!, type: PageType!, vertical: String!): PageUrl!
 }
 
 type PageResponse {
@@ -68,6 +69,7 @@ type Mutation {
     media: ID
     title: String!
     slug: String!
+    url: String!
     type: PageType!
     vertical: String
     template: String
@@ -195,6 +197,10 @@ type Mutation {
 
 type ReingestPagesResponse {
   status: Boolean
+}
+
+type PageUrl {
+  url: String
 }
 
 type SuccessMessage {

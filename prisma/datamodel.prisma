@@ -32,6 +32,7 @@ type Page {
   id: ID! @id
   title: String!
   slug: String!
+  url: String!
   type: PageType!
   status: PageStatus!
   vertical: String

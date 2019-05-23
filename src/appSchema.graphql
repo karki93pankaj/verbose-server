@@ -3,33 +3,33 @@
 type Query {
   me: User
   users: [User]!
-  pages(first: Int skip: Int): PageResponse
+  pages(first: Int, skip: Int): PageResponse
   page(id: ID): Page
   mediaFiles: [Media]
   mediaFile(id: ID): Media
-  faqs(first: Int skip: Int): FaqResponse
+  faqs(first: Int, skip: Int): FaqResponse
   faq(id: ID): Faq
   searchFaq(searchString: String): [Faq]
-  faqCategories(first: Int skip: Int): FaqCategoryResponse
+  faqCategories(first: Int, skip: Int): FaqCategoryResponse
   faqCategory(id: ID): FaqCategory
 }
 
 type PageResponse {
   items: [Page]
-  meta : Meta
+  meta: Meta
 }
 
 type FaqResponse {
   items: [Faq]
-  meta : Meta
+  meta: Meta
 }
 
 type FaqCategoryResponse {
   items: [FaqCategory]
-  meta : Meta
+  meta: Meta
 }
 
-type Meta  {
+type Meta {
   total_count: Int
   hit_count: Int
 }
@@ -70,6 +70,7 @@ type Mutation {
     slug: String!
     type: PageType!
     vertical: String
+    template: String
     status: PageStatus!
   ): Page!
   upsertBlock(

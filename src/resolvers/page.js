@@ -25,7 +25,7 @@ export default {
   },
   Mutation: {
     async upsertPage (parent, args, ctx, info) {
-      const { id, media, title, slug, type, vertical, status } = args
+      const { id, media, title, slug, type, vertical, template, status } = args
 
       const mediaQuery = media ? { connect: { id: media } } : null
 
@@ -39,6 +39,7 @@ export default {
           slug,
           type,
           vertical,
+          template,
           status,
         },
         create: {
@@ -47,6 +48,7 @@ export default {
           slug,
           type,
           vertical,
+          template,
           status,
         }
       })

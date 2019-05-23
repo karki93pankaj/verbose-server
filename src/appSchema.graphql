@@ -108,12 +108,7 @@ type Mutation {
 
   updateMedia(id: ID!, title: String, altText: String): Media
 
-  upsertPageFaq(
-    id: ID!
-    order: Int
-    page: ID!
-    faq: ID!
-  ): PageFaq
+  upsertPageFaq(id: ID!, order: Int, page: ID!, faq: ID!): PageFaq
 
   deletePageFaq(id: ID!): PageFaq
 
@@ -173,6 +168,12 @@ type Mutation {
   ): FaqCategory!
 
   deleteFaqCategory(id: ID!): FaqCategory!
+
+  reingestPages: ReingestPagesResponse!
+}
+
+type ReingestPagesResponse {
+  status: Boolean
 }
 
 type SuccessMessage {

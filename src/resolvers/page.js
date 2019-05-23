@@ -1,3 +1,5 @@
+import { importPages } from '../ingestor/pages'
+
 export default {
   Query: {
     async pages(parent, args, ctx, info) {
@@ -104,7 +106,10 @@ export default {
       })
 
       return sectionsOrderData[0].then((data) => ({ id: data.id }))
-    }
+    },
+    async reingestPages (parent, args, ctx, info) {
+      return await importPages()
+    }, 
   },
   Page: {
     media: (parent, args, ctx, info) => {

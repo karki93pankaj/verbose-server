@@ -31,6 +31,7 @@ async function getVerbosePages() {
       id
       title
       slug
+      url
       type
       vertical
       status
@@ -151,10 +152,8 @@ async function fetchPages () {
   const verbosePages = await getFilteredVerbosePages()
   const keystonePages = await getKeystonePages()
 
-  // only works for type = `PAGE` for now, as its url matches to the url on ultimate
-  // article and news will have slug including the vertical slug
   const pages = map(verbosePages, verbosePage => {
-    const keystonePageIndex = findIndex(keystonePages, { url: verbosePage.slug })
+    const keystonePageIndex = findIndex(keystonePages, { url: verbosePage.url })
     return merge(extractVerbosePageData(verbosePage), extractKeystonePageData(keystonePages[keystonePageIndex]))
   })
 

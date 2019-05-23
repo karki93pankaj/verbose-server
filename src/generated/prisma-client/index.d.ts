@@ -669,6 +669,8 @@ export type PageOrderByInput =
   | "title_DESC"
   | "slug_ASC"
   | "slug_DESC"
+  | "url_ASC"
+  | "url_DESC"
   | "type_ASC"
   | "type_DESC"
   | "status_ASC"
@@ -1000,6 +1002,7 @@ export interface MediaUpsertNestedInput {
 export interface PageUpdateWithoutProsAndConsDataInput {
   title?: Maybe<String>;
   slug?: Maybe<String>;
+  url?: Maybe<String>;
   type?: Maybe<PageType>;
   status?: Maybe<PageStatus>;
   vertical?: Maybe<String>;
@@ -1772,6 +1775,20 @@ export interface PageWhereInput {
   slug_not_starts_with?: Maybe<String>;
   slug_ends_with?: Maybe<String>;
   slug_not_ends_with?: Maybe<String>;
+  url?: Maybe<String>;
+  url_not?: Maybe<String>;
+  url_in?: Maybe<String[] | String>;
+  url_not_in?: Maybe<String[] | String>;
+  url_lt?: Maybe<String>;
+  url_lte?: Maybe<String>;
+  url_gt?: Maybe<String>;
+  url_gte?: Maybe<String>;
+  url_contains?: Maybe<String>;
+  url_not_contains?: Maybe<String>;
+  url_starts_with?: Maybe<String>;
+  url_not_starts_with?: Maybe<String>;
+  url_ends_with?: Maybe<String>;
+  url_not_ends_with?: Maybe<String>;
   type?: Maybe<PageType>;
   type_not?: Maybe<PageType>;
   type_in?: Maybe<PageType[] | PageType>;
@@ -2038,6 +2055,7 @@ export interface ProsAndConsUpdateWithWhereUniqueWithoutPageInput {
 export interface PageUpdateWithoutQuickTipsDataInput {
   title?: Maybe<String>;
   slug?: Maybe<String>;
+  url?: Maybe<String>;
   type?: Maybe<PageType>;
   status?: Maybe<PageStatus>;
   vertical?: Maybe<String>;
@@ -2091,6 +2109,7 @@ export interface PageCreateWithoutQuickTipsInput {
   id?: Maybe<ID_Input>;
   title: String;
   slug: String;
+  url: String;
   type: PageType;
   status: PageStatus;
   vertical?: Maybe<String>;
@@ -2451,6 +2470,7 @@ export interface ProsAndConsUpdateManyWithWhereNestedInput {
 export interface PageUpdateWithoutFaqsDataInput {
   title?: Maybe<String>;
   slug?: Maybe<String>;
+  url?: Maybe<String>;
   type?: Maybe<PageType>;
   status?: Maybe<PageStatus>;
   vertical?: Maybe<String>;
@@ -2502,6 +2522,7 @@ export interface PageCreateWithoutFaqsInput {
   id?: Maybe<ID_Input>;
   title: String;
   slug: String;
+  url: String;
   type: PageType;
   status: PageStatus;
   vertical?: Maybe<String>;
@@ -2539,6 +2560,7 @@ export interface QuickTipUpdateWithoutPageDataInput {
 export interface PageUpdateManyMutationInput {
   title?: Maybe<String>;
   slug?: Maybe<String>;
+  url?: Maybe<String>;
   type?: Maybe<PageType>;
   status?: Maybe<PageStatus>;
   vertical?: Maybe<String>;
@@ -2555,6 +2577,7 @@ export interface PageCreateInput {
   id?: Maybe<ID_Input>;
   title: String;
   slug: String;
+  url: String;
   type: PageType;
   status: PageStatus;
   vertical?: Maybe<String>;
@@ -2858,6 +2881,7 @@ export interface PageCreateWithoutAlertBoxesInput {
   id?: Maybe<ID_Input>;
   title: String;
   slug: String;
+  url: String;
   type: PageType;
   status: PageStatus;
   vertical?: Maybe<String>;
@@ -3392,6 +3416,7 @@ export interface FaqCategoryUpdateManyDataInput {
 export interface PageUpdateWithoutAlertBoxesDataInput {
   title?: Maybe<String>;
   slug?: Maybe<String>;
+  url?: Maybe<String>;
   type?: Maybe<PageType>;
   status?: Maybe<PageStatus>;
   vertical?: Maybe<String>;
@@ -3774,6 +3799,7 @@ export interface FaqUpdateWithoutCategoryDataInput {
 export interface PageUpdateWithoutFaqAccordionDataInput {
   title?: Maybe<String>;
   slug?: Maybe<String>;
+  url?: Maybe<String>;
   type?: Maybe<PageType>;
   status?: Maybe<PageStatus>;
   vertical?: Maybe<String>;
@@ -3797,6 +3823,7 @@ export interface PageCreateWithoutFaqAccordionInput {
   id?: Maybe<ID_Input>;
   title: String;
   slug: String;
+  url: String;
   type: PageType;
   status: PageStatus;
   vertical?: Maybe<String>;
@@ -3982,6 +4009,7 @@ export interface FaqCategoryUpsertNestedInput {
 export interface PageUpdateInput {
   title?: Maybe<String>;
   slug?: Maybe<String>;
+  url?: Maybe<String>;
   type?: Maybe<PageType>;
   status?: Maybe<PageStatus>;
   vertical?: Maybe<String>;
@@ -4156,6 +4184,7 @@ export interface PageCreateWithoutBlocksInput {
   id?: Maybe<ID_Input>;
   title: String;
   slug: String;
+  url: String;
   type: PageType;
   status: PageStatus;
   vertical?: Maybe<String>;
@@ -4357,6 +4386,7 @@ export interface BlockWhereInput {
 export interface PageUpdateWithoutBlocksDataInput {
   title?: Maybe<String>;
   slug?: Maybe<String>;
+  url?: Maybe<String>;
   type?: Maybe<PageType>;
   status?: Maybe<PageStatus>;
   vertical?: Maybe<String>;
@@ -4651,6 +4681,7 @@ export interface PageCreateWithoutBoxesInput {
   id?: Maybe<ID_Input>;
   title: String;
   slug: String;
+  url: String;
   type: PageType;
   status: PageStatus;
   vertical?: Maybe<String>;
@@ -4719,6 +4750,7 @@ export interface ProsAndConsCreateWithoutProsInput {
 export interface PageUpdateWithoutBoxesDataInput {
   title?: Maybe<String>;
   slug?: Maybe<String>;
+  url?: Maybe<String>;
   type?: Maybe<PageType>;
   status?: Maybe<PageStatus>;
   vertical?: Maybe<String>;
@@ -4818,6 +4850,7 @@ export interface PageCreateWithoutProsAndConsInput {
   id?: Maybe<ID_Input>;
   title: String;
   slug: String;
+  url: String;
   type: PageType;
   status: PageStatus;
   vertical?: Maybe<String>;
@@ -6480,6 +6513,7 @@ export interface Page {
   id: ID_Output;
   title: String;
   slug: String;
+  url: String;
   type: PageType;
   status: PageStatus;
   vertical?: String;
@@ -6492,6 +6526,7 @@ export interface PagePromise extends Promise<Page>, Fragmentable {
   id: () => Promise<ID_Output>;
   title: () => Promise<String>;
   slug: () => Promise<String>;
+  url: () => Promise<String>;
   type: () => Promise<PageType>;
   status: () => Promise<PageStatus>;
   vertical: () => Promise<String>;
@@ -6570,6 +6605,7 @@ export interface PageSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   title: () => Promise<AsyncIterator<String>>;
   slug: () => Promise<AsyncIterator<String>>;
+  url: () => Promise<AsyncIterator<String>>;
   type: () => Promise<AsyncIterator<PageType>>;
   status: () => Promise<AsyncIterator<PageStatus>>;
   vertical: () => Promise<AsyncIterator<String>>;
@@ -6650,6 +6686,7 @@ export interface PageNullablePromise
   id: () => Promise<ID_Output>;
   title: () => Promise<String>;
   slug: () => Promise<String>;
+  url: () => Promise<String>;
   type: () => Promise<PageType>;
   status: () => Promise<PageStatus>;
   vertical: () => Promise<String>;
@@ -6805,6 +6842,7 @@ export interface PagePreviousValues {
   id: ID_Output;
   title: String;
   slug: String;
+  url: String;
   type: PageType;
   status: PageStatus;
   vertical?: String;
@@ -6819,6 +6857,7 @@ export interface PagePreviousValuesPromise
   id: () => Promise<ID_Output>;
   title: () => Promise<String>;
   slug: () => Promise<String>;
+  url: () => Promise<String>;
   type: () => Promise<PageType>;
   status: () => Promise<PageStatus>;
   vertical: () => Promise<String>;
@@ -6833,6 +6872,7 @@ export interface PagePreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   title: () => Promise<AsyncIterator<String>>;
   slug: () => Promise<AsyncIterator<String>>;
+  url: () => Promise<AsyncIterator<String>>;
   type: () => Promise<AsyncIterator<PageType>>;
   status: () => Promise<AsyncIterator<PageStatus>>;
   vertical: () => Promise<AsyncIterator<String>>;

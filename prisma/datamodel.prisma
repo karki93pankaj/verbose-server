@@ -7,6 +7,7 @@ enum PageType {
   PAGE
   NEWS
   ARTICLE
+  STATIC
 }
 
 enum PageStatus {
@@ -35,6 +36,7 @@ type Page {
   status: PageStatus!
   vertical: String
   media: Media
+  template: String
   blocks: [Block]!
   boxes: [Box]!
   prosAndCons: [ProsAndCons]!

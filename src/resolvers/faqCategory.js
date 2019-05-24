@@ -9,7 +9,12 @@ export default {
           // hasPermission(ctx.request.user, ['ADMIN', 'PERMISSIONUPDATE']);
     
           // 2. if they do, query all the faq categories!
-          return ctx.prisma.faqCategories({ orderBy: 'createdAt_DESC' }, info);
+          const items = await ctx.prisma.faqCategories({...args}, info);
+          const total_count = await ctx.prisma.faqCategoriesConnection().aggregate().count();
+          return {
+            items,
+            meta: { total_count, hit_count : items.length },
+          }
         },
         async faqCategory(parent, args, ctx, info) {
           return ctx.prisma.faqCategory(args, info);

@@ -430,7 +430,7 @@ type Block {
   title: String
   media: Media
   video: String
-  style: String
+  alignment: String
   content: String
   order: Int
   createdAt: DateTime!
@@ -449,7 +449,7 @@ input BlockCreateInput {
   title: String
   media: MediaCreateOneInput
   video: String
-  style: String
+  alignment: String
   content: String
   order: Int
 }
@@ -464,7 +464,7 @@ input BlockCreateWithoutPageInput {
   title: String
   media: MediaCreateOneInput
   video: String
-  style: String
+  alignment: String
   content: String
   order: Int
 }
@@ -481,8 +481,8 @@ enum BlockOrderByInput {
   title_DESC
   video_ASC
   video_DESC
-  style_ASC
-  style_DESC
+  alignment_ASC
+  alignment_DESC
   content_ASC
   content_DESC
   order_ASC
@@ -497,7 +497,7 @@ type BlockPreviousValues {
   id: ID!
   title: String
   video: String
-  style: String
+  alignment: String
   content: String
   order: Int
   createdAt: DateTime!
@@ -547,20 +547,20 @@ input BlockScalarWhereInput {
   video_not_starts_with: String
   video_ends_with: String
   video_not_ends_with: String
-  style: String
-  style_not: String
-  style_in: [String!]
-  style_not_in: [String!]
-  style_lt: String
-  style_lte: String
-  style_gt: String
-  style_gte: String
-  style_contains: String
-  style_not_contains: String
-  style_starts_with: String
-  style_not_starts_with: String
-  style_ends_with: String
-  style_not_ends_with: String
+  alignment: String
+  alignment_not: String
+  alignment_in: [String!]
+  alignment_not_in: [String!]
+  alignment_lt: String
+  alignment_lte: String
+  alignment_gt: String
+  alignment_gte: String
+  alignment_contains: String
+  alignment_not_contains: String
+  alignment_starts_with: String
+  alignment_not_starts_with: String
+  alignment_ends_with: String
+  alignment_not_ends_with: String
   content: String
   content_not: String
   content_in: [String!]
@@ -627,7 +627,7 @@ input BlockUpdateInput {
   title: String
   media: MediaUpdateOneInput
   video: String
-  style: String
+  alignment: String
   content: String
   order: Int
 }
@@ -635,7 +635,7 @@ input BlockUpdateInput {
 input BlockUpdateManyDataInput {
   title: String
   video: String
-  style: String
+  alignment: String
   content: String
   order: Int
 }
@@ -643,7 +643,7 @@ input BlockUpdateManyDataInput {
 input BlockUpdateManyMutationInput {
   title: String
   video: String
-  style: String
+  alignment: String
   content: String
   order: Int
 }
@@ -669,7 +669,7 @@ input BlockUpdateWithoutPageDataInput {
   title: String
   media: MediaUpdateOneInput
   video: String
-  style: String
+  alignment: String
   content: String
   order: Int
 }
@@ -730,20 +730,20 @@ input BlockWhereInput {
   video_not_starts_with: String
   video_ends_with: String
   video_not_ends_with: String
-  style: String
-  style_not: String
-  style_in: [String!]
-  style_not_in: [String!]
-  style_lt: String
-  style_lte: String
-  style_gt: String
-  style_gte: String
-  style_contains: String
-  style_not_contains: String
-  style_starts_with: String
-  style_not_starts_with: String
-  style_ends_with: String
-  style_not_ends_with: String
+  alignment: String
+  alignment_not: String
+  alignment_in: [String!]
+  alignment_not_in: [String!]
+  alignment_lt: String
+  alignment_lte: String
+  alignment_gt: String
+  alignment_gte: String
+  alignment_contains: String
+  alignment_not_contains: String
+  alignment_starts_with: String
+  alignment_not_starts_with: String
+  alignment_ends_with: String
+  alignment_not_ends_with: String
   content: String
   content_not: String
   content_in: [String!]
@@ -798,6 +798,7 @@ type Box {
   media: Media
   video: String
   style: String
+  alignment: String
   content: String
   order: Int
   createdAt: DateTime!
@@ -817,6 +818,7 @@ input BoxCreateInput {
   media: MediaCreateOneInput
   video: String
   style: String
+  alignment: String
   content: String
   order: Int
 }
@@ -832,6 +834,7 @@ input BoxCreateWithoutPageInput {
   media: MediaCreateOneInput
   video: String
   style: String
+  alignment: String
   content: String
   order: Int
 }
@@ -850,6 +853,8 @@ enum BoxOrderByInput {
   video_DESC
   style_ASC
   style_DESC
+  alignment_ASC
+  alignment_DESC
   content_ASC
   content_DESC
   order_ASC
@@ -865,6 +870,7 @@ type BoxPreviousValues {
   title: String
   video: String
   style: String
+  alignment: String
   content: String
   order: Int
   createdAt: DateTime!
@@ -928,6 +934,20 @@ input BoxScalarWhereInput {
   style_not_starts_with: String
   style_ends_with: String
   style_not_ends_with: String
+  alignment: String
+  alignment_not: String
+  alignment_in: [String!]
+  alignment_not_in: [String!]
+  alignment_lt: String
+  alignment_lte: String
+  alignment_gt: String
+  alignment_gte: String
+  alignment_contains: String
+  alignment_not_contains: String
+  alignment_starts_with: String
+  alignment_not_starts_with: String
+  alignment_ends_with: String
+  alignment_not_ends_with: String
   content: String
   content_not: String
   content_in: [String!]
@@ -995,6 +1015,7 @@ input BoxUpdateInput {
   media: MediaUpdateOneInput
   video: String
   style: String
+  alignment: String
   content: String
   order: Int
 }
@@ -1003,6 +1024,7 @@ input BoxUpdateManyDataInput {
   title: String
   video: String
   style: String
+  alignment: String
   content: String
   order: Int
 }
@@ -1011,6 +1033,7 @@ input BoxUpdateManyMutationInput {
   title: String
   video: String
   style: String
+  alignment: String
   content: String
   order: Int
 }
@@ -1037,6 +1060,7 @@ input BoxUpdateWithoutPageDataInput {
   media: MediaUpdateOneInput
   video: String
   style: String
+  alignment: String
   content: String
   order: Int
 }
@@ -1111,6 +1135,20 @@ input BoxWhereInput {
   style_not_starts_with: String
   style_ends_with: String
   style_not_ends_with: String
+  alignment: String
+  alignment_not: String
+  alignment_in: [String!]
+  alignment_not_in: [String!]
+  alignment_lt: String
+  alignment_lte: String
+  alignment_gt: String
+  alignment_gte: String
+  alignment_contains: String
+  alignment_not_contains: String
+  alignment_starts_with: String
+  alignment_not_starts_with: String
+  alignment_ends_with: String
+  alignment_not_ends_with: String
   content: String
   content_not: String
   content_in: [String!]
@@ -2546,10 +2584,12 @@ type Page {
   id: ID!
   title: String!
   slug: String!
+  url: String!
   type: PageType!
   status: PageStatus!
   vertical: String
   media: Media
+  template: String
   blocks(where: BlockWhereInput, orderBy: BlockOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Block!]
   boxes(where: BoxWhereInput, orderBy: BoxOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Box!]
   prosAndCons(where: ProsAndConsWhereInput, orderBy: ProsAndConsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ProsAndCons!]
@@ -2571,10 +2611,12 @@ input PageCreateInput {
   id: ID
   title: String!
   slug: String!
+  url: String!
   type: PageType!
   status: PageStatus!
   vertical: String
   media: MediaCreateOneInput
+  template: String
   blocks: BlockCreateManyWithoutPageInput
   boxes: BoxCreateManyWithoutPageInput
   prosAndCons: ProsAndConsCreateManyWithoutPageInput
@@ -2623,10 +2665,12 @@ input PageCreateWithoutAlertBoxesInput {
   id: ID
   title: String!
   slug: String!
+  url: String!
   type: PageType!
   status: PageStatus!
   vertical: String
   media: MediaCreateOneInput
+  template: String
   blocks: BlockCreateManyWithoutPageInput
   boxes: BoxCreateManyWithoutPageInput
   prosAndCons: ProsAndConsCreateManyWithoutPageInput
@@ -2639,10 +2683,12 @@ input PageCreateWithoutBlocksInput {
   id: ID
   title: String!
   slug: String!
+  url: String!
   type: PageType!
   status: PageStatus!
   vertical: String
   media: MediaCreateOneInput
+  template: String
   boxes: BoxCreateManyWithoutPageInput
   prosAndCons: ProsAndConsCreateManyWithoutPageInput
   alertBoxes: AlertBoxCreateManyWithoutPageInput
@@ -2655,10 +2701,12 @@ input PageCreateWithoutBoxesInput {
   id: ID
   title: String!
   slug: String!
+  url: String!
   type: PageType!
   status: PageStatus!
   vertical: String
   media: MediaCreateOneInput
+  template: String
   blocks: BlockCreateManyWithoutPageInput
   prosAndCons: ProsAndConsCreateManyWithoutPageInput
   alertBoxes: AlertBoxCreateManyWithoutPageInput
@@ -2668,12 +2716,15 @@ input PageCreateWithoutBoxesInput {
 }
 
 input PageCreateWithoutFaqAccordionInput {
+  id: ID
   title: String!
   slug: String!
+  url: String!
   type: PageType!
   status: PageStatus!
   vertical: String
   media: MediaCreateOneInput
+  template: String
   blocks: BlockCreateManyWithoutPageInput
   boxes: BoxCreateManyWithoutPageInput
   prosAndCons: ProsAndConsCreateManyWithoutPageInput
@@ -2683,12 +2734,15 @@ input PageCreateWithoutFaqAccordionInput {
 }
 
 input PageCreateWithoutFaqsInput {
+  id: ID
   title: String!
   slug: String!
+  url: String!
   type: PageType!
   status: PageStatus!
   vertical: String
   media: MediaCreateOneInput
+  template: String
   blocks: BlockCreateManyWithoutPageInput
   boxes: BoxCreateManyWithoutPageInput
   prosAndCons: ProsAndConsCreateManyWithoutPageInput
@@ -2701,10 +2755,12 @@ input PageCreateWithoutProsAndConsInput {
   id: ID
   title: String!
   slug: String!
+  url: String!
   type: PageType!
   status: PageStatus!
   vertical: String
   media: MediaCreateOneInput
+  template: String
   blocks: BlockCreateManyWithoutPageInput
   boxes: BoxCreateManyWithoutPageInput
   alertBoxes: AlertBoxCreateManyWithoutPageInput
@@ -2717,10 +2773,12 @@ input PageCreateWithoutQuickTipsInput {
   id: ID
   title: String!
   slug: String!
+  url: String!
   type: PageType!
   status: PageStatus!
   vertical: String
   media: MediaCreateOneInput
+  template: String
   blocks: BlockCreateManyWithoutPageInput
   boxes: BoxCreateManyWithoutPageInput
   prosAndCons: ProsAndConsCreateManyWithoutPageInput
@@ -2755,6 +2813,7 @@ type PageFaqAccordionConnection {
 }
 
 input PageFaqAccordionCreateInput {
+  id: ID
   order: Int
   page: PageCreateOneWithoutFaqAccordionInput!
   faqCategory: FaqCategoryCreateOneInput!
@@ -2766,6 +2825,7 @@ input PageFaqAccordionCreateManyWithoutPageInput {
 }
 
 input PageFaqAccordionCreateWithoutPageInput {
+  id: ID
   order: Int
   faqCategory: FaqCategoryCreateOneInput!
 }
@@ -2780,10 +2840,6 @@ enum PageFaqAccordionOrderByInput {
   id_DESC
   order_ASC
   order_DESC
-  createdAt_ASC
-  createdAt_DESC
-  updatedAt_ASC
-  updatedAt_DESC
 }
 
 type PageFaqAccordionPreviousValues {
@@ -2925,6 +2981,7 @@ type PageFaqConnection {
 }
 
 input PageFaqCreateInput {
+  id: ID
   order: Int
   page: PageCreateOneWithoutFaqsInput!
   faq: FaqCreateOneInput!
@@ -2936,6 +2993,7 @@ input PageFaqCreateManyWithoutPageInput {
 }
 
 input PageFaqCreateWithoutPageInput {
+  id: ID
   order: Int
   faq: FaqCreateOneInput!
 }
@@ -2950,10 +3008,6 @@ enum PageFaqOrderByInput {
   id_DESC
   order_ASC
   order_DESC
-  createdAt_ASC
-  createdAt_DESC
-  updatedAt_ASC
-  updatedAt_DESC
 }
 
 type PageFaqPreviousValues {
@@ -3102,12 +3156,16 @@ enum PageOrderByInput {
   title_DESC
   slug_ASC
   slug_DESC
+  url_ASC
+  url_DESC
   type_ASC
   type_DESC
   status_ASC
   status_DESC
   vertical_ASC
   vertical_DESC
+  template_ASC
+  template_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -3118,9 +3176,11 @@ type PagePreviousValues {
   id: ID!
   title: String!
   slug: String!
+  url: String!
   type: PageType!
   status: PageStatus!
   vertical: String
+  template: String
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -3153,15 +3213,18 @@ enum PageType {
   PAGE
   NEWS
   ARTICLE
+  STATIC
 }
 
 input PageUpdateInput {
   title: String
   slug: String
+  url: String
   type: PageType
   status: PageStatus
   vertical: String
   media: MediaUpdateOneInput
+  template: String
   blocks: BlockUpdateManyWithoutPageInput
   boxes: BoxUpdateManyWithoutPageInput
   prosAndCons: ProsAndConsUpdateManyWithoutPageInput
@@ -3174,9 +3237,11 @@ input PageUpdateInput {
 input PageUpdateManyMutationInput {
   title: String
   slug: String
+  url: String
   type: PageType
   status: PageStatus
   vertical: String
+  template: String
 }
 
 input PageUpdateOneRequiredWithoutAlertBoxesInput {
@@ -3231,10 +3296,12 @@ input PageUpdateOneRequiredWithoutQuickTipsInput {
 input PageUpdateWithoutAlertBoxesDataInput {
   title: String
   slug: String
+  url: String
   type: PageType
   status: PageStatus
   vertical: String
   media: MediaUpdateOneInput
+  template: String
   blocks: BlockUpdateManyWithoutPageInput
   boxes: BoxUpdateManyWithoutPageInput
   prosAndCons: ProsAndConsUpdateManyWithoutPageInput
@@ -3246,10 +3313,12 @@ input PageUpdateWithoutAlertBoxesDataInput {
 input PageUpdateWithoutBlocksDataInput {
   title: String
   slug: String
+  url: String
   type: PageType
   status: PageStatus
   vertical: String
   media: MediaUpdateOneInput
+  template: String
   boxes: BoxUpdateManyWithoutPageInput
   prosAndCons: ProsAndConsUpdateManyWithoutPageInput
   alertBoxes: AlertBoxUpdateManyWithoutPageInput
@@ -3261,10 +3330,12 @@ input PageUpdateWithoutBlocksDataInput {
 input PageUpdateWithoutBoxesDataInput {
   title: String
   slug: String
+  url: String
   type: PageType
   status: PageStatus
   vertical: String
   media: MediaUpdateOneInput
+  template: String
   blocks: BlockUpdateManyWithoutPageInput
   prosAndCons: ProsAndConsUpdateManyWithoutPageInput
   alertBoxes: AlertBoxUpdateManyWithoutPageInput
@@ -3276,10 +3347,12 @@ input PageUpdateWithoutBoxesDataInput {
 input PageUpdateWithoutFaqAccordionDataInput {
   title: String
   slug: String
+  url: String
   type: PageType
   status: PageStatus
   vertical: String
   media: MediaUpdateOneInput
+  template: String
   blocks: BlockUpdateManyWithoutPageInput
   boxes: BoxUpdateManyWithoutPageInput
   prosAndCons: ProsAndConsUpdateManyWithoutPageInput
@@ -3291,10 +3364,12 @@ input PageUpdateWithoutFaqAccordionDataInput {
 input PageUpdateWithoutFaqsDataInput {
   title: String
   slug: String
+  url: String
   type: PageType
   status: PageStatus
   vertical: String
   media: MediaUpdateOneInput
+  template: String
   blocks: BlockUpdateManyWithoutPageInput
   boxes: BoxUpdateManyWithoutPageInput
   prosAndCons: ProsAndConsUpdateManyWithoutPageInput
@@ -3306,10 +3381,12 @@ input PageUpdateWithoutFaqsDataInput {
 input PageUpdateWithoutProsAndConsDataInput {
   title: String
   slug: String
+  url: String
   type: PageType
   status: PageStatus
   vertical: String
   media: MediaUpdateOneInput
+  template: String
   blocks: BlockUpdateManyWithoutPageInput
   boxes: BoxUpdateManyWithoutPageInput
   alertBoxes: AlertBoxUpdateManyWithoutPageInput
@@ -3321,10 +3398,12 @@ input PageUpdateWithoutProsAndConsDataInput {
 input PageUpdateWithoutQuickTipsDataInput {
   title: String
   slug: String
+  url: String
   type: PageType
   status: PageStatus
   vertical: String
   media: MediaUpdateOneInput
+  template: String
   blocks: BlockUpdateManyWithoutPageInput
   boxes: BoxUpdateManyWithoutPageInput
   prosAndCons: ProsAndConsUpdateManyWithoutPageInput
@@ -3411,6 +3490,20 @@ input PageWhereInput {
   slug_not_starts_with: String
   slug_ends_with: String
   slug_not_ends_with: String
+  url: String
+  url_not: String
+  url_in: [String!]
+  url_not_in: [String!]
+  url_lt: String
+  url_lte: String
+  url_gt: String
+  url_gte: String
+  url_contains: String
+  url_not_contains: String
+  url_starts_with: String
+  url_not_starts_with: String
+  url_ends_with: String
+  url_not_ends_with: String
   type: PageType
   type_not: PageType
   type_in: [PageType!]
@@ -3434,6 +3527,20 @@ input PageWhereInput {
   vertical_ends_with: String
   vertical_not_ends_with: String
   media: MediaWhereInput
+  template: String
+  template_not: String
+  template_in: [String!]
+  template_not_in: [String!]
+  template_lt: String
+  template_lte: String
+  template_gt: String
+  template_gte: String
+  template_contains: String
+  template_not_contains: String
+  template_starts_with: String
+  template_not_starts_with: String
+  template_ends_with: String
+  template_not_ends_with: String
   blocks_every: BlockWhereInput
   blocks_some: BlockWhereInput
   blocks_none: BlockWhereInput

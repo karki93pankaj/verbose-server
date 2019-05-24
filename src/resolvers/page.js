@@ -1,3 +1,7 @@
+import slugify from 'slugify'
+
+import { importPages } from '../ingestor/pages'
+
 export default {
   Query: {
     async pages(parent, args, ctx, info) {
@@ -9,15 +13,35 @@ export default {
       // hasPermission(ctx.request.user, ['ADMIN', 'PERMISSIONUPDATE']);
 
       // 2. if they do, query all the users!
-      return ctx.prisma.pages({ orderBy: 'createdAt_DESC' }, info);
+      const items = await ctx.prisma.pages({...args}, info);
+      const total_count = await ctx.prisma.pagesConnection().aggregate().count();
+      return {
+        items,
+        meta: { total_count, hit_count : items.length },
+      }
+
     },
     async page(parent, args, ctx, info) {
       return ctx.prisma.page(args, info);
     },
+    async generatePageUrl (parent, args, ctx, info) {
+      const { slug, type, vertical } = args
+      
+      if (type === 'PAGE' || type === 'STATIC') {
+        return { url: `/${slugify(slug)}` }
+      }
+      else if (type === 'ARTICLE') {
+        return { url: `/${vertical}/articles/${slugify(slug)}` }
+      }
+      else if (type === 'NEWS') {
+        const newsSlug = vertical === 'home-loans' ? 'mortgage-news' : 'news'
+        return { url: `/${vertical}/${newsSlug}/${slugify(slug)}` }
+      }
+    },
   },
   Mutation: {
     async upsertPage (parent, args, ctx, info) {
-      const { id, media, title, slug, type, vertical, status } = args
+      const { id, media, title, slug, url, type, vertical, template, status } = args
 
       const mediaQuery = media ? { connect: { id: media } } : null
 
@@ -29,16 +53,20 @@ export default {
           media: mediaQuery,
           title,
           slug,
+          url,
           type,
           vertical,
+          template,
           status,
         },
         create: {
           media: mediaQuery,
           title,
           slug,
+          url,
           type,
           vertical,
+          template,
           status,
         }
       })
@@ -104,7 +132,10 @@ export default {
       })
 
       return sectionsOrderData[0].then((data) => ({ id: data.id }))
-    }
+    },
+    async reingestPages (parent, args, ctx, info) {
+      return await importPages()
+    }, 
   },
   Page: {
     media: (parent, args, ctx, info) => {

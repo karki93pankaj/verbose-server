@@ -7,6 +7,7 @@ enum PageType {
   PAGE
   NEWS
   ARTICLE
+  STATIC
 }
 
 enum PageStatus {
@@ -31,10 +32,12 @@ type Page {
   id: ID! @id
   title: String!
   slug: String!
+  url: String!
   type: PageType!
   status: PageStatus!
   vertical: String
   media: Media
+  template: String
   blocks: [Block]!
   boxes: [Box]!
   prosAndCons: [ProsAndCons]!
@@ -53,7 +56,7 @@ type Block {
   title: String
   media: Media
   video: String
-  style: String
+  alignment: String
   content: String
   order: Int
   createdAt: DateTime! @createdAt
@@ -67,6 +70,7 @@ type Box {
   media: Media
   video: String
   style: String
+  alignment: String
   content: String
   order: Int
   createdAt: DateTime! @createdAt

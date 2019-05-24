@@ -3,17 +3,38 @@
 type Query {
   me: User
   users: [User]!
-  pages: [Page]
+  pages(first: Int, skip: Int): PageResponse
   page(id: ID): Page
   mediaFiles: [Media]
   mediaFile(id: ID): Media
-  faqs: [Faq]
+  faqs(first: Int, skip: Int): FaqResponse
   faq(id: ID): Faq
   searchFaq(searchString: String): [Faq]
-  faqCategories: [FaqCategory]
+  faqCategories(first: Int, skip: Int): FaqCategoryResponse
   faqCategory(id: ID): FaqCategory
   grids: [Grid]
   grid(id: ID): Grid
+  generatePageUrl(slug: String!, type: PageType!, vertical: String!): PageUrl!
+}
+
+type PageResponse {
+  items: [Page]
+  meta: Meta
+}
+
+type FaqResponse {
+  items: [Faq]
+  meta: Meta
+}
+
+type FaqCategoryResponse {
+  items: [FaqCategory]
+  meta: Meta
+}
+
+type Meta {
+  total_count: Int
+  hit_count: Int
 }
 
 input ProConInput {
@@ -60,8 +81,10 @@ type Mutation {
     media: ID
     title: String!
     slug: String!
+    url: String!
     type: PageType!
     vertical: String
+    template: String
     status: PageStatus!
   ): Page!
   upsertBlock(
@@ -70,7 +93,7 @@ type Mutation {
     media: ID
     title: String!
     video: String
-    style: String
+    alignment: String
     content: String
     order: Int
   ): Block
@@ -82,6 +105,7 @@ type Mutation {
     title: String!
     video: String
     style: String
+    alignment: String
     content: String
     order: Int
   ): Box
@@ -120,12 +144,7 @@ type Mutation {
 
   updateMedia(id: ID!, title: String, altText: String): Media
 
-  upsertPageFaq(
-    id: ID!
-    order: Int
-    page: ID!
-    faq: ID!
-  ): PageFaq
+  upsertPageFaq(id: ID!, order: Int, page: ID!, faq: ID!): PageFaq
 
   deletePageFaq(id: ID!): PageFaq
 
@@ -195,6 +214,15 @@ type Mutation {
     items: [GridItemInput]
   ): Grid
   deleteGrid(id: ID!): Grid
+  reingestPages: ReingestPagesResponse!
+}
+
+type ReingestPagesResponse {
+  status: Boolean
+}
+
+type PageUrl {
+  url: String
 }
 
 type SuccessMessage {

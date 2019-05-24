@@ -28,14 +28,14 @@ export default {
       const { slug, type, vertical } = args
       
       if (type === 'PAGE' || type === 'STATIC') {
-        return { url: `/${slugify(slug)}` }
+        return { url: `/${slugify(slug, { lower: true })}` }
       }
       else if (type === 'ARTICLE') {
-        return { url: `/${vertical}/articles/${slugify(slug)}` }
+        return { url: `/${vertical}/articles/${slugify(slug, { lower: true })}` }
       }
       else if (type === 'NEWS') {
         const newsSlug = vertical === 'home-loans' ? 'mortgage-news' : 'news'
-        return { url: `/${vertical}/${newsSlug}/${slugify(slug)}` }
+        return { url: `/${vertical}/${newsSlug}/${slugify(slug, { lower: true })}` }
       }
     },
   },

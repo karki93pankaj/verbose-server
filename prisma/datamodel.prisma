@@ -55,7 +55,7 @@ type Block {
   title: String
   media: Media
   video: String
-  style: String
+  alignment: String
   content: String
   order: Int
   createdAt: DateTime! @createdAt
@@ -69,6 +69,7 @@ type Box {
   media: Media
   video: String
   style: String
+  alignment: String
   content: String
   order: Int
   createdAt: DateTime! @createdAt

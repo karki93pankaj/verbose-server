@@ -31,7 +31,7 @@ export default (verbosePage) => {
   }))
 
   const blocks = map(verbosePage.blocks, block => ({
-    alignment: block.style,
+    alignment: block.alignment,
     order: block.order,
     video: block.video,
     content: block.content,
@@ -43,6 +43,7 @@ export default (verbosePage) => {
 
   const boxes = map(verbosePage.boxes, box => ({
     style: box.style,
+    alignment: box.alignment,
     order: box.order,
     video: box.video,
     content: box.content,

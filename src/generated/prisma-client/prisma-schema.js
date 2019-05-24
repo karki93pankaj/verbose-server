@@ -430,7 +430,7 @@ type Block {
   title: String
   media: Media
   video: String
-  style: String
+  alignment: String
   content: String
   order: Int
   createdAt: DateTime!
@@ -449,7 +449,7 @@ input BlockCreateInput {
   title: String
   media: MediaCreateOneInput
   video: String
-  style: String
+  alignment: String
   content: String
   order: Int
 }
@@ -464,7 +464,7 @@ input BlockCreateWithoutPageInput {
   title: String
   media: MediaCreateOneInput
   video: String
-  style: String
+  alignment: String
   content: String
   order: Int
 }
@@ -481,8 +481,8 @@ enum BlockOrderByInput {
   title_DESC
   video_ASC
   video_DESC
-  style_ASC
-  style_DESC
+  alignment_ASC
+  alignment_DESC
   content_ASC
   content_DESC
   order_ASC
@@ -497,7 +497,7 @@ type BlockPreviousValues {
   id: ID!
   title: String
   video: String
-  style: String
+  alignment: String
   content: String
   order: Int
   createdAt: DateTime!
@@ -547,20 +547,20 @@ input BlockScalarWhereInput {
   video_not_starts_with: String
   video_ends_with: String
   video_not_ends_with: String
-  style: String
-  style_not: String
-  style_in: [String!]
-  style_not_in: [String!]
-  style_lt: String
-  style_lte: String
-  style_gt: String
-  style_gte: String
-  style_contains: String
-  style_not_contains: String
-  style_starts_with: String
-  style_not_starts_with: String
-  style_ends_with: String
-  style_not_ends_with: String
+  alignment: String
+  alignment_not: String
+  alignment_in: [String!]
+  alignment_not_in: [String!]
+  alignment_lt: String
+  alignment_lte: String
+  alignment_gt: String
+  alignment_gte: String
+  alignment_contains: String
+  alignment_not_contains: String
+  alignment_starts_with: String
+  alignment_not_starts_with: String
+  alignment_ends_with: String
+  alignment_not_ends_with: String
   content: String
   content_not: String
   content_in: [String!]
@@ -627,7 +627,7 @@ input BlockUpdateInput {
   title: String
   media: MediaUpdateOneInput
   video: String
-  style: String
+  alignment: String
   content: String
   order: Int
 }
@@ -635,7 +635,7 @@ input BlockUpdateInput {
 input BlockUpdateManyDataInput {
   title: String
   video: String
-  style: String
+  alignment: String
   content: String
   order: Int
 }
@@ -643,7 +643,7 @@ input BlockUpdateManyDataInput {
 input BlockUpdateManyMutationInput {
   title: String
   video: String
-  style: String
+  alignment: String
   content: String
   order: Int
 }
@@ -669,7 +669,7 @@ input BlockUpdateWithoutPageDataInput {
   title: String
   media: MediaUpdateOneInput
   video: String
-  style: String
+  alignment: String
   content: String
   order: Int
 }
@@ -730,20 +730,20 @@ input BlockWhereInput {
   video_not_starts_with: String
   video_ends_with: String
   video_not_ends_with: String
-  style: String
-  style_not: String
-  style_in: [String!]
-  style_not_in: [String!]
-  style_lt: String
-  style_lte: String
-  style_gt: String
-  style_gte: String
-  style_contains: String
-  style_not_contains: String
-  style_starts_with: String
-  style_not_starts_with: String
-  style_ends_with: String
-  style_not_ends_with: String
+  alignment: String
+  alignment_not: String
+  alignment_in: [String!]
+  alignment_not_in: [String!]
+  alignment_lt: String
+  alignment_lte: String
+  alignment_gt: String
+  alignment_gte: String
+  alignment_contains: String
+  alignment_not_contains: String
+  alignment_starts_with: String
+  alignment_not_starts_with: String
+  alignment_ends_with: String
+  alignment_not_ends_with: String
   content: String
   content_not: String
   content_in: [String!]
@@ -798,6 +798,7 @@ type Box {
   media: Media
   video: String
   style: String
+  alignment: String
   content: String
   order: Int
   createdAt: DateTime!
@@ -817,6 +818,7 @@ input BoxCreateInput {
   media: MediaCreateOneInput
   video: String
   style: String
+  alignment: String
   content: String
   order: Int
 }
@@ -832,6 +834,7 @@ input BoxCreateWithoutPageInput {
   media: MediaCreateOneInput
   video: String
   style: String
+  alignment: String
   content: String
   order: Int
 }
@@ -850,6 +853,8 @@ enum BoxOrderByInput {
   video_DESC
   style_ASC
   style_DESC
+  alignment_ASC
+  alignment_DESC
   content_ASC
   content_DESC
   order_ASC
@@ -865,6 +870,7 @@ type BoxPreviousValues {
   title: String
   video: String
   style: String
+  alignment: String
   content: String
   order: Int
   createdAt: DateTime!
@@ -928,6 +934,20 @@ input BoxScalarWhereInput {
   style_not_starts_with: String
   style_ends_with: String
   style_not_ends_with: String
+  alignment: String
+  alignment_not: String
+  alignment_in: [String!]
+  alignment_not_in: [String!]
+  alignment_lt: String
+  alignment_lte: String
+  alignment_gt: String
+  alignment_gte: String
+  alignment_contains: String
+  alignment_not_contains: String
+  alignment_starts_with: String
+  alignment_not_starts_with: String
+  alignment_ends_with: String
+  alignment_not_ends_with: String
   content: String
   content_not: String
   content_in: [String!]
@@ -995,6 +1015,7 @@ input BoxUpdateInput {
   media: MediaUpdateOneInput
   video: String
   style: String
+  alignment: String
   content: String
   order: Int
 }
@@ -1003,6 +1024,7 @@ input BoxUpdateManyDataInput {
   title: String
   video: String
   style: String
+  alignment: String
   content: String
   order: Int
 }
@@ -1011,6 +1033,7 @@ input BoxUpdateManyMutationInput {
   title: String
   video: String
   style: String
+  alignment: String
   content: String
   order: Int
 }
@@ -1037,6 +1060,7 @@ input BoxUpdateWithoutPageDataInput {
   media: MediaUpdateOneInput
   video: String
   style: String
+  alignment: String
   content: String
   order: Int
 }
@@ -1111,6 +1135,20 @@ input BoxWhereInput {
   style_not_starts_with: String
   style_ends_with: String
   style_not_ends_with: String
+  alignment: String
+  alignment_not: String
+  alignment_in: [String!]
+  alignment_not_in: [String!]
+  alignment_lt: String
+  alignment_lte: String
+  alignment_gt: String
+  alignment_gte: String
+  alignment_contains: String
+  alignment_not_contains: String
+  alignment_starts_with: String
+  alignment_not_starts_with: String
+  alignment_ends_with: String
+  alignment_not_ends_with: String
   content: String
   content_not: String
   content_in: [String!]

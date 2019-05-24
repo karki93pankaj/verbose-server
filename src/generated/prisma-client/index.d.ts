@@ -633,8 +633,8 @@ export type BlockOrderByInput =
   | "title_DESC"
   | "video_ASC"
   | "video_DESC"
-  | "style_ASC"
-  | "style_DESC"
+  | "alignment_ASC"
+  | "alignment_DESC"
   | "content_ASC"
   | "content_DESC"
   | "order_ASC"
@@ -757,6 +757,8 @@ export type BoxOrderByInput =
   | "video_DESC"
   | "style_ASC"
   | "style_DESC"
+  | "alignment_ASC"
+  | "alignment_DESC"
   | "content_ASC"
   | "content_DESC"
   | "order_ASC"
@@ -1082,7 +1084,7 @@ export interface BlockUpdateWithoutPageDataInput {
   title?: Maybe<String>;
   media?: Maybe<MediaUpdateOneInput>;
   video?: Maybe<String>;
-  style?: Maybe<String>;
+  alignment?: Maybe<String>;
   content?: Maybe<String>;
   order?: Maybe<Int>;
 }
@@ -1339,20 +1341,20 @@ export interface BlockScalarWhereInput {
   video_not_starts_with?: Maybe<String>;
   video_ends_with?: Maybe<String>;
   video_not_ends_with?: Maybe<String>;
-  style?: Maybe<String>;
-  style_not?: Maybe<String>;
-  style_in?: Maybe<String[] | String>;
-  style_not_in?: Maybe<String[] | String>;
-  style_lt?: Maybe<String>;
-  style_lte?: Maybe<String>;
-  style_gt?: Maybe<String>;
-  style_gte?: Maybe<String>;
-  style_contains?: Maybe<String>;
-  style_not_contains?: Maybe<String>;
-  style_starts_with?: Maybe<String>;
-  style_not_starts_with?: Maybe<String>;
-  style_ends_with?: Maybe<String>;
-  style_not_ends_with?: Maybe<String>;
+  alignment?: Maybe<String>;
+  alignment_not?: Maybe<String>;
+  alignment_in?: Maybe<String[] | String>;
+  alignment_not_in?: Maybe<String[] | String>;
+  alignment_lt?: Maybe<String>;
+  alignment_lte?: Maybe<String>;
+  alignment_gt?: Maybe<String>;
+  alignment_gte?: Maybe<String>;
+  alignment_contains?: Maybe<String>;
+  alignment_not_contains?: Maybe<String>;
+  alignment_starts_with?: Maybe<String>;
+  alignment_not_starts_with?: Maybe<String>;
+  alignment_ends_with?: Maybe<String>;
+  alignment_not_ends_with?: Maybe<String>;
   content?: Maybe<String>;
   content_not?: Maybe<String>;
   content_in?: Maybe<String[] | String>;
@@ -1522,7 +1524,7 @@ export interface ProsWhereInput {
 export interface BlockUpdateManyDataInput {
   title?: Maybe<String>;
   video?: Maybe<String>;
-  style?: Maybe<String>;
+  alignment?: Maybe<String>;
   content?: Maybe<String>;
   order?: Maybe<Int>;
 }
@@ -1644,6 +1646,7 @@ export interface BoxUpdateWithoutPageDataInput {
   media?: Maybe<MediaUpdateOneInput>;
   video?: Maybe<String>;
   style?: Maybe<String>;
+  alignment?: Maybe<String>;
   content?: Maybe<String>;
   order?: Maybe<Int>;
 }
@@ -1925,6 +1928,20 @@ export interface BoxScalarWhereInput {
   style_not_starts_with?: Maybe<String>;
   style_ends_with?: Maybe<String>;
   style_not_ends_with?: Maybe<String>;
+  alignment?: Maybe<String>;
+  alignment_not?: Maybe<String>;
+  alignment_in?: Maybe<String[] | String>;
+  alignment_not_in?: Maybe<String[] | String>;
+  alignment_lt?: Maybe<String>;
+  alignment_lte?: Maybe<String>;
+  alignment_gt?: Maybe<String>;
+  alignment_gte?: Maybe<String>;
+  alignment_contains?: Maybe<String>;
+  alignment_not_contains?: Maybe<String>;
+  alignment_starts_with?: Maybe<String>;
+  alignment_not_starts_with?: Maybe<String>;
+  alignment_ends_with?: Maybe<String>;
+  alignment_not_ends_with?: Maybe<String>;
   content?: Maybe<String>;
   content_not?: Maybe<String>;
   content_in?: Maybe<String[] | String>;
@@ -1999,6 +2016,7 @@ export interface BoxUpdateManyDataInput {
   title?: Maybe<String>;
   video?: Maybe<String>;
   style?: Maybe<String>;
+  alignment?: Maybe<String>;
   content?: Maybe<String>;
   order?: Maybe<Int>;
 }
@@ -3003,7 +3021,7 @@ export interface BlockCreateWithoutPageInput {
   title?: Maybe<String>;
   media?: Maybe<MediaCreateOneInput>;
   video?: Maybe<String>;
-  style?: Maybe<String>;
+  alignment?: Maybe<String>;
   content?: Maybe<String>;
   order?: Maybe<Int>;
 }
@@ -3034,6 +3052,7 @@ export interface BoxCreateWithoutPageInput {
   media?: Maybe<MediaCreateOneInput>;
   video?: Maybe<String>;
   style?: Maybe<String>;
+  alignment?: Maybe<String>;
   content?: Maybe<String>;
   order?: Maybe<Int>;
 }
@@ -3590,6 +3609,20 @@ export interface BoxWhereInput {
   style_not_starts_with?: Maybe<String>;
   style_ends_with?: Maybe<String>;
   style_not_ends_with?: Maybe<String>;
+  alignment?: Maybe<String>;
+  alignment_not?: Maybe<String>;
+  alignment_in?: Maybe<String[] | String>;
+  alignment_not_in?: Maybe<String[] | String>;
+  alignment_lt?: Maybe<String>;
+  alignment_lte?: Maybe<String>;
+  alignment_gt?: Maybe<String>;
+  alignment_gte?: Maybe<String>;
+  alignment_contains?: Maybe<String>;
+  alignment_not_contains?: Maybe<String>;
+  alignment_starts_with?: Maybe<String>;
+  alignment_not_starts_with?: Maybe<String>;
+  alignment_ends_with?: Maybe<String>;
+  alignment_not_ends_with?: Maybe<String>;
   content?: Maybe<String>;
   content_not?: Maybe<String>;
   content_in?: Maybe<String[] | String>;
@@ -4157,7 +4190,7 @@ export interface BlockCreateInput {
   title?: Maybe<String>;
   media?: Maybe<MediaCreateOneInput>;
   video?: Maybe<String>;
-  style?: Maybe<String>;
+  alignment?: Maybe<String>;
   content?: Maybe<String>;
   order?: Maybe<Int>;
 }
@@ -4258,7 +4291,7 @@ export interface BlockUpdateInput {
   title?: Maybe<String>;
   media?: Maybe<MediaUpdateOneInput>;
   video?: Maybe<String>;
-  style?: Maybe<String>;
+  alignment?: Maybe<String>;
   content?: Maybe<String>;
   order?: Maybe<Int>;
 }
@@ -4326,20 +4359,20 @@ export interface BlockWhereInput {
   video_not_starts_with?: Maybe<String>;
   video_ends_with?: Maybe<String>;
   video_not_ends_with?: Maybe<String>;
-  style?: Maybe<String>;
-  style_not?: Maybe<String>;
-  style_in?: Maybe<String[] | String>;
-  style_not_in?: Maybe<String[] | String>;
-  style_lt?: Maybe<String>;
-  style_lte?: Maybe<String>;
-  style_gt?: Maybe<String>;
-  style_gte?: Maybe<String>;
-  style_contains?: Maybe<String>;
-  style_not_contains?: Maybe<String>;
-  style_starts_with?: Maybe<String>;
-  style_not_starts_with?: Maybe<String>;
-  style_ends_with?: Maybe<String>;
-  style_not_ends_with?: Maybe<String>;
+  alignment?: Maybe<String>;
+  alignment_not?: Maybe<String>;
+  alignment_in?: Maybe<String[] | String>;
+  alignment_not_in?: Maybe<String[] | String>;
+  alignment_lt?: Maybe<String>;
+  alignment_lte?: Maybe<String>;
+  alignment_gt?: Maybe<String>;
+  alignment_gte?: Maybe<String>;
+  alignment_contains?: Maybe<String>;
+  alignment_not_contains?: Maybe<String>;
+  alignment_starts_with?: Maybe<String>;
+  alignment_not_starts_with?: Maybe<String>;
+  alignment_ends_with?: Maybe<String>;
+  alignment_not_ends_with?: Maybe<String>;
   content?: Maybe<String>;
   content_not?: Maybe<String>;
   content_in?: Maybe<String[] | String>;
@@ -4614,7 +4647,7 @@ export interface QuickTipCreateManyWithoutPageInput {
 export interface BlockUpdateManyMutationInput {
   title?: Maybe<String>;
   video?: Maybe<String>;
-  style?: Maybe<String>;
+  alignment?: Maybe<String>;
   content?: Maybe<String>;
   order?: Maybe<Int>;
 }
@@ -4630,6 +4663,7 @@ export interface BoxCreateInput {
   media?: Maybe<MediaCreateOneInput>;
   video?: Maybe<String>;
   style?: Maybe<String>;
+  alignment?: Maybe<String>;
   content?: Maybe<String>;
   order?: Maybe<Int>;
 }
@@ -4718,6 +4752,7 @@ export interface BoxUpdateInput {
   media?: Maybe<MediaUpdateOneInput>;
   video?: Maybe<String>;
   style?: Maybe<String>;
+  alignment?: Maybe<String>;
   content?: Maybe<String>;
   order?: Maybe<Int>;
 }
@@ -4782,6 +4817,7 @@ export interface BoxUpdateManyMutationInput {
   title?: Maybe<String>;
   video?: Maybe<String>;
   style?: Maybe<String>;
+  alignment?: Maybe<String>;
   content?: Maybe<String>;
   order?: Maybe<Int>;
 }
@@ -4995,6 +5031,7 @@ export interface Box {
   title?: String;
   video?: String;
   style?: String;
+  alignment?: String;
   content?: String;
   order?: Int;
   createdAt: DateTimeOutput;
@@ -5008,6 +5045,7 @@ export interface BoxPromise extends Promise<Box>, Fragmentable {
   media: <T = MediaPromise>() => T;
   video: () => Promise<String>;
   style: () => Promise<String>;
+  alignment: () => Promise<String>;
   content: () => Promise<String>;
   order: () => Promise<Int>;
   createdAt: () => Promise<DateTimeOutput>;
@@ -5023,6 +5061,7 @@ export interface BoxSubscription
   media: <T = MediaSubscription>() => T;
   video: () => Promise<AsyncIterator<String>>;
   style: () => Promise<AsyncIterator<String>>;
+  alignment: () => Promise<AsyncIterator<String>>;
   content: () => Promise<AsyncIterator<String>>;
   order: () => Promise<AsyncIterator<Int>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
@@ -5036,6 +5075,7 @@ export interface BoxNullablePromise extends Promise<Box | null>, Fragmentable {
   media: <T = MediaPromise>() => T;
   video: () => Promise<String>;
   style: () => Promise<String>;
+  alignment: () => Promise<String>;
   content: () => Promise<String>;
   order: () => Promise<Int>;
   createdAt: () => Promise<DateTimeOutput>;
@@ -5515,7 +5555,7 @@ export interface BlockPreviousValues {
   id: ID_Output;
   title?: String;
   video?: String;
-  style?: String;
+  alignment?: String;
   content?: String;
   order?: Int;
   createdAt: DateTimeOutput;
@@ -5528,7 +5568,7 @@ export interface BlockPreviousValuesPromise
   id: () => Promise<ID_Output>;
   title: () => Promise<String>;
   video: () => Promise<String>;
-  style: () => Promise<String>;
+  alignment: () => Promise<String>;
   content: () => Promise<String>;
   order: () => Promise<Int>;
   createdAt: () => Promise<DateTimeOutput>;
@@ -5541,7 +5581,7 @@ export interface BlockPreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   title: () => Promise<AsyncIterator<String>>;
   video: () => Promise<AsyncIterator<String>>;
-  style: () => Promise<AsyncIterator<String>>;
+  alignment: () => Promise<AsyncIterator<String>>;
   content: () => Promise<AsyncIterator<String>>;
   order: () => Promise<AsyncIterator<Int>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
@@ -5673,6 +5713,7 @@ export interface BoxPreviousValues {
   title?: String;
   video?: String;
   style?: String;
+  alignment?: String;
   content?: String;
   order?: Int;
   createdAt: DateTimeOutput;
@@ -5686,6 +5727,7 @@ export interface BoxPreviousValuesPromise
   title: () => Promise<String>;
   video: () => Promise<String>;
   style: () => Promise<String>;
+  alignment: () => Promise<String>;
   content: () => Promise<String>;
   order: () => Promise<Int>;
   createdAt: () => Promise<DateTimeOutput>;
@@ -5699,6 +5741,7 @@ export interface BoxPreviousValuesSubscription
   title: () => Promise<AsyncIterator<String>>;
   video: () => Promise<AsyncIterator<String>>;
   style: () => Promise<AsyncIterator<String>>;
+  alignment: () => Promise<AsyncIterator<String>>;
   content: () => Promise<AsyncIterator<String>>;
   order: () => Promise<AsyncIterator<Int>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
@@ -6788,7 +6831,7 @@ export interface Block {
   id: ID_Output;
   title?: String;
   video?: String;
-  style?: String;
+  alignment?: String;
   content?: String;
   order?: Int;
   createdAt: DateTimeOutput;
@@ -6801,7 +6844,7 @@ export interface BlockPromise extends Promise<Block>, Fragmentable {
   title: () => Promise<String>;
   media: <T = MediaPromise>() => T;
   video: () => Promise<String>;
-  style: () => Promise<String>;
+  alignment: () => Promise<String>;
   content: () => Promise<String>;
   order: () => Promise<Int>;
   createdAt: () => Promise<DateTimeOutput>;
@@ -6816,7 +6859,7 @@ export interface BlockSubscription
   title: () => Promise<AsyncIterator<String>>;
   media: <T = MediaSubscription>() => T;
   video: () => Promise<AsyncIterator<String>>;
-  style: () => Promise<AsyncIterator<String>>;
+  alignment: () => Promise<AsyncIterator<String>>;
   content: () => Promise<AsyncIterator<String>>;
   order: () => Promise<AsyncIterator<Int>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
@@ -6831,7 +6874,7 @@ export interface BlockNullablePromise
   title: () => Promise<String>;
   media: <T = MediaPromise>() => T;
   video: () => Promise<String>;
-  style: () => Promise<String>;
+  alignment: () => Promise<String>;
   content: () => Promise<String>;
   order: () => Promise<Int>;
   createdAt: () => Promise<DateTimeOutput>;

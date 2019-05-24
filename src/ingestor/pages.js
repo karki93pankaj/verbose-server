@@ -43,7 +43,7 @@ async function getVerbosePages() {
         id
         title
         video
-        style
+        alignment
         content
         order
         media {
@@ -56,6 +56,7 @@ async function getVerbosePages() {
         title
         video
         style
+        alignment
         content
         order
         media {

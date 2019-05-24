@@ -81,7 +81,7 @@ type Mutation {
     media: ID
     title: String!
     video: String
-    style: String
+    alignment: String
     content: String
     order: Int
   ): Block
@@ -93,6 +93,7 @@ type Mutation {
     title: String!
     video: String
     style: String
+    alignment: String
     content: String
     order: Int
   ): Box

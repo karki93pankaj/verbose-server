@@ -70,7 +70,6 @@ export default {
                 !isEmpty(updateGridItems) && { update: updateGridItems },
                 !isEmpty(deleteGridItems) && { delete: deleteGridItems }
             )
-            console.log("itemsQuery", JSON.stringify(itemsQuery))
             const data = {
                 title,
                 content,

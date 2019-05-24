@@ -20,7 +20,11 @@ export default {
     },
     Mutation: {
         async upsertGrid (parent, args, ctx, info) {
-            const { id, title, content, order, items, page } = args
+            const { id, title, content, order, page } = args
+            const items = args.items.map(item => ({
+                ...item,
+                media: item.media ? { connect: { id: item.media } } : null
+            }))
 
             let gridItems
             let grid = await ctx.prisma.grid({ id })
@@ -34,14 +38,19 @@ export default {
             } else {
                 gridItems = await ctx.prisma.grid({ id }).items()
             }
-            
+
             const createGridItems = differentWith(items, gridItems, compareItemId)
 
-            const updateGridItems = differentWith(
-                items,
-                createGridItems,
-                compareItemId
-            ).map(item => {
+            let gridItemsToUpdate = differentWith(items, createGridItems, compareItemId)
+            if (!isEmpty(gridItemsToUpdate)) {
+                for (let item of gridItemsToUpdate) {
+                    if (!item.media) {
+                        const media = await ctx.prisma.gridItem({ id: item.id }).media()
+                        item.media = media ? { disconnect: true } : null
+                    }
+                }
+            }
+            const updateGridItems = gridItemsToUpdate.map(item => {
                 const { id, ...data } = item
                 return {
                     where: { id },
@@ -59,9 +68,9 @@ export default {
             const itemsQuery = Object.assign({},
                 !isEmpty(createGridItems) && { create: createGridItems },
                 !isEmpty(updateGridItems) && { update: updateGridItems },
-                deleteGridItems && { delete: deleteGridItems }
+                !isEmpty(deleteGridItems) && { delete: deleteGridItems }
             )
-            console.log("itemsQuery", itemsQuery)
+            console.log("itemsQuery", JSON.stringify(itemsQuery))
             const data = {
                 title,
                 content,
@@ -88,6 +97,11 @@ export default {
     Grid: {
         items: async function (parent, args, ctx) {
             return await ctx.prisma.grid({id: parent.id}).items()
+        }
+    },
+    GridItem: {
+        media: async function (parent, args, ctx) {
+            return await ctx.prisma.gridItem({ id: parent.id }).media()
         }
     }
 }

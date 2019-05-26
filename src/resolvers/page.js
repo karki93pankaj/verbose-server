@@ -178,6 +178,11 @@ export default {
         id: parent.id
       }).faqAccordion()
     },
+    grids : (parent, args, ctx, info) => {
+      return ctx.prisma.page({
+        id: parent.id
+      }).grids()
+    }
   },
  
 }

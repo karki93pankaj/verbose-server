@@ -10,6 +10,7 @@ import alertBox from './alertBox'
 import quickTip from './quickTip'
 import pageFaq from './pageFaq'
 import pageFaqAccordion from './pageFaqAccordion'
+import grid from './grid'
 
 export default [
   user,
@@ -19,6 +20,7 @@ export default [
   faqCategory,
   block,
   box,
+  grid,
   prosAndCons,
   alertBox,
   quickTip,

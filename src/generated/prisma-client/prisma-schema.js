@@ -27,6 +27,14 @@ type AggregateFaqCategory {
   count: Int!
 }
 
+type AggregateGrid {
+  count: Int!
+}
+
+type AggregateGridItem {
+  count: Int!
+}
+
 type AggregateMedia {
   count: Int!
 }
@@ -2293,6 +2301,674 @@ input FaqWhereUniqueInput {
   id: ID
 }
 
+type Grid {
+  id: ID!
+  title: String
+  page: Page!
+  content: String
+  order: Int
+  items(where: GridItemWhereInput, orderBy: GridItemOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [GridItem!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type GridConnection {
+  pageInfo: PageInfo!
+  edges: [GridEdge]!
+  aggregate: AggregateGrid!
+}
+
+input GridCreateInput {
+  id: ID
+  title: String
+  page: PageCreateOneWithoutGridsInput!
+  content: String
+  order: Int
+  items: GridItemCreateManyWithoutGridInput
+}
+
+input GridCreateManyWithoutPageInput {
+  create: [GridCreateWithoutPageInput!]
+  connect: [GridWhereUniqueInput!]
+}
+
+input GridCreateOneWithoutItemsInput {
+  create: GridCreateWithoutItemsInput
+  connect: GridWhereUniqueInput
+}
+
+input GridCreateWithoutItemsInput {
+  id: ID
+  title: String
+  page: PageCreateOneWithoutGridsInput!
+  content: String
+  order: Int
+}
+
+input GridCreateWithoutPageInput {
+  id: ID
+  title: String
+  content: String
+  order: Int
+  items: GridItemCreateManyWithoutGridInput
+}
+
+type GridEdge {
+  node: Grid!
+  cursor: String!
+}
+
+type GridItem {
+  id: ID!
+  grid: Grid
+  title: String
+  content: String
+  linkText: String
+  linkUrl: String
+  media: Media
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type GridItemConnection {
+  pageInfo: PageInfo!
+  edges: [GridItemEdge]!
+  aggregate: AggregateGridItem!
+}
+
+input GridItemCreateInput {
+  id: ID
+  grid: GridCreateOneWithoutItemsInput
+  title: String
+  content: String
+  linkText: String
+  linkUrl: String
+  media: MediaCreateOneInput
+}
+
+input GridItemCreateManyWithoutGridInput {
+  create: [GridItemCreateWithoutGridInput!]
+  connect: [GridItemWhereUniqueInput!]
+}
+
+input GridItemCreateWithoutGridInput {
+  id: ID
+  title: String
+  content: String
+  linkText: String
+  linkUrl: String
+  media: MediaCreateOneInput
+}
+
+type GridItemEdge {
+  node: GridItem!
+  cursor: String!
+}
+
+enum GridItemOrderByInput {
+  id_ASC
+  id_DESC
+  title_ASC
+  title_DESC
+  content_ASC
+  content_DESC
+  linkText_ASC
+  linkText_DESC
+  linkUrl_ASC
+  linkUrl_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type GridItemPreviousValues {
+  id: ID!
+  title: String
+  content: String
+  linkText: String
+  linkUrl: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+input GridItemScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  content: String
+  content_not: String
+  content_in: [String!]
+  content_not_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_gt: String
+  content_gte: String
+  content_contains: String
+  content_not_contains: String
+  content_starts_with: String
+  content_not_starts_with: String
+  content_ends_with: String
+  content_not_ends_with: String
+  linkText: String
+  linkText_not: String
+  linkText_in: [String!]
+  linkText_not_in: [String!]
+  linkText_lt: String
+  linkText_lte: String
+  linkText_gt: String
+  linkText_gte: String
+  linkText_contains: String
+  linkText_not_contains: String
+  linkText_starts_with: String
+  linkText_not_starts_with: String
+  linkText_ends_with: String
+  linkText_not_ends_with: String
+  linkUrl: String
+  linkUrl_not: String
+  linkUrl_in: [String!]
+  linkUrl_not_in: [String!]
+  linkUrl_lt: String
+  linkUrl_lte: String
+  linkUrl_gt: String
+  linkUrl_gte: String
+  linkUrl_contains: String
+  linkUrl_not_contains: String
+  linkUrl_starts_with: String
+  linkUrl_not_starts_with: String
+  linkUrl_ends_with: String
+  linkUrl_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [GridItemScalarWhereInput!]
+  OR: [GridItemScalarWhereInput!]
+  NOT: [GridItemScalarWhereInput!]
+}
+
+type GridItemSubscriptionPayload {
+  mutation: MutationType!
+  node: GridItem
+  updatedFields: [String!]
+  previousValues: GridItemPreviousValues
+}
+
+input GridItemSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: GridItemWhereInput
+  AND: [GridItemSubscriptionWhereInput!]
+  OR: [GridItemSubscriptionWhereInput!]
+  NOT: [GridItemSubscriptionWhereInput!]
+}
+
+input GridItemUpdateInput {
+  grid: GridUpdateOneWithoutItemsInput
+  title: String
+  content: String
+  linkText: String
+  linkUrl: String
+  media: MediaUpdateOneInput
+}
+
+input GridItemUpdateManyDataInput {
+  title: String
+  content: String
+  linkText: String
+  linkUrl: String
+}
+
+input GridItemUpdateManyMutationInput {
+  title: String
+  content: String
+  linkText: String
+  linkUrl: String
+}
+
+input GridItemUpdateManyWithoutGridInput {
+  create: [GridItemCreateWithoutGridInput!]
+  delete: [GridItemWhereUniqueInput!]
+  connect: [GridItemWhereUniqueInput!]
+  set: [GridItemWhereUniqueInput!]
+  disconnect: [GridItemWhereUniqueInput!]
+  update: [GridItemUpdateWithWhereUniqueWithoutGridInput!]
+  upsert: [GridItemUpsertWithWhereUniqueWithoutGridInput!]
+  deleteMany: [GridItemScalarWhereInput!]
+  updateMany: [GridItemUpdateManyWithWhereNestedInput!]
+}
+
+input GridItemUpdateManyWithWhereNestedInput {
+  where: GridItemScalarWhereInput!
+  data: GridItemUpdateManyDataInput!
+}
+
+input GridItemUpdateWithoutGridDataInput {
+  title: String
+  content: String
+  linkText: String
+  linkUrl: String
+  media: MediaUpdateOneInput
+}
+
+input GridItemUpdateWithWhereUniqueWithoutGridInput {
+  where: GridItemWhereUniqueInput!
+  data: GridItemUpdateWithoutGridDataInput!
+}
+
+input GridItemUpsertWithWhereUniqueWithoutGridInput {
+  where: GridItemWhereUniqueInput!
+  update: GridItemUpdateWithoutGridDataInput!
+  create: GridItemCreateWithoutGridInput!
+}
+
+input GridItemWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  grid: GridWhereInput
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  content: String
+  content_not: String
+  content_in: [String!]
+  content_not_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_gt: String
+  content_gte: String
+  content_contains: String
+  content_not_contains: String
+  content_starts_with: String
+  content_not_starts_with: String
+  content_ends_with: String
+  content_not_ends_with: String
+  linkText: String
+  linkText_not: String
+  linkText_in: [String!]
+  linkText_not_in: [String!]
+  linkText_lt: String
+  linkText_lte: String
+  linkText_gt: String
+  linkText_gte: String
+  linkText_contains: String
+  linkText_not_contains: String
+  linkText_starts_with: String
+  linkText_not_starts_with: String
+  linkText_ends_with: String
+  linkText_not_ends_with: String
+  linkUrl: String
+  linkUrl_not: String
+  linkUrl_in: [String!]
+  linkUrl_not_in: [String!]
+  linkUrl_lt: String
+  linkUrl_lte: String
+  linkUrl_gt: String
+  linkUrl_gte: String
+  linkUrl_contains: String
+  linkUrl_not_contains: String
+  linkUrl_starts_with: String
+  linkUrl_not_starts_with: String
+  linkUrl_ends_with: String
+  linkUrl_not_ends_with: String
+  media: MediaWhereInput
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [GridItemWhereInput!]
+  OR: [GridItemWhereInput!]
+  NOT: [GridItemWhereInput!]
+}
+
+input GridItemWhereUniqueInput {
+  id: ID
+}
+
+enum GridOrderByInput {
+  id_ASC
+  id_DESC
+  title_ASC
+  title_DESC
+  content_ASC
+  content_DESC
+  order_ASC
+  order_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type GridPreviousValues {
+  id: ID!
+  title: String
+  content: String
+  order: Int
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+input GridScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  content: String
+  content_not: String
+  content_in: [String!]
+  content_not_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_gt: String
+  content_gte: String
+  content_contains: String
+  content_not_contains: String
+  content_starts_with: String
+  content_not_starts_with: String
+  content_ends_with: String
+  content_not_ends_with: String
+  order: Int
+  order_not: Int
+  order_in: [Int!]
+  order_not_in: [Int!]
+  order_lt: Int
+  order_lte: Int
+  order_gt: Int
+  order_gte: Int
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [GridScalarWhereInput!]
+  OR: [GridScalarWhereInput!]
+  NOT: [GridScalarWhereInput!]
+}
+
+type GridSubscriptionPayload {
+  mutation: MutationType!
+  node: Grid
+  updatedFields: [String!]
+  previousValues: GridPreviousValues
+}
+
+input GridSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: GridWhereInput
+  AND: [GridSubscriptionWhereInput!]
+  OR: [GridSubscriptionWhereInput!]
+  NOT: [GridSubscriptionWhereInput!]
+}
+
+input GridUpdateInput {
+  title: String
+  page: PageUpdateOneRequiredWithoutGridsInput
+  content: String
+  order: Int
+  items: GridItemUpdateManyWithoutGridInput
+}
+
+input GridUpdateManyDataInput {
+  title: String
+  content: String
+  order: Int
+}
+
+input GridUpdateManyMutationInput {
+  title: String
+  content: String
+  order: Int
+}
+
+input GridUpdateManyWithoutPageInput {
+  create: [GridCreateWithoutPageInput!]
+  delete: [GridWhereUniqueInput!]
+  connect: [GridWhereUniqueInput!]
+  set: [GridWhereUniqueInput!]
+  disconnect: [GridWhereUniqueInput!]
+  update: [GridUpdateWithWhereUniqueWithoutPageInput!]
+  upsert: [GridUpsertWithWhereUniqueWithoutPageInput!]
+  deleteMany: [GridScalarWhereInput!]
+  updateMany: [GridUpdateManyWithWhereNestedInput!]
+}
+
+input GridUpdateManyWithWhereNestedInput {
+  where: GridScalarWhereInput!
+  data: GridUpdateManyDataInput!
+}
+
+input GridUpdateOneWithoutItemsInput {
+  create: GridCreateWithoutItemsInput
+  update: GridUpdateWithoutItemsDataInput
+  upsert: GridUpsertWithoutItemsInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: GridWhereUniqueInput
+}
+
+input GridUpdateWithoutItemsDataInput {
+  title: String
+  page: PageUpdateOneRequiredWithoutGridsInput
+  content: String
+  order: Int
+}
+
+input GridUpdateWithoutPageDataInput {
+  title: String
+  content: String
+  order: Int
+  items: GridItemUpdateManyWithoutGridInput
+}
+
+input GridUpdateWithWhereUniqueWithoutPageInput {
+  where: GridWhereUniqueInput!
+  data: GridUpdateWithoutPageDataInput!
+}
+
+input GridUpsertWithoutItemsInput {
+  update: GridUpdateWithoutItemsDataInput!
+  create: GridCreateWithoutItemsInput!
+}
+
+input GridUpsertWithWhereUniqueWithoutPageInput {
+  where: GridWhereUniqueInput!
+  update: GridUpdateWithoutPageDataInput!
+  create: GridCreateWithoutPageInput!
+}
+
+input GridWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  page: PageWhereInput
+  content: String
+  content_not: String
+  content_in: [String!]
+  content_not_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_gt: String
+  content_gte: String
+  content_contains: String
+  content_not_contains: String
+  content_starts_with: String
+  content_not_starts_with: String
+  content_ends_with: String
+  content_not_ends_with: String
+  order: Int
+  order_not: Int
+  order_in: [Int!]
+  order_not_in: [Int!]
+  order_lt: Int
+  order_lte: Int
+  order_gt: Int
+  order_gte: Int
+  items_every: GridItemWhereInput
+  items_some: GridItemWhereInput
+  items_none: GridItemWhereInput
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [GridWhereInput!]
+  OR: [GridWhereInput!]
+  NOT: [GridWhereInput!]
+}
+
+input GridWhereUniqueInput {
+  id: ID
+}
+
 scalar Long
 
 type Media {
@@ -2520,6 +3196,18 @@ type Mutation {
   upsertFaqCategory(where: FaqCategoryWhereUniqueInput!, create: FaqCategoryCreateInput!, update: FaqCategoryUpdateInput!): FaqCategory!
   deleteFaqCategory(where: FaqCategoryWhereUniqueInput!): FaqCategory
   deleteManyFaqCategories(where: FaqCategoryWhereInput): BatchPayload!
+  createGrid(data: GridCreateInput!): Grid!
+  updateGrid(data: GridUpdateInput!, where: GridWhereUniqueInput!): Grid
+  updateManyGrids(data: GridUpdateManyMutationInput!, where: GridWhereInput): BatchPayload!
+  upsertGrid(where: GridWhereUniqueInput!, create: GridCreateInput!, update: GridUpdateInput!): Grid!
+  deleteGrid(where: GridWhereUniqueInput!): Grid
+  deleteManyGrids(where: GridWhereInput): BatchPayload!
+  createGridItem(data: GridItemCreateInput!): GridItem!
+  updateGridItem(data: GridItemUpdateInput!, where: GridItemWhereUniqueInput!): GridItem
+  updateManyGridItems(data: GridItemUpdateManyMutationInput!, where: GridItemWhereInput): BatchPayload!
+  upsertGridItem(where: GridItemWhereUniqueInput!, create: GridItemCreateInput!, update: GridItemUpdateInput!): GridItem!
+  deleteGridItem(where: GridItemWhereUniqueInput!): GridItem
+  deleteManyGridItems(where: GridItemWhereInput): BatchPayload!
   createMedia(data: MediaCreateInput!): Media!
   updateMedia(data: MediaUpdateInput!, where: MediaWhereUniqueInput!): Media
   updateManyMedias(data: MediaUpdateManyMutationInput!, where: MediaWhereInput): BatchPayload!
@@ -2597,6 +3285,7 @@ type Page {
   quickTips(where: QuickTipWhereInput, orderBy: QuickTipOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [QuickTip!]
   faqs(where: PageFaqWhereInput, orderBy: PageFaqOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [PageFaq!]
   faqAccordion(where: PageFaqAccordionWhereInput, orderBy: PageFaqAccordionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [PageFaqAccordion!]
+  grids(where: GridWhereInput, orderBy: GridOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Grid!]
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -2624,6 +3313,7 @@ input PageCreateInput {
   quickTips: QuickTipCreateManyWithoutPageInput
   faqs: PageFaqCreateManyWithoutPageInput
   faqAccordion: PageFaqAccordionCreateManyWithoutPageInput
+  grids: GridCreateManyWithoutPageInput
 }
 
 input PageCreateOneWithoutAlertBoxesInput {
@@ -2648,6 +3338,11 @@ input PageCreateOneWithoutFaqAccordionInput {
 
 input PageCreateOneWithoutFaqsInput {
   create: PageCreateWithoutFaqsInput
+  connect: PageWhereUniqueInput
+}
+
+input PageCreateOneWithoutGridsInput {
+  create: PageCreateWithoutGridsInput
   connect: PageWhereUniqueInput
 }
 
@@ -2677,6 +3372,7 @@ input PageCreateWithoutAlertBoxesInput {
   quickTips: QuickTipCreateManyWithoutPageInput
   faqs: PageFaqCreateManyWithoutPageInput
   faqAccordion: PageFaqAccordionCreateManyWithoutPageInput
+  grids: GridCreateManyWithoutPageInput
 }
 
 input PageCreateWithoutBlocksInput {
@@ -2695,6 +3391,7 @@ input PageCreateWithoutBlocksInput {
   quickTips: QuickTipCreateManyWithoutPageInput
   faqs: PageFaqCreateManyWithoutPageInput
   faqAccordion: PageFaqAccordionCreateManyWithoutPageInput
+  grids: GridCreateManyWithoutPageInput
 }
 
 input PageCreateWithoutBoxesInput {
@@ -2713,6 +3410,7 @@ input PageCreateWithoutBoxesInput {
   quickTips: QuickTipCreateManyWithoutPageInput
   faqs: PageFaqCreateManyWithoutPageInput
   faqAccordion: PageFaqAccordionCreateManyWithoutPageInput
+  grids: GridCreateManyWithoutPageInput
 }
 
 input PageCreateWithoutFaqAccordionInput {
@@ -2731,6 +3429,7 @@ input PageCreateWithoutFaqAccordionInput {
   alertBoxes: AlertBoxCreateManyWithoutPageInput
   quickTips: QuickTipCreateManyWithoutPageInput
   faqs: PageFaqCreateManyWithoutPageInput
+  grids: GridCreateManyWithoutPageInput
 }
 
 input PageCreateWithoutFaqsInput {
@@ -2748,6 +3447,26 @@ input PageCreateWithoutFaqsInput {
   prosAndCons: ProsAndConsCreateManyWithoutPageInput
   alertBoxes: AlertBoxCreateManyWithoutPageInput
   quickTips: QuickTipCreateManyWithoutPageInput
+  faqAccordion: PageFaqAccordionCreateManyWithoutPageInput
+  grids: GridCreateManyWithoutPageInput
+}
+
+input PageCreateWithoutGridsInput {
+  id: ID
+  title: String!
+  slug: String!
+  url: String!
+  type: PageType!
+  status: PageStatus!
+  vertical: String
+  media: MediaCreateOneInput
+  template: String
+  blocks: BlockCreateManyWithoutPageInput
+  boxes: BoxCreateManyWithoutPageInput
+  prosAndCons: ProsAndConsCreateManyWithoutPageInput
+  alertBoxes: AlertBoxCreateManyWithoutPageInput
+  quickTips: QuickTipCreateManyWithoutPageInput
+  faqs: PageFaqCreateManyWithoutPageInput
   faqAccordion: PageFaqAccordionCreateManyWithoutPageInput
 }
 
@@ -2767,6 +3486,7 @@ input PageCreateWithoutProsAndConsInput {
   quickTips: QuickTipCreateManyWithoutPageInput
   faqs: PageFaqCreateManyWithoutPageInput
   faqAccordion: PageFaqAccordionCreateManyWithoutPageInput
+  grids: GridCreateManyWithoutPageInput
 }
 
 input PageCreateWithoutQuickTipsInput {
@@ -2785,6 +3505,7 @@ input PageCreateWithoutQuickTipsInput {
   alertBoxes: AlertBoxCreateManyWithoutPageInput
   faqs: PageFaqCreateManyWithoutPageInput
   faqAccordion: PageFaqAccordionCreateManyWithoutPageInput
+  grids: GridCreateManyWithoutPageInput
 }
 
 type PageEdge {
@@ -3232,6 +3953,7 @@ input PageUpdateInput {
   quickTips: QuickTipUpdateManyWithoutPageInput
   faqs: PageFaqUpdateManyWithoutPageInput
   faqAccordion: PageFaqAccordionUpdateManyWithoutPageInput
+  grids: GridUpdateManyWithoutPageInput
 }
 
 input PageUpdateManyMutationInput {
@@ -3279,6 +4001,13 @@ input PageUpdateOneRequiredWithoutFaqsInput {
   connect: PageWhereUniqueInput
 }
 
+input PageUpdateOneRequiredWithoutGridsInput {
+  create: PageCreateWithoutGridsInput
+  update: PageUpdateWithoutGridsDataInput
+  upsert: PageUpsertWithoutGridsInput
+  connect: PageWhereUniqueInput
+}
+
 input PageUpdateOneRequiredWithoutProsAndConsInput {
   create: PageCreateWithoutProsAndConsInput
   update: PageUpdateWithoutProsAndConsDataInput
@@ -3308,6 +4037,7 @@ input PageUpdateWithoutAlertBoxesDataInput {
   quickTips: QuickTipUpdateManyWithoutPageInput
   faqs: PageFaqUpdateManyWithoutPageInput
   faqAccordion: PageFaqAccordionUpdateManyWithoutPageInput
+  grids: GridUpdateManyWithoutPageInput
 }
 
 input PageUpdateWithoutBlocksDataInput {
@@ -3325,6 +4055,7 @@ input PageUpdateWithoutBlocksDataInput {
   quickTips: QuickTipUpdateManyWithoutPageInput
   faqs: PageFaqUpdateManyWithoutPageInput
   faqAccordion: PageFaqAccordionUpdateManyWithoutPageInput
+  grids: GridUpdateManyWithoutPageInput
 }
 
 input PageUpdateWithoutBoxesDataInput {
@@ -3342,6 +4073,7 @@ input PageUpdateWithoutBoxesDataInput {
   quickTips: QuickTipUpdateManyWithoutPageInput
   faqs: PageFaqUpdateManyWithoutPageInput
   faqAccordion: PageFaqAccordionUpdateManyWithoutPageInput
+  grids: GridUpdateManyWithoutPageInput
 }
 
 input PageUpdateWithoutFaqAccordionDataInput {
@@ -3359,6 +4091,7 @@ input PageUpdateWithoutFaqAccordionDataInput {
   alertBoxes: AlertBoxUpdateManyWithoutPageInput
   quickTips: QuickTipUpdateManyWithoutPageInput
   faqs: PageFaqUpdateManyWithoutPageInput
+  grids: GridUpdateManyWithoutPageInput
 }
 
 input PageUpdateWithoutFaqsDataInput {
@@ -3375,6 +4108,25 @@ input PageUpdateWithoutFaqsDataInput {
   prosAndCons: ProsAndConsUpdateManyWithoutPageInput
   alertBoxes: AlertBoxUpdateManyWithoutPageInput
   quickTips: QuickTipUpdateManyWithoutPageInput
+  faqAccordion: PageFaqAccordionUpdateManyWithoutPageInput
+  grids: GridUpdateManyWithoutPageInput
+}
+
+input PageUpdateWithoutGridsDataInput {
+  title: String
+  slug: String
+  url: String
+  type: PageType
+  status: PageStatus
+  vertical: String
+  media: MediaUpdateOneInput
+  template: String
+  blocks: BlockUpdateManyWithoutPageInput
+  boxes: BoxUpdateManyWithoutPageInput
+  prosAndCons: ProsAndConsUpdateManyWithoutPageInput
+  alertBoxes: AlertBoxUpdateManyWithoutPageInput
+  quickTips: QuickTipUpdateManyWithoutPageInput
+  faqs: PageFaqUpdateManyWithoutPageInput
   faqAccordion: PageFaqAccordionUpdateManyWithoutPageInput
 }
 
@@ -3393,6 +4145,7 @@ input PageUpdateWithoutProsAndConsDataInput {
   quickTips: QuickTipUpdateManyWithoutPageInput
   faqs: PageFaqUpdateManyWithoutPageInput
   faqAccordion: PageFaqAccordionUpdateManyWithoutPageInput
+  grids: GridUpdateManyWithoutPageInput
 }
 
 input PageUpdateWithoutQuickTipsDataInput {
@@ -3410,6 +4163,7 @@ input PageUpdateWithoutQuickTipsDataInput {
   alertBoxes: AlertBoxUpdateManyWithoutPageInput
   faqs: PageFaqUpdateManyWithoutPageInput
   faqAccordion: PageFaqAccordionUpdateManyWithoutPageInput
+  grids: GridUpdateManyWithoutPageInput
 }
 
 input PageUpsertWithoutAlertBoxesInput {
@@ -3435,6 +4189,11 @@ input PageUpsertWithoutFaqAccordionInput {
 input PageUpsertWithoutFaqsInput {
   update: PageUpdateWithoutFaqsDataInput!
   create: PageCreateWithoutFaqsInput!
+}
+
+input PageUpsertWithoutGridsInput {
+  update: PageUpdateWithoutGridsDataInput!
+  create: PageCreateWithoutGridsInput!
 }
 
 input PageUpsertWithoutProsAndConsInput {
@@ -3562,6 +4321,9 @@ input PageWhereInput {
   faqAccordion_every: PageFaqAccordionWhereInput
   faqAccordion_some: PageFaqAccordionWhereInput
   faqAccordion_none: PageFaqAccordionWhereInput
+  grids_every: GridWhereInput
+  grids_some: GridWhereInput
+  grids_none: GridWhereInput
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -4185,6 +4947,12 @@ type Query {
   faqCategory(where: FaqCategoryWhereUniqueInput!): FaqCategory
   faqCategories(where: FaqCategoryWhereInput, orderBy: FaqCategoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [FaqCategory]!
   faqCategoriesConnection(where: FaqCategoryWhereInput, orderBy: FaqCategoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): FaqCategoryConnection!
+  grid(where: GridWhereUniqueInput!): Grid
+  grids(where: GridWhereInput, orderBy: GridOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Grid]!
+  gridsConnection(where: GridWhereInput, orderBy: GridOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): GridConnection!
+  gridItem(where: GridItemWhereUniqueInput!): GridItem
+  gridItems(where: GridItemWhereInput, orderBy: GridItemOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [GridItem]!
+  gridItemsConnection(where: GridItemWhereInput, orderBy: GridItemOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): GridItemConnection!
   media(where: MediaWhereUniqueInput!): Media
   medias(where: MediaWhereInput, orderBy: MediaOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Media]!
   mediasConnection(where: MediaWhereInput, orderBy: MediaOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): MediaConnection!
@@ -4586,6 +5354,8 @@ type Subscription {
   cons(where: ConsSubscriptionWhereInput): ConsSubscriptionPayload
   faq(where: FaqSubscriptionWhereInput): FaqSubscriptionPayload
   faqCategory(where: FaqCategorySubscriptionWhereInput): FaqCategorySubscriptionPayload
+  grid(where: GridSubscriptionWhereInput): GridSubscriptionPayload
+  gridItem(where: GridItemSubscriptionWhereInput): GridItemSubscriptionPayload
   media(where: MediaSubscriptionWhereInput): MediaSubscriptionPayload
   page(where: PageSubscriptionWhereInput): PageSubscriptionPayload
   pageFaq(where: PageFaqSubscriptionWhereInput): PageFaqSubscriptionPayload

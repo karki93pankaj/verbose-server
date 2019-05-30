@@ -71,6 +71,14 @@ var models = [
   {
     name: "PageFaqAccordion",
     embedded: false
+  },
+  {
+    name: "Grid",
+    embedded: false
+  },
+  {
+    name: "GridItem",
+    embedded: false
   }
 ];
 exports.Prisma = prisma_lib_1.makePrismaClientClass({

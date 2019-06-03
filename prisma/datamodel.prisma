@@ -33,13 +33,22 @@ type Page {
   id: ID! @id
   title: String!
   slug: String!
-  url: String!
+  url: String! @unique
   type: PageType!
   status: PageStatus!
-  content: String
   vertical: String
   media: Media
   template: String
+  header: String
+  tagline: String
+  resultName: String
+  description: String
+  keywords: String
+  canonical: String
+  userJourneyStage: String
+  content: String
+  contentSummary: String
+  category: String
   blocks: [Block]!
   boxes: [Box]!
   prosAndCons: [ProsAndCons]!
@@ -48,6 +57,7 @@ type Page {
   faqs: [PageFaq]
   faqAccordion: [PageFaqAccordion]
   grids: [Grid]
+  components: [Component]
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }
@@ -163,9 +173,18 @@ type FaqCategory {
   updatedAt: DateTime! @updatedAt
 }
 
+type Component {
+  id: ID! @id
+  page: Page!
+  component: String
+  order: Int
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
 type Media {
   id: ID! @id
-  url: String!
+  url: String! @unique
   title: String
   altText: String
   createdAt: DateTime! @createdAt

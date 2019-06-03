@@ -61,6 +61,10 @@ var models = [
     embedded: false
   },
   {
+    name: "Component",
+    embedded: false
+  },
+  {
     name: "Media",
     embedded: false
   },

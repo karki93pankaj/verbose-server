@@ -11,6 +11,7 @@ import quickTip from './quickTip'
 import pageFaq from './pageFaq'
 import pageFaqAccordion from './pageFaqAccordion'
 import grid from './grid'
+import migration from './migration'
 
 export default [
   user,
@@ -25,5 +26,6 @@ export default [
   alertBox,
   quickTip,
   pageFaq,
-  pageFaqAccordion
+  pageFaqAccordion,
+  migration,
 ]

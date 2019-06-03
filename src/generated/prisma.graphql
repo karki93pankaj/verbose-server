@@ -2300,6 +2300,7 @@ type Grid {
   id: ID!
   title: String
   page: Page!
+  media: Media
   content: String
   order: Int
   items(where: GridItemWhereInput, orderBy: GridItemOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [GridItem!]
@@ -2317,6 +2318,7 @@ input GridCreateInput {
   id: ID
   title: String
   page: PageCreateOneWithoutGridsInput!
+  media: MediaCreateOneInput
   content: String
   order: Int
   items: GridItemCreateManyWithoutGridInput
@@ -2336,6 +2338,7 @@ input GridCreateWithoutItemsInput {
   id: ID
   title: String
   page: PageCreateOneWithoutGridsInput!
+  media: MediaCreateOneInput
   content: String
   order: Int
 }
@@ -2343,6 +2346,7 @@ input GridCreateWithoutItemsInput {
 input GridCreateWithoutPageInput {
   id: ID
   title: String
+  media: MediaCreateOneInput
   content: String
   order: Int
   items: GridItemCreateManyWithoutGridInput
@@ -2811,6 +2815,7 @@ input GridSubscriptionWhereInput {
 input GridUpdateInput {
   title: String
   page: PageUpdateOneRequiredWithoutGridsInput
+  media: MediaUpdateOneInput
   content: String
   order: Int
   items: GridItemUpdateManyWithoutGridInput
@@ -2857,12 +2862,14 @@ input GridUpdateOneWithoutItemsInput {
 input GridUpdateWithoutItemsDataInput {
   title: String
   page: PageUpdateOneRequiredWithoutGridsInput
+  media: MediaUpdateOneInput
   content: String
   order: Int
 }
 
 input GridUpdateWithoutPageDataInput {
   title: String
+  media: MediaUpdateOneInput
   content: String
   order: Int
   items: GridItemUpdateManyWithoutGridInput
@@ -2914,6 +2921,7 @@ input GridWhereInput {
   title_ends_with: String
   title_not_ends_with: String
   page: PageWhereInput
+  media: MediaWhereInput
   content: String
   content_not: String
   content_in: [String!]
@@ -3270,6 +3278,7 @@ type Page {
   url: String!
   type: PageType!
   status: PageStatus!
+  content: String
   vertical: String
   media: Media
   template: String
@@ -3298,6 +3307,7 @@ input PageCreateInput {
   url: String!
   type: PageType!
   status: PageStatus!
+  content: String
   vertical: String
   media: MediaCreateOneInput
   template: String
@@ -3358,6 +3368,7 @@ input PageCreateWithoutAlertBoxesInput {
   url: String!
   type: PageType!
   status: PageStatus!
+  content: String
   vertical: String
   media: MediaCreateOneInput
   template: String
@@ -3377,6 +3388,7 @@ input PageCreateWithoutBlocksInput {
   url: String!
   type: PageType!
   status: PageStatus!
+  content: String
   vertical: String
   media: MediaCreateOneInput
   template: String
@@ -3396,6 +3408,7 @@ input PageCreateWithoutBoxesInput {
   url: String!
   type: PageType!
   status: PageStatus!
+  content: String
   vertical: String
   media: MediaCreateOneInput
   template: String
@@ -3415,6 +3428,7 @@ input PageCreateWithoutFaqAccordionInput {
   url: String!
   type: PageType!
   status: PageStatus!
+  content: String
   vertical: String
   media: MediaCreateOneInput
   template: String
@@ -3434,6 +3448,7 @@ input PageCreateWithoutFaqsInput {
   url: String!
   type: PageType!
   status: PageStatus!
+  content: String
   vertical: String
   media: MediaCreateOneInput
   template: String
@@ -3453,6 +3468,7 @@ input PageCreateWithoutGridsInput {
   url: String!
   type: PageType!
   status: PageStatus!
+  content: String
   vertical: String
   media: MediaCreateOneInput
   template: String
@@ -3472,6 +3488,7 @@ input PageCreateWithoutProsAndConsInput {
   url: String!
   type: PageType!
   status: PageStatus!
+  content: String
   vertical: String
   media: MediaCreateOneInput
   template: String
@@ -3491,6 +3508,7 @@ input PageCreateWithoutQuickTipsInput {
   url: String!
   type: PageType!
   status: PageStatus!
+  content: String
   vertical: String
   media: MediaCreateOneInput
   template: String
@@ -3878,6 +3896,8 @@ enum PageOrderByInput {
   type_DESC
   status_ASC
   status_DESC
+  content_ASC
+  content_DESC
   vertical_ASC
   vertical_DESC
   template_ASC
@@ -3895,6 +3915,7 @@ type PagePreviousValues {
   url: String!
   type: PageType!
   status: PageStatus!
+  content: String
   vertical: String
   template: String
   createdAt: DateTime!
@@ -3930,6 +3951,7 @@ enum PageType {
   NEWS
   ARTICLE
   STATIC
+  GUIDE
 }
 
 input PageUpdateInput {
@@ -3938,6 +3960,7 @@ input PageUpdateInput {
   url: String
   type: PageType
   status: PageStatus
+  content: String
   vertical: String
   media: MediaUpdateOneInput
   template: String
@@ -3957,6 +3980,7 @@ input PageUpdateManyMutationInput {
   url: String
   type: PageType
   status: PageStatus
+  content: String
   vertical: String
   template: String
 }
@@ -4023,6 +4047,7 @@ input PageUpdateWithoutAlertBoxesDataInput {
   url: String
   type: PageType
   status: PageStatus
+  content: String
   vertical: String
   media: MediaUpdateOneInput
   template: String
@@ -4041,6 +4066,7 @@ input PageUpdateWithoutBlocksDataInput {
   url: String
   type: PageType
   status: PageStatus
+  content: String
   vertical: String
   media: MediaUpdateOneInput
   template: String
@@ -4059,6 +4085,7 @@ input PageUpdateWithoutBoxesDataInput {
   url: String
   type: PageType
   status: PageStatus
+  content: String
   vertical: String
   media: MediaUpdateOneInput
   template: String
@@ -4077,6 +4104,7 @@ input PageUpdateWithoutFaqAccordionDataInput {
   url: String
   type: PageType
   status: PageStatus
+  content: String
   vertical: String
   media: MediaUpdateOneInput
   template: String
@@ -4095,6 +4123,7 @@ input PageUpdateWithoutFaqsDataInput {
   url: String
   type: PageType
   status: PageStatus
+  content: String
   vertical: String
   media: MediaUpdateOneInput
   template: String
@@ -4113,6 +4142,7 @@ input PageUpdateWithoutGridsDataInput {
   url: String
   type: PageType
   status: PageStatus
+  content: String
   vertical: String
   media: MediaUpdateOneInput
   template: String
@@ -4131,6 +4161,7 @@ input PageUpdateWithoutProsAndConsDataInput {
   url: String
   type: PageType
   status: PageStatus
+  content: String
   vertical: String
   media: MediaUpdateOneInput
   template: String
@@ -4149,6 +4180,7 @@ input PageUpdateWithoutQuickTipsDataInput {
   url: String
   type: PageType
   status: PageStatus
+  content: String
   vertical: String
   media: MediaUpdateOneInput
   template: String
@@ -4266,6 +4298,20 @@ input PageWhereInput {
   status_not: PageStatus
   status_in: [PageStatus!]
   status_not_in: [PageStatus!]
+  content: String
+  content_not: String
+  content_in: [String!]
+  content_not_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_gt: String
+  content_gte: String
+  content_contains: String
+  content_not_contains: String
+  content_starts_with: String
+  content_not_starts_with: String
+  content_ends_with: String
+  content_not_ends_with: String
   vertical: String
   vertical_not: String
   vertical_in: [String!]

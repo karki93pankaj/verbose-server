@@ -82,6 +82,7 @@ type Mutation {
     title: String!
     slug: String!
     url: String!
+    content: String
     type: PageType!
     vertical: String
     template: String
@@ -211,6 +212,7 @@ type Mutation {
     content: String
     page: ID!
     order: Int
+    media: ID
     items: [GridItemInput]
   ): Grid
   deleteGrid(id: ID!): Grid

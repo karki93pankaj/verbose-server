@@ -20,23 +20,28 @@ export default {
     },
     Mutation: {
         async upsertGrid (parent, args, ctx, info) {
-            const { id, title, content, order, page } = args
+            const { id, title, content, order, page, media } = args
+
             const items = args.items.map(item => ({
                 ...item,
                 media: item.media ? { connect: { id: item.media } } : null
             }))
 
-            let gridItems
+            let gridItems, mediaQuery = media ? { connect: { id: media } } : null
             let grid = await ctx.prisma.grid({ id })
 
             if ( isEmpty(grid) ) {
-                grid = await ctx.prisma.createGrid({
+                grid = await ctx.prisma.createGrid({      
                     page: { 
                         connect: { id: page }
                     }
                 })
             } else {
                 gridItems = await ctx.prisma.grid({ id }).items()
+                if (!media) {
+                    let { id: mediaId } = await ctx.prisma.grid({ id }).media()
+                    mediaQuery = mediaId ? { disconnect: true } : null
+                }
             }
 
             const createGridItems = differentWith(items, gridItems, compareItemId)
@@ -70,10 +75,12 @@ export default {
                 !isEmpty(updateGridItems) && { update: updateGridItems },
                 !isEmpty(deleteGridItems) && { delete: deleteGridItems }
             )
+            
             const data = {
                 title,
                 content,
                 order,
+                media: mediaQuery,
                 items: itemsQuery
             }
             return await ctx.prisma.updateGrid({
@@ -96,6 +103,9 @@ export default {
     Grid: {
         items: async function (parent, args, ctx) {
             return await ctx.prisma.grid({id: parent.id}).items()
+        },
+        media: async function (parent, args, ctx) {
+            return await ctx.prisma.grid({ id: parent.id }).media()
         }
     },
     GridItem: {

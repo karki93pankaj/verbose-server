@@ -8,6 +8,7 @@ enum PageType {
   NEWS
   ARTICLE
   STATIC
+  GUIDE
 }
 
 enum PageStatus {
@@ -35,6 +36,7 @@ type Page {
   url: String!
   type: PageType!
   status: PageStatus!
+  content: String
   vertical: String
   media: Media
   template: String
@@ -188,6 +190,7 @@ type Grid {
   id: ID! @id
   title: String
   page: Page!
+  media: Media
   content: String
   order: Int
   items: [GridItem] @relation(name: "GridItemsOnGrid", onDelete: CASCADE)

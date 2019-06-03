@@ -217,6 +217,7 @@ type Mutation {
   ): Grid
   deleteGrid(id: ID!): Grid
   reingestPages: ReingestPagesResponse!
+  migrateRcPages: ReingestPagesResponse!
 }
 
 type ReingestPagesResponse {

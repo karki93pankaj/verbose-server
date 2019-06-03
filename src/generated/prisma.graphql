@@ -10,6 +10,10 @@ type AggregateBox {
   count: Int!
 }
 
+type AggregateComponent {
+  count: Int!
+}
+
 type AggregateCons {
   count: Int!
 }
@@ -1196,6 +1200,253 @@ input BoxWhereInput {
 }
 
 input BoxWhereUniqueInput {
+  id: ID
+}
+
+type Component {
+  id: ID!
+  page: Page!
+  component: String
+  order: Int
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type ComponentConnection {
+  pageInfo: PageInfo!
+  edges: [ComponentEdge]!
+  aggregate: AggregateComponent!
+}
+
+input ComponentCreateInput {
+  id: ID
+  page: PageCreateOneWithoutComponentsInput!
+  component: String
+  order: Int
+}
+
+input ComponentCreateManyWithoutPageInput {
+  create: [ComponentCreateWithoutPageInput!]
+  connect: [ComponentWhereUniqueInput!]
+}
+
+input ComponentCreateWithoutPageInput {
+  id: ID
+  component: String
+  order: Int
+}
+
+type ComponentEdge {
+  node: Component!
+  cursor: String!
+}
+
+enum ComponentOrderByInput {
+  id_ASC
+  id_DESC
+  component_ASC
+  component_DESC
+  order_ASC
+  order_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type ComponentPreviousValues {
+  id: ID!
+  component: String
+  order: Int
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+input ComponentScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  component: String
+  component_not: String
+  component_in: [String!]
+  component_not_in: [String!]
+  component_lt: String
+  component_lte: String
+  component_gt: String
+  component_gte: String
+  component_contains: String
+  component_not_contains: String
+  component_starts_with: String
+  component_not_starts_with: String
+  component_ends_with: String
+  component_not_ends_with: String
+  order: Int
+  order_not: Int
+  order_in: [Int!]
+  order_not_in: [Int!]
+  order_lt: Int
+  order_lte: Int
+  order_gt: Int
+  order_gte: Int
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [ComponentScalarWhereInput!]
+  OR: [ComponentScalarWhereInput!]
+  NOT: [ComponentScalarWhereInput!]
+}
+
+type ComponentSubscriptionPayload {
+  mutation: MutationType!
+  node: Component
+  updatedFields: [String!]
+  previousValues: ComponentPreviousValues
+}
+
+input ComponentSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: ComponentWhereInput
+  AND: [ComponentSubscriptionWhereInput!]
+  OR: [ComponentSubscriptionWhereInput!]
+  NOT: [ComponentSubscriptionWhereInput!]
+}
+
+input ComponentUpdateInput {
+  page: PageUpdateOneRequiredWithoutComponentsInput
+  component: String
+  order: Int
+}
+
+input ComponentUpdateManyDataInput {
+  component: String
+  order: Int
+}
+
+input ComponentUpdateManyMutationInput {
+  component: String
+  order: Int
+}
+
+input ComponentUpdateManyWithoutPageInput {
+  create: [ComponentCreateWithoutPageInput!]
+  delete: [ComponentWhereUniqueInput!]
+  connect: [ComponentWhereUniqueInput!]
+  set: [ComponentWhereUniqueInput!]
+  disconnect: [ComponentWhereUniqueInput!]
+  update: [ComponentUpdateWithWhereUniqueWithoutPageInput!]
+  upsert: [ComponentUpsertWithWhereUniqueWithoutPageInput!]
+  deleteMany: [ComponentScalarWhereInput!]
+  updateMany: [ComponentUpdateManyWithWhereNestedInput!]
+}
+
+input ComponentUpdateManyWithWhereNestedInput {
+  where: ComponentScalarWhereInput!
+  data: ComponentUpdateManyDataInput!
+}
+
+input ComponentUpdateWithoutPageDataInput {
+  component: String
+  order: Int
+}
+
+input ComponentUpdateWithWhereUniqueWithoutPageInput {
+  where: ComponentWhereUniqueInput!
+  data: ComponentUpdateWithoutPageDataInput!
+}
+
+input ComponentUpsertWithWhereUniqueWithoutPageInput {
+  where: ComponentWhereUniqueInput!
+  update: ComponentUpdateWithoutPageDataInput!
+  create: ComponentCreateWithoutPageInput!
+}
+
+input ComponentWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  page: PageWhereInput
+  component: String
+  component_not: String
+  component_in: [String!]
+  component_not_in: [String!]
+  component_lt: String
+  component_lte: String
+  component_gt: String
+  component_gte: String
+  component_contains: String
+  component_not_contains: String
+  component_starts_with: String
+  component_not_starts_with: String
+  component_ends_with: String
+  component_not_ends_with: String
+  order: Int
+  order_not: Int
+  order_in: [Int!]
+  order_not_in: [Int!]
+  order_lt: Int
+  order_lte: Int
+  order_gt: Int
+  order_gte: Int
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [ComponentWhereInput!]
+  OR: [ComponentWhereInput!]
+  NOT: [ComponentWhereInput!]
+}
+
+input ComponentWhereUniqueInput {
   id: ID
 }
 
@@ -3160,6 +3411,7 @@ input MediaWhereInput {
 
 input MediaWhereUniqueInput {
   id: ID
+  url: String
 }
 
 type Mutation {
@@ -3181,6 +3433,12 @@ type Mutation {
   upsertBox(where: BoxWhereUniqueInput!, create: BoxCreateInput!, update: BoxUpdateInput!): Box!
   deleteBox(where: BoxWhereUniqueInput!): Box
   deleteManyBoxes(where: BoxWhereInput): BatchPayload!
+  createComponent(data: ComponentCreateInput!): Component!
+  updateComponent(data: ComponentUpdateInput!, where: ComponentWhereUniqueInput!): Component
+  updateManyComponents(data: ComponentUpdateManyMutationInput!, where: ComponentWhereInput): BatchPayload!
+  upsertComponent(where: ComponentWhereUniqueInput!, create: ComponentCreateInput!, update: ComponentUpdateInput!): Component!
+  deleteComponent(where: ComponentWhereUniqueInput!): Component
+  deleteManyComponents(where: ComponentWhereInput): BatchPayload!
   createCons(data: ConsCreateInput!): Cons!
   updateCons(data: ConsUpdateInput!, where: ConsWhereUniqueInput!): Cons
   updateManyConses(data: ConsUpdateManyMutationInput!, where: ConsWhereInput): BatchPayload!
@@ -3278,10 +3536,19 @@ type Page {
   url: String!
   type: PageType!
   status: PageStatus!
-  content: String
   vertical: String
   media: Media
   template: String
+  header: String
+  tagline: String
+  resultName: String
+  description: String
+  keywords: String
+  canonical: String
+  userJourneyStage: String
+  content: String
+  contentSummary: String
+  category: String
   blocks(where: BlockWhereInput, orderBy: BlockOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Block!]
   boxes(where: BoxWhereInput, orderBy: BoxOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Box!]
   prosAndCons(where: ProsAndConsWhereInput, orderBy: ProsAndConsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ProsAndCons!]
@@ -3290,6 +3557,7 @@ type Page {
   faqs(where: PageFaqWhereInput, orderBy: PageFaqOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [PageFaq!]
   faqAccordion(where: PageFaqAccordionWhereInput, orderBy: PageFaqAccordionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [PageFaqAccordion!]
   grids(where: GridWhereInput, orderBy: GridOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Grid!]
+  components(where: ComponentWhereInput, orderBy: ComponentOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Component!]
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -3307,10 +3575,19 @@ input PageCreateInput {
   url: String!
   type: PageType!
   status: PageStatus!
-  content: String
   vertical: String
   media: MediaCreateOneInput
   template: String
+  header: String
+  tagline: String
+  resultName: String
+  description: String
+  keywords: String
+  canonical: String
+  userJourneyStage: String
+  content: String
+  contentSummary: String
+  category: String
   blocks: BlockCreateManyWithoutPageInput
   boxes: BoxCreateManyWithoutPageInput
   prosAndCons: ProsAndConsCreateManyWithoutPageInput
@@ -3319,6 +3596,7 @@ input PageCreateInput {
   faqs: PageFaqCreateManyWithoutPageInput
   faqAccordion: PageFaqAccordionCreateManyWithoutPageInput
   grids: GridCreateManyWithoutPageInput
+  components: ComponentCreateManyWithoutPageInput
 }
 
 input PageCreateOneWithoutAlertBoxesInput {
@@ -3333,6 +3611,11 @@ input PageCreateOneWithoutBlocksInput {
 
 input PageCreateOneWithoutBoxesInput {
   create: PageCreateWithoutBoxesInput
+  connect: PageWhereUniqueInput
+}
+
+input PageCreateOneWithoutComponentsInput {
+  create: PageCreateWithoutComponentsInput
   connect: PageWhereUniqueInput
 }
 
@@ -3368,10 +3651,19 @@ input PageCreateWithoutAlertBoxesInput {
   url: String!
   type: PageType!
   status: PageStatus!
-  content: String
   vertical: String
   media: MediaCreateOneInput
   template: String
+  header: String
+  tagline: String
+  resultName: String
+  description: String
+  keywords: String
+  canonical: String
+  userJourneyStage: String
+  content: String
+  contentSummary: String
+  category: String
   blocks: BlockCreateManyWithoutPageInput
   boxes: BoxCreateManyWithoutPageInput
   prosAndCons: ProsAndConsCreateManyWithoutPageInput
@@ -3379,6 +3671,7 @@ input PageCreateWithoutAlertBoxesInput {
   faqs: PageFaqCreateManyWithoutPageInput
   faqAccordion: PageFaqAccordionCreateManyWithoutPageInput
   grids: GridCreateManyWithoutPageInput
+  components: ComponentCreateManyWithoutPageInput
 }
 
 input PageCreateWithoutBlocksInput {
@@ -3388,10 +3681,19 @@ input PageCreateWithoutBlocksInput {
   url: String!
   type: PageType!
   status: PageStatus!
-  content: String
   vertical: String
   media: MediaCreateOneInput
   template: String
+  header: String
+  tagline: String
+  resultName: String
+  description: String
+  keywords: String
+  canonical: String
+  userJourneyStage: String
+  content: String
+  contentSummary: String
+  category: String
   boxes: BoxCreateManyWithoutPageInput
   prosAndCons: ProsAndConsCreateManyWithoutPageInput
   alertBoxes: AlertBoxCreateManyWithoutPageInput
@@ -3399,6 +3701,7 @@ input PageCreateWithoutBlocksInput {
   faqs: PageFaqCreateManyWithoutPageInput
   faqAccordion: PageFaqAccordionCreateManyWithoutPageInput
   grids: GridCreateManyWithoutPageInput
+  components: ComponentCreateManyWithoutPageInput
 }
 
 input PageCreateWithoutBoxesInput {
@@ -3408,11 +3711,51 @@ input PageCreateWithoutBoxesInput {
   url: String!
   type: PageType!
   status: PageStatus!
-  content: String
   vertical: String
   media: MediaCreateOneInput
   template: String
+  header: String
+  tagline: String
+  resultName: String
+  description: String
+  keywords: String
+  canonical: String
+  userJourneyStage: String
+  content: String
+  contentSummary: String
+  category: String
   blocks: BlockCreateManyWithoutPageInput
+  prosAndCons: ProsAndConsCreateManyWithoutPageInput
+  alertBoxes: AlertBoxCreateManyWithoutPageInput
+  quickTips: QuickTipCreateManyWithoutPageInput
+  faqs: PageFaqCreateManyWithoutPageInput
+  faqAccordion: PageFaqAccordionCreateManyWithoutPageInput
+  grids: GridCreateManyWithoutPageInput
+  components: ComponentCreateManyWithoutPageInput
+}
+
+input PageCreateWithoutComponentsInput {
+  id: ID
+  title: String!
+  slug: String!
+  url: String!
+  type: PageType!
+  status: PageStatus!
+  vertical: String
+  media: MediaCreateOneInput
+  template: String
+  header: String
+  tagline: String
+  resultName: String
+  description: String
+  keywords: String
+  canonical: String
+  userJourneyStage: String
+  content: String
+  contentSummary: String
+  category: String
+  blocks: BlockCreateManyWithoutPageInput
+  boxes: BoxCreateManyWithoutPageInput
   prosAndCons: ProsAndConsCreateManyWithoutPageInput
   alertBoxes: AlertBoxCreateManyWithoutPageInput
   quickTips: QuickTipCreateManyWithoutPageInput
@@ -3428,10 +3771,19 @@ input PageCreateWithoutFaqAccordionInput {
   url: String!
   type: PageType!
   status: PageStatus!
-  content: String
   vertical: String
   media: MediaCreateOneInput
   template: String
+  header: String
+  tagline: String
+  resultName: String
+  description: String
+  keywords: String
+  canonical: String
+  userJourneyStage: String
+  content: String
+  contentSummary: String
+  category: String
   blocks: BlockCreateManyWithoutPageInput
   boxes: BoxCreateManyWithoutPageInput
   prosAndCons: ProsAndConsCreateManyWithoutPageInput
@@ -3439,6 +3791,7 @@ input PageCreateWithoutFaqAccordionInput {
   quickTips: QuickTipCreateManyWithoutPageInput
   faqs: PageFaqCreateManyWithoutPageInput
   grids: GridCreateManyWithoutPageInput
+  components: ComponentCreateManyWithoutPageInput
 }
 
 input PageCreateWithoutFaqsInput {
@@ -3448,10 +3801,19 @@ input PageCreateWithoutFaqsInput {
   url: String!
   type: PageType!
   status: PageStatus!
-  content: String
   vertical: String
   media: MediaCreateOneInput
   template: String
+  header: String
+  tagline: String
+  resultName: String
+  description: String
+  keywords: String
+  canonical: String
+  userJourneyStage: String
+  content: String
+  contentSummary: String
+  category: String
   blocks: BlockCreateManyWithoutPageInput
   boxes: BoxCreateManyWithoutPageInput
   prosAndCons: ProsAndConsCreateManyWithoutPageInput
@@ -3459,6 +3821,7 @@ input PageCreateWithoutFaqsInput {
   quickTips: QuickTipCreateManyWithoutPageInput
   faqAccordion: PageFaqAccordionCreateManyWithoutPageInput
   grids: GridCreateManyWithoutPageInput
+  components: ComponentCreateManyWithoutPageInput
 }
 
 input PageCreateWithoutGridsInput {
@@ -3468,10 +3831,19 @@ input PageCreateWithoutGridsInput {
   url: String!
   type: PageType!
   status: PageStatus!
-  content: String
   vertical: String
   media: MediaCreateOneInput
   template: String
+  header: String
+  tagline: String
+  resultName: String
+  description: String
+  keywords: String
+  canonical: String
+  userJourneyStage: String
+  content: String
+  contentSummary: String
+  category: String
   blocks: BlockCreateManyWithoutPageInput
   boxes: BoxCreateManyWithoutPageInput
   prosAndCons: ProsAndConsCreateManyWithoutPageInput
@@ -3479,6 +3851,7 @@ input PageCreateWithoutGridsInput {
   quickTips: QuickTipCreateManyWithoutPageInput
   faqs: PageFaqCreateManyWithoutPageInput
   faqAccordion: PageFaqAccordionCreateManyWithoutPageInput
+  components: ComponentCreateManyWithoutPageInput
 }
 
 input PageCreateWithoutProsAndConsInput {
@@ -3488,10 +3861,19 @@ input PageCreateWithoutProsAndConsInput {
   url: String!
   type: PageType!
   status: PageStatus!
-  content: String
   vertical: String
   media: MediaCreateOneInput
   template: String
+  header: String
+  tagline: String
+  resultName: String
+  description: String
+  keywords: String
+  canonical: String
+  userJourneyStage: String
+  content: String
+  contentSummary: String
+  category: String
   blocks: BlockCreateManyWithoutPageInput
   boxes: BoxCreateManyWithoutPageInput
   alertBoxes: AlertBoxCreateManyWithoutPageInput
@@ -3499,6 +3881,7 @@ input PageCreateWithoutProsAndConsInput {
   faqs: PageFaqCreateManyWithoutPageInput
   faqAccordion: PageFaqAccordionCreateManyWithoutPageInput
   grids: GridCreateManyWithoutPageInput
+  components: ComponentCreateManyWithoutPageInput
 }
 
 input PageCreateWithoutQuickTipsInput {
@@ -3508,10 +3891,19 @@ input PageCreateWithoutQuickTipsInput {
   url: String!
   type: PageType!
   status: PageStatus!
-  content: String
   vertical: String
   media: MediaCreateOneInput
   template: String
+  header: String
+  tagline: String
+  resultName: String
+  description: String
+  keywords: String
+  canonical: String
+  userJourneyStage: String
+  content: String
+  contentSummary: String
+  category: String
   blocks: BlockCreateManyWithoutPageInput
   boxes: BoxCreateManyWithoutPageInput
   prosAndCons: ProsAndConsCreateManyWithoutPageInput
@@ -3519,6 +3911,7 @@ input PageCreateWithoutQuickTipsInput {
   faqs: PageFaqCreateManyWithoutPageInput
   faqAccordion: PageFaqAccordionCreateManyWithoutPageInput
   grids: GridCreateManyWithoutPageInput
+  components: ComponentCreateManyWithoutPageInput
 }
 
 type PageEdge {
@@ -3896,12 +4289,30 @@ enum PageOrderByInput {
   type_DESC
   status_ASC
   status_DESC
-  content_ASC
-  content_DESC
   vertical_ASC
   vertical_DESC
   template_ASC
   template_DESC
+  header_ASC
+  header_DESC
+  tagline_ASC
+  tagline_DESC
+  resultName_ASC
+  resultName_DESC
+  description_ASC
+  description_DESC
+  keywords_ASC
+  keywords_DESC
+  canonical_ASC
+  canonical_DESC
+  userJourneyStage_ASC
+  userJourneyStage_DESC
+  content_ASC
+  content_DESC
+  contentSummary_ASC
+  contentSummary_DESC
+  category_ASC
+  category_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -3915,9 +4326,18 @@ type PagePreviousValues {
   url: String!
   type: PageType!
   status: PageStatus!
-  content: String
   vertical: String
   template: String
+  header: String
+  tagline: String
+  resultName: String
+  description: String
+  keywords: String
+  canonical: String
+  userJourneyStage: String
+  content: String
+  contentSummary: String
+  category: String
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -3960,10 +4380,19 @@ input PageUpdateInput {
   url: String
   type: PageType
   status: PageStatus
-  content: String
   vertical: String
   media: MediaUpdateOneInput
   template: String
+  header: String
+  tagline: String
+  resultName: String
+  description: String
+  keywords: String
+  canonical: String
+  userJourneyStage: String
+  content: String
+  contentSummary: String
+  category: String
   blocks: BlockUpdateManyWithoutPageInput
   boxes: BoxUpdateManyWithoutPageInput
   prosAndCons: ProsAndConsUpdateManyWithoutPageInput
@@ -3972,6 +4401,7 @@ input PageUpdateInput {
   faqs: PageFaqUpdateManyWithoutPageInput
   faqAccordion: PageFaqAccordionUpdateManyWithoutPageInput
   grids: GridUpdateManyWithoutPageInput
+  components: ComponentUpdateManyWithoutPageInput
 }
 
 input PageUpdateManyMutationInput {
@@ -3980,9 +4410,18 @@ input PageUpdateManyMutationInput {
   url: String
   type: PageType
   status: PageStatus
-  content: String
   vertical: String
   template: String
+  header: String
+  tagline: String
+  resultName: String
+  description: String
+  keywords: String
+  canonical: String
+  userJourneyStage: String
+  content: String
+  contentSummary: String
+  category: String
 }
 
 input PageUpdateOneRequiredWithoutAlertBoxesInput {
@@ -4003,6 +4442,13 @@ input PageUpdateOneRequiredWithoutBoxesInput {
   create: PageCreateWithoutBoxesInput
   update: PageUpdateWithoutBoxesDataInput
   upsert: PageUpsertWithoutBoxesInput
+  connect: PageWhereUniqueInput
+}
+
+input PageUpdateOneRequiredWithoutComponentsInput {
+  create: PageCreateWithoutComponentsInput
+  update: PageUpdateWithoutComponentsDataInput
+  upsert: PageUpsertWithoutComponentsInput
   connect: PageWhereUniqueInput
 }
 
@@ -4047,10 +4493,19 @@ input PageUpdateWithoutAlertBoxesDataInput {
   url: String
   type: PageType
   status: PageStatus
-  content: String
   vertical: String
   media: MediaUpdateOneInput
   template: String
+  header: String
+  tagline: String
+  resultName: String
+  description: String
+  keywords: String
+  canonical: String
+  userJourneyStage: String
+  content: String
+  contentSummary: String
+  category: String
   blocks: BlockUpdateManyWithoutPageInput
   boxes: BoxUpdateManyWithoutPageInput
   prosAndCons: ProsAndConsUpdateManyWithoutPageInput
@@ -4058,6 +4513,7 @@ input PageUpdateWithoutAlertBoxesDataInput {
   faqs: PageFaqUpdateManyWithoutPageInput
   faqAccordion: PageFaqAccordionUpdateManyWithoutPageInput
   grids: GridUpdateManyWithoutPageInput
+  components: ComponentUpdateManyWithoutPageInput
 }
 
 input PageUpdateWithoutBlocksDataInput {
@@ -4066,10 +4522,19 @@ input PageUpdateWithoutBlocksDataInput {
   url: String
   type: PageType
   status: PageStatus
-  content: String
   vertical: String
   media: MediaUpdateOneInput
   template: String
+  header: String
+  tagline: String
+  resultName: String
+  description: String
+  keywords: String
+  canonical: String
+  userJourneyStage: String
+  content: String
+  contentSummary: String
+  category: String
   boxes: BoxUpdateManyWithoutPageInput
   prosAndCons: ProsAndConsUpdateManyWithoutPageInput
   alertBoxes: AlertBoxUpdateManyWithoutPageInput
@@ -4077,6 +4542,7 @@ input PageUpdateWithoutBlocksDataInput {
   faqs: PageFaqUpdateManyWithoutPageInput
   faqAccordion: PageFaqAccordionUpdateManyWithoutPageInput
   grids: GridUpdateManyWithoutPageInput
+  components: ComponentUpdateManyWithoutPageInput
 }
 
 input PageUpdateWithoutBoxesDataInput {
@@ -4085,11 +4551,50 @@ input PageUpdateWithoutBoxesDataInput {
   url: String
   type: PageType
   status: PageStatus
-  content: String
   vertical: String
   media: MediaUpdateOneInput
   template: String
+  header: String
+  tagline: String
+  resultName: String
+  description: String
+  keywords: String
+  canonical: String
+  userJourneyStage: String
+  content: String
+  contentSummary: String
+  category: String
   blocks: BlockUpdateManyWithoutPageInput
+  prosAndCons: ProsAndConsUpdateManyWithoutPageInput
+  alertBoxes: AlertBoxUpdateManyWithoutPageInput
+  quickTips: QuickTipUpdateManyWithoutPageInput
+  faqs: PageFaqUpdateManyWithoutPageInput
+  faqAccordion: PageFaqAccordionUpdateManyWithoutPageInput
+  grids: GridUpdateManyWithoutPageInput
+  components: ComponentUpdateManyWithoutPageInput
+}
+
+input PageUpdateWithoutComponentsDataInput {
+  title: String
+  slug: String
+  url: String
+  type: PageType
+  status: PageStatus
+  vertical: String
+  media: MediaUpdateOneInput
+  template: String
+  header: String
+  tagline: String
+  resultName: String
+  description: String
+  keywords: String
+  canonical: String
+  userJourneyStage: String
+  content: String
+  contentSummary: String
+  category: String
+  blocks: BlockUpdateManyWithoutPageInput
+  boxes: BoxUpdateManyWithoutPageInput
   prosAndCons: ProsAndConsUpdateManyWithoutPageInput
   alertBoxes: AlertBoxUpdateManyWithoutPageInput
   quickTips: QuickTipUpdateManyWithoutPageInput
@@ -4104,10 +4609,19 @@ input PageUpdateWithoutFaqAccordionDataInput {
   url: String
   type: PageType
   status: PageStatus
-  content: String
   vertical: String
   media: MediaUpdateOneInput
   template: String
+  header: String
+  tagline: String
+  resultName: String
+  description: String
+  keywords: String
+  canonical: String
+  userJourneyStage: String
+  content: String
+  contentSummary: String
+  category: String
   blocks: BlockUpdateManyWithoutPageInput
   boxes: BoxUpdateManyWithoutPageInput
   prosAndCons: ProsAndConsUpdateManyWithoutPageInput
@@ -4115,6 +4629,7 @@ input PageUpdateWithoutFaqAccordionDataInput {
   quickTips: QuickTipUpdateManyWithoutPageInput
   faqs: PageFaqUpdateManyWithoutPageInput
   grids: GridUpdateManyWithoutPageInput
+  components: ComponentUpdateManyWithoutPageInput
 }
 
 input PageUpdateWithoutFaqsDataInput {
@@ -4123,10 +4638,19 @@ input PageUpdateWithoutFaqsDataInput {
   url: String
   type: PageType
   status: PageStatus
-  content: String
   vertical: String
   media: MediaUpdateOneInput
   template: String
+  header: String
+  tagline: String
+  resultName: String
+  description: String
+  keywords: String
+  canonical: String
+  userJourneyStage: String
+  content: String
+  contentSummary: String
+  category: String
   blocks: BlockUpdateManyWithoutPageInput
   boxes: BoxUpdateManyWithoutPageInput
   prosAndCons: ProsAndConsUpdateManyWithoutPageInput
@@ -4134,6 +4658,7 @@ input PageUpdateWithoutFaqsDataInput {
   quickTips: QuickTipUpdateManyWithoutPageInput
   faqAccordion: PageFaqAccordionUpdateManyWithoutPageInput
   grids: GridUpdateManyWithoutPageInput
+  components: ComponentUpdateManyWithoutPageInput
 }
 
 input PageUpdateWithoutGridsDataInput {
@@ -4142,10 +4667,19 @@ input PageUpdateWithoutGridsDataInput {
   url: String
   type: PageType
   status: PageStatus
-  content: String
   vertical: String
   media: MediaUpdateOneInput
   template: String
+  header: String
+  tagline: String
+  resultName: String
+  description: String
+  keywords: String
+  canonical: String
+  userJourneyStage: String
+  content: String
+  contentSummary: String
+  category: String
   blocks: BlockUpdateManyWithoutPageInput
   boxes: BoxUpdateManyWithoutPageInput
   prosAndCons: ProsAndConsUpdateManyWithoutPageInput
@@ -4153,6 +4687,7 @@ input PageUpdateWithoutGridsDataInput {
   quickTips: QuickTipUpdateManyWithoutPageInput
   faqs: PageFaqUpdateManyWithoutPageInput
   faqAccordion: PageFaqAccordionUpdateManyWithoutPageInput
+  components: ComponentUpdateManyWithoutPageInput
 }
 
 input PageUpdateWithoutProsAndConsDataInput {
@@ -4161,10 +4696,19 @@ input PageUpdateWithoutProsAndConsDataInput {
   url: String
   type: PageType
   status: PageStatus
-  content: String
   vertical: String
   media: MediaUpdateOneInput
   template: String
+  header: String
+  tagline: String
+  resultName: String
+  description: String
+  keywords: String
+  canonical: String
+  userJourneyStage: String
+  content: String
+  contentSummary: String
+  category: String
   blocks: BlockUpdateManyWithoutPageInput
   boxes: BoxUpdateManyWithoutPageInput
   alertBoxes: AlertBoxUpdateManyWithoutPageInput
@@ -4172,6 +4716,7 @@ input PageUpdateWithoutProsAndConsDataInput {
   faqs: PageFaqUpdateManyWithoutPageInput
   faqAccordion: PageFaqAccordionUpdateManyWithoutPageInput
   grids: GridUpdateManyWithoutPageInput
+  components: ComponentUpdateManyWithoutPageInput
 }
 
 input PageUpdateWithoutQuickTipsDataInput {
@@ -4180,10 +4725,19 @@ input PageUpdateWithoutQuickTipsDataInput {
   url: String
   type: PageType
   status: PageStatus
-  content: String
   vertical: String
   media: MediaUpdateOneInput
   template: String
+  header: String
+  tagline: String
+  resultName: String
+  description: String
+  keywords: String
+  canonical: String
+  userJourneyStage: String
+  content: String
+  contentSummary: String
+  category: String
   blocks: BlockUpdateManyWithoutPageInput
   boxes: BoxUpdateManyWithoutPageInput
   prosAndCons: ProsAndConsUpdateManyWithoutPageInput
@@ -4191,6 +4745,7 @@ input PageUpdateWithoutQuickTipsDataInput {
   faqs: PageFaqUpdateManyWithoutPageInput
   faqAccordion: PageFaqAccordionUpdateManyWithoutPageInput
   grids: GridUpdateManyWithoutPageInput
+  components: ComponentUpdateManyWithoutPageInput
 }
 
 input PageUpsertWithoutAlertBoxesInput {
@@ -4206,6 +4761,11 @@ input PageUpsertWithoutBlocksInput {
 input PageUpsertWithoutBoxesInput {
   update: PageUpdateWithoutBoxesDataInput!
   create: PageCreateWithoutBoxesInput!
+}
+
+input PageUpsertWithoutComponentsInput {
+  update: PageUpdateWithoutComponentsDataInput!
+  create: PageCreateWithoutComponentsInput!
 }
 
 input PageUpsertWithoutFaqAccordionInput {
@@ -4298,20 +4858,6 @@ input PageWhereInput {
   status_not: PageStatus
   status_in: [PageStatus!]
   status_not_in: [PageStatus!]
-  content: String
-  content_not: String
-  content_in: [String!]
-  content_not_in: [String!]
-  content_lt: String
-  content_lte: String
-  content_gt: String
-  content_gte: String
-  content_contains: String
-  content_not_contains: String
-  content_starts_with: String
-  content_not_starts_with: String
-  content_ends_with: String
-  content_not_ends_with: String
   vertical: String
   vertical_not: String
   vertical_in: [String!]
@@ -4341,6 +4887,146 @@ input PageWhereInput {
   template_not_starts_with: String
   template_ends_with: String
   template_not_ends_with: String
+  header: String
+  header_not: String
+  header_in: [String!]
+  header_not_in: [String!]
+  header_lt: String
+  header_lte: String
+  header_gt: String
+  header_gte: String
+  header_contains: String
+  header_not_contains: String
+  header_starts_with: String
+  header_not_starts_with: String
+  header_ends_with: String
+  header_not_ends_with: String
+  tagline: String
+  tagline_not: String
+  tagline_in: [String!]
+  tagline_not_in: [String!]
+  tagline_lt: String
+  tagline_lte: String
+  tagline_gt: String
+  tagline_gte: String
+  tagline_contains: String
+  tagline_not_contains: String
+  tagline_starts_with: String
+  tagline_not_starts_with: String
+  tagline_ends_with: String
+  tagline_not_ends_with: String
+  resultName: String
+  resultName_not: String
+  resultName_in: [String!]
+  resultName_not_in: [String!]
+  resultName_lt: String
+  resultName_lte: String
+  resultName_gt: String
+  resultName_gte: String
+  resultName_contains: String
+  resultName_not_contains: String
+  resultName_starts_with: String
+  resultName_not_starts_with: String
+  resultName_ends_with: String
+  resultName_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  keywords: String
+  keywords_not: String
+  keywords_in: [String!]
+  keywords_not_in: [String!]
+  keywords_lt: String
+  keywords_lte: String
+  keywords_gt: String
+  keywords_gte: String
+  keywords_contains: String
+  keywords_not_contains: String
+  keywords_starts_with: String
+  keywords_not_starts_with: String
+  keywords_ends_with: String
+  keywords_not_ends_with: String
+  canonical: String
+  canonical_not: String
+  canonical_in: [String!]
+  canonical_not_in: [String!]
+  canonical_lt: String
+  canonical_lte: String
+  canonical_gt: String
+  canonical_gte: String
+  canonical_contains: String
+  canonical_not_contains: String
+  canonical_starts_with: String
+  canonical_not_starts_with: String
+  canonical_ends_with: String
+  canonical_not_ends_with: String
+  userJourneyStage: String
+  userJourneyStage_not: String
+  userJourneyStage_in: [String!]
+  userJourneyStage_not_in: [String!]
+  userJourneyStage_lt: String
+  userJourneyStage_lte: String
+  userJourneyStage_gt: String
+  userJourneyStage_gte: String
+  userJourneyStage_contains: String
+  userJourneyStage_not_contains: String
+  userJourneyStage_starts_with: String
+  userJourneyStage_not_starts_with: String
+  userJourneyStage_ends_with: String
+  userJourneyStage_not_ends_with: String
+  content: String
+  content_not: String
+  content_in: [String!]
+  content_not_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_gt: String
+  content_gte: String
+  content_contains: String
+  content_not_contains: String
+  content_starts_with: String
+  content_not_starts_with: String
+  content_ends_with: String
+  content_not_ends_with: String
+  contentSummary: String
+  contentSummary_not: String
+  contentSummary_in: [String!]
+  contentSummary_not_in: [String!]
+  contentSummary_lt: String
+  contentSummary_lte: String
+  contentSummary_gt: String
+  contentSummary_gte: String
+  contentSummary_contains: String
+  contentSummary_not_contains: String
+  contentSummary_starts_with: String
+  contentSummary_not_starts_with: String
+  contentSummary_ends_with: String
+  contentSummary_not_ends_with: String
+  category: String
+  category_not: String
+  category_in: [String!]
+  category_not_in: [String!]
+  category_lt: String
+  category_lte: String
+  category_gt: String
+  category_gte: String
+  category_contains: String
+  category_not_contains: String
+  category_starts_with: String
+  category_not_starts_with: String
+  category_ends_with: String
+  category_not_ends_with: String
   blocks_every: BlockWhereInput
   blocks_some: BlockWhereInput
   blocks_none: BlockWhereInput
@@ -4365,6 +5051,9 @@ input PageWhereInput {
   grids_every: GridWhereInput
   grids_some: GridWhereInput
   grids_none: GridWhereInput
+  components_every: ComponentWhereInput
+  components_some: ComponentWhereInput
+  components_none: ComponentWhereInput
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -4388,6 +5077,7 @@ input PageWhereInput {
 
 input PageWhereUniqueInput {
   id: ID
+  url: String
 }
 
 enum Permission {
@@ -4979,6 +5669,9 @@ type Query {
   box(where: BoxWhereUniqueInput!): Box
   boxes(where: BoxWhereInput, orderBy: BoxOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Box]!
   boxesConnection(where: BoxWhereInput, orderBy: BoxOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): BoxConnection!
+  component(where: ComponentWhereUniqueInput!): Component
+  components(where: ComponentWhereInput, orderBy: ComponentOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Component]!
+  componentsConnection(where: ComponentWhereInput, orderBy: ComponentOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ComponentConnection!
   cons(where: ConsWhereUniqueInput!): Cons
   conses(where: ConsWhereInput, orderBy: ConsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Cons]!
   consesConnection(where: ConsWhereInput, orderBy: ConsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ConsConnection!
@@ -5392,6 +6085,7 @@ type Subscription {
   alertBox(where: AlertBoxSubscriptionWhereInput): AlertBoxSubscriptionPayload
   block(where: BlockSubscriptionWhereInput): BlockSubscriptionPayload
   box(where: BoxSubscriptionWhereInput): BoxSubscriptionPayload
+  component(where: ComponentSubscriptionWhereInput): ComponentSubscriptionPayload
   cons(where: ConsSubscriptionWhereInput): ConsSubscriptionPayload
   faq(where: FaqSubscriptionWhereInput): FaqSubscriptionPayload
   faqCategory(where: FaqCategorySubscriptionWhereInput): FaqCategorySubscriptionPayload

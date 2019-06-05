@@ -89,13 +89,9 @@ const insertBox = async (section, pageId) => {
   if (section.format.includes('box-grey')) style = 'grey'
   else if (section.format.includes('box-vertical')) style = 'vertical'
 
-  let alignment = 'content-right'
-  if(section.format.includes('align-content-left') && !section.format.includes('align-content-left-column'))
-    alignment = 'content-left'
-  else if (section.format.includes('align-content-left-column'))
-    alignment = 'content-left-column'
-  else if (section.format.includes('align-content-right-column'))
-    alignment = 'content-right-column'
+  let alignment = 'content-left'
+  if(section.format.includes('align-content-right') && !section.format.includes('align-content-right-column'))
+    alignment = 'content-right'
 
   const box = await prisma.createBox({
       page: {

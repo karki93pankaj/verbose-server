@@ -1,5 +1,5 @@
 {
-  "name": "verbose-server",
+  "name": "content-server",
   "version": "1.0.0",
   "description": "Backend for Ratecity's CMS",
   "main": "src/index.js",

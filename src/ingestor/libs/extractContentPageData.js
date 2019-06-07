@@ -2,8 +2,8 @@ import map from 'lodash/map'
 import get from 'lodash/get'
 import union from 'lodash/union'
 
-export default (verbosePage) => {
-  const faqs = map(verbosePage.faqs, faq => ({
+export default (contentPage) => {
+  const faqs = map(contentPage.faqs, faq => ({
     render: 'block',
     order: faq.order,
     data: [{
@@ -16,7 +16,7 @@ export default (verbosePage) => {
     }]
   }))
 
-  const faqAccordion = map(verbosePage.faqAccordion, elem => ({
+  const faqAccordion = map(contentPage.faqAccordion, elem => ({
     name: elem.faqCategory.name,
     render: 'accordion',
     order: elem.order,
@@ -30,7 +30,7 @@ export default (verbosePage) => {
     }))
   }))
 
-  const blocks = map(verbosePage.blocks, block => ({
+  const blocks = map(contentPage.blocks, block => ({
     alignment: block.alignment,
     order: block.order,
     video: block.video,
@@ -41,7 +41,7 @@ export default (verbosePage) => {
     title: block.title,
   }))
 
-  const boxes = map(verbosePage.boxes, box => ({
+  const boxes = map(contentPage.boxes, box => ({
     style: box.style,
     alignment: box.alignment,
     order: box.order,
@@ -53,7 +53,7 @@ export default (verbosePage) => {
     title: box.title,
   }))
 
-  const alertBoxes = map(verbosePage.alertBoxes, alertBox => ({
+  const alertBoxes = map(contentPage.alertBoxes, alertBox => ({
     style: alertBox.style,
     prefix: alertBox.prefix,
     order: alertBox.order,
@@ -61,7 +61,7 @@ export default (verbosePage) => {
     title: alertBox.title,
   }))
 
-  const quickTips = map(verbosePage.quickTips, quickTip => ({
+  const quickTips = map(contentPage.quickTips, quickTip => ({
     order: quickTip.order,
     buttonText: quickTip.buttonText,
     buttonLink: quickTip.buttonLink,
@@ -72,7 +72,7 @@ export default (verbosePage) => {
     title: quickTip.title,
   }))
 
-  const prosAndCons = map(verbosePage.prosAndCons, prosAndConsElem => ({
+  const prosAndCons = map(contentPage.prosAndCons, prosAndConsElem => ({
     pros: map(prosAndConsElem.pros, pro => pro.content),
     cons: map(prosAndConsElem.cons, con => con.content),
     order: prosAndConsElem.order,
@@ -80,15 +80,15 @@ export default (verbosePage) => {
   }))
 
   const page = {
-    id: verbosePage.id,
-    vertical: verbosePage.vertical,
-    status: verbosePage.status,
+    id: contentPage.id,
+    vertical: contentPage.vertical,
+    status: contentPage.status,
     media: {
-      url: verbosePage.media && verbosePage.media.url,
+      url: contentPage.media && contentPage.media.url,
     },
-    title: verbosePage.title,
-    type: verbosePage.type,
-    slug: verbosePage.slug,
+    title: contentPage.title,
+    type: contentPage.type,
+    slug: contentPage.slug,
     faqs: union(faqs, faqAccordion),
     blocks,
     boxes,

@@ -9,10 +9,6 @@ env:
   global:
     - SHA=$(git rev-parse HEAD)
 
-cache:
-  directories:
-    - node_modules
-
 jobs:
   include:
     - stage: Test

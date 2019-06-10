@@ -3,18 +3,39 @@
 type Query {
   me: User
   users: [User]!
-  pages(first: Int, skip: Int): PageResponse
+  pages(first: Int, skip: Int, filter: PageFilterInput): PageResponse
   page(id: ID): Page
   mediaFiles: [Media]
   mediaFile(id: ID): Media
-  faqs(first: Int, skip: Int): FaqResponse
+  faqs(first: Int, skip: Int, filter: FaqFilterInput): FaqResponse
   faq(id: ID): Faq
   searchFaq(searchString: String): [Faq]
-  faqCategories(first: Int, skip: Int): FaqCategoryResponse
+  faqCategories(first: Int, skip: Int, filter: FaqCategoryFilterInput): FaqCategoryResponse
   faqCategory(id: ID): FaqCategory
   grids: [Grid]
   grid(id: ID): Grid
   generatePageUrl(slug: String!, type: PageType!, vertical: String!): PageUrl!
+}
+
+input PageFilterInput {
+  title: String
+  type: String
+  slug: String
+  status: String
+  vertical: String
+}
+
+input FaqCategoryFilterInput {
+  name: String
+  slug: String
+  description: String
+}
+
+input FaqFilterInput {
+  title: String
+  short_description: String
+  slug: String
+  vertical: String
 }
 
 type PageResponse {

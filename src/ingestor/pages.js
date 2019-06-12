@@ -13,7 +13,7 @@ import client, {
 import KeystoneAPIClient from './libs/keystone/apiClient'
 import mappings from './mappings/pages'
 import extractKeystonePageData from './libs/extractKeystonePageData'
-import extractVerbosePageData from './libs/extractVerbosePageData'
+import extractContentPageData from './libs/extractContentPageData'
 
 async function createPagesIndex (indexName) {
   await client.indices.create({
@@ -25,7 +25,7 @@ async function createPagesIndex (indexName) {
   return client.indices.refresh({index: indexName})
 }
 
-async function getVerbosePages() {
+async function getContentPages() {
   const fragment = `
     fragment PageWithAllData on Page {
       id
@@ -140,22 +140,22 @@ async function getKeystonePages() {
   return keystonePages
 }
 
-async function getFilteredVerbosePages() {
-  const verbosePages = await getVerbosePages()
-  remove(verbosePages, verbosePage => {
-    return verbosePage.slug === '' || verbosePage.status === 'DRAFT'
+async function getFilteredContentPages() {
+  const contentPages = await getContentPages()
+  remove(contentPages, contentPage => {
+    return contentPage.slug === '' || contentPage.status === 'DRAFT'
   })
-  return verbosePages
+  return contentPages
 }
 
 async function fetchPages () {
 
-  const verbosePages = await getFilteredVerbosePages()
+  const contentPages = await getFilteredContentPages()
   const keystonePages = await getKeystonePages()
 
-  const pages = map(verbosePages, verbosePage => {
-    const keystonePageIndex = findIndex(keystonePages, { url: verbosePage.url })
-    return merge(extractVerbosePageData(verbosePage), extractKeystonePageData(keystonePages[keystonePageIndex]))
+  const pages = map(contentPages, contentPage => {
+    const keystonePageIndex = findIndex(keystonePages, { url: contentPage.url })
+    return merge(extractContentPageData(contentPage), extractKeystonePageData(keystonePages[keystonePageIndex]))
   })
 
   return pages

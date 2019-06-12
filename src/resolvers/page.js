@@ -1,6 +1,9 @@
 import slugify from 'slugify'
 import split from 'lodash/split'
 import forEach from 'lodash/forEach'
+import isEmpty from 'lodash/isEmpty'
+
+import { getAndFilterQuery } from '../utils'
 
 import { importPages } from '../ingestor/pages'
 
@@ -15,8 +18,16 @@ export default {
       // hasPermission(ctx.request.user, ['ADMIN', 'PERMISSIONUPDATE']);
 
       // 2. if they do, query all the users!
-      const items = await ctx.prisma.pages({...args}, info);
-      const total_count = await ctx.prisma.pagesConnection().aggregate().count();
+      const { filter, ...pagination } = args
+      let query = {...pagination}, filterQuery
+
+      if (!isEmpty(filter)) {
+        filterQuery = getAndFilterQuery(filter)
+        query = {...filterQuery, ...pagination}
+      }
+
+      const items = await ctx.prisma.pages(query, info);
+      const total_count = await ctx.prisma.pagesConnection(filterQuery).aggregate().count();
       return {
         items,
         meta: { total_count, hit_count : items.length },

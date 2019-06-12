@@ -1,5 +1,8 @@
 import differenceBy from 'lodash/differenceBy'
 import map from 'lodash/map'
+import isEmpty from 'lodash/isEmpty'
+
+import { getAndFilterQuery } from '../utils' 
 
 export default {
     Query: {
@@ -12,8 +15,16 @@ export default {
           // hasPermission(ctx.request.user, ['ADMIN', 'PERMISSIONUPDATE']);
     
           // 2. if they do, query all the faqs!
-          const items = await ctx.prisma.faqs({...args}, info);
-          const total_count = await ctx.prisma.faqsConnection().aggregate().count();
+          const { filter, ...pagination } = args
+          let query = {...pagination}, filterQuery
+
+          if (!isEmpty(filter)) {
+            filterQuery = getAndFilterQuery(filter)
+            query = {...filterQuery, ...pagination}
+          }
+
+          const items = await ctx.prisma.faqs(query, info);
+          const total_count = await ctx.prisma.faqsConnection(filterQuery).aggregate().count();
           return {
             items,
             meta: { total_count, hit_count : items.length },

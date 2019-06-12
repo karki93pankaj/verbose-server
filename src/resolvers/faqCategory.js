@@ -1,3 +1,6 @@
+import isEmpty from 'lodash/isEmpty'
+import { getAndFilterQuery } from '../utils'
+
 export default {
     Query: {
         async faqCategories(parent, args, ctx, info) {
@@ -9,8 +12,16 @@ export default {
           // hasPermission(ctx.request.user, ['ADMIN', 'PERMISSIONUPDATE']);
     
           // 2. if they do, query all the faq categories!
-          const items = await ctx.prisma.faqCategories({...args}, info);
-          const total_count = await ctx.prisma.faqCategoriesConnection().aggregate().count();
+          const { filter, ...pagination } = args
+          let query = {...pagination}, filterQuery
+
+          if (!isEmpty(filter)) {
+            filterQuery = getAndFilterQuery(filter)
+            query = {...filterQuery, ...pagination}
+          }
+
+          const items = await ctx.prisma.faqCategories(query, info);
+          const total_count = await ctx.prisma.faqCategoriesConnection(filterQuery).aggregate().count();
           return {
             items,
             meta: { total_count, hit_count : items.length },
@@ -18,7 +29,7 @@ export default {
         },
         async faqCategory(parent, args, ctx, info) {
           return ctx.prisma.faqCategory(args, info);
-        },
+        }
       },
 
     Mutation: {

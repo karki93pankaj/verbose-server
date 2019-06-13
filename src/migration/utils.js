@@ -1,4 +1,4 @@
-import parser from 'xml2json'
+import convert from 'xml-js'
 import isEmpty from 'lodash/isEmpty'
 
 import fetch from '../ingestor/libs/fetch'
@@ -40,7 +40,20 @@ export async function getWordpressFeedAsJson (postType, feedUrl = 'http://conten
       break
     }
     const feed = await response.text() // eslint-disable-line no-await-in-loop
-    const feedJson = parser.toJson(feed, {object: true})
+    const feedJson = JSON.parse(convert.xml2json(feed, {
+      compact: true, 
+      spaces: 4, 
+      declarationKey: 'value',
+      instructionKey: 'value',
+      attributesKey: 'value',
+      textKey: 'value',
+      cdataKey: 'value',
+      doctypeKey: 'value',
+      commentKey: 'value',
+      typeKey: 'value',
+      nameKey: 'value',
+    }));
+
     const _items = feedJson['rss']['channel']['item']
     /* if there is only one result, the xml parser won't make it an array */
     if (!Array.isArray(_items)) {

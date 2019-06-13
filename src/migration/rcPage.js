@@ -12,6 +12,10 @@ const deleteAllPages = async () => {
   await prisma.deleteManyQuickTips()
   await prisma.deleteManyMedias()
   await prisma.deleteManyComponents()
+  await prisma.deleteManyProsAndConses()
+  await prisma.deleteManyComponents()
+  await prisma.deleteManyPageFaqAccordions()
+  await prisma.deleteManyPageFaqs()
   const deleteCount = await prisma.deleteManyPages()
   console.log('Total Deleted Pages: ', deleteCount);
 }
@@ -181,37 +185,38 @@ export const rcPagesMigrate = async () => {
   // await deleteAllPages();
 
   let wordPressMeta = await getWordpressFeedAsJson('ratecity_page')
-  wordPressMeta = uniqBy(wordPressMeta, 'url')
+  wordPressMeta = uniqBy(wordPressMeta, 'url.value')
 
   for(let elem of wordPressMeta) {
-    if(elem.url) {
+    if(elem.url && elem.url.value) {
 
       /** Featured Image */  
-      const mediaQuery = await getMediaQuery(elem.featured_image)
+      const mediaQuery = await getMediaQuery(elem.featured_image && elem.featured_image.value)
 
       /** Page */
-      const page = await prisma.page({ url: elem.url })
+      const page = await prisma.page({ url: elem.url.value })
       if(!page) {
 
         let createPageData = {}
         try {
           createPageData = await prisma.createPage({
-            title: elem['_yoast_wpseo_title'] || elem['title'],
-            slug: elem.url,
-            url: elem.url,
+            title: (elem['_yoast_wpseo_title'] && elem['_yoast_wpseo_title']['value']) 
+                    || (elem['title'] && elem['title']['value']),
+            slug: elem.url && elem.url.value,
+            url: elem.url && elem.url.value,
             type: 'PAGE',
             status: 'PUBLISHED',
             media: mediaQuery,
-            header: elem['page_header'],
-            tagline: elem['page_subheader'], 
-            resultName: elem['result_name'],
-            description: elem['_yoast_wpseo_metadesc'],
-            keywords: elem['_yoast_wpseo_focuskw'],
-            canonical: elem['_yoast_wpseo_canonical'],
-            category: join(elem.category, ', '),
-            userJourneyStage: elem['user_journey_stage'],
-            content: elem['long_blurb'] || elem['content:encoded'],
-            contentSummary: elem['short_blurb'],
+            header: elem['page_header'] && elem['page_header']['value'],
+            tagline: elem['page_subheader'] && elem['page_subheader']['value'], 
+            resultName: elem['result_name'] && elem['result_name']['value'],
+            description: elem['_yoast_wpseo_metadesc'] && elem['_yoast_wpseo_metadesc']['value'],
+            keywords: elem['_yoast_wpseo_focuskw'] && elem['_yoast_wpseo_focuskw']['value'],
+            canonical: elem['_yoast_wpseo_canonical'] && elem['_yoast_wpseo_canonical']['value'],
+            category: elem.category && elem.category.value,
+            userJourneyStage: elem['user_journey_stage'] && elem['user_journey_stage']['value'],
+            content: (elem['long_blurb'] && elem['long_blurb']['value']) || (elem['content:encoded'] && elem['content:encoded']['value']),
+            contentSummary: elem['short_blurb'] && elem['short_blurb']['value'],
           })
         }
         catch (e) {console.log('error, creating page, url already exists');}
@@ -220,7 +225,7 @@ export const rcPagesMigrate = async () => {
           if(createPageData.id) {
             let jsonSections = []
             try {
-              jsonSections = JSON.parse(elem.sections)
+              jsonSections = JSON.parse(elem.sections && elem.sections.value)
             } catch(e) {}
 
             if(jsonSections) {

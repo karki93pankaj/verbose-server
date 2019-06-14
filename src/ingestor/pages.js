@@ -31,6 +31,7 @@ async function getContentPages() {
       id
       title
       slug
+      content
       url
       type
       vertical
@@ -134,6 +135,27 @@ async function getContentPages() {
           tag
         }
       }
+      grids{
+        id
+        order
+        title
+        content
+        media {
+          id
+          url
+        }
+        items {
+          id
+          title
+          content
+          linkText
+          linkUrl
+          media {
+            id
+            url
+          }
+        }
+      }
     }
   `
 
@@ -162,7 +184,6 @@ async function fetchPages () {
     const keystonePageIndex = findIndex(keystonePages, { url: contentPage.url })
     return merge(extractContentPageData(contentPage), extractKeystonePageData(keystonePages[keystonePageIndex]))
   })
-
   return pages
 }
 

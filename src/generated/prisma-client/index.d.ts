@@ -1060,6 +1060,7 @@ export type AlertBoxWhereUniqueInput = AtLeastOne<{
 }>;
 
 export interface BlockScalarWhereInput {
+<<<<<<< HEAD
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -1170,6 +1171,205 @@ export interface FaqCategoryUpdateManyMutationInput {
 export interface BlockUpdateManyWithWhereNestedInput {
   where: BlockScalarWhereInput;
   data: BlockUpdateManyDataInput;
+=======
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  title?: String;
+  title_not?: String;
+  title_in?: String[] | String;
+  title_not_in?: String[] | String;
+  title_lt?: String;
+  title_lte?: String;
+  title_gt?: String;
+  title_gte?: String;
+  title_contains?: String;
+  title_not_contains?: String;
+  title_starts_with?: String;
+  title_not_starts_with?: String;
+  title_ends_with?: String;
+  title_not_ends_with?: String;
+  video?: String;
+  video_not?: String;
+  video_in?: String[] | String;
+  video_not_in?: String[] | String;
+  video_lt?: String;
+  video_lte?: String;
+  video_gt?: String;
+  video_gte?: String;
+  video_contains?: String;
+  video_not_contains?: String;
+  video_starts_with?: String;
+  video_not_starts_with?: String;
+  video_ends_with?: String;
+  video_not_ends_with?: String;
+  alignment?: String;
+  alignment_not?: String;
+  alignment_in?: String[] | String;
+  alignment_not_in?: String[] | String;
+  alignment_lt?: String;
+  alignment_lte?: String;
+  alignment_gt?: String;
+  alignment_gte?: String;
+  alignment_contains?: String;
+  alignment_not_contains?: String;
+  alignment_starts_with?: String;
+  alignment_not_starts_with?: String;
+  alignment_ends_with?: String;
+  alignment_not_ends_with?: String;
+  content?: String;
+  content_not?: String;
+  content_in?: String[] | String;
+  content_not_in?: String[] | String;
+  content_lt?: String;
+  content_lte?: String;
+  content_gt?: String;
+  content_gte?: String;
+  content_contains?: String;
+  content_not_contains?: String;
+  content_starts_with?: String;
+  content_not_starts_with?: String;
+  content_ends_with?: String;
+  content_not_ends_with?: String;
+  top?: Boolean;
+  top_not?: Boolean;
+  order?: Int;
+  order_not?: Int;
+  order_in?: Int[] | Int;
+  order_not_in?: Int[] | Int;
+  order_lt?: Int;
+  order_lte?: Int;
+  order_gt?: Int;
+  order_gte?: Int;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  AND?: BlockScalarWhereInput[] | BlockScalarWhereInput;
+  OR?: BlockScalarWhereInput[] | BlockScalarWhereInput;
+  NOT?: BlockScalarWhereInput[] | BlockScalarWhereInput;
+}
+
+export interface FaqCategoryUpdateManyMutationInput {
+  name?: String;
+  slug?: String;
+  description?: String;
+}
+
+export interface FaqCategoryUpdateManyWithWhereNestedInput {
+  where: FaqCategoryScalarWhereInput;
+  data: FaqCategoryUpdateManyDataInput;
+}
+
+export interface FaqCategoryScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  name?: String;
+  name_not?: String;
+  name_in?: String[] | String;
+  name_not_in?: String[] | String;
+  name_lt?: String;
+  name_lte?: String;
+  name_gt?: String;
+  name_gte?: String;
+  name_contains?: String;
+  name_not_contains?: String;
+  name_starts_with?: String;
+  name_not_starts_with?: String;
+  name_ends_with?: String;
+  name_not_ends_with?: String;
+  slug?: String;
+  slug_not?: String;
+  slug_in?: String[] | String;
+  slug_not_in?: String[] | String;
+  slug_lt?: String;
+  slug_lte?: String;
+  slug_gt?: String;
+  slug_gte?: String;
+  slug_contains?: String;
+  slug_not_contains?: String;
+  slug_starts_with?: String;
+  slug_not_starts_with?: String;
+  slug_ends_with?: String;
+  slug_not_ends_with?: String;
+  description?: String;
+  description_not?: String;
+  description_in?: String[] | String;
+  description_not_in?: String[] | String;
+  description_lt?: String;
+  description_lte?: String;
+  description_gt?: String;
+  description_gte?: String;
+  description_contains?: String;
+  description_not_contains?: String;
+  description_starts_with?: String;
+  description_not_starts_with?: String;
+  description_ends_with?: String;
+  description_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  AND?: FaqCategoryScalarWhereInput[] | FaqCategoryScalarWhereInput;
+  OR?: FaqCategoryScalarWhereInput[] | FaqCategoryScalarWhereInput;
+  NOT?: FaqCategoryScalarWhereInput[] | FaqCategoryScalarWhereInput;
+}
+
+export interface BlockUpdateManyDataInput {
+  title?: String;
+  video?: String;
+  alignment?: String;
+  content?: String;
+  top?: Boolean;
+  order?: Int;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface FaqCategoryScalarWhereInput {
@@ -1250,6 +1450,7 @@ export interface FaqCategoryScalarWhereInput {
   NOT?: Maybe<FaqCategoryScalarWhereInput[] | FaqCategoryScalarWhereInput>;
 }
 
+<<<<<<< HEAD
 export interface BlockUpdateManyDataInput {
   title?: Maybe<String>;
   video?: Maybe<String>;
@@ -1257,6 +1458,24 @@ export interface BlockUpdateManyDataInput {
   content?: Maybe<String>;
   top?: Maybe<Boolean>;
   order?: Maybe<Int>;
+=======
+export interface BoxUpdateManyWithoutPageInput {
+  create?: BoxCreateWithoutPageInput[] | BoxCreateWithoutPageInput;
+  delete?: BoxWhereUniqueInput[] | BoxWhereUniqueInput;
+  connect?: BoxWhereUniqueInput[] | BoxWhereUniqueInput;
+  set?: BoxWhereUniqueInput[] | BoxWhereUniqueInput;
+  disconnect?: BoxWhereUniqueInput[] | BoxWhereUniqueInput;
+  update?:
+    | BoxUpdateWithWhereUniqueWithoutPageInput[]
+    | BoxUpdateWithWhereUniqueWithoutPageInput;
+  upsert?:
+    | BoxUpsertWithWhereUniqueWithoutPageInput[]
+    | BoxUpsertWithWhereUniqueWithoutPageInput;
+  deleteMany?: BoxScalarWhereInput[] | BoxScalarWhereInput;
+  updateMany?:
+    | BoxUpdateManyWithWhereNestedInput[]
+    | BoxUpdateManyWithWhereNestedInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface GridWhereInput {
@@ -1336,6 +1555,7 @@ export interface GridWhereInput {
   NOT?: Maybe<GridWhereInput[] | GridWhereInput>;
 }
 
+<<<<<<< HEAD
 export interface BoxUpdateManyWithoutPageInput {
   create?: Maybe<BoxCreateWithoutPageInput[] | BoxCreateWithoutPageInput>;
   delete?: Maybe<BoxWhereUniqueInput[] | BoxWhereUniqueInput>;
@@ -1415,12 +1635,15 @@ export interface ComponentWhereInput {
   NOT?: Maybe<ComponentWhereInput[] | ComponentWhereInput>;
 }
 
+=======
+>>>>>>> 6d2e75d... Grids added on page content
 export interface BoxUpdateWithWhereUniqueWithoutPageInput {
   where: BoxWhereUniqueInput;
   data: BoxUpdateWithoutPageDataInput;
 }
 
 export interface UserSubscriptionWhereInput {
+<<<<<<< HEAD
   mutation_in?: Maybe<MutationType[] | MutationType>;
   updatedFields_contains?: Maybe<String>;
   updatedFields_contains_every?: Maybe<String[] | String>;
@@ -1455,6 +1678,38 @@ export interface QuickTipSubscriptionWhereInput {
   NOT?: Maybe<
     QuickTipSubscriptionWhereInput[] | QuickTipSubscriptionWhereInput
   >;
+=======
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: UserWhereInput;
+  AND?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
+  OR?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
+  NOT?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
+}
+
+export interface BoxUpdateWithoutPageDataInput {
+  title?: String;
+  media?: MediaUpdateOneInput;
+  video?: String;
+  style?: String;
+  alignment?: String;
+  content?: String;
+  top?: Boolean;
+  order?: Int;
+}
+
+export interface QuickTipSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: QuickTipWhereInput;
+  AND?: QuickTipSubscriptionWhereInput[] | QuickTipSubscriptionWhereInput;
+  OR?: QuickTipSubscriptionWhereInput[] | QuickTipSubscriptionWhereInput;
+  NOT?: QuickTipSubscriptionWhereInput[] | QuickTipSubscriptionWhereInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface BoxUpsertWithWhereUniqueWithoutPageInput {
@@ -1464,6 +1719,7 @@ export interface BoxUpsertWithWhereUniqueWithoutPageInput {
 }
 
 export interface ProsAndConsSubscriptionWhereInput {
+<<<<<<< HEAD
   mutation_in?: Maybe<MutationType[] | MutationType>;
   updatedFields_contains?: Maybe<String>;
   updatedFields_contains_every?: Maybe<String[] | String>;
@@ -1605,6 +1861,143 @@ export interface ProsSubscriptionWhereInput {
   AND?: Maybe<ProsSubscriptionWhereInput[] | ProsSubscriptionWhereInput>;
   OR?: Maybe<ProsSubscriptionWhereInput[] | ProsSubscriptionWhereInput>;
   NOT?: Maybe<ProsSubscriptionWhereInput[] | ProsSubscriptionWhereInput>;
+=======
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: ProsAndConsWhereInput;
+  AND?: ProsAndConsSubscriptionWhereInput[] | ProsAndConsSubscriptionWhereInput;
+  OR?: ProsAndConsSubscriptionWhereInput[] | ProsAndConsSubscriptionWhereInput;
+  NOT?: ProsAndConsSubscriptionWhereInput[] | ProsAndConsSubscriptionWhereInput;
+}
+
+export interface BoxScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  title?: String;
+  title_not?: String;
+  title_in?: String[] | String;
+  title_not_in?: String[] | String;
+  title_lt?: String;
+  title_lte?: String;
+  title_gt?: String;
+  title_gte?: String;
+  title_contains?: String;
+  title_not_contains?: String;
+  title_starts_with?: String;
+  title_not_starts_with?: String;
+  title_ends_with?: String;
+  title_not_ends_with?: String;
+  video?: String;
+  video_not?: String;
+  video_in?: String[] | String;
+  video_not_in?: String[] | String;
+  video_lt?: String;
+  video_lte?: String;
+  video_gt?: String;
+  video_gte?: String;
+  video_contains?: String;
+  video_not_contains?: String;
+  video_starts_with?: String;
+  video_not_starts_with?: String;
+  video_ends_with?: String;
+  video_not_ends_with?: String;
+  style?: String;
+  style_not?: String;
+  style_in?: String[] | String;
+  style_not_in?: String[] | String;
+  style_lt?: String;
+  style_lte?: String;
+  style_gt?: String;
+  style_gte?: String;
+  style_contains?: String;
+  style_not_contains?: String;
+  style_starts_with?: String;
+  style_not_starts_with?: String;
+  style_ends_with?: String;
+  style_not_ends_with?: String;
+  alignment?: String;
+  alignment_not?: String;
+  alignment_in?: String[] | String;
+  alignment_not_in?: String[] | String;
+  alignment_lt?: String;
+  alignment_lte?: String;
+  alignment_gt?: String;
+  alignment_gte?: String;
+  alignment_contains?: String;
+  alignment_not_contains?: String;
+  alignment_starts_with?: String;
+  alignment_not_starts_with?: String;
+  alignment_ends_with?: String;
+  alignment_not_ends_with?: String;
+  content?: String;
+  content_not?: String;
+  content_in?: String[] | String;
+  content_not_in?: String[] | String;
+  content_lt?: String;
+  content_lte?: String;
+  content_gt?: String;
+  content_gte?: String;
+  content_contains?: String;
+  content_not_contains?: String;
+  content_starts_with?: String;
+  content_not_starts_with?: String;
+  content_ends_with?: String;
+  content_not_ends_with?: String;
+  top?: Boolean;
+  top_not?: Boolean;
+  order?: Int;
+  order_not?: Int;
+  order_in?: Int[] | Int;
+  order_not_in?: Int[] | Int;
+  order_lt?: Int;
+  order_lte?: Int;
+  order_gt?: Int;
+  order_gte?: Int;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  AND?: BoxScalarWhereInput[] | BoxScalarWhereInput;
+  OR?: BoxScalarWhereInput[] | BoxScalarWhereInput;
+  NOT?: BoxScalarWhereInput[] | BoxScalarWhereInput;
+}
+
+export interface ProsSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: ProsWhereInput;
+  AND?: ProsSubscriptionWhereInput[] | ProsSubscriptionWhereInput;
+  OR?: ProsSubscriptionWhereInput[] | ProsSubscriptionWhereInput;
+  NOT?: ProsSubscriptionWhereInput[] | ProsSubscriptionWhereInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface BoxUpdateManyWithWhereNestedInput {
@@ -1613,6 +2006,7 @@ export interface BoxUpdateManyWithWhereNestedInput {
 }
 
 export interface PageFaqAccordionSubscriptionWhereInput {
+<<<<<<< HEAD
   mutation_in?: Maybe<MutationType[] | MutationType>;
   updatedFields_contains?: Maybe<String>;
   updatedFields_contains_every?: Maybe<String[] | String>;
@@ -1699,6 +2093,91 @@ export interface ProsWhereInput {
   AND?: Maybe<ProsWhereInput[] | ProsWhereInput>;
   OR?: Maybe<ProsWhereInput[] | ProsWhereInput>;
   NOT?: Maybe<ProsWhereInput[] | ProsWhereInput>;
+=======
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: PageFaqAccordionWhereInput;
+  AND?:
+    | PageFaqAccordionSubscriptionWhereInput[]
+    | PageFaqAccordionSubscriptionWhereInput;
+  OR?:
+    | PageFaqAccordionSubscriptionWhereInput[]
+    | PageFaqAccordionSubscriptionWhereInput;
+  NOT?:
+    | PageFaqAccordionSubscriptionWhereInput[]
+    | PageFaqAccordionSubscriptionWhereInput;
+}
+
+export interface BoxUpdateManyDataInput {
+  title?: String;
+  video?: String;
+  style?: String;
+  alignment?: String;
+  content?: String;
+  top?: Boolean;
+  order?: Int;
+}
+
+export interface ProsWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  prosAndCons?: ProsAndConsWhereInput;
+  content?: String;
+  content_not?: String;
+  content_in?: String[] | String;
+  content_not_in?: String[] | String;
+  content_lt?: String;
+  content_lte?: String;
+  content_gt?: String;
+  content_gte?: String;
+  content_contains?: String;
+  content_not_contains?: String;
+  content_starts_with?: String;
+  content_not_starts_with?: String;
+  content_ends_with?: String;
+  content_not_ends_with?: String;
+  order?: Int;
+  order_not?: Int;
+  order_in?: Int[] | Int;
+  order_not_in?: Int[] | Int;
+  order_lt?: Int;
+  order_lte?: Int;
+  order_gt?: Int;
+  order_gte?: Int;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  AND?: ProsWhereInput[] | ProsWhereInput;
+  OR?: ProsWhereInput[] | ProsWhereInput;
+  NOT?: ProsWhereInput[] | ProsWhereInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface ProsAndConsUpdateManyWithoutPageInput {
@@ -1729,6 +2208,7 @@ export interface ProsAndConsUpdateManyWithoutPageInput {
 }
 
 export interface ProsAndConsWhereInput {
+<<<<<<< HEAD
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -1809,9 +2289,92 @@ export interface MediaSubscriptionWhereInput {
   AND?: Maybe<MediaSubscriptionWhereInput[] | MediaSubscriptionWhereInput>;
   OR?: Maybe<MediaSubscriptionWhereInput[] | MediaSubscriptionWhereInput>;
   NOT?: Maybe<MediaSubscriptionWhereInput[] | MediaSubscriptionWhereInput>;
+=======
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  page?: PageWhereInput;
+  title?: String;
+  title_not?: String;
+  title_in?: String[] | String;
+  title_not_in?: String[] | String;
+  title_lt?: String;
+  title_lte?: String;
+  title_gt?: String;
+  title_gte?: String;
+  title_contains?: String;
+  title_not_contains?: String;
+  title_starts_with?: String;
+  title_not_starts_with?: String;
+  title_ends_with?: String;
+  title_not_ends_with?: String;
+  top?: Boolean;
+  top_not?: Boolean;
+  order?: Int;
+  order_not?: Int;
+  order_in?: Int[] | Int;
+  order_not_in?: Int[] | Int;
+  order_lt?: Int;
+  order_lte?: Int;
+  order_gt?: Int;
+  order_gte?: Int;
+  pros_every?: ProsWhereInput;
+  pros_some?: ProsWhereInput;
+  pros_none?: ProsWhereInput;
+  cons_every?: ConsWhereInput;
+  cons_some?: ConsWhereInput;
+  cons_none?: ConsWhereInput;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  AND?: ProsAndConsWhereInput[] | ProsAndConsWhereInput;
+  OR?: ProsAndConsWhereInput[] | ProsAndConsWhereInput;
+  NOT?: ProsAndConsWhereInput[] | ProsAndConsWhereInput;
+>>>>>>> 6d2e75d... Grids added on page content
+}
+
+export interface ProsAndConsUpdateWithWhereUniqueWithoutPageInput {
+  where: ProsAndConsWhereUniqueInput;
+  data: ProsAndConsUpdateWithoutPageDataInput;
+}
+
+export interface MediaSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: MediaWhereInput;
+  AND?: MediaSubscriptionWhereInput[] | MediaSubscriptionWhereInput;
+  OR?: MediaSubscriptionWhereInput[] | MediaSubscriptionWhereInput;
+  NOT?: MediaSubscriptionWhereInput[] | MediaSubscriptionWhereInput;
 }
 
 export interface ProsAndConsUpdateWithoutPageDataInput {
+<<<<<<< HEAD
   title?: Maybe<String>;
   top?: Maybe<Boolean>;
   order?: Maybe<Int>;
@@ -1828,6 +2391,24 @@ export interface GridSubscriptionWhereInput {
   AND?: Maybe<GridSubscriptionWhereInput[] | GridSubscriptionWhereInput>;
   OR?: Maybe<GridSubscriptionWhereInput[] | GridSubscriptionWhereInput>;
   NOT?: Maybe<GridSubscriptionWhereInput[] | GridSubscriptionWhereInput>;
+=======
+  title?: String;
+  top?: Boolean;
+  order?: Int;
+  pros?: ProsUpdateManyWithoutProsAndConsInput;
+  cons?: ConsUpdateManyWithoutProsAndConsInput;
+}
+
+export interface GridSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: GridWhereInput;
+  AND?: GridSubscriptionWhereInput[] | GridSubscriptionWhereInput;
+  OR?: GridSubscriptionWhereInput[] | GridSubscriptionWhereInput;
+  NOT?: GridSubscriptionWhereInput[] | GridSubscriptionWhereInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface ProsUpdateManyWithoutProsAndConsInput {
@@ -1853,6 +2434,7 @@ export interface ProsUpdateManyWithoutProsAndConsInput {
 }
 
 export interface BoxWhereInput {
+<<<<<<< HEAD
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -2067,10 +2649,128 @@ export interface ConsSubscriptionWhereInput {
   AND?: Maybe<ConsSubscriptionWhereInput[] | ConsSubscriptionWhereInput>;
   OR?: Maybe<ConsSubscriptionWhereInput[] | ConsSubscriptionWhereInput>;
   NOT?: Maybe<ConsSubscriptionWhereInput[] | ConsSubscriptionWhereInput>;
+=======
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  page?: PageWhereInput;
+  title?: String;
+  title_not?: String;
+  title_in?: String[] | String;
+  title_not_in?: String[] | String;
+  title_lt?: String;
+  title_lte?: String;
+  title_gt?: String;
+  title_gte?: String;
+  title_contains?: String;
+  title_not_contains?: String;
+  title_starts_with?: String;
+  title_not_starts_with?: String;
+  title_ends_with?: String;
+  title_not_ends_with?: String;
+  media?: MediaWhereInput;
+  video?: String;
+  video_not?: String;
+  video_in?: String[] | String;
+  video_not_in?: String[] | String;
+  video_lt?: String;
+  video_lte?: String;
+  video_gt?: String;
+  video_gte?: String;
+  video_contains?: String;
+  video_not_contains?: String;
+  video_starts_with?: String;
+  video_not_starts_with?: String;
+  video_ends_with?: String;
+  video_not_ends_with?: String;
+  style?: String;
+  style_not?: String;
+  style_in?: String[] | String;
+  style_not_in?: String[] | String;
+  style_lt?: String;
+  style_lte?: String;
+  style_gt?: String;
+  style_gte?: String;
+  style_contains?: String;
+  style_not_contains?: String;
+  style_starts_with?: String;
+  style_not_starts_with?: String;
+  style_ends_with?: String;
+  style_not_ends_with?: String;
+  alignment?: String;
+  alignment_not?: String;
+  alignment_in?: String[] | String;
+  alignment_not_in?: String[] | String;
+  alignment_lt?: String;
+  alignment_lte?: String;
+  alignment_gt?: String;
+  alignment_gte?: String;
+  alignment_contains?: String;
+  alignment_not_contains?: String;
+  alignment_starts_with?: String;
+  alignment_not_starts_with?: String;
+  alignment_ends_with?: String;
+  alignment_not_ends_with?: String;
+  content?: String;
+  content_not?: String;
+  content_in?: String[] | String;
+  content_not_in?: String[] | String;
+  content_lt?: String;
+  content_lte?: String;
+  content_gt?: String;
+  content_gte?: String;
+  content_contains?: String;
+  content_not_contains?: String;
+  content_starts_with?: String;
+  content_not_starts_with?: String;
+  content_ends_with?: String;
+  content_not_ends_with?: String;
+  top?: Boolean;
+  top_not?: Boolean;
+  order?: Int;
+  order_not?: Int;
+  order_in?: Int[] | Int;
+  order_not_in?: Int[] | Int;
+  order_lt?: Int;
+  order_lte?: Int;
+  order_gt?: Int;
+  order_gte?: Int;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  AND?: BoxWhereInput[] | BoxWhereInput;
+  OR?: BoxWhereInput[] | BoxWhereInput;
+  NOT?: BoxWhereInput[] | BoxWhereInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
-export interface ProsUpsertWithWhereUniqueWithoutProsAndConsInput {
+export interface ProsUpdateWithWhereUniqueWithoutProsAndConsInput {
   where: ProsWhereUniqueInput;
+<<<<<<< HEAD
   update: ProsUpdateWithoutProsAndConsDataInput;
   create: ProsCreateWithoutProsAndConsInput;
 }
@@ -2159,6 +2859,189 @@ export interface BlockSubscriptionWhereInput {
   AND?: Maybe<BlockSubscriptionWhereInput[] | BlockSubscriptionWhereInput>;
   OR?: Maybe<BlockSubscriptionWhereInput[] | BlockSubscriptionWhereInput>;
   NOT?: Maybe<BlockSubscriptionWhereInput[] | BlockSubscriptionWhereInput>;
+=======
+  data: ProsUpdateWithoutProsAndConsDataInput;
+}
+
+export interface MediaWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  url?: String;
+  url_not?: String;
+  url_in?: String[] | String;
+  url_not_in?: String[] | String;
+  url_lt?: String;
+  url_lte?: String;
+  url_gt?: String;
+  url_gte?: String;
+  url_contains?: String;
+  url_not_contains?: String;
+  url_starts_with?: String;
+  url_not_starts_with?: String;
+  url_ends_with?: String;
+  url_not_ends_with?: String;
+  title?: String;
+  title_not?: String;
+  title_in?: String[] | String;
+  title_not_in?: String[] | String;
+  title_lt?: String;
+  title_lte?: String;
+  title_gt?: String;
+  title_gte?: String;
+  title_contains?: String;
+  title_not_contains?: String;
+  title_starts_with?: String;
+  title_not_starts_with?: String;
+  title_ends_with?: String;
+  title_not_ends_with?: String;
+  altText?: String;
+  altText_not?: String;
+  altText_in?: String[] | String;
+  altText_not_in?: String[] | String;
+  altText_lt?: String;
+  altText_lte?: String;
+  altText_gt?: String;
+  altText_gte?: String;
+  altText_contains?: String;
+  altText_not_contains?: String;
+  altText_starts_with?: String;
+  altText_not_starts_with?: String;
+  altText_ends_with?: String;
+  altText_not_ends_with?: String;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  AND?: MediaWhereInput[] | MediaWhereInput;
+  OR?: MediaWhereInput[] | MediaWhereInput;
+  NOT?: MediaWhereInput[] | MediaWhereInput;
+}
+
+export interface ProsUpdateWithoutProsAndConsDataInput {
+  content?: String;
+  order?: Int;
+}
+
+export interface ConsSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: ConsWhereInput;
+  AND?: ConsSubscriptionWhereInput[] | ConsSubscriptionWhereInput;
+  OR?: ConsSubscriptionWhereInput[] | ConsSubscriptionWhereInput;
+  NOT?: ConsSubscriptionWhereInput[] | ConsSubscriptionWhereInput;
+}
+
+export interface ProsUpsertWithWhereUniqueWithoutProsAndConsInput {
+  where: ProsWhereUniqueInput;
+  update: ProsUpdateWithoutProsAndConsDataInput;
+  create: ProsCreateWithoutProsAndConsInput;
+}
+
+export interface ComponentSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: ComponentWhereInput;
+  AND?: ComponentSubscriptionWhereInput[] | ComponentSubscriptionWhereInput;
+  OR?: ComponentSubscriptionWhereInput[] | ComponentSubscriptionWhereInput;
+  NOT?: ComponentSubscriptionWhereInput[] | ComponentSubscriptionWhereInput;
+}
+
+export interface ProsScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  content?: String;
+  content_not?: String;
+  content_in?: String[] | String;
+  content_not_in?: String[] | String;
+  content_lt?: String;
+  content_lte?: String;
+  content_gt?: String;
+  content_gte?: String;
+  content_contains?: String;
+  content_not_contains?: String;
+  content_starts_with?: String;
+  content_not_starts_with?: String;
+  content_ends_with?: String;
+  content_not_ends_with?: String;
+  order?: Int;
+  order_not?: Int;
+  order_in?: Int[] | Int;
+  order_not_in?: Int[] | Int;
+  order_lt?: Int;
+  order_lte?: Int;
+  order_gt?: Int;
+  order_gte?: Int;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  AND?: ProsScalarWhereInput[] | ProsScalarWhereInput;
+  OR?: ProsScalarWhereInput[] | ProsScalarWhereInput;
+  NOT?: ProsScalarWhereInput[] | ProsScalarWhereInput;
+}
+
+export interface BlockSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: BlockWhereInput;
+  AND?: BlockSubscriptionWhereInput[] | BlockSubscriptionWhereInput;
+  OR?: BlockSubscriptionWhereInput[] | BlockSubscriptionWhereInput;
+  NOT?: BlockSubscriptionWhereInput[] | BlockSubscriptionWhereInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface ProsUpdateManyWithWhereNestedInput {
@@ -2167,12 +3050,21 @@ export interface ProsUpdateManyWithWhereNestedInput {
 }
 
 export interface UserUpdateManyMutationInput {
+<<<<<<< HEAD
   name?: Maybe<String>;
   email?: Maybe<String>;
   password?: Maybe<String>;
   resetToken?: Maybe<String>;
   resetTokenExpiry?: Maybe<Float>;
   permissions?: Maybe<UserUpdatepermissionsInput>;
+=======
+  name?: String;
+  email?: String;
+  password?: String;
+  resetToken?: String;
+  resetTokenExpiry?: Float;
+  permissions?: UserUpdatepermissionsInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface ProsUpdateManyDataInput {
@@ -2181,12 +3073,21 @@ export interface ProsUpdateManyDataInput {
 }
 
 export interface QuickTipUpdateManyMutationInput {
+<<<<<<< HEAD
   title?: Maybe<String>;
   content?: Maybe<String>;
   buttonText?: Maybe<String>;
   buttonLink?: Maybe<String>;
   top?: Maybe<Boolean>;
   order?: Maybe<Int>;
+=======
+  title?: String;
+  content?: String;
+  buttonText?: String;
+  buttonLink?: String;
+  top?: Boolean;
+  order?: Int;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface ConsUpdateManyWithoutProsAndConsInput {
@@ -2212,6 +3113,7 @@ export interface ConsUpdateManyWithoutProsAndConsInput {
 }
 
 export interface PageUpdateWithoutQuickTipsDataInput {
+<<<<<<< HEAD
   title?: Maybe<String>;
   slug?: Maybe<String>;
   url?: Maybe<String>;
@@ -2285,6 +3187,56 @@ export interface PageCreateWithoutQuickTipsInput {
   faqAccordion?: Maybe<PageFaqAccordionCreateManyWithoutPageInput>;
   grids?: Maybe<GridCreateManyWithoutPageInput>;
   components?: Maybe<ComponentCreateManyWithoutPageInput>;
+=======
+  title?: String;
+  slug?: String;
+  url?: String;
+  type?: PageType;
+  status?: PageStatus;
+  vertical?: String;
+  media?: MediaUpdateOneInput;
+  template?: String;
+  header?: String;
+  tagline?: String;
+  resultName?: String;
+  description?: String;
+  keywords?: String;
+  canonical?: String;
+  userJourneyStage?: String;
+  content?: String;
+  contentSummary?: String;
+  category?: String;
+  blocks?: BlockUpdateManyWithoutPageInput;
+  boxes?: BoxUpdateManyWithoutPageInput;
+  prosAndCons?: ProsAndConsUpdateManyWithoutPageInput;
+  alertBoxes?: AlertBoxUpdateManyWithoutPageInput;
+  faqs?: PageFaqUpdateManyWithoutPageInput;
+  faqAccordion?: PageFaqAccordionUpdateManyWithoutPageInput;
+  grids?: GridUpdateManyWithoutPageInput;
+  components?: ComponentUpdateManyWithoutPageInput;
+}
+
+export interface ConsUpdateWithWhereUniqueWithoutProsAndConsInput {
+  where: ConsWhereUniqueInput;
+  data: ConsUpdateWithoutProsAndConsDataInput;
+}
+
+export interface PageUpdateOneRequiredWithoutQuickTipsInput {
+  create?: PageCreateWithoutQuickTipsInput;
+  update?: PageUpdateWithoutQuickTipsDataInput;
+  upsert?: PageUpsertWithoutQuickTipsInput;
+  connect?: PageWhereUniqueInput;
+>>>>>>> 6d2e75d... Grids added on page content
+}
+
+export interface ConsUpdateWithoutProsAndConsDataInput {
+  content?: String;
+  order?: Int;
+}
+
+export interface PageCreateOneWithoutQuickTipsInput {
+  create?: Maybe<PageCreateWithoutQuickTipsInput>;
+  connect?: Maybe<PageWhereUniqueInput>;
 }
 
 export interface ConsUpsertWithWhereUniqueWithoutProsAndConsInput {
@@ -2294,8 +3246,8 @@ export interface ConsUpsertWithWhereUniqueWithoutProsAndConsInput {
 }
 
 export interface PageCreateOneWithoutQuickTipsInput {
-  create?: Maybe<PageCreateWithoutQuickTipsInput>;
-  connect?: Maybe<PageWhereUniqueInput>;
+  create?: PageCreateWithoutQuickTipsInput;
+  connect?: PageWhereUniqueInput;
 }
 
 export interface ConsScalarWhereInput {
@@ -2357,9 +3309,15 @@ export interface ConsScalarWhereInput {
 }
 
 export interface ProsAndConsUpdateManyMutationInput {
+<<<<<<< HEAD
   title?: Maybe<String>;
   top?: Maybe<Boolean>;
   order?: Maybe<Int>;
+=======
+  title?: String;
+  top?: Boolean;
+  order?: Int;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface ConsUpdateManyWithWhereNestedInput {
@@ -2368,12 +3326,21 @@ export interface ConsUpdateManyWithWhereNestedInput {
 }
 
 export interface ProsAndConsUpdateInput {
+<<<<<<< HEAD
   page?: Maybe<PageUpdateOneRequiredWithoutProsAndConsInput>;
   title?: Maybe<String>;
   top?: Maybe<Boolean>;
   order?: Maybe<Int>;
   pros?: Maybe<ProsUpdateManyWithoutProsAndConsInput>;
   cons?: Maybe<ConsUpdateManyWithoutProsAndConsInput>;
+=======
+  page?: PageUpdateOneRequiredWithoutProsAndConsInput;
+  title?: String;
+  top?: Boolean;
+  order?: Int;
+  pros?: ProsUpdateManyWithoutProsAndConsInput;
+  cons?: ConsUpdateManyWithoutProsAndConsInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface ConsUpdateManyDataInput {
@@ -2382,8 +3349,13 @@ export interface ConsUpdateManyDataInput {
 }
 
 export interface ProsUpdateManyMutationInput {
+<<<<<<< HEAD
   content?: Maybe<String>;
   order?: Maybe<Int>;
+=======
+  content?: String;
+  order?: Int;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface ProsAndConsUpsertWithWhereUniqueWithoutPageInput {
@@ -2398,6 +3370,7 @@ export interface ProsAndConsUpsertWithoutProsInput {
 }
 
 export interface ProsAndConsScalarWhereInput {
+<<<<<<< HEAD
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -2462,6 +3435,72 @@ export interface ProsAndConsUpdateOneRequiredWithoutProsInput {
   update?: Maybe<ProsAndConsUpdateWithoutProsDataInput>;
   upsert?: Maybe<ProsAndConsUpsertWithoutProsInput>;
   connect?: Maybe<ProsAndConsWhereUniqueInput>;
+=======
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  title?: String;
+  title_not?: String;
+  title_in?: String[] | String;
+  title_not_in?: String[] | String;
+  title_lt?: String;
+  title_lte?: String;
+  title_gt?: String;
+  title_gte?: String;
+  title_contains?: String;
+  title_not_contains?: String;
+  title_starts_with?: String;
+  title_not_starts_with?: String;
+  title_ends_with?: String;
+  title_not_ends_with?: String;
+  top?: Boolean;
+  top_not?: Boolean;
+  order?: Int;
+  order_not?: Int;
+  order_in?: Int[] | Int;
+  order_not_in?: Int[] | Int;
+  order_lt?: Int;
+  order_lte?: Int;
+  order_gt?: Int;
+  order_gte?: Int;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  AND?: ProsAndConsScalarWhereInput[] | ProsAndConsScalarWhereInput;
+  OR?: ProsAndConsScalarWhereInput[] | ProsAndConsScalarWhereInput;
+  NOT?: ProsAndConsScalarWhereInput[] | ProsAndConsScalarWhereInput;
+}
+
+export interface ProsAndConsUpdateOneRequiredWithoutProsInput {
+  create?: ProsAndConsCreateWithoutProsInput;
+  update?: ProsAndConsUpdateWithoutProsDataInput;
+  upsert?: ProsAndConsUpsertWithoutProsInput;
+  connect?: ProsAndConsWhereUniqueInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface ProsAndConsUpdateManyWithWhereNestedInput {
@@ -2470,6 +3509,7 @@ export interface ProsAndConsUpdateManyWithWhereNestedInput {
 }
 
 export interface ProsUpdateInput {
+<<<<<<< HEAD
   prosAndCons?: Maybe<ProsAndConsUpdateOneRequiredWithoutProsInput>;
   content?: Maybe<String>;
   order?: Maybe<Int>;
@@ -2484,6 +3524,22 @@ export interface ProsAndConsUpdateManyDataInput {
 export interface ProsAndConsCreateOneWithoutProsInput {
   create?: Maybe<ProsAndConsCreateWithoutProsInput>;
   connect?: Maybe<ProsAndConsWhereUniqueInput>;
+=======
+  prosAndCons?: ProsAndConsUpdateOneRequiredWithoutProsInput;
+  content?: String;
+  order?: Int;
+}
+
+export interface ProsAndConsUpdateManyDataInput {
+  title?: String;
+  top?: Boolean;
+  order?: Int;
+}
+
+export interface ProsAndConsCreateOneWithoutProsInput {
+  create?: ProsAndConsCreateWithoutProsInput;
+  connect?: ProsAndConsWhereUniqueInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface QuickTipUpdateManyWithoutPageInput {
@@ -2510,10 +3566,17 @@ export interface QuickTipUpdateManyWithoutPageInput {
 }
 
 export interface ProsCreateInput {
+<<<<<<< HEAD
   id?: Maybe<ID_Input>;
   prosAndCons: ProsAndConsCreateOneWithoutProsInput;
   content?: Maybe<String>;
   order?: Maybe<Int>;
+=======
+  id?: ID_Input;
+  prosAndCons: ProsAndConsCreateOneWithoutProsInput;
+  content?: String;
+  order?: Int;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface QuickTipUpdateWithWhereUniqueWithoutPageInput {
@@ -2527,6 +3590,7 @@ export interface PageUpsertWithoutFaqAccordionInput {
 }
 
 export interface QuickTipUpdateWithoutPageDataInput {
+<<<<<<< HEAD
   title?: Maybe<String>;
   content?: Maybe<String>;
   buttonText?: Maybe<String>;
@@ -2563,6 +3627,44 @@ export interface PageUpdateWithoutFaqAccordionDataInput {
   faqs?: Maybe<PageFaqUpdateManyWithoutPageInput>;
   grids?: Maybe<GridUpdateManyWithoutPageInput>;
   components?: Maybe<ComponentUpdateManyWithoutPageInput>;
+=======
+  title?: String;
+  content?: String;
+  buttonText?: String;
+  buttonLink?: String;
+  media?: MediaUpdateOneInput;
+  top?: Boolean;
+  order?: Int;
+}
+
+export interface PageUpdateWithoutFaqAccordionDataInput {
+  title?: String;
+  slug?: String;
+  url?: String;
+  type?: PageType;
+  status?: PageStatus;
+  vertical?: String;
+  media?: MediaUpdateOneInput;
+  template?: String;
+  header?: String;
+  tagline?: String;
+  resultName?: String;
+  description?: String;
+  keywords?: String;
+  canonical?: String;
+  userJourneyStage?: String;
+  content?: String;
+  contentSummary?: String;
+  category?: String;
+  blocks?: BlockUpdateManyWithoutPageInput;
+  boxes?: BoxUpdateManyWithoutPageInput;
+  prosAndCons?: ProsAndConsUpdateManyWithoutPageInput;
+  alertBoxes?: AlertBoxUpdateManyWithoutPageInput;
+  quickTips?: QuickTipUpdateManyWithoutPageInput;
+  faqs?: PageFaqUpdateManyWithoutPageInput;
+  grids?: GridUpdateManyWithoutPageInput;
+  components?: ComponentUpdateManyWithoutPageInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface QuickTipUpsertWithWhereUniqueWithoutPageInput {
@@ -2572,6 +3674,7 @@ export interface QuickTipUpsertWithWhereUniqueWithoutPageInput {
 }
 
 export interface PageFaqAccordionUpdateInput {
+<<<<<<< HEAD
   order?: Maybe<Int>;
   page?: Maybe<PageUpdateOneRequiredWithoutFaqAccordionInput>;
   faqCategory?: Maybe<FaqCategoryUpdateOneRequiredInput>;
@@ -2681,11 +3784,123 @@ export interface QuickTipScalarWhereInput {
 
 export interface PageCreateWithoutFaqAccordionInput {
   id?: Maybe<ID_Input>;
+=======
+  order?: Int;
+  page?: PageUpdateOneRequiredWithoutFaqAccordionInput;
+  faqCategory?: FaqCategoryUpdateOneRequiredInput;
+}
+
+export interface QuickTipScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  title?: String;
+  title_not?: String;
+  title_in?: String[] | String;
+  title_not_in?: String[] | String;
+  title_lt?: String;
+  title_lte?: String;
+  title_gt?: String;
+  title_gte?: String;
+  title_contains?: String;
+  title_not_contains?: String;
+  title_starts_with?: String;
+  title_not_starts_with?: String;
+  title_ends_with?: String;
+  title_not_ends_with?: String;
+  content?: String;
+  content_not?: String;
+  content_in?: String[] | String;
+  content_not_in?: String[] | String;
+  content_lt?: String;
+  content_lte?: String;
+  content_gt?: String;
+  content_gte?: String;
+  content_contains?: String;
+  content_not_contains?: String;
+  content_starts_with?: String;
+  content_not_starts_with?: String;
+  content_ends_with?: String;
+  content_not_ends_with?: String;
+  buttonText?: String;
+  buttonText_not?: String;
+  buttonText_in?: String[] | String;
+  buttonText_not_in?: String[] | String;
+  buttonText_lt?: String;
+  buttonText_lte?: String;
+  buttonText_gt?: String;
+  buttonText_gte?: String;
+  buttonText_contains?: String;
+  buttonText_not_contains?: String;
+  buttonText_starts_with?: String;
+  buttonText_not_starts_with?: String;
+  buttonText_ends_with?: String;
+  buttonText_not_ends_with?: String;
+  buttonLink?: String;
+  buttonLink_not?: String;
+  buttonLink_in?: String[] | String;
+  buttonLink_not_in?: String[] | String;
+  buttonLink_lt?: String;
+  buttonLink_lte?: String;
+  buttonLink_gt?: String;
+  buttonLink_gte?: String;
+  buttonLink_contains?: String;
+  buttonLink_not_contains?: String;
+  buttonLink_starts_with?: String;
+  buttonLink_not_starts_with?: String;
+  buttonLink_ends_with?: String;
+  buttonLink_not_ends_with?: String;
+  top?: Boolean;
+  top_not?: Boolean;
+  order?: Int;
+  order_not?: Int;
+  order_in?: Int[] | Int;
+  order_not_in?: Int[] | Int;
+  order_lt?: Int;
+  order_lte?: Int;
+  order_gt?: Int;
+  order_gte?: Int;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  AND?: QuickTipScalarWhereInput[] | QuickTipScalarWhereInput;
+  OR?: QuickTipScalarWhereInput[] | QuickTipScalarWhereInput;
+  NOT?: QuickTipScalarWhereInput[] | QuickTipScalarWhereInput;
+}
+
+export interface PageCreateWithoutFaqAccordionInput {
+  id?: ID_Input;
+>>>>>>> 6d2e75d... Grids added on page content
   title: String;
   slug: String;
   url: String;
   type: PageType;
   status: PageStatus;
+<<<<<<< HEAD
   vertical?: Maybe<String>;
   media?: Maybe<MediaCreateOneInput>;
   template?: Maybe<String>;
@@ -2707,6 +3922,29 @@ export interface PageCreateWithoutFaqAccordionInput {
   faqs?: Maybe<PageFaqCreateManyWithoutPageInput>;
   grids?: Maybe<GridCreateManyWithoutPageInput>;
   components?: Maybe<ComponentCreateManyWithoutPageInput>;
+=======
+  vertical?: String;
+  media?: MediaCreateOneInput;
+  template?: String;
+  header?: String;
+  tagline?: String;
+  resultName?: String;
+  description?: String;
+  keywords?: String;
+  canonical?: String;
+  userJourneyStage?: String;
+  content?: String;
+  contentSummary?: String;
+  category?: String;
+  blocks?: BlockCreateManyWithoutPageInput;
+  boxes?: BoxCreateManyWithoutPageInput;
+  prosAndCons?: ProsAndConsCreateManyWithoutPageInput;
+  alertBoxes?: AlertBoxCreateManyWithoutPageInput;
+  quickTips?: QuickTipCreateManyWithoutPageInput;
+  faqs?: PageFaqCreateManyWithoutPageInput;
+  grids?: GridCreateManyWithoutPageInput;
+  components?: ComponentCreateManyWithoutPageInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface QuickTipUpdateManyWithWhereNestedInput {
@@ -2715,13 +3953,19 @@ export interface QuickTipUpdateManyWithWhereNestedInput {
 }
 
 export interface PageFaqAccordionCreateInput {
+<<<<<<< HEAD
   id?: Maybe<ID_Input>;
   order?: Maybe<Int>;
+=======
+  id?: ID_Input;
+  order?: Int;
+>>>>>>> 6d2e75d... Grids added on page content
   page: PageCreateOneWithoutFaqAccordionInput;
   faqCategory: FaqCategoryCreateOneInput;
 }
 
 export interface QuickTipUpdateManyDataInput {
+<<<<<<< HEAD
   title?: Maybe<String>;
   content?: Maybe<String>;
   buttonText?: Maybe<String>;
@@ -2732,6 +3976,18 @@ export interface QuickTipUpdateManyDataInput {
 
 export interface PageFaqUpdateManyMutationInput {
   order?: Maybe<Int>;
+=======
+  title?: String;
+  content?: String;
+  buttonText?: String;
+  buttonLink?: String;
+  top?: Boolean;
+  order?: Int;
+}
+
+export interface PageFaqUpdateManyMutationInput {
+  order?: Int;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface PageFaqUpdateManyWithoutPageInput {
@@ -2758,6 +4014,7 @@ export interface PageFaqUpdateManyWithoutPageInput {
 }
 
 export interface PageUpdateWithoutFaqsDataInput {
+<<<<<<< HEAD
   title?: Maybe<String>;
   slug?: Maybe<String>;
   url?: Maybe<String>;
@@ -2784,6 +4041,34 @@ export interface PageUpdateWithoutFaqsDataInput {
   faqAccordion?: Maybe<PageFaqAccordionUpdateManyWithoutPageInput>;
   grids?: Maybe<GridUpdateManyWithoutPageInput>;
   components?: Maybe<ComponentUpdateManyWithoutPageInput>;
+=======
+  title?: String;
+  slug?: String;
+  url?: String;
+  type?: PageType;
+  status?: PageStatus;
+  vertical?: String;
+  media?: MediaUpdateOneInput;
+  template?: String;
+  header?: String;
+  tagline?: String;
+  resultName?: String;
+  description?: String;
+  keywords?: String;
+  canonical?: String;
+  userJourneyStage?: String;
+  content?: String;
+  contentSummary?: String;
+  category?: String;
+  blocks?: BlockUpdateManyWithoutPageInput;
+  boxes?: BoxUpdateManyWithoutPageInput;
+  prosAndCons?: ProsAndConsUpdateManyWithoutPageInput;
+  alertBoxes?: AlertBoxUpdateManyWithoutPageInput;
+  quickTips?: QuickTipUpdateManyWithoutPageInput;
+  faqAccordion?: PageFaqAccordionUpdateManyWithoutPageInput;
+  grids?: GridUpdateManyWithoutPageInput;
+  components?: ComponentUpdateManyWithoutPageInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface PageFaqUpdateWithWhereUniqueWithoutPageInput {
@@ -2802,12 +4087,17 @@ export interface PageFaqUpdateWithoutPageDataInput {
 }
 
 export interface PageCreateWithoutFaqsInput {
+<<<<<<< HEAD
   id?: Maybe<ID_Input>;
+=======
+  id?: ID_Input;
+>>>>>>> 6d2e75d... Grids added on page content
   title: String;
   slug: String;
   url: String;
   type: PageType;
   status: PageStatus;
+<<<<<<< HEAD
   vertical?: Maybe<String>;
   media?: Maybe<MediaCreateOneInput>;
   template?: Maybe<String>;
@@ -2882,11 +4172,88 @@ export interface PageUpdateManyMutationInput {
 
 export interface PageCreateWithoutGridsInput {
   id?: Maybe<ID_Input>;
+=======
+  vertical?: String;
+  media?: MediaCreateOneInput;
+  template?: String;
+  header?: String;
+  tagline?: String;
+  resultName?: String;
+  description?: String;
+  keywords?: String;
+  canonical?: String;
+  userJourneyStage?: String;
+  content?: String;
+  contentSummary?: String;
+  category?: String;
+  blocks?: BlockCreateManyWithoutPageInput;
+  boxes?: BoxCreateManyWithoutPageInput;
+  prosAndCons?: ProsAndConsCreateManyWithoutPageInput;
+  alertBoxes?: AlertBoxCreateManyWithoutPageInput;
+  quickTips?: QuickTipCreateManyWithoutPageInput;
+  faqAccordion?: PageFaqAccordionCreateManyWithoutPageInput;
+  grids?: GridCreateManyWithoutPageInput;
+  components?: ComponentCreateManyWithoutPageInput;
+}
+
+export interface FaqUpdateOneRequiredInput {
+  create?: FaqCreateInput;
+  update?: FaqUpdateDataInput;
+  upsert?: FaqUpsertNestedInput;
+  connect?: FaqWhereUniqueInput;
+}
+
+export interface PageFaqCreateInput {
+  id?: ID_Input;
+  order?: Int;
+  page: PageCreateOneWithoutFaqsInput;
+  faq: FaqCreateOneInput;
+}
+
+export interface FaqUpdateDataInput {
+  title?: String;
+  description?: String;
+  short_description?: String;
+  authors?: UserUpdateManyInput;
+  slug?: String;
+  vertical?: String;
+  category?: FaqCategoryUpdateManyWithoutFaqsInput;
+  readingTime?: Int;
+  order?: Int;
+  variant?: FaqUpdatevariantInput;
+  tag?: FaqUpdatetagInput;
+  pubDate?: DateTimeInput;
+}
+
+export interface PageUpdateManyMutationInput {
+  title?: String;
+  slug?: String;
+  url?: String;
+  type?: PageType;
+  status?: PageStatus;
+  vertical?: String;
+  template?: String;
+  header?: String;
+  tagline?: String;
+  resultName?: String;
+  description?: String;
+  keywords?: String;
+  canonical?: String;
+  userJourneyStage?: String;
+  content?: String;
+  contentSummary?: String;
+  category?: String;
+}
+
+export interface PageCreateWithoutGridsInput {
+  id?: ID_Input;
+>>>>>>> 6d2e75d... Grids added on page content
   title: String;
   slug: String;
   url: String;
   type: PageType;
   status: PageStatus;
+<<<<<<< HEAD
   vertical?: Maybe<String>;
   media?: Maybe<MediaCreateOneInput>;
   template?: Maybe<String>;
@@ -2908,6 +4275,29 @@ export interface PageCreateWithoutGridsInput {
   faqs?: Maybe<PageFaqCreateManyWithoutPageInput>;
   faqAccordion?: Maybe<PageFaqAccordionCreateManyWithoutPageInput>;
   components?: Maybe<ComponentCreateManyWithoutPageInput>;
+=======
+  vertical?: String;
+  media?: MediaCreateOneInput;
+  template?: String;
+  header?: String;
+  tagline?: String;
+  resultName?: String;
+  description?: String;
+  keywords?: String;
+  canonical?: String;
+  userJourneyStage?: String;
+  content?: String;
+  contentSummary?: String;
+  category?: String;
+  blocks?: BlockCreateManyWithoutPageInput;
+  boxes?: BoxCreateManyWithoutPageInput;
+  prosAndCons?: ProsAndConsCreateManyWithoutPageInput;
+  alertBoxes?: AlertBoxCreateManyWithoutPageInput;
+  quickTips?: QuickTipCreateManyWithoutPageInput;
+  faqs?: PageFaqCreateManyWithoutPageInput;
+  faqAccordion?: PageFaqAccordionCreateManyWithoutPageInput;
+  components?: ComponentCreateManyWithoutPageInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface PageCreateInput {
@@ -2952,6 +4342,17 @@ export interface MediaUpdateManyMutationInput {
   altText?: Maybe<String>;
 }
 
+export interface UserUpdateWithWhereUniqueNestedInput {
+  where: UserWhereUniqueInput;
+  data: UserUpdateDataInput;
+}
+
+export interface MediaUpdateManyMutationInput {
+  url?: String;
+  title?: String;
+  altText?: String;
+}
+
 export interface UserUpdateDataInput {
   name?: Maybe<String>;
   email?: Maybe<String>;
@@ -2962,10 +4363,17 @@ export interface UserUpdateDataInput {
 }
 
 export interface GridItemUpdateManyMutationInput {
+<<<<<<< HEAD
   title?: Maybe<String>;
   content?: Maybe<String>;
   linkText?: Maybe<String>;
   linkUrl?: Maybe<String>;
+=======
+  title?: String;
+  content?: String;
+  linkText?: String;
+  linkUrl?: String;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface UserUpdatepermissionsInput {
@@ -2984,12 +4392,21 @@ export interface UserUpsertWithWhereUniqueNestedInput {
 }
 
 export interface GridUpdateOneWithoutItemsInput {
+<<<<<<< HEAD
   create?: Maybe<GridCreateWithoutItemsInput>;
   update?: Maybe<GridUpdateWithoutItemsDataInput>;
   upsert?: Maybe<GridUpsertWithoutItemsInput>;
   delete?: Maybe<Boolean>;
   disconnect?: Maybe<Boolean>;
   connect?: Maybe<GridWhereUniqueInput>;
+=======
+  create?: GridCreateWithoutItemsInput;
+  update?: GridUpdateWithoutItemsDataInput;
+  upsert?: GridUpsertWithoutItemsInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+  connect?: GridWhereUniqueInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface UserScalarWhereInput {
@@ -3093,12 +4510,21 @@ export interface UserScalarWhereInput {
 }
 
 export interface GridItemUpdateInput {
+<<<<<<< HEAD
   grid?: Maybe<GridUpdateOneWithoutItemsInput>;
   title?: Maybe<String>;
   content?: Maybe<String>;
   linkText?: Maybe<String>;
   linkUrl?: Maybe<String>;
   media?: Maybe<MediaUpdateOneInput>;
+=======
+  grid?: GridUpdateOneWithoutItemsInput;
+  title?: String;
+  content?: String;
+  linkText?: String;
+  linkUrl?: String;
+  media?: MediaUpdateOneInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface UserUpdateManyWithWhereNestedInput {
@@ -3107,8 +4533,13 @@ export interface UserUpdateManyWithWhereNestedInput {
 }
 
 export interface GridCreateOneWithoutItemsInput {
+<<<<<<< HEAD
   create?: Maybe<GridCreateWithoutItemsInput>;
   connect?: Maybe<GridWhereUniqueInput>;
+=======
+  create?: GridCreateWithoutItemsInput;
+  connect?: GridWhereUniqueInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface UserUpdateManyDataInput {
@@ -3121,6 +4552,7 @@ export interface UserUpdateManyDataInput {
 }
 
 export interface GridItemCreateInput {
+<<<<<<< HEAD
   id?: Maybe<ID_Input>;
   grid?: Maybe<GridCreateOneWithoutItemsInput>;
   title?: Maybe<String>;
@@ -3128,6 +4560,15 @@ export interface GridItemCreateInput {
   linkText?: Maybe<String>;
   linkUrl?: Maybe<String>;
   media?: Maybe<MediaCreateOneInput>;
+=======
+  id?: ID_Input;
+  grid?: GridCreateOneWithoutItemsInput;
+  title?: String;
+  content?: String;
+  linkText?: String;
+  linkUrl?: String;
+  media?: MediaCreateOneInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface FaqCategoryUpdateManyWithoutFaqsInput {
@@ -3168,6 +4609,7 @@ export interface FaqCategoryUpdateWithWhereUniqueWithoutFaqsInput {
 }
 
 export interface PageUpdateWithoutGridsDataInput {
+<<<<<<< HEAD
   title?: Maybe<String>;
   slug?: Maybe<String>;
   url?: Maybe<String>;
@@ -3194,6 +4636,34 @@ export interface PageUpdateWithoutGridsDataInput {
   faqs?: Maybe<PageFaqUpdateManyWithoutPageInput>;
   faqAccordion?: Maybe<PageFaqAccordionUpdateManyWithoutPageInput>;
   components?: Maybe<ComponentUpdateManyWithoutPageInput>;
+=======
+  title?: String;
+  slug?: String;
+  url?: String;
+  type?: PageType;
+  status?: PageStatus;
+  vertical?: String;
+  media?: MediaUpdateOneInput;
+  template?: String;
+  header?: String;
+  tagline?: String;
+  resultName?: String;
+  description?: String;
+  keywords?: String;
+  canonical?: String;
+  userJourneyStage?: String;
+  content?: String;
+  contentSummary?: String;
+  category?: String;
+  blocks?: BlockUpdateManyWithoutPageInput;
+  boxes?: BoxUpdateManyWithoutPageInput;
+  prosAndCons?: ProsAndConsUpdateManyWithoutPageInput;
+  alertBoxes?: AlertBoxUpdateManyWithoutPageInput;
+  quickTips?: QuickTipUpdateManyWithoutPageInput;
+  faqs?: PageFaqUpdateManyWithoutPageInput;
+  faqAccordion?: PageFaqAccordionUpdateManyWithoutPageInput;
+  components?: ComponentUpdateManyWithoutPageInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface FaqCategoryUpdateWithoutFaqsDataInput {
@@ -3203,12 +4673,21 @@ export interface FaqCategoryUpdateWithoutFaqsDataInput {
 }
 
 export interface GridUpdateInput {
+<<<<<<< HEAD
   title?: Maybe<String>;
   page?: Maybe<PageUpdateOneRequiredWithoutGridsInput>;
   media?: Maybe<MediaUpdateOneInput>;
   content?: Maybe<String>;
   order?: Maybe<Int>;
   items?: Maybe<GridItemUpdateManyWithoutGridInput>;
+=======
+  title?: String;
+  page?: PageUpdateOneRequiredWithoutGridsInput;
+  media?: MediaUpdateOneInput;
+  content?: String;
+  order?: Int;
+  items?: GridItemUpdateManyWithoutGridInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface FaqCategoryUpsertWithWhereUniqueWithoutFaqsInput {
@@ -3220,6 +4699,7 @@ export interface FaqCategoryUpsertWithWhereUniqueWithoutFaqsInput {
 export interface AlertBoxCreateInput {
   id?: Maybe<ID_Input>;
   page: PageCreateOneWithoutAlertBoxesInput;
+<<<<<<< HEAD
   title?: Maybe<String>;
   content?: Maybe<String>;
   prefix?: Maybe<String>;
@@ -3307,6 +4787,95 @@ export interface FaqCategoryWhereInput {
   AND?: Maybe<FaqCategoryWhereInput[] | FaqCategoryWhereInput>;
   OR?: Maybe<FaqCategoryWhereInput[] | FaqCategoryWhereInput>;
   NOT?: Maybe<FaqCategoryWhereInput[] | FaqCategoryWhereInput>;
+=======
+  title?: String;
+  content?: String;
+  prefix?: String;
+  style?: String;
+  top?: Boolean;
+  order?: Int;
+}
+
+export interface FaqCategoryWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  name?: String;
+  name_not?: String;
+  name_in?: String[] | String;
+  name_not_in?: String[] | String;
+  name_lt?: String;
+  name_lte?: String;
+  name_gt?: String;
+  name_gte?: String;
+  name_contains?: String;
+  name_not_contains?: String;
+  name_starts_with?: String;
+  name_not_starts_with?: String;
+  name_ends_with?: String;
+  name_not_ends_with?: String;
+  slug?: String;
+  slug_not?: String;
+  slug_in?: String[] | String;
+  slug_not_in?: String[] | String;
+  slug_lt?: String;
+  slug_lte?: String;
+  slug_gt?: String;
+  slug_gte?: String;
+  slug_contains?: String;
+  slug_not_contains?: String;
+  slug_starts_with?: String;
+  slug_not_starts_with?: String;
+  slug_ends_with?: String;
+  slug_not_ends_with?: String;
+  description?: String;
+  description_not?: String;
+  description_in?: String[] | String;
+  description_not_in?: String[] | String;
+  description_lt?: String;
+  description_lte?: String;
+  description_gt?: String;
+  description_gte?: String;
+  description_contains?: String;
+  description_not_contains?: String;
+  description_starts_with?: String;
+  description_not_starts_with?: String;
+  description_ends_with?: String;
+  description_not_ends_with?: String;
+  faqs_every?: FaqWhereInput;
+  faqs_some?: FaqWhereInput;
+  faqs_none?: FaqWhereInput;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  AND?: FaqCategoryWhereInput[] | FaqCategoryWhereInput;
+  OR?: FaqCategoryWhereInput[] | FaqCategoryWhereInput;
+  NOT?: FaqCategoryWhereInput[] | FaqCategoryWhereInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface PageCreateWithoutAlertBoxesInput {
@@ -3352,6 +4921,7 @@ export interface MediaCreateInput {
 }
 
 export interface FaqCategoryUpdateManyDataInput {
+<<<<<<< HEAD
   name?: Maybe<String>;
   slug?: Maybe<String>;
   description?: Maybe<String>;
@@ -3395,6 +4965,51 @@ export interface ProsAndConsCreateWithoutPageInput {
   order?: Maybe<Int>;
   pros?: Maybe<ProsCreateManyWithoutProsAndConsInput>;
   cons?: Maybe<ConsCreateManyWithoutProsAndConsInput>;
+=======
+  name?: String;
+  slug?: String;
+  description?: String;
+}
+
+export interface BlockCreateWithoutPageInput {
+  id?: ID_Input;
+  title?: String;
+  media?: MediaCreateOneInput;
+  video?: String;
+  alignment?: String;
+  content?: String;
+  top?: Boolean;
+  order?: Int;
+}
+
+export interface FaqUpdatevariantInput {
+  set?: String[] | String;
+}
+
+export interface BoxCreateWithoutPageInput {
+  id?: ID_Input;
+  title?: String;
+  media?: MediaCreateOneInput;
+  video?: String;
+  style?: String;
+  alignment?: String;
+  content?: String;
+  top?: Boolean;
+  order?: Int;
+}
+
+export interface FaqUpdatetagInput {
+  set?: String[] | String;
+}
+
+export interface ProsAndConsCreateWithoutPageInput {
+  id?: ID_Input;
+  title?: String;
+  top?: Boolean;
+  order?: Int;
+  pros?: ProsCreateManyWithoutProsAndConsInput;
+  cons?: ConsCreateManyWithoutProsAndConsInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface FaqUpsertNestedInput {
@@ -3403,9 +5018,15 @@ export interface FaqUpsertNestedInput {
 }
 
 export interface ProsCreateWithoutProsAndConsInput {
+<<<<<<< HEAD
   id?: Maybe<ID_Input>;
   content?: Maybe<String>;
   order?: Maybe<Int>;
+=======
+  id?: ID_Input;
+  content?: String;
+  order?: Int;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface PageFaqUpsertWithWhereUniqueWithoutPageInput {
@@ -3415,6 +5036,7 @@ export interface PageFaqUpsertWithWhereUniqueWithoutPageInput {
 }
 
 export interface ConsCreateWithoutProsAndConsInput {
+<<<<<<< HEAD
   id?: Maybe<ID_Input>;
   content?: Maybe<String>;
   order?: Maybe<Int>;
@@ -3457,6 +5079,50 @@ export interface QuickTipCreateWithoutPageInput {
   media?: Maybe<MediaCreateOneInput>;
   top?: Maybe<Boolean>;
   order?: Maybe<Int>;
+=======
+  id?: ID_Input;
+  content?: String;
+  order?: Int;
+}
+
+export interface PageFaqScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  order?: Int;
+  order_not?: Int;
+  order_in?: Int[] | Int;
+  order_not_in?: Int[] | Int;
+  order_lt?: Int;
+  order_lte?: Int;
+  order_gt?: Int;
+  order_gte?: Int;
+  AND?: PageFaqScalarWhereInput[] | PageFaqScalarWhereInput;
+  OR?: PageFaqScalarWhereInput[] | PageFaqScalarWhereInput;
+  NOT?: PageFaqScalarWhereInput[] | PageFaqScalarWhereInput;
+}
+
+export interface QuickTipCreateWithoutPageInput {
+  id?: ID_Input;
+  title?: String;
+  content?: String;
+  buttonText?: String;
+  buttonLink?: String;
+  media?: MediaCreateOneInput;
+  top?: Boolean;
+  order?: Int;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface PageFaqUpdateManyWithWhereNestedInput {
@@ -3788,6 +5454,7 @@ export interface FaqScalarWhereInput {
 }
 
 export interface AlertBoxUpdateInput {
+<<<<<<< HEAD
   page?: Maybe<PageUpdateOneRequiredWithoutAlertBoxesInput>;
   title?: Maybe<String>;
   content?: Maybe<String>;
@@ -3795,6 +5462,15 @@ export interface AlertBoxUpdateInput {
   style?: Maybe<String>;
   top?: Maybe<Boolean>;
   order?: Maybe<Int>;
+=======
+  page?: PageUpdateOneRequiredWithoutAlertBoxesInput;
+  title?: String;
+  content?: String;
+  prefix?: String;
+  style?: String;
+  top?: Boolean;
+  order?: Int;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface FaqUpdateManyWithWhereNestedInput {
@@ -3882,6 +5558,7 @@ export interface PageFaqAccordionUpsertWithWhereUniqueWithoutPageInput {
 }
 
 export interface BlockUpdateWithoutPageDataInput {
+<<<<<<< HEAD
   title?: Maybe<String>;
   media?: Maybe<MediaUpdateOneInput>;
   video?: Maybe<String>;
@@ -3889,6 +5566,15 @@ export interface BlockUpdateWithoutPageDataInput {
   content?: Maybe<String>;
   top?: Maybe<Boolean>;
   order?: Maybe<Int>;
+=======
+  title?: String;
+  media?: MediaUpdateOneInput;
+  video?: String;
+  alignment?: String;
+  content?: String;
+  top?: Boolean;
+  order?: Int;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface PageFaqAccordionScalarWhereInput {
@@ -3926,6 +5612,7 @@ export interface PageFaqAccordionScalarWhereInput {
 }
 
 export interface PageFaqAccordionWhereInput {
+<<<<<<< HEAD
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -3953,6 +5640,35 @@ export interface PageFaqAccordionWhereInput {
   AND?: Maybe<PageFaqAccordionWhereInput[] | PageFaqAccordionWhereInput>;
   OR?: Maybe<PageFaqAccordionWhereInput[] | PageFaqAccordionWhereInput>;
   NOT?: Maybe<PageFaqAccordionWhereInput[] | PageFaqAccordionWhereInput>;
+=======
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  order?: Int;
+  order_not?: Int;
+  order_in?: Int[] | Int;
+  order_not_in?: Int[] | Int;
+  order_lt?: Int;
+  order_lte?: Int;
+  order_gt?: Int;
+  order_gte?: Int;
+  page?: PageWhereInput;
+  faqCategory?: FaqCategoryWhereInput;
+  AND?: PageFaqAccordionWhereInput[] | PageFaqAccordionWhereInput;
+  OR?: PageFaqAccordionWhereInput[] | PageFaqAccordionWhereInput;
+  NOT?: PageFaqAccordionWhereInput[] | PageFaqAccordionWhereInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface PageFaqAccordionUpdateManyWithWhereNestedInput {
@@ -3961,6 +5677,7 @@ export interface PageFaqAccordionUpdateManyWithWhereNestedInput {
 }
 
 export interface UserWhereInput {
+<<<<<<< HEAD
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -4231,6 +5948,276 @@ export interface PageFaqSubscriptionWhereInput {
   AND?: Maybe<PageFaqSubscriptionWhereInput[] | PageFaqSubscriptionWhereInput>;
   OR?: Maybe<PageFaqSubscriptionWhereInput[] | PageFaqSubscriptionWhereInput>;
   NOT?: Maybe<PageFaqSubscriptionWhereInput[] | PageFaqSubscriptionWhereInput>;
+=======
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  name?: String;
+  name_not?: String;
+  name_in?: String[] | String;
+  name_not_in?: String[] | String;
+  name_lt?: String;
+  name_lte?: String;
+  name_gt?: String;
+  name_gte?: String;
+  name_contains?: String;
+  name_not_contains?: String;
+  name_starts_with?: String;
+  name_not_starts_with?: String;
+  name_ends_with?: String;
+  name_not_ends_with?: String;
+  email?: String;
+  email_not?: String;
+  email_in?: String[] | String;
+  email_not_in?: String[] | String;
+  email_lt?: String;
+  email_lte?: String;
+  email_gt?: String;
+  email_gte?: String;
+  email_contains?: String;
+  email_not_contains?: String;
+  email_starts_with?: String;
+  email_not_starts_with?: String;
+  email_ends_with?: String;
+  email_not_ends_with?: String;
+  password?: String;
+  password_not?: String;
+  password_in?: String[] | String;
+  password_not_in?: String[] | String;
+  password_lt?: String;
+  password_lte?: String;
+  password_gt?: String;
+  password_gte?: String;
+  password_contains?: String;
+  password_not_contains?: String;
+  password_starts_with?: String;
+  password_not_starts_with?: String;
+  password_ends_with?: String;
+  password_not_ends_with?: String;
+  resetToken?: String;
+  resetToken_not?: String;
+  resetToken_in?: String[] | String;
+  resetToken_not_in?: String[] | String;
+  resetToken_lt?: String;
+  resetToken_lte?: String;
+  resetToken_gt?: String;
+  resetToken_gte?: String;
+  resetToken_contains?: String;
+  resetToken_not_contains?: String;
+  resetToken_starts_with?: String;
+  resetToken_not_starts_with?: String;
+  resetToken_ends_with?: String;
+  resetToken_not_ends_with?: String;
+  resetTokenExpiry?: Float;
+  resetTokenExpiry_not?: Float;
+  resetTokenExpiry_in?: Float[] | Float;
+  resetTokenExpiry_not_in?: Float[] | Float;
+  resetTokenExpiry_lt?: Float;
+  resetTokenExpiry_lte?: Float;
+  resetTokenExpiry_gt?: Float;
+  resetTokenExpiry_gte?: Float;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  AND?: UserWhereInput[] | UserWhereInput;
+  OR?: UserWhereInput[] | UserWhereInput;
+  NOT?: UserWhereInput[] | UserWhereInput;
+}
+
+export interface PageFaqAccordionUpdateManyDataInput {
+  order?: Int;
+}
+
+export interface PageFaqWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  order?: Int;
+  order_not?: Int;
+  order_in?: Int[] | Int;
+  order_not_in?: Int[] | Int;
+  order_lt?: Int;
+  order_lte?: Int;
+  order_gt?: Int;
+  order_gte?: Int;
+  page?: PageWhereInput;
+  faq?: FaqWhereInput;
+  AND?: PageFaqWhereInput[] | PageFaqWhereInput;
+  OR?: PageFaqWhereInput[] | PageFaqWhereInput;
+  NOT?: PageFaqWhereInput[] | PageFaqWhereInput;
+}
+
+export interface GridUpdateManyWithoutPageInput {
+  create?: GridCreateWithoutPageInput[] | GridCreateWithoutPageInput;
+  delete?: GridWhereUniqueInput[] | GridWhereUniqueInput;
+  connect?: GridWhereUniqueInput[] | GridWhereUniqueInput;
+  set?: GridWhereUniqueInput[] | GridWhereUniqueInput;
+  disconnect?: GridWhereUniqueInput[] | GridWhereUniqueInput;
+  update?:
+    | GridUpdateWithWhereUniqueWithoutPageInput[]
+    | GridUpdateWithWhereUniqueWithoutPageInput;
+  upsert?:
+    | GridUpsertWithWhereUniqueWithoutPageInput[]
+    | GridUpsertWithWhereUniqueWithoutPageInput;
+  deleteMany?: GridScalarWhereInput[] | GridScalarWhereInput;
+  updateMany?:
+    | GridUpdateManyWithWhereNestedInput[]
+    | GridUpdateManyWithWhereNestedInput;
+}
+
+export interface AlertBoxWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  page?: PageWhereInput;
+  title?: String;
+  title_not?: String;
+  title_in?: String[] | String;
+  title_not_in?: String[] | String;
+  title_lt?: String;
+  title_lte?: String;
+  title_gt?: String;
+  title_gte?: String;
+  title_contains?: String;
+  title_not_contains?: String;
+  title_starts_with?: String;
+  title_not_starts_with?: String;
+  title_ends_with?: String;
+  title_not_ends_with?: String;
+  content?: String;
+  content_not?: String;
+  content_in?: String[] | String;
+  content_not_in?: String[] | String;
+  content_lt?: String;
+  content_lte?: String;
+  content_gt?: String;
+  content_gte?: String;
+  content_contains?: String;
+  content_not_contains?: String;
+  content_starts_with?: String;
+  content_not_starts_with?: String;
+  content_ends_with?: String;
+  content_not_ends_with?: String;
+  prefix?: String;
+  prefix_not?: String;
+  prefix_in?: String[] | String;
+  prefix_not_in?: String[] | String;
+  prefix_lt?: String;
+  prefix_lte?: String;
+  prefix_gt?: String;
+  prefix_gte?: String;
+  prefix_contains?: String;
+  prefix_not_contains?: String;
+  prefix_starts_with?: String;
+  prefix_not_starts_with?: String;
+  prefix_ends_with?: String;
+  prefix_not_ends_with?: String;
+  style?: String;
+  style_not?: String;
+  style_in?: String[] | String;
+  style_not_in?: String[] | String;
+  style_lt?: String;
+  style_lte?: String;
+  style_gt?: String;
+  style_gte?: String;
+  style_contains?: String;
+  style_not_contains?: String;
+  style_starts_with?: String;
+  style_not_starts_with?: String;
+  style_ends_with?: String;
+  style_not_ends_with?: String;
+  top?: Boolean;
+  top_not?: Boolean;
+  order?: Int;
+  order_not?: Int;
+  order_in?: Int[] | Int;
+  order_not_in?: Int[] | Int;
+  order_lt?: Int;
+  order_lte?: Int;
+  order_gt?: Int;
+  order_gte?: Int;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  AND?: AlertBoxWhereInput[] | AlertBoxWhereInput;
+  OR?: AlertBoxWhereInput[] | AlertBoxWhereInput;
+  NOT?: AlertBoxWhereInput[] | AlertBoxWhereInput;
+}
+
+export interface GridUpdateWithWhereUniqueWithoutPageInput {
+  where: GridWhereUniqueInput;
+  data: GridUpdateWithoutPageDataInput;
+}
+
+export interface PageFaqSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: PageFaqWhereInput;
+  AND?: PageFaqSubscriptionWhereInput[] | PageFaqSubscriptionWhereInput;
+  OR?: PageFaqSubscriptionWhereInput[] | PageFaqSubscriptionWhereInput;
+  NOT?: PageFaqSubscriptionWhereInput[] | PageFaqSubscriptionWhereInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface GridUpdateWithoutPageDataInput {
@@ -4242,6 +6229,7 @@ export interface GridUpdateWithoutPageDataInput {
 }
 
 export interface GridItemSubscriptionWhereInput {
+<<<<<<< HEAD
   mutation_in?: Maybe<MutationType[] | MutationType>;
   updatedFields_contains?: Maybe<String>;
   updatedFields_contains_every?: Maybe<String[] | String>;
@@ -4254,6 +6242,16 @@ export interface GridItemSubscriptionWhereInput {
   NOT?: Maybe<
     GridItemSubscriptionWhereInput[] | GridItemSubscriptionWhereInput
   >;
+=======
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: GridItemWhereInput;
+  AND?: GridItemSubscriptionWhereInput[] | GridItemSubscriptionWhereInput;
+  OR?: GridItemSubscriptionWhereInput[] | GridItemSubscriptionWhereInput;
+  NOT?: GridItemSubscriptionWhereInput[] | GridItemSubscriptionWhereInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface GridItemUpdateManyWithoutGridInput {
@@ -4280,6 +6278,7 @@ export interface GridItemUpdateManyWithoutGridInput {
 }
 
 export interface FaqSubscriptionWhereInput {
+<<<<<<< HEAD
   mutation_in?: Maybe<MutationType[] | MutationType>;
   updatedFields_contains?: Maybe<String>;
   updatedFields_contains_every?: Maybe<String[] | String>;
@@ -4288,6 +6287,16 @@ export interface FaqSubscriptionWhereInput {
   AND?: Maybe<FaqSubscriptionWhereInput[] | FaqSubscriptionWhereInput>;
   OR?: Maybe<FaqSubscriptionWhereInput[] | FaqSubscriptionWhereInput>;
   NOT?: Maybe<FaqSubscriptionWhereInput[] | FaqSubscriptionWhereInput>;
+=======
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: FaqWhereInput;
+  AND?: FaqSubscriptionWhereInput[] | FaqSubscriptionWhereInput;
+  OR?: FaqSubscriptionWhereInput[] | FaqSubscriptionWhereInput;
+  NOT?: FaqSubscriptionWhereInput[] | FaqSubscriptionWhereInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface GridItemUpdateWithWhereUniqueWithoutGridInput {
@@ -4296,6 +6305,7 @@ export interface GridItemUpdateWithWhereUniqueWithoutGridInput {
 }
 
 export interface BlockWhereInput {
+<<<<<<< HEAD
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -4397,6 +6407,109 @@ export interface BlockWhereInput {
   AND?: Maybe<BlockWhereInput[] | BlockWhereInput>;
   OR?: Maybe<BlockWhereInput[] | BlockWhereInput>;
   NOT?: Maybe<BlockWhereInput[] | BlockWhereInput>;
+=======
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  page?: PageWhereInput;
+  title?: String;
+  title_not?: String;
+  title_in?: String[] | String;
+  title_not_in?: String[] | String;
+  title_lt?: String;
+  title_lte?: String;
+  title_gt?: String;
+  title_gte?: String;
+  title_contains?: String;
+  title_not_contains?: String;
+  title_starts_with?: String;
+  title_not_starts_with?: String;
+  title_ends_with?: String;
+  title_not_ends_with?: String;
+  media?: MediaWhereInput;
+  video?: String;
+  video_not?: String;
+  video_in?: String[] | String;
+  video_not_in?: String[] | String;
+  video_lt?: String;
+  video_lte?: String;
+  video_gt?: String;
+  video_gte?: String;
+  video_contains?: String;
+  video_not_contains?: String;
+  video_starts_with?: String;
+  video_not_starts_with?: String;
+  video_ends_with?: String;
+  video_not_ends_with?: String;
+  alignment?: String;
+  alignment_not?: String;
+  alignment_in?: String[] | String;
+  alignment_not_in?: String[] | String;
+  alignment_lt?: String;
+  alignment_lte?: String;
+  alignment_gt?: String;
+  alignment_gte?: String;
+  alignment_contains?: String;
+  alignment_not_contains?: String;
+  alignment_starts_with?: String;
+  alignment_not_starts_with?: String;
+  alignment_ends_with?: String;
+  alignment_not_ends_with?: String;
+  content?: String;
+  content_not?: String;
+  content_in?: String[] | String;
+  content_not_in?: String[] | String;
+  content_lt?: String;
+  content_lte?: String;
+  content_gt?: String;
+  content_gte?: String;
+  content_contains?: String;
+  content_not_contains?: String;
+  content_starts_with?: String;
+  content_not_starts_with?: String;
+  content_ends_with?: String;
+  content_not_ends_with?: String;
+  top?: Boolean;
+  top_not?: Boolean;
+  order?: Int;
+  order_not?: Int;
+  order_in?: Int[] | Int;
+  order_not_in?: Int[] | Int;
+  order_lt?: Int;
+  order_lte?: Int;
+  order_gt?: Int;
+  order_gte?: Int;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  AND?: BlockWhereInput[] | BlockWhereInput;
+  OR?: BlockWhereInput[] | BlockWhereInput;
+  NOT?: BlockWhereInput[] | BlockWhereInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface GridItemUpdateWithoutGridDataInput {
@@ -4408,6 +6521,7 @@ export interface GridItemUpdateWithoutGridDataInput {
 }
 
 export interface AlertBoxSubscriptionWhereInput {
+<<<<<<< HEAD
   mutation_in?: Maybe<MutationType[] | MutationType>;
   updatedFields_contains?: Maybe<String>;
   updatedFields_contains_every?: Maybe<String[] | String>;
@@ -4420,6 +6534,16 @@ export interface AlertBoxSubscriptionWhereInput {
   NOT?: Maybe<
     AlertBoxSubscriptionWhereInput[] | AlertBoxSubscriptionWhereInput
   >;
+=======
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: AlertBoxWhereInput;
+  AND?: AlertBoxSubscriptionWhereInput[] | AlertBoxSubscriptionWhereInput;
+  OR?: AlertBoxSubscriptionWhereInput[] | AlertBoxSubscriptionWhereInput;
+  NOT?: AlertBoxSubscriptionWhereInput[] | AlertBoxSubscriptionWhereInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface GridItemUpsertWithWhereUniqueWithoutGridInput {
@@ -4526,6 +6650,7 @@ export interface GridItemScalarWhereInput {
 }
 
 export interface QuickTipUpdateInput {
+<<<<<<< HEAD
   page?: Maybe<PageUpdateOneRequiredWithoutQuickTipsInput>;
   title?: Maybe<String>;
   content?: Maybe<String>;
@@ -4534,6 +6659,16 @@ export interface QuickTipUpdateInput {
   media?: Maybe<MediaUpdateOneInput>;
   top?: Maybe<Boolean>;
   order?: Maybe<Int>;
+=======
+  page?: PageUpdateOneRequiredWithoutQuickTipsInput;
+  title?: String;
+  content?: String;
+  buttonText?: String;
+  buttonLink?: String;
+  media?: MediaUpdateOneInput;
+  top?: Boolean;
+  order?: Int;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface GridItemUpdateManyWithWhereNestedInput {
@@ -4542,6 +6677,7 @@ export interface GridItemUpdateManyWithWhereNestedInput {
 }
 
 export interface QuickTipCreateInput {
+<<<<<<< HEAD
   id?: Maybe<ID_Input>;
   page: PageCreateOneWithoutQuickTipsInput;
   title?: Maybe<String>;
@@ -4551,6 +6687,17 @@ export interface QuickTipCreateInput {
   media?: Maybe<MediaCreateOneInput>;
   top?: Maybe<Boolean>;
   order?: Maybe<Int>;
+=======
+  id?: ID_Input;
+  page: PageCreateOneWithoutQuickTipsInput;
+  title?: String;
+  content?: String;
+  buttonText?: String;
+  buttonLink?: String;
+  media?: MediaCreateOneInput;
+  top?: Boolean;
+  order?: Int;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface GridItemUpdateManyDataInput {
@@ -4561,6 +6708,7 @@ export interface GridItemUpdateManyDataInput {
 }
 
 export interface ProsAndConsCreateInput {
+<<<<<<< HEAD
   id?: Maybe<ID_Input>;
   page: PageCreateOneWithoutProsAndConsInput;
   title?: Maybe<String>;
@@ -4568,6 +6716,15 @@ export interface ProsAndConsCreateInput {
   order?: Maybe<Int>;
   pros?: Maybe<ProsCreateManyWithoutProsAndConsInput>;
   cons?: Maybe<ConsCreateManyWithoutProsAndConsInput>;
+=======
+  id?: ID_Input;
+  page: PageCreateOneWithoutProsAndConsInput;
+  title?: String;
+  top?: Boolean;
+  order?: Int;
+  pros?: ProsCreateManyWithoutProsAndConsInput;
+  cons?: ConsCreateManyWithoutProsAndConsInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface GridUpsertWithWhereUniqueWithoutPageInput {
@@ -4577,11 +6734,19 @@ export interface GridUpsertWithWhereUniqueWithoutPageInput {
 }
 
 export interface ProsAndConsUpdateWithoutProsDataInput {
+<<<<<<< HEAD
   page?: Maybe<PageUpdateOneRequiredWithoutProsAndConsInput>;
   title?: Maybe<String>;
   top?: Maybe<Boolean>;
   order?: Maybe<Int>;
   cons?: Maybe<ConsUpdateManyWithoutProsAndConsInput>;
+=======
+  page?: PageUpdateOneRequiredWithoutProsAndConsInput;
+  title?: String;
+  top?: Boolean;
+  order?: Int;
+  cons?: ConsUpdateManyWithoutProsAndConsInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface GridScalarWhereInput {
@@ -4657,12 +6822,21 @@ export interface GridScalarWhereInput {
 }
 
 export interface ProsAndConsCreateWithoutProsInput {
+<<<<<<< HEAD
   id?: Maybe<ID_Input>;
   page: PageCreateOneWithoutProsAndConsInput;
   title?: Maybe<String>;
   top?: Maybe<Boolean>;
   order?: Maybe<Int>;
   cons?: Maybe<ConsCreateManyWithoutProsAndConsInput>;
+=======
+  id?: ID_Input;
+  page: PageCreateOneWithoutProsAndConsInput;
+  title?: String;
+  top?: Boolean;
+  order?: Int;
+  cons?: ConsCreateManyWithoutProsAndConsInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface GridUpdateManyWithWhereNestedInput {
@@ -4671,7 +6845,11 @@ export interface GridUpdateManyWithWhereNestedInput {
 }
 
 export interface PageFaqAccordionUpdateManyMutationInput {
+<<<<<<< HEAD
   order?: Maybe<Int>;
+=======
+  order?: Int;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface GridUpdateManyDataInput {
@@ -4681,10 +6859,17 @@ export interface GridUpdateManyDataInput {
 }
 
 export interface PageUpdateOneRequiredWithoutFaqAccordionInput {
+<<<<<<< HEAD
   create?: Maybe<PageCreateWithoutFaqAccordionInput>;
   update?: Maybe<PageUpdateWithoutFaqAccordionDataInput>;
   upsert?: Maybe<PageUpsertWithoutFaqAccordionInput>;
   connect?: Maybe<PageWhereUniqueInput>;
+=======
+  create?: PageCreateWithoutFaqAccordionInput;
+  update?: PageUpdateWithoutFaqAccordionDataInput;
+  upsert?: PageUpsertWithoutFaqAccordionInput;
+  connect?: PageWhereUniqueInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface ComponentUpdateManyWithoutPageInput {
@@ -4711,8 +6896,13 @@ export interface ComponentUpdateManyWithoutPageInput {
 }
 
 export interface PageCreateOneWithoutFaqAccordionInput {
+<<<<<<< HEAD
   create?: Maybe<PageCreateWithoutFaqAccordionInput>;
   connect?: Maybe<PageWhereUniqueInput>;
+=======
+  create?: PageCreateWithoutFaqAccordionInput;
+  connect?: PageWhereUniqueInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface ComponentUpdateWithWhereUniqueWithoutPageInput {
@@ -4731,9 +6921,15 @@ export interface ComponentUpdateWithoutPageDataInput {
 }
 
 export interface PageFaqUpdateInput {
+<<<<<<< HEAD
   order?: Maybe<Int>;
   page?: Maybe<PageUpdateOneRequiredWithoutFaqsInput>;
   faq?: Maybe<FaqUpdateOneRequiredInput>;
+=======
+  order?: Int;
+  page?: PageUpdateOneRequiredWithoutFaqsInput;
+  faq?: FaqUpdateOneRequiredInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface ComponentUpsertWithWhereUniqueWithoutPageInput {
@@ -4836,12 +7032,21 @@ export type QuickTipWhereUniqueInput = AtLeastOne<{
 }>;
 
 export interface AlertBoxUpdateManyMutationInput {
+<<<<<<< HEAD
   title?: Maybe<String>;
   content?: Maybe<String>;
   prefix?: Maybe<String>;
   style?: Maybe<String>;
   top?: Maybe<Boolean>;
   order?: Maybe<Int>;
+=======
+  title?: String;
+  content?: String;
+  prefix?: String;
+  style?: String;
+  top?: Boolean;
+  order?: Int;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export type UserWhereUniqueInput = AtLeastOne<{
@@ -4877,6 +7082,7 @@ export interface BoxCreateManyWithoutPageInput {
 export interface BlockCreateInput {
   id?: Maybe<ID_Input>;
   page: PageCreateOneWithoutBlocksInput;
+<<<<<<< HEAD
   title?: Maybe<String>;
   media?: Maybe<MediaCreateOneInput>;
   video?: Maybe<String>;
@@ -4884,6 +7090,15 @@ export interface BlockCreateInput {
   content?: Maybe<String>;
   top?: Maybe<Boolean>;
   order?: Maybe<Int>;
+=======
+  title?: String;
+  media?: MediaCreateOneInput;
+  video?: String;
+  alignment?: String;
+  content?: String;
+  top?: Boolean;
+  order?: Int;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface ProsCreateManyWithoutProsAndConsInput {
@@ -4952,6 +7167,7 @@ export interface UserCreatepermissionsInput {
 }
 
 export interface AlertBoxCreateWithoutPageInput {
+<<<<<<< HEAD
   id?: Maybe<ID_Input>;
   title?: Maybe<String>;
   content?: Maybe<String>;
@@ -4959,6 +7175,15 @@ export interface AlertBoxCreateWithoutPageInput {
   style?: Maybe<String>;
   top?: Maybe<Boolean>;
   order?: Maybe<Int>;
+=======
+  id?: ID_Input;
+  title?: String;
+  content?: String;
+  prefix?: String;
+  style?: String;
+  top?: Boolean;
+  order?: Int;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface FaqCreatetagInput {
@@ -4966,6 +7191,7 @@ export interface FaqCreatetagInput {
 }
 
 export interface BlockUpdateInput {
+<<<<<<< HEAD
   page?: Maybe<PageUpdateOneRequiredWithoutBlocksInput>;
   title?: Maybe<String>;
   media?: Maybe<MediaUpdateOneInput>;
@@ -4974,6 +7200,16 @@ export interface BlockUpdateInput {
   content?: Maybe<String>;
   top?: Maybe<Boolean>;
   order?: Maybe<Int>;
+=======
+  page?: PageUpdateOneRequiredWithoutBlocksInput;
+  title?: String;
+  media?: MediaUpdateOneInput;
+  video?: String;
+  alignment?: String;
+  content?: String;
+  top?: Boolean;
+  order?: Int;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface FaqCategoryCreateInput {
@@ -5078,6 +7314,7 @@ export interface BlockUpdateWithWhereUniqueWithoutPageInput {
 }
 
 export interface AlertBoxUpdateWithoutPageDataInput {
+<<<<<<< HEAD
   title?: Maybe<String>;
   content?: Maybe<String>;
   prefix?: Maybe<String>;
@@ -5178,6 +7415,108 @@ export interface GridItemWhereInput {
   AND?: Maybe<GridItemWhereInput[] | GridItemWhereInput>;
   OR?: Maybe<GridItemWhereInput[] | GridItemWhereInput>;
   NOT?: Maybe<GridItemWhereInput[] | GridItemWhereInput>;
+=======
+  title?: String;
+  content?: String;
+  prefix?: String;
+  style?: String;
+  top?: Boolean;
+  order?: Int;
+}
+
+export interface GridItemWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  grid?: GridWhereInput;
+  title?: String;
+  title_not?: String;
+  title_in?: String[] | String;
+  title_not_in?: String[] | String;
+  title_lt?: String;
+  title_lte?: String;
+  title_gt?: String;
+  title_gte?: String;
+  title_contains?: String;
+  title_not_contains?: String;
+  title_starts_with?: String;
+  title_not_starts_with?: String;
+  title_ends_with?: String;
+  title_not_ends_with?: String;
+  content?: String;
+  content_not?: String;
+  content_in?: String[] | String;
+  content_not_in?: String[] | String;
+  content_lt?: String;
+  content_lte?: String;
+  content_gt?: String;
+  content_gte?: String;
+  content_contains?: String;
+  content_not_contains?: String;
+  content_starts_with?: String;
+  content_not_starts_with?: String;
+  content_ends_with?: String;
+  content_not_ends_with?: String;
+  linkText?: String;
+  linkText_not?: String;
+  linkText_in?: String[] | String;
+  linkText_not_in?: String[] | String;
+  linkText_lt?: String;
+  linkText_lte?: String;
+  linkText_gt?: String;
+  linkText_gte?: String;
+  linkText_contains?: String;
+  linkText_not_contains?: String;
+  linkText_starts_with?: String;
+  linkText_not_starts_with?: String;
+  linkText_ends_with?: String;
+  linkText_not_ends_with?: String;
+  linkUrl?: String;
+  linkUrl_not?: String;
+  linkUrl_in?: String[] | String;
+  linkUrl_not_in?: String[] | String;
+  linkUrl_lt?: String;
+  linkUrl_lte?: String;
+  linkUrl_gt?: String;
+  linkUrl_gte?: String;
+  linkUrl_contains?: String;
+  linkUrl_not_contains?: String;
+  linkUrl_starts_with?: String;
+  linkUrl_not_starts_with?: String;
+  linkUrl_ends_with?: String;
+  linkUrl_not_ends_with?: String;
+  media?: MediaWhereInput;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  AND?: GridItemWhereInput[] | GridItemWhereInput;
+  OR?: GridItemWhereInput[] | GridItemWhereInput;
+  NOT?: GridItemWhereInput[] | GridItemWhereInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface AlertBoxUpsertWithWhereUniqueWithoutPageInput {
@@ -5187,6 +7526,7 @@ export interface AlertBoxUpsertWithWhereUniqueWithoutPageInput {
 }
 
 export interface QuickTipWhereInput {
+<<<<<<< HEAD
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -5390,6 +7730,211 @@ export interface AlertBoxScalarWhereInput {
   AND?: Maybe<AlertBoxScalarWhereInput[] | AlertBoxScalarWhereInput>;
   OR?: Maybe<AlertBoxScalarWhereInput[] | AlertBoxScalarWhereInput>;
   NOT?: Maybe<AlertBoxScalarWhereInput[] | AlertBoxScalarWhereInput>;
+=======
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  page?: PageWhereInput;
+  title?: String;
+  title_not?: String;
+  title_in?: String[] | String;
+  title_not_in?: String[] | String;
+  title_lt?: String;
+  title_lte?: String;
+  title_gt?: String;
+  title_gte?: String;
+  title_contains?: String;
+  title_not_contains?: String;
+  title_starts_with?: String;
+  title_not_starts_with?: String;
+  title_ends_with?: String;
+  title_not_ends_with?: String;
+  content?: String;
+  content_not?: String;
+  content_in?: String[] | String;
+  content_not_in?: String[] | String;
+  content_lt?: String;
+  content_lte?: String;
+  content_gt?: String;
+  content_gte?: String;
+  content_contains?: String;
+  content_not_contains?: String;
+  content_starts_with?: String;
+  content_not_starts_with?: String;
+  content_ends_with?: String;
+  content_not_ends_with?: String;
+  buttonText?: String;
+  buttonText_not?: String;
+  buttonText_in?: String[] | String;
+  buttonText_not_in?: String[] | String;
+  buttonText_lt?: String;
+  buttonText_lte?: String;
+  buttonText_gt?: String;
+  buttonText_gte?: String;
+  buttonText_contains?: String;
+  buttonText_not_contains?: String;
+  buttonText_starts_with?: String;
+  buttonText_not_starts_with?: String;
+  buttonText_ends_with?: String;
+  buttonText_not_ends_with?: String;
+  buttonLink?: String;
+  buttonLink_not?: String;
+  buttonLink_in?: String[] | String;
+  buttonLink_not_in?: String[] | String;
+  buttonLink_lt?: String;
+  buttonLink_lte?: String;
+  buttonLink_gt?: String;
+  buttonLink_gte?: String;
+  buttonLink_contains?: String;
+  buttonLink_not_contains?: String;
+  buttonLink_starts_with?: String;
+  buttonLink_not_starts_with?: String;
+  buttonLink_ends_with?: String;
+  buttonLink_not_ends_with?: String;
+  media?: MediaWhereInput;
+  top?: Boolean;
+  top_not?: Boolean;
+  order?: Int;
+  order_not?: Int;
+  order_in?: Int[] | Int;
+  order_not_in?: Int[] | Int;
+  order_lt?: Int;
+  order_lte?: Int;
+  order_gt?: Int;
+  order_gte?: Int;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  AND?: QuickTipWhereInput[] | QuickTipWhereInput;
+  OR?: QuickTipWhereInput[] | QuickTipWhereInput;
+  NOT?: QuickTipWhereInput[] | QuickTipWhereInput;
+}
+
+export interface AlertBoxScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  title?: String;
+  title_not?: String;
+  title_in?: String[] | String;
+  title_not_in?: String[] | String;
+  title_lt?: String;
+  title_lte?: String;
+  title_gt?: String;
+  title_gte?: String;
+  title_contains?: String;
+  title_not_contains?: String;
+  title_starts_with?: String;
+  title_not_starts_with?: String;
+  title_ends_with?: String;
+  title_not_ends_with?: String;
+  content?: String;
+  content_not?: String;
+  content_in?: String[] | String;
+  content_not_in?: String[] | String;
+  content_lt?: String;
+  content_lte?: String;
+  content_gt?: String;
+  content_gte?: String;
+  content_contains?: String;
+  content_not_contains?: String;
+  content_starts_with?: String;
+  content_not_starts_with?: String;
+  content_ends_with?: String;
+  content_not_ends_with?: String;
+  prefix?: String;
+  prefix_not?: String;
+  prefix_in?: String[] | String;
+  prefix_not_in?: String[] | String;
+  prefix_lt?: String;
+  prefix_lte?: String;
+  prefix_gt?: String;
+  prefix_gte?: String;
+  prefix_contains?: String;
+  prefix_not_contains?: String;
+  prefix_starts_with?: String;
+  prefix_not_starts_with?: String;
+  prefix_ends_with?: String;
+  prefix_not_ends_with?: String;
+  style?: String;
+  style_not?: String;
+  style_in?: String[] | String;
+  style_not_in?: String[] | String;
+  style_lt?: String;
+  style_lte?: String;
+  style_gt?: String;
+  style_gte?: String;
+  style_contains?: String;
+  style_not_contains?: String;
+  style_starts_with?: String;
+  style_not_starts_with?: String;
+  style_ends_with?: String;
+  style_not_ends_with?: String;
+  top?: Boolean;
+  top_not?: Boolean;
+  order?: Int;
+  order_not?: Int;
+  order_in?: Int[] | Int;
+  order_not_in?: Int[] | Int;
+  order_lt?: Int;
+  order_lte?: Int;
+  order_gt?: Int;
+  order_gte?: Int;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  AND?: AlertBoxScalarWhereInput[] | AlertBoxScalarWhereInput;
+  OR?: AlertBoxScalarWhereInput[] | AlertBoxScalarWhereInput;
+  NOT?: AlertBoxScalarWhereInput[] | AlertBoxScalarWhereInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface PageSubscriptionWhereInput {
@@ -5409,6 +7954,7 @@ export interface AlertBoxUpdateManyWithWhereNestedInput {
 }
 
 export interface PageWhereInput {
+<<<<<<< HEAD
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -5706,6 +8252,305 @@ export interface UserUpdateInput {
   resetToken?: Maybe<String>;
   resetTokenExpiry?: Maybe<Float>;
   permissions?: Maybe<UserUpdatepermissionsInput>;
+=======
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  title?: String;
+  title_not?: String;
+  title_in?: String[] | String;
+  title_not_in?: String[] | String;
+  title_lt?: String;
+  title_lte?: String;
+  title_gt?: String;
+  title_gte?: String;
+  title_contains?: String;
+  title_not_contains?: String;
+  title_starts_with?: String;
+  title_not_starts_with?: String;
+  title_ends_with?: String;
+  title_not_ends_with?: String;
+  slug?: String;
+  slug_not?: String;
+  slug_in?: String[] | String;
+  slug_not_in?: String[] | String;
+  slug_lt?: String;
+  slug_lte?: String;
+  slug_gt?: String;
+  slug_gte?: String;
+  slug_contains?: String;
+  slug_not_contains?: String;
+  slug_starts_with?: String;
+  slug_not_starts_with?: String;
+  slug_ends_with?: String;
+  slug_not_ends_with?: String;
+  url?: String;
+  url_not?: String;
+  url_in?: String[] | String;
+  url_not_in?: String[] | String;
+  url_lt?: String;
+  url_lte?: String;
+  url_gt?: String;
+  url_gte?: String;
+  url_contains?: String;
+  url_not_contains?: String;
+  url_starts_with?: String;
+  url_not_starts_with?: String;
+  url_ends_with?: String;
+  url_not_ends_with?: String;
+  type?: PageType;
+  type_not?: PageType;
+  type_in?: PageType[] | PageType;
+  type_not_in?: PageType[] | PageType;
+  status?: PageStatus;
+  status_not?: PageStatus;
+  status_in?: PageStatus[] | PageStatus;
+  status_not_in?: PageStatus[] | PageStatus;
+  vertical?: String;
+  vertical_not?: String;
+  vertical_in?: String[] | String;
+  vertical_not_in?: String[] | String;
+  vertical_lt?: String;
+  vertical_lte?: String;
+  vertical_gt?: String;
+  vertical_gte?: String;
+  vertical_contains?: String;
+  vertical_not_contains?: String;
+  vertical_starts_with?: String;
+  vertical_not_starts_with?: String;
+  vertical_ends_with?: String;
+  vertical_not_ends_with?: String;
+  media?: MediaWhereInput;
+  template?: String;
+  template_not?: String;
+  template_in?: String[] | String;
+  template_not_in?: String[] | String;
+  template_lt?: String;
+  template_lte?: String;
+  template_gt?: String;
+  template_gte?: String;
+  template_contains?: String;
+  template_not_contains?: String;
+  template_starts_with?: String;
+  template_not_starts_with?: String;
+  template_ends_with?: String;
+  template_not_ends_with?: String;
+  header?: String;
+  header_not?: String;
+  header_in?: String[] | String;
+  header_not_in?: String[] | String;
+  header_lt?: String;
+  header_lte?: String;
+  header_gt?: String;
+  header_gte?: String;
+  header_contains?: String;
+  header_not_contains?: String;
+  header_starts_with?: String;
+  header_not_starts_with?: String;
+  header_ends_with?: String;
+  header_not_ends_with?: String;
+  tagline?: String;
+  tagline_not?: String;
+  tagline_in?: String[] | String;
+  tagline_not_in?: String[] | String;
+  tagline_lt?: String;
+  tagline_lte?: String;
+  tagline_gt?: String;
+  tagline_gte?: String;
+  tagline_contains?: String;
+  tagline_not_contains?: String;
+  tagline_starts_with?: String;
+  tagline_not_starts_with?: String;
+  tagline_ends_with?: String;
+  tagline_not_ends_with?: String;
+  resultName?: String;
+  resultName_not?: String;
+  resultName_in?: String[] | String;
+  resultName_not_in?: String[] | String;
+  resultName_lt?: String;
+  resultName_lte?: String;
+  resultName_gt?: String;
+  resultName_gte?: String;
+  resultName_contains?: String;
+  resultName_not_contains?: String;
+  resultName_starts_with?: String;
+  resultName_not_starts_with?: String;
+  resultName_ends_with?: String;
+  resultName_not_ends_with?: String;
+  description?: String;
+  description_not?: String;
+  description_in?: String[] | String;
+  description_not_in?: String[] | String;
+  description_lt?: String;
+  description_lte?: String;
+  description_gt?: String;
+  description_gte?: String;
+  description_contains?: String;
+  description_not_contains?: String;
+  description_starts_with?: String;
+  description_not_starts_with?: String;
+  description_ends_with?: String;
+  description_not_ends_with?: String;
+  keywords?: String;
+  keywords_not?: String;
+  keywords_in?: String[] | String;
+  keywords_not_in?: String[] | String;
+  keywords_lt?: String;
+  keywords_lte?: String;
+  keywords_gt?: String;
+  keywords_gte?: String;
+  keywords_contains?: String;
+  keywords_not_contains?: String;
+  keywords_starts_with?: String;
+  keywords_not_starts_with?: String;
+  keywords_ends_with?: String;
+  keywords_not_ends_with?: String;
+  canonical?: String;
+  canonical_not?: String;
+  canonical_in?: String[] | String;
+  canonical_not_in?: String[] | String;
+  canonical_lt?: String;
+  canonical_lte?: String;
+  canonical_gt?: String;
+  canonical_gte?: String;
+  canonical_contains?: String;
+  canonical_not_contains?: String;
+  canonical_starts_with?: String;
+  canonical_not_starts_with?: String;
+  canonical_ends_with?: String;
+  canonical_not_ends_with?: String;
+  userJourneyStage?: String;
+  userJourneyStage_not?: String;
+  userJourneyStage_in?: String[] | String;
+  userJourneyStage_not_in?: String[] | String;
+  userJourneyStage_lt?: String;
+  userJourneyStage_lte?: String;
+  userJourneyStage_gt?: String;
+  userJourneyStage_gte?: String;
+  userJourneyStage_contains?: String;
+  userJourneyStage_not_contains?: String;
+  userJourneyStage_starts_with?: String;
+  userJourneyStage_not_starts_with?: String;
+  userJourneyStage_ends_with?: String;
+  userJourneyStage_not_ends_with?: String;
+  content?: String;
+  content_not?: String;
+  content_in?: String[] | String;
+  content_not_in?: String[] | String;
+  content_lt?: String;
+  content_lte?: String;
+  content_gt?: String;
+  content_gte?: String;
+  content_contains?: String;
+  content_not_contains?: String;
+  content_starts_with?: String;
+  content_not_starts_with?: String;
+  content_ends_with?: String;
+  content_not_ends_with?: String;
+  contentSummary?: String;
+  contentSummary_not?: String;
+  contentSummary_in?: String[] | String;
+  contentSummary_not_in?: String[] | String;
+  contentSummary_lt?: String;
+  contentSummary_lte?: String;
+  contentSummary_gt?: String;
+  contentSummary_gte?: String;
+  contentSummary_contains?: String;
+  contentSummary_not_contains?: String;
+  contentSummary_starts_with?: String;
+  contentSummary_not_starts_with?: String;
+  contentSummary_ends_with?: String;
+  contentSummary_not_ends_with?: String;
+  category?: String;
+  category_not?: String;
+  category_in?: String[] | String;
+  category_not_in?: String[] | String;
+  category_lt?: String;
+  category_lte?: String;
+  category_gt?: String;
+  category_gte?: String;
+  category_contains?: String;
+  category_not_contains?: String;
+  category_starts_with?: String;
+  category_not_starts_with?: String;
+  category_ends_with?: String;
+  category_not_ends_with?: String;
+  blocks_every?: BlockWhereInput;
+  blocks_some?: BlockWhereInput;
+  blocks_none?: BlockWhereInput;
+  boxes_every?: BoxWhereInput;
+  boxes_some?: BoxWhereInput;
+  boxes_none?: BoxWhereInput;
+  prosAndCons_every?: ProsAndConsWhereInput;
+  prosAndCons_some?: ProsAndConsWhereInput;
+  prosAndCons_none?: ProsAndConsWhereInput;
+  alertBoxes_every?: AlertBoxWhereInput;
+  alertBoxes_some?: AlertBoxWhereInput;
+  alertBoxes_none?: AlertBoxWhereInput;
+  quickTips_every?: QuickTipWhereInput;
+  quickTips_some?: QuickTipWhereInput;
+  quickTips_none?: QuickTipWhereInput;
+  faqs_every?: PageFaqWhereInput;
+  faqs_some?: PageFaqWhereInput;
+  faqs_none?: PageFaqWhereInput;
+  faqAccordion_every?: PageFaqAccordionWhereInput;
+  faqAccordion_some?: PageFaqAccordionWhereInput;
+  faqAccordion_none?: PageFaqAccordionWhereInput;
+  grids_every?: GridWhereInput;
+  grids_some?: GridWhereInput;
+  grids_none?: GridWhereInput;
+  components_every?: ComponentWhereInput;
+  components_some?: ComponentWhereInput;
+  components_none?: ComponentWhereInput;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  AND?: PageWhereInput[] | PageWhereInput;
+  OR?: PageWhereInput[] | PageWhereInput;
+  NOT?: PageWhereInput[] | PageWhereInput;
+}
+
+export interface AlertBoxUpdateManyDataInput {
+  title?: String;
+  content?: String;
+  prefix?: String;
+  style?: String;
+  top?: Boolean;
+  order?: Int;
+}
+
+export interface UserUpdateInput {
+  name?: String;
+  email?: String;
+  password?: String;
+  resetToken?: String;
+  resetTokenExpiry?: Float;
+  permissions?: UserUpdatepermissionsInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface PageUpsertWithoutBlocksInput {
@@ -5714,6 +8559,7 @@ export interface PageUpsertWithoutBlocksInput {
 }
 
 export type BoxWhereUniqueInput = AtLeastOne<{
+<<<<<<< HEAD
   id: Maybe<ID_Input>;
 }>;
 
@@ -5724,6 +8570,18 @@ export interface BlockUpdateManyMutationInput {
   content?: Maybe<String>;
   top?: Maybe<Boolean>;
   order?: Maybe<Int>;
+=======
+  id: ID_Input;
+}>;
+
+export interface BlockUpdateManyMutationInput {
+  title?: String;
+  video?: String;
+  alignment?: String;
+  content?: String;
+  top?: Boolean;
+  order?: Int;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export type ConsWhereUniqueInput = AtLeastOne<{
@@ -5733,6 +8591,7 @@ export type ConsWhereUniqueInput = AtLeastOne<{
 export interface BoxCreateInput {
   id?: Maybe<ID_Input>;
   page: PageCreateOneWithoutBoxesInput;
+<<<<<<< HEAD
   title?: Maybe<String>;
   media?: Maybe<MediaCreateOneInput>;
   video?: Maybe<String>;
@@ -5741,6 +8600,16 @@ export interface BoxCreateInput {
   content?: Maybe<String>;
   top?: Maybe<Boolean>;
   order?: Maybe<Int>;
+=======
+  title?: String;
+  media?: MediaCreateOneInput;
+  video?: String;
+  style?: String;
+  alignment?: String;
+  content?: String;
+  top?: Boolean;
+  order?: Int;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export type FaqCategoryWhereUniqueInput = AtLeastOne<{
@@ -5787,6 +8656,7 @@ export interface PageCreateWithoutBoxesInput {
 }
 
 export interface PageUpdateOneRequiredWithoutFaqsInput {
+<<<<<<< HEAD
   create?: Maybe<PageCreateWithoutFaqsInput>;
   update?: Maybe<PageUpdateWithoutFaqsDataInput>;
   upsert?: Maybe<PageUpsertWithoutFaqsInput>;
@@ -5833,6 +8703,54 @@ export interface PageUpdateInput {
   faqAccordion?: Maybe<PageFaqAccordionUpdateManyWithoutPageInput>;
   grids?: Maybe<GridUpdateManyWithoutPageInput>;
   components?: Maybe<ComponentUpdateManyWithoutPageInput>;
+=======
+  create?: PageCreateWithoutFaqsInput;
+  update?: PageUpdateWithoutFaqsDataInput;
+  upsert?: PageUpsertWithoutFaqsInput;
+  connect?: PageWhereUniqueInput;
+}
+
+export interface BoxUpdateInput {
+  page?: PageUpdateOneRequiredWithoutBoxesInput;
+  title?: String;
+  media?: MediaUpdateOneInput;
+  video?: String;
+  style?: String;
+  alignment?: String;
+  content?: String;
+  top?: Boolean;
+  order?: Int;
+}
+
+export interface PageUpdateInput {
+  title?: String;
+  slug?: String;
+  url?: String;
+  type?: PageType;
+  status?: PageStatus;
+  vertical?: String;
+  media?: MediaUpdateOneInput;
+  template?: String;
+  header?: String;
+  tagline?: String;
+  resultName?: String;
+  description?: String;
+  keywords?: String;
+  canonical?: String;
+  userJourneyStage?: String;
+  content?: String;
+  contentSummary?: String;
+  category?: String;
+  blocks?: BlockUpdateManyWithoutPageInput;
+  boxes?: BoxUpdateManyWithoutPageInput;
+  prosAndCons?: ProsAndConsUpdateManyWithoutPageInput;
+  alertBoxes?: AlertBoxUpdateManyWithoutPageInput;
+  quickTips?: QuickTipUpdateManyWithoutPageInput;
+  faqs?: PageFaqUpdateManyWithoutPageInput;
+  faqAccordion?: PageFaqAccordionUpdateManyWithoutPageInput;
+  grids?: GridUpdateManyWithoutPageInput;
+  components?: ComponentUpdateManyWithoutPageInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface PageUpdateOneRequiredWithoutBoxesInput {
@@ -5843,11 +8761,19 @@ export interface PageUpdateOneRequiredWithoutBoxesInput {
 }
 
 export interface GridUpdateWithoutItemsDataInput {
+<<<<<<< HEAD
   title?: Maybe<String>;
   page?: Maybe<PageUpdateOneRequiredWithoutGridsInput>;
   media?: Maybe<MediaUpdateOneInput>;
   content?: Maybe<String>;
   order?: Maybe<Int>;
+=======
+  title?: String;
+  page?: PageUpdateOneRequiredWithoutGridsInput;
+  media?: MediaUpdateOneInput;
+  content?: String;
+  order?: Int;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface PageUpdateWithoutBoxesDataInput {
@@ -5880,9 +8806,15 @@ export interface PageUpdateWithoutBoxesDataInput {
 }
 
 export interface GridUpdateManyMutationInput {
+<<<<<<< HEAD
   title?: Maybe<String>;
   content?: Maybe<String>;
   order?: Maybe<Int>;
+=======
+  title?: String;
+  content?: String;
+  order?: Int;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface PageUpsertWithoutBoxesInput {
@@ -5896,6 +8828,7 @@ export interface PageCreateOneWithoutAlertBoxesInput {
 }
 
 export interface BoxUpdateManyMutationInput {
+<<<<<<< HEAD
   title?: Maybe<String>;
   video?: Maybe<String>;
   style?: Maybe<String>;
@@ -5903,6 +8836,15 @@ export interface BoxUpdateManyMutationInput {
   content?: Maybe<String>;
   top?: Maybe<Boolean>;
   order?: Maybe<Int>;
+=======
+  title?: String;
+  video?: String;
+  style?: String;
+  alignment?: String;
+  content?: String;
+  top?: Boolean;
+  order?: Int;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface ProsAndConsCreateManyWithoutPageInput {
@@ -6103,6 +9045,7 @@ export interface PageUpsertWithoutComponentsInput {
 }
 
 export interface BoxSubscriptionWhereInput {
+<<<<<<< HEAD
   mutation_in?: Maybe<MutationType[] | MutationType>;
   updatedFields_contains?: Maybe<String>;
   updatedFields_contains_every?: Maybe<String[] | String>;
@@ -6111,6 +9054,16 @@ export interface BoxSubscriptionWhereInput {
   AND?: Maybe<BoxSubscriptionWhereInput[] | BoxSubscriptionWhereInput>;
   OR?: Maybe<BoxSubscriptionWhereInput[] | BoxSubscriptionWhereInput>;
   NOT?: Maybe<BoxSubscriptionWhereInput[] | BoxSubscriptionWhereInput>;
+=======
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: BoxWhereInput;
+  AND?: BoxSubscriptionWhereInput[] | BoxSubscriptionWhereInput;
+  OR?: BoxSubscriptionWhereInput[] | BoxSubscriptionWhereInput;
+  NOT?: BoxSubscriptionWhereInput[] | BoxSubscriptionWhereInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface ComponentUpdateManyMutationInput {
@@ -6139,13 +9092,19 @@ export interface ProsAndConsCreateOneWithoutConsInput {
 }
 
 export interface PageCreateOneWithoutFaqsInput {
+<<<<<<< HEAD
   create?: Maybe<PageCreateWithoutFaqsInput>;
   connect?: Maybe<PageWhereUniqueInput>;
+=======
+  create?: PageCreateWithoutFaqsInput;
+  connect?: PageWhereUniqueInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface ProsAndConsCreateWithoutConsInput {
   id?: Maybe<ID_Input>;
   page: PageCreateOneWithoutProsAndConsInput;
+<<<<<<< HEAD
   title?: Maybe<String>;
   top?: Maybe<Boolean>;
   order?: Maybe<Int>;
@@ -6159,6 +9118,21 @@ export interface GridCreateWithoutItemsInput {
   media?: Maybe<MediaCreateOneInput>;
   content?: Maybe<String>;
   order?: Maybe<Int>;
+=======
+  title?: String;
+  top?: Boolean;
+  order?: Int;
+  pros?: ProsCreateManyWithoutProsAndConsInput;
+}
+
+export interface GridCreateWithoutItemsInput {
+  id?: ID_Input;
+  title?: String;
+  page: PageCreateOneWithoutGridsInput;
+  media?: MediaCreateOneInput;
+  content?: String;
+  order?: Int;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface PageCreateOneWithoutProsAndConsInput {
@@ -6207,6 +9181,7 @@ export interface UserCreateManyInput {
 }
 
 export interface ConsUpdateInput {
+<<<<<<< HEAD
   prosAndCons?: Maybe<ProsAndConsUpdateOneRequiredWithoutConsInput>;
   content?: Maybe<String>;
   order?: Maybe<Int>;
@@ -6370,6 +9345,171 @@ export interface ProsAndConsUpdateWithoutConsDataInput {
   top?: Maybe<Boolean>;
   order?: Maybe<Int>;
   pros?: Maybe<ProsUpdateManyWithoutProsAndConsInput>;
+=======
+  prosAndCons?: ProsAndConsUpdateOneRequiredWithoutConsInput;
+  content?: String;
+  order?: Int;
+}
+
+export interface GridItemCreateWithoutGridInput {
+  id?: ID_Input;
+  title?: String;
+  content?: String;
+  linkText?: String;
+  linkUrl?: String;
+  media?: MediaCreateOneInput;
+}
+
+export interface ProsAndConsUpdateOneRequiredWithoutConsInput {
+  create?: ProsAndConsCreateWithoutConsInput;
+  update?: ProsAndConsUpdateWithoutConsDataInput;
+  upsert?: ProsAndConsUpsertWithoutConsInput;
+  connect?: ProsAndConsWhereUniqueInput;
+}
+
+export interface FaqWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  title?: String;
+  title_not?: String;
+  title_in?: String[] | String;
+  title_not_in?: String[] | String;
+  title_lt?: String;
+  title_lte?: String;
+  title_gt?: String;
+  title_gte?: String;
+  title_contains?: String;
+  title_not_contains?: String;
+  title_starts_with?: String;
+  title_not_starts_with?: String;
+  title_ends_with?: String;
+  title_not_ends_with?: String;
+  description?: String;
+  description_not?: String;
+  description_in?: String[] | String;
+  description_not_in?: String[] | String;
+  description_lt?: String;
+  description_lte?: String;
+  description_gt?: String;
+  description_gte?: String;
+  description_contains?: String;
+  description_not_contains?: String;
+  description_starts_with?: String;
+  description_not_starts_with?: String;
+  description_ends_with?: String;
+  description_not_ends_with?: String;
+  short_description?: String;
+  short_description_not?: String;
+  short_description_in?: String[] | String;
+  short_description_not_in?: String[] | String;
+  short_description_lt?: String;
+  short_description_lte?: String;
+  short_description_gt?: String;
+  short_description_gte?: String;
+  short_description_contains?: String;
+  short_description_not_contains?: String;
+  short_description_starts_with?: String;
+  short_description_not_starts_with?: String;
+  short_description_ends_with?: String;
+  short_description_not_ends_with?: String;
+  authors_every?: UserWhereInput;
+  authors_some?: UserWhereInput;
+  authors_none?: UserWhereInput;
+  slug?: String;
+  slug_not?: String;
+  slug_in?: String[] | String;
+  slug_not_in?: String[] | String;
+  slug_lt?: String;
+  slug_lte?: String;
+  slug_gt?: String;
+  slug_gte?: String;
+  slug_contains?: String;
+  slug_not_contains?: String;
+  slug_starts_with?: String;
+  slug_not_starts_with?: String;
+  slug_ends_with?: String;
+  slug_not_ends_with?: String;
+  vertical?: String;
+  vertical_not?: String;
+  vertical_in?: String[] | String;
+  vertical_not_in?: String[] | String;
+  vertical_lt?: String;
+  vertical_lte?: String;
+  vertical_gt?: String;
+  vertical_gte?: String;
+  vertical_contains?: String;
+  vertical_not_contains?: String;
+  vertical_starts_with?: String;
+  vertical_not_starts_with?: String;
+  vertical_ends_with?: String;
+  vertical_not_ends_with?: String;
+  category_every?: FaqCategoryWhereInput;
+  category_some?: FaqCategoryWhereInput;
+  category_none?: FaqCategoryWhereInput;
+  readingTime?: Int;
+  readingTime_not?: Int;
+  readingTime_in?: Int[] | Int;
+  readingTime_not_in?: Int[] | Int;
+  readingTime_lt?: Int;
+  readingTime_lte?: Int;
+  readingTime_gt?: Int;
+  readingTime_gte?: Int;
+  order?: Int;
+  order_not?: Int;
+  order_in?: Int[] | Int;
+  order_not_in?: Int[] | Int;
+  order_lt?: Int;
+  order_lte?: Int;
+  order_gt?: Int;
+  order_gte?: Int;
+  pubDate?: DateTimeInput;
+  pubDate_not?: DateTimeInput;
+  pubDate_in?: DateTimeInput[] | DateTimeInput;
+  pubDate_not_in?: DateTimeInput[] | DateTimeInput;
+  pubDate_lt?: DateTimeInput;
+  pubDate_lte?: DateTimeInput;
+  pubDate_gt?: DateTimeInput;
+  pubDate_gte?: DateTimeInput;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
+  updatedAt?: DateTimeInput;
+  updatedAt_not?: DateTimeInput;
+  updatedAt_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_not_in?: DateTimeInput[] | DateTimeInput;
+  updatedAt_lt?: DateTimeInput;
+  updatedAt_lte?: DateTimeInput;
+  updatedAt_gt?: DateTimeInput;
+  updatedAt_gte?: DateTimeInput;
+  AND?: FaqWhereInput[] | FaqWhereInput;
+  OR?: FaqWhereInput[] | FaqWhereInput;
+  NOT?: FaqWhereInput[] | FaqWhereInput;
+}
+
+export interface ProsAndConsUpdateWithoutConsDataInput {
+  page?: PageUpdateOneRequiredWithoutProsAndConsInput;
+  title?: String;
+  top?: Boolean;
+  order?: Int;
+  pros?: ProsUpdateManyWithoutProsAndConsInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export type BlockWhereUniqueInput = AtLeastOne<{
@@ -6418,10 +9558,17 @@ export interface PageUpdateWithoutProsAndConsDataInput {
 }
 
 export interface PageUpdateOneRequiredWithoutGridsInput {
+<<<<<<< HEAD
   create?: Maybe<PageCreateWithoutGridsInput>;
   update?: Maybe<PageUpdateWithoutGridsDataInput>;
   upsert?: Maybe<PageUpsertWithoutGridsInput>;
   connect?: Maybe<PageWhereUniqueInput>;
+=======
+  create?: PageCreateWithoutGridsInput;
+  update?: PageUpdateWithoutGridsDataInput;
+  upsert?: PageUpsertWithoutGridsInput;
+  connect?: PageWhereUniqueInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface PageUpsertWithoutProsAndConsInput {
@@ -6430,8 +9577,13 @@ export interface PageUpsertWithoutProsAndConsInput {
 }
 
 export interface PageFaqAccordionCreateWithoutPageInput {
+<<<<<<< HEAD
   id?: Maybe<ID_Input>;
   order?: Maybe<Int>;
+=======
+  id?: ID_Input;
+  order?: Int;
+>>>>>>> 6d2e75d... Grids added on page content
   faqCategory: FaqCategoryCreateOneInput;
 }
 
@@ -6441,6 +9593,7 @@ export interface ProsAndConsUpsertWithoutConsInput {
 }
 
 export interface FaqCategorySubscriptionWhereInput {
+<<<<<<< HEAD
   mutation_in?: Maybe<MutationType[] | MutationType>;
   updatedFields_contains?: Maybe<String>;
   updatedFields_contains_every?: Maybe<String[] | String>;
@@ -6455,6 +9608,16 @@ export interface FaqCategorySubscriptionWhereInput {
   NOT?: Maybe<
     FaqCategorySubscriptionWhereInput[] | FaqCategorySubscriptionWhereInput
   >;
+=======
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: FaqCategoryWhereInput;
+  AND?: FaqCategorySubscriptionWhereInput[] | FaqCategorySubscriptionWhereInput;
+  OR?: FaqCategorySubscriptionWhereInput[] | FaqCategorySubscriptionWhereInput;
+  NOT?: FaqCategorySubscriptionWhereInput[] | FaqCategorySubscriptionWhereInput;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface FaqCategoryUpdateInput {
@@ -6514,9 +9677,15 @@ export interface ConsCreateManyWithoutProsAndConsInput {
 }
 
 export interface MediaUpdateInput {
+<<<<<<< HEAD
   url?: Maybe<String>;
   title?: Maybe<String>;
   altText?: Maybe<String>;
+=======
+  url?: String;
+  title?: String;
+  altText?: String;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface NodeNode {
@@ -6769,6 +9938,8 @@ export interface QuickTipEdgeSubscription
 export interface Component {
   id: ID_Output;
   component?: String;
+<<<<<<< HEAD
+=======
   order?: Int;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
@@ -6794,6 +9965,106 @@ export interface ComponentSubscription
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
+export interface AggregateProsAndCons {
+  count: Int;
+}
+
+export interface AggregateProsAndConsPromise
+  extends Promise<AggregateProsAndCons>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateProsAndConsSubscription
+  extends Promise<AsyncIterator<AggregateProsAndCons>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface Media {
+  id: ID_Output;
+  url: String;
+  title?: String;
+  altText?: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface MediaPromise extends Promise<Media>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  url: () => Promise<String>;
+  title: () => Promise<String>;
+  altText: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface MediaSubscription
+  extends Promise<AsyncIterator<Media>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  url: () => Promise<AsyncIterator<String>>;
+  title: () => Promise<AsyncIterator<String>>;
+  altText: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface ProsAndConsConnection {
+  pageInfo: PageInfo;
+  edges: ProsAndConsEdge[];
+}
+
+export interface ProsAndConsConnectionPromise
+  extends Promise<ProsAndConsConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ProsAndConsEdge>>() => T;
+  aggregate: <T = AggregateProsAndConsPromise>() => T;
+}
+
+export interface ProsAndConsConnectionSubscription
+  extends Promise<AsyncIterator<ProsAndConsConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ProsAndConsEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateProsAndConsSubscription>() => T;
+}
+
+export interface AlertBox {
+  id: ID_Output;
+  title?: String;
+  content?: String;
+  prefix?: String;
+  style?: String;
+  top?: Boolean;
+>>>>>>> 6d2e75d... Grids added on page content
+  order?: Int;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface ComponentPromise extends Promise<Component>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  page: <T = PagePromise>() => T;
+  component: () => Promise<String>;
+  order: () => Promise<Int>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface ComponentSubscription
+  extends Promise<AsyncIterator<Component>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  page: <T = PageSubscription>() => T;
+  component: () => Promise<AsyncIterator<String>>;
+  order: () => Promise<AsyncIterator<Int>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+<<<<<<< HEAD
 export interface ComponentNullablePromise
   extends Promise<Component | null>,
     Fragmentable {
@@ -6807,6 +10078,11 @@ export interface ComponentNullablePromise
 
 export interface AggregateProsAndCons {
   count: Int;
+=======
+export interface ProsEdge {
+  node: Pros;
+  cursor: String;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface AggregateProsAndConsPromise
@@ -6937,8 +10213,24 @@ export interface AlertBoxNullablePromise
   updatedAt: () => Promise<DateTimeOutput>;
 }
 
+<<<<<<< HEAD
 export interface ProsEdge {
   node: Pros;
+=======
+export interface ComponentSubscription
+  extends Promise<AsyncIterator<Component>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  page: <T = PageSubscription>() => T;
+  component: () => Promise<AsyncIterator<String>>;
+  order: () => Promise<AsyncIterator<Int>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface PageFaqEdge {
+  node: PageFaq;
+>>>>>>> 6d2e75d... Grids added on page content
   cursor: String;
 }
 
@@ -7401,22 +10693,61 @@ export interface GridPromise extends Promise<Grid>, Fragmentable {
   page: <T = PagePromise>() => T;
   media: <T = MediaPromise>() => T;
   content: () => Promise<String>;
+<<<<<<< HEAD
   order: () => Promise<Int>;
   items: <T = FragmentableArray<GridItem>>(args?: {
     where?: GridItemWhereInput;
     orderBy?: GridItemOrderByInput;
+=======
+  contentSummary: () => Promise<String>;
+  category: () => Promise<String>;
+  blocks: <T = FragmentableArray<Block>>(args?: {
+    where?: BlockWhereInput;
+    orderBy?: BlockOrderByInput;
+>>>>>>> 6d2e75d... Grids added on page content
     skip?: Int;
     after?: String;
     before?: String;
     first?: Int;
     last?: Int;
   }) => T;
+<<<<<<< HEAD
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface GridSubscription
   extends Promise<AsyncIterator<Grid>>,
+=======
+  boxes: <T = FragmentableArray<Box>>(args?: {
+    where?: BoxWhereInput;
+    orderBy?: BoxOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface GridItemConnection {
+  pageInfo: PageInfo;
+  edges: GridItemEdge[];
+}
+
+export interface GridItemConnectionPromise
+  extends Promise<GridItemConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<GridItemEdge>>() => T;
+  aggregate: <T = AggregateGridItemPromise>() => T;
+}
+
+export interface GridItemConnectionSubscription
+  extends Promise<AsyncIterator<GridItemConnection>>,
+>>>>>>> 6d2e75d... Grids added on page content
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   title: () => Promise<AsyncIterator<String>>;
@@ -7683,6 +11014,7 @@ export interface ConsPreviousValuesSubscription
   extends Promise<AsyncIterator<ConsPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
+<<<<<<< HEAD
   content: () => Promise<AsyncIterator<String>>;
   order: () => Promise<AsyncIterator<Int>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
@@ -7748,10 +11080,15 @@ export interface FaqCategorySubscription
     first?: Int;
     last?: Int;
   }) => T;
+=======
+  component: () => Promise<AsyncIterator<String>>;
+  order: () => Promise<AsyncIterator<Int>>;
+>>>>>>> 6d2e75d... Grids added on page content
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
+<<<<<<< HEAD
 export interface FaqCategoryNullablePromise
   extends Promise<FaqCategory | null>,
     Fragmentable {
@@ -7770,6 +11107,29 @@ export interface FaqCategoryNullablePromise
   }) => T;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
+=======
+export interface GridConnection {
+  pageInfo: PageInfo;
+  edges: GridEdge[];
+}
+
+export interface GridConnectionPromise
+  extends Promise<GridConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<GridEdge>>() => T;
+  aggregate: <T = AggregateGridPromise>() => T;
+}
+
+export interface FaqCategoryConnection {
+  pageInfo: PageInfo;
+  edges: FaqCategoryEdge[];
+}
+
+export interface FaqCategoryEdge {
+  node: FaqCategory;
+  cursor: String;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface ConsConnection {
@@ -7912,6 +11272,7 @@ export interface QuickTipSubscriptionPayload {
   previousValues: QuickTipPreviousValues;
 }
 
+<<<<<<< HEAD
 export interface QuickTipSubscriptionPayloadPromise
   extends Promise<QuickTipSubscriptionPayload>,
     Fragmentable {
@@ -7928,6 +11289,31 @@ export interface QuickTipSubscriptionPayloadSubscription
   node: <T = QuickTipSubscription>() => T;
   updatedFields: () => Promise<AsyncIterator<String[]>>;
   previousValues: <T = QuickTipPreviousValuesSubscription>() => T;
+=======
+export interface FaqCategorySubscription
+  extends Promise<AsyncIterator<FaqCategory>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  slug: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
+  faqs: <T = Promise<AsyncIterator<FaqSubscription>>>(args?: {
+    where?: FaqWhereInput;
+    orderBy?: FaqOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface ConsConnection {
+  pageInfo: PageInfo;
+  edges: ConsEdge[];
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface BoxConnection {
@@ -8250,7 +11636,204 @@ export interface BoxSubscription
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
+<<<<<<< HEAD
 export interface BoxNullablePromise extends Promise<Box | null>, Fragmentable {
+=======
+export interface BlockConnection {
+  pageInfo: PageInfo;
+  edges: BlockEdge[];
+}
+
+export interface BlockConnectionPromise
+  extends Promise<BlockConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<BlockEdge>>() => T;
+  aggregate: <T = AggregateBlockPromise>() => T;
+}
+
+export interface BlockConnectionSubscription
+  extends Promise<AsyncIterator<BlockConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<BlockEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateBlockSubscription>() => T;
+}
+
+export interface FaqCategory {
+  id: ID_Output;
+  name: String;
+  slug: String;
+  description: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface FaqCategoryPromise extends Promise<FaqCategory>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  slug: () => Promise<String>;
+  description: () => Promise<String>;
+  faqs: <T = FragmentableArray<Faq>>(args?: {
+    where?: FaqWhereInput;
+    orderBy?: FaqOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface FaqCategorySubscription
+  extends Promise<AsyncIterator<FaqCategory>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  slug: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
+  faqs: <T = Promise<AsyncIterator<FaqSubscription>>>(args?: {
+    where?: FaqWhereInput;
+    orderBy?: FaqOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface QuickTipConnection {
+  pageInfo: PageInfo;
+  edges: UserEdge[];
+}
+
+export interface UserConnectionPromise
+  extends Promise<UserConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<UserEdge>>() => T;
+  aggregate: <T = AggregateUserPromise>() => T;
+}
+
+export interface UserConnectionSubscription
+  extends Promise<AsyncIterator<UserConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<UserEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateUserSubscription>() => T;
+}
+
+export interface GridSubscriptionPayload {
+  mutation: MutationType;
+  node: Grid;
+  updatedFields: String[];
+  previousValues: GridPreviousValues;
+}
+
+export interface GridSubscriptionPayloadPromise
+  extends Promise<GridSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = GridPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = GridPreviousValuesPromise>() => T;
+}
+
+export interface GridSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<GridSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = GridSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = GridPreviousValuesSubscription>() => T;
+}
+
+export interface AggregatePros {
+  count: Int;
+}
+
+export interface AggregateProsPromise
+  extends Promise<AggregatePros>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateProsSubscription
+  extends Promise<AsyncIterator<AggregatePros>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface GridPreviousValues {
+  id: ID_Output;
+  title?: String;
+  content?: String;
+  order?: Int;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface GridPreviousValuesPromise
+  extends Promise<GridPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  title: () => Promise<String>;
+  content: () => Promise<String>;
+  order: () => Promise<Int>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface GridPreviousValuesSubscription
+  extends Promise<AsyncIterator<GridPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  title: () => Promise<AsyncIterator<String>>;
+  content: () => Promise<AsyncIterator<String>>;
+  order: () => Promise<AsyncIterator<Int>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface PageFaqAccordionEdge {
+  node: PageFaqAccordion;
+  cursor: String;
+}
+
+export interface PageFaqAccordionEdgePromise
+  extends Promise<PageFaqAccordionEdge>,
+    Fragmentable {
+  node: <T = PageFaqAccordionPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface PageFaqAccordionEdgeSubscription
+  extends Promise<AsyncIterator<PageFaqAccordionEdge>>,
+    Fragmentable {
+  node: <T = PageFaqAccordionSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface Box {
+  id: ID_Output;
+  title?: String;
+  video?: String;
+  style?: String;
+  alignment?: String;
+  content?: String;
+  top?: Boolean;
+  order?: Int;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface BoxPromise extends Promise<Box>, Fragmentable {
+>>>>>>> 6d2e75d... Grids added on page content
   id: () => Promise<ID_Output>;
   page: <T = PagePromise>() => T;
   title: () => Promise<String>;
@@ -8265,6 +11848,26 @@ export interface BoxNullablePromise extends Promise<Box | null>, Fragmentable {
   updatedAt: () => Promise<DateTimeOutput>;
 }
 
+<<<<<<< HEAD
+=======
+export interface BoxSubscription
+  extends Promise<AsyncIterator<Box>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  page: <T = PageSubscription>() => T;
+  title: () => Promise<AsyncIterator<String>>;
+  media: <T = MediaSubscription>() => T;
+  video: () => Promise<AsyncIterator<String>>;
+  style: () => Promise<AsyncIterator<String>>;
+  alignment: () => Promise<AsyncIterator<String>>;
+  content: () => Promise<AsyncIterator<String>>;
+  top: () => Promise<AsyncIterator<Boolean>>;
+  order: () => Promise<AsyncIterator<Int>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+>>>>>>> 6d2e75d... Grids added on page content
 export interface PageFaqConnection {
   pageInfo: PageInfo;
   edges: PageFaqEdge[];
@@ -8429,6 +12032,8 @@ export interface PagePromise extends Promise<Page>, Fragmentable {
   components: <T = FragmentableArray<Component>>(args?: {
     where?: ComponentWhereInput;
     orderBy?: ComponentOrderByInput;
+<<<<<<< HEAD
+=======
     skip?: Int;
     after?: String;
     before?: String;
@@ -8520,12 +12125,107 @@ export interface PageSubscription
   >(args?: {
     where?: PageFaqAccordionWhereInput;
     orderBy?: PageFaqAccordionOrderByInput;
+>>>>>>> 6d2e75d... Grids added on page content
     skip?: Int;
     after?: String;
     before?: String;
     first?: Int;
     last?: Int;
   }) => T;
+<<<<<<< HEAD
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface PageSubscription
+  extends Promise<AsyncIterator<Page>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  title: () => Promise<AsyncIterator<String>>;
+  slug: () => Promise<AsyncIterator<String>>;
+  url: () => Promise<AsyncIterator<String>>;
+  type: () => Promise<AsyncIterator<PageType>>;
+  status: () => Promise<AsyncIterator<PageStatus>>;
+  vertical: () => Promise<AsyncIterator<String>>;
+  media: <T = MediaSubscription>() => T;
+  template: () => Promise<AsyncIterator<String>>;
+  header: () => Promise<AsyncIterator<String>>;
+  tagline: () => Promise<AsyncIterator<String>>;
+  resultName: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
+  keywords: () => Promise<AsyncIterator<String>>;
+  canonical: () => Promise<AsyncIterator<String>>;
+  userJourneyStage: () => Promise<AsyncIterator<String>>;
+  content: () => Promise<AsyncIterator<String>>;
+  contentSummary: () => Promise<AsyncIterator<String>>;
+  category: () => Promise<AsyncIterator<String>>;
+  blocks: <T = Promise<AsyncIterator<BlockSubscription>>>(args?: {
+    where?: BlockWhereInput;
+    orderBy?: BlockOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  boxes: <T = Promise<AsyncIterator<BoxSubscription>>>(args?: {
+    where?: BoxWhereInput;
+    orderBy?: BoxOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  prosAndCons: <T = Promise<AsyncIterator<ProsAndConsSubscription>>>(args?: {
+    where?: ProsAndConsWhereInput;
+    orderBy?: ProsAndConsOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  alertBoxes: <T = Promise<AsyncIterator<AlertBoxSubscription>>>(args?: {
+    where?: AlertBoxWhereInput;
+    orderBy?: AlertBoxOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  quickTips: <T = Promise<AsyncIterator<QuickTipSubscription>>>(args?: {
+    where?: QuickTipWhereInput;
+    orderBy?: QuickTipOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  faqs: <T = Promise<AsyncIterator<PageFaqSubscription>>>(args?: {
+    where?: PageFaqWhereInput;
+    orderBy?: PageFaqOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  faqAccordion: <
+    T = Promise<AsyncIterator<PageFaqAccordionSubscription>>
+  >(args?: {
+    where?: PageFaqAccordionWhereInput;
+    orderBy?: PageFaqAccordionOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+=======
+>>>>>>> 6d2e75d... Grids added on page content
   grids: <T = Promise<AsyncIterator<GridSubscription>>>(args?: {
     where?: GridWhereInput;
     orderBy?: GridOrderByInput;
@@ -8548,8 +12248,29 @@ export interface PageSubscription
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
+<<<<<<< HEAD
 export interface PageNullablePromise
   extends Promise<Page | null>,
+=======
+export interface GridItemPreviousValues {
+  id: ID_Output;
+  title?: String;
+  content?: String;
+  linkText?: String;
+  linkUrl?: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface AggregateProsAndConsPromise
+  extends Promise<AggregateProsAndCons>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateProsAndConsSubscription
+  extends Promise<AsyncIterator<AggregateProsAndCons>>,
+>>>>>>> 6d2e75d... Grids added on page content
     Fragmentable {
   id: () => Promise<ID_Output>;
   title: () => Promise<String>;
@@ -8689,7 +12410,11 @@ export interface GridItemPreviousValuesSubscription
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
+<<<<<<< HEAD
 export interface Block {
+=======
+export interface Faq {
+>>>>>>> 6d2e75d... Grids added on page content
   id: ID_Output;
   title?: String;
   video?: String;
@@ -8731,6 +12456,7 @@ export interface BlockSubscription
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
+<<<<<<< HEAD
 export interface BlockNullablePromise
   extends Promise<Block | null>,
     Fragmentable {
@@ -8867,6 +12593,8 @@ export interface FaqNullablePromise extends Promise<Faq | null>, Fragmentable {
   updatedAt: () => Promise<DateTimeOutput>;
 }
 
+=======
+>>>>>>> 6d2e75d... Grids added on page content
 export interface AggregateGrid {
   count: Int;
 }
@@ -9000,6 +12728,7 @@ export interface PageFaqSubscription
   faq: <T = FaqSubscription>() => T;
 }
 
+<<<<<<< HEAD
 export interface PageFaqNullablePromise
   extends Promise<PageFaq | null>,
     Fragmentable {
@@ -9009,6 +12738,8 @@ export interface PageFaqNullablePromise
   faq: <T = FaqPromise>() => T;
 }
 
+=======
+>>>>>>> 6d2e75d... Grids added on page content
 export interface AggregateComponent {
   count: Int;
 }
@@ -9195,6 +12926,7 @@ export interface QuickTipSubscription
   extends Promise<AsyncIterator<QuickTip>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
+<<<<<<< HEAD
   page: <T = PageSubscription>() => T;
   title: () => Promise<AsyncIterator<String>>;
   content: () => Promise<AsyncIterator<String>>;
@@ -9202,11 +12934,14 @@ export interface QuickTipSubscription
   buttonLink: () => Promise<AsyncIterator<String>>;
   media: <T = MediaSubscription>() => T;
   top: () => Promise<AsyncIterator<Boolean>>;
+=======
+>>>>>>> 6d2e75d... Grids added on page content
   order: () => Promise<AsyncIterator<Int>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
+<<<<<<< HEAD
 export interface QuickTipNullablePromise
   extends Promise<QuickTip | null>,
     Fragmentable {
@@ -9221,6 +12956,11 @@ export interface QuickTipNullablePromise
   order: () => Promise<Int>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
+=======
+export interface ProsAndConsEdge {
+  node: ProsAndCons;
+  cursor: String;
+>>>>>>> 6d2e75d... Grids added on page content
 }
 
 export interface ProsAndConsEdge {
@@ -9347,6 +13087,7 @@ export interface ConsSubscription
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
+<<<<<<< HEAD
 export interface ConsNullablePromise
   extends Promise<Cons | null>,
     Fragmentable {
@@ -9358,6 +13099,8 @@ export interface ConsNullablePromise
   updatedAt: () => Promise<DateTimeOutput>;
 }
 
+=======
+>>>>>>> 6d2e75d... Grids added on page content
 export interface GridConnection {
   pageInfo: PageInfo;
   edges: GridEdge[];
@@ -9484,6 +13227,7 @@ export interface ProsSubscription
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
+<<<<<<< HEAD
 export interface ProsNullablePromise
   extends Promise<Pros | null>,
     Fragmentable {
@@ -9495,6 +13239,8 @@ export interface ProsNullablePromise
   updatedAt: () => Promise<DateTimeOutput>;
 }
 
+=======
+>>>>>>> 6d2e75d... Grids added on page content
 export interface ProsConnection {
   pageInfo: PageInfo;
   edges: ProsEdge[];

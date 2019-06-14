@@ -1,8 +1,11 @@
 import convert from 'xml-js'
 import isEmpty from 'lodash/isEmpty'
+import he from 'he'
 
 import fetch from '../ingestor/libs/fetch'
 
+
+export const stripHtml = (content) => he.decode(content.replace(/<[^>]+>/g, ''))
 
 function convertEmtpyObjectsToNull (json) {
   if (!json) {

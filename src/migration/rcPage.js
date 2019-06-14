@@ -3,7 +3,7 @@ import forEach from 'lodash/forEach'
 import uniqBy from 'lodash/uniqBy'
 
 import { prisma } from '../generated/prisma-client'
-import { getWordpressFeedAsJson } from './utils'
+import { getWordpressFeedAsJson, stripHtml } from './utils'
 
 const deleteAllPages = async () => {
   await prisma.deleteManyBlocks()
@@ -146,7 +146,7 @@ const insertQuickTip = async (section, pageId) => {
       },
       media: mediaQuery,
       title: section.title,
-      content: section.content,
+      content: stripHtml(section.content),
       buttonText: section.buttonText,
       buttonLink: section.url,
       order: parseOrder(section.order),
@@ -156,14 +156,16 @@ const insertQuickTip = async (section, pageId) => {
 const insertBlock = async (section, pageId) => {
   const mediaQuery = await getMediaQuery(section.image)
 
+  const hasImageOrVideo = section.image || section.video
+
   let alignment = 'full-width'
-  if(section.format.includes('align-content-left') && !section.format.includes('align-content-left-column'))
+  if(section.format.includes('align-content-left') && !section.format.includes('align-content-left-column') && hasImageOrVideo)
     alignment = 'content-left'
-  else if (section.format.includes('align-content-left-column'))
+  else if (section.format.includes('align-content-left-column') && hasImageOrVideo)
     alignment = 'content-left-column'
-  else if(section.format.includes('align-content-right') && !section.format.includes('align-content-right-column'))
+  else if(section.format.includes('align-content-right') && !section.format.includes('align-content-right-column') && hasImageOrVideo)
   alignment = 'content-right'
-  else if (section.format.includes('align-content-right-column'))
+  else if (section.format.includes('align-content-right-column') && hasImageOrVideo)
     alignment = 'content-right-column'
 
   const block = await prisma.createBlock({

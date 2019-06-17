@@ -10,7 +10,11 @@ type Query {
   faqs(first: Int, skip: Int, filter: FaqFilterInput): FaqResponse
   faq(id: ID): Faq
   searchFaq(searchString: String): [Faq]
-  faqCategories(first: Int, skip: Int, filter: FaqCategoryFilterInput): FaqCategoryResponse
+  faqCategories(
+    first: Int
+    skip: Int
+    filter: FaqCategoryFilterInput
+  ): FaqCategoryResponse
   faqCategory(id: ID): FaqCategory
   grids: [Grid]
   grid(id: ID): Grid
@@ -117,6 +121,7 @@ type Mutation {
     video: String
     alignment: String
     content: String
+    top: Boolean
     order: Int
   ): Block
   deleteBlock(id: ID!): Block
@@ -129,6 +134,7 @@ type Mutation {
     style: String
     alignment: String
     content: String
+    top: Boolean
     order: Int
   ): Box
   deleteBox(id: ID!): Box
@@ -139,6 +145,7 @@ type Mutation {
     content: String
     prefix: String
     style: String
+    top: Boolean
     order: Int
   ): AlertBox
   deleteAlertBox(id: ID!): AlertBox
@@ -150,6 +157,7 @@ type Mutation {
     content: String
     buttonText: String
     buttonLink: String
+    top: Boolean
     order: Int
   ): QuickTip
   deleteQuickTip(id: ID!): QuickTip
@@ -159,6 +167,7 @@ type Mutation {
     title: String
     pros: [ProConInput]
     cons: [ProConInput]
+    top: Boolean
     order: Int
   ): ProsAndCons
   deleteProsAndCons(id: ID!): ProsAndCons

@@ -3,7 +3,7 @@ export default {
   },
   Mutation: {
     async upsertBlock (parent, args, ctx, info) {
-      const { id, page, media, title, video, alignment, content, order } = args
+      const { id, page, media, title, video, alignment, content, top, order } = args
 
       const mediaQuery = media ? { connect: { id: media } } : null
 
@@ -20,6 +20,7 @@ export default {
           video,
           alignment,
           content,
+          top,
           order,
         },
         create: {
@@ -31,6 +32,7 @@ export default {
           video,
           alignment,
           content,
+          top,
           order,
         }
       })

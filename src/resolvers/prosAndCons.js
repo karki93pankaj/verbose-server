@@ -5,7 +5,7 @@ export default {
   },
   Mutation: {
     async upsertProsAndCons (parent, args, ctx, info) {
-      const { id, page, title, pros, cons, order } = args
+      const { id, page, title, pros, cons, top, order } = args
 
       const existingPros = await ctx.prisma.prosAndCons({ id }).pros()
       const existingCons = await ctx.prisma.prosAndCons({ id }).cons()
@@ -30,6 +30,7 @@ export default {
             create: cons,
             delete: consToDelete
           },
+          top,
           order,
         },
         create: {
@@ -43,6 +44,7 @@ export default {
           cons: {
             create: cons,
           },
+          top,
           order,
         }
       })

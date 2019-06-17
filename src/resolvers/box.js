@@ -3,7 +3,7 @@ export default {
   },
   Mutation: {
     async upsertBox (parent, args, ctx, info) {
-      const { id, page, media, title, video, style, alignment, content, order } = args
+      const { id, page, media, title, video, style, alignment, content, top, order } = args
 
       const mediaQuery = media ? { connect: { id: media } } : null
 
@@ -21,6 +21,7 @@ export default {
           style,
           alignment,
           content,
+          top,
           order,
         },
         create: {
@@ -33,6 +34,7 @@ export default {
           style,
           alignment,
           content,
+          top,
           order,
         }
       })

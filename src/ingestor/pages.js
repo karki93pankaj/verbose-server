@@ -45,6 +45,7 @@ async function getContentPages() {
         video
         alignment
         content
+        top
         order
         media {
           id
@@ -58,6 +59,7 @@ async function getContentPages() {
         style
         alignment
         content
+        top
         order
         media {
           id
@@ -70,6 +72,7 @@ async function getContentPages() {
         content
         prefix
         style
+        top
         order
       }
       quickTips {
@@ -78,6 +81,7 @@ async function getContentPages() {
         content
         buttonText
         buttonLink
+        top
         order
         media {
           id
@@ -87,6 +91,7 @@ async function getContentPages() {
       prosAndCons {
         id
         title
+        top
         order
         pros {
           id

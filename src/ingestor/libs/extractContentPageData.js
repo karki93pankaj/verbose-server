@@ -39,6 +39,7 @@ export default (contentPage) => {
       url: block.media && block.media.url,
     },
     title: block.title,
+    top: block.top,
   }))
 
   const boxes = map(contentPage.boxes, box => ({
@@ -51,6 +52,7 @@ export default (contentPage) => {
       url: box.media && box.media.url,
     },
     title: box.title,
+    top: box.top,
   }))
 
   const alertBoxes = map(contentPage.alertBoxes, alertBox => ({
@@ -59,6 +61,7 @@ export default (contentPage) => {
     order: alertBox.order,
     content: alertBox.content,
     title: alertBox.title,
+    top: alertBox.top,
   }))
 
   const quickTips = map(contentPage.quickTips, quickTip => ({
@@ -70,6 +73,7 @@ export default (contentPage) => {
       url: quickTip.media && quickTip.media.url,
     },
     title: quickTip.title,
+    top: quickTip.top,
   }))
 
   const prosAndCons = map(contentPage.prosAndCons, prosAndConsElem => ({
@@ -77,6 +81,7 @@ export default (contentPage) => {
     cons: map(prosAndConsElem.cons, con => con.content),
     order: prosAndConsElem.order,
     title: prosAndConsElem.title,
+    top: prosAndConsElem.top,
   }))
 
   const page = {

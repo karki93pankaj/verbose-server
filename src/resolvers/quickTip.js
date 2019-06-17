@@ -3,7 +3,7 @@ export default {
   },
   Mutation: {
     async upsertQuickTip (parent, args, ctx, info) {
-      const { id, page, title, content, buttonText, buttonLink, media, order } = args
+      const { id, page, title, content, buttonText, buttonLink, media, top, order } = args
 
       const mediaQuery = media ? { connect: { id: media } } : null
 
@@ -20,6 +20,7 @@ export default {
           content,
           buttonText,
           buttonLink,
+          top,
           order,
         },
         create: {
@@ -31,6 +32,7 @@ export default {
           content,
           buttonText,
           buttonLink,
+          top,
           order,
         }
       })

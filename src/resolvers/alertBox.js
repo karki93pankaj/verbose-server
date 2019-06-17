@@ -3,7 +3,7 @@ export default {
   },
   Mutation: {
     async upsertAlertBox (parent, args, ctx, info) {
-      const { id, page, title, content, prefix, style, order } = args
+      const { id, page, title, content, prefix, style, top, order } = args
 
       const alertBox = await ctx.prisma.upsertAlertBox({
         where: {
@@ -17,6 +17,7 @@ export default {
           content,
           prefix,
           style,
+          top,
           order,
         },
         create: {
@@ -27,6 +28,7 @@ export default {
           content,
           prefix,
           style,
+          top,
           order,
         }
       })

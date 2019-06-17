@@ -70,6 +70,7 @@ type Block {
   video: String
   alignment: String
   content: String
+  top: Boolean
   order: Int
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
@@ -84,6 +85,7 @@ type Box {
   style: String
   alignment: String
   content: String
+  top: Boolean
   order: Int
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
@@ -96,6 +98,7 @@ type AlertBox {
   content: String
   prefix: String
   style: String
+  top: Boolean
   order: Int
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
@@ -109,6 +112,7 @@ type QuickTip {
   buttonText: String
   buttonLink: String
   media: Media
+  top: Boolean
   order: Int
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
@@ -118,6 +122,7 @@ type ProsAndCons {
   id: ID! @id
   page: Page!
   title: String
+  top: Boolean
   order: Int
   pros: [Pros]! @relation(name: "ProsOnProsAndCons", onDelete: CASCADE)
   cons: [Cons]! @relation(name: "ConsOnProsAndCons", onDelete: CASCADE)

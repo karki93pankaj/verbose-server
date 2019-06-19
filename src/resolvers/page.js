@@ -149,6 +149,9 @@ export default {
           }
           else if(section.type == 'PageFaqAccordion') {
             return await ctx.prisma.updatePageFaqAccordion(query)
+          }          
+          else if(section.type == 'Grid') {
+            return await ctx.prisma.updateGrid(query)
           }
         } catch(e) {
           return section

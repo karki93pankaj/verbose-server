@@ -134,6 +134,27 @@ async function getContentPages() {
           tag
         }
       }
+      grids{
+        id
+        order
+        title
+        content
+        media {
+          id
+          url
+        }
+        items {
+          id
+          title
+          content
+          linkText
+          linkUrl
+          media {
+            id
+            url
+          }
+        }
+      }
     }
   `
 

@@ -84,6 +84,24 @@ export default (contentPage) => {
     top: prosAndConsElem.top,
   }))
 
+  const grids = map(contentPage.grids, grid => ({
+    order: grid.order,
+    title: grid.title,
+    content: grid.content,
+    media: {
+      url: grid.media && grid.media.url,
+    },
+    items: map(grid.items, item => ({
+      title: item.title,
+      content: item.content,
+      linkText: item.linkText,
+      linkUrl: item.linkUrl,
+      media: {
+        url: item.media && item.media.url,
+      },
+    }))
+  }))
+
   const page = {
     id: contentPage.id,
     vertical: contentPage.vertical,
@@ -100,6 +118,7 @@ export default (contentPage) => {
     alertBoxes,
     quickTips,
     prosAndCons,
+    grids,
   }
 
   return page

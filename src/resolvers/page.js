@@ -163,6 +163,7 @@ export default {
   },
   Page: {
     media: (parent, args, ctx, info) => {
+      console.log()
       return ctx.prisma.page({
         id: parent.id
       }).media()
